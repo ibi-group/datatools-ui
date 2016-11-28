@@ -1,0 +1,5 @@
+entries:
+  - src/main/client/main.js:src/main/resources/public/main.js
+  - src/main/client/index.css:src/main/resources/public/main.css
+minify: true
+env: production

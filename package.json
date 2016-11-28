@@ -9,7 +9,7 @@
   "author": "Conveyal LLC",
   "license": "MIT",
   "scripts": {
-    "build": "mastarm build --env production",
+    "build": "mastarm build --config configurations/production",
     "prestart": "yarn",
     "start": "mastarm build --serve --proxy http://localhost:4000/api",
     "test": "mastarm lint \"src/main/client/**/*.js\""

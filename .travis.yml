@@ -1,6 +1,7 @@
 language: node_js
 notifications:
   email: false
+  slack: conveyal:WQxmWiu8PdmujwLw4ziW72Gc
 node_js:
   - '6'
 cache:
@@ -10,6 +11,7 @@ before_install:
   - pip install --user mkdocs
 script:
   - yarn run lint
+  - yarn run flow
   - yarn run cover-client
   - codecov
   - yarn run build
@@ -17,10 +19,6 @@ script:
 
 # If sudo is disabled, CI runs on container based infrastructure (allows caching &c.)
 sudo: false
-
-# Notify us of the build status on the Slack channel
-notifications:
-  slack: conveyal:WQxmWiu8PdmujwLw4ziW72Gc
 
 # Push results to codecov.io
 after_success:

@@ -203,11 +203,11 @@
     required: false
     inputType: DROPDOWN
     options:
-    - value: '0'
+    - value: 'UNKNOWN'
       text: No information (0)
-    - value: '1'
+    - value: 'AVAILABLE'
       text: At least some vehicles (1)
-    - value: '2'
+    - value: 'UNAVAILABLE'
       text: Not possible (2)
     columnWidth: 12
     helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
@@ -254,22 +254,22 @@
     required: true
     inputType: TEXT
     columnWidth: 7
-    helpContent: The route_short_name contains the short name of a route. This will often be a short, abstract identifier like
-  - name: agency_id
-    required: false
-    inputType: GTFS_AGENCY
-    columnWidth: 12
-    helpContent: The agency_id field defines an agency for the specified route. This value is referenced from the agency.txt file. Use this field when you are providing data for routes from more than one agency.
+    helpContent: The route_short_name contains the short name of a route. This will often be a short, abstract identifier like "32", "100X", or "Green" that riders use to identify a route, but which doesn't give any indication of what places the route serves.
   - name: route_long_name
     required: true
     inputType: TEXT
     columnWidth: 12
     helpContent: The route_long_name contains the full name of a route. This name is generally more descriptive than the route_short_name and will often include the route's destination or stop. At least one of route_short_name or route_long_name must be specified, or potentially both if appropriate. If the route does not have a long name, please specify a route_short_name and use an empty string as the value for this field.
+  - name: agency_id
+    required: false
+    inputType: GTFS_AGENCY
+    columnWidth: 12
+    helpContent: The agency_id field defines an agency for the specified route. This value is referenced from the agency.txt file. Use this field when you are providing data for routes from more than one agency.
   - name: route_desc
     required: false
     inputType: TEXT
     columnWidth: 12
-    helpContent: The route_desc field contains a description of a route. Please provide useful, quality information. Do not simply duplicate the name of the route. For example,
+    helpContent: 'Contains a description of a route. Please provide useful, quality information. Do not simply duplicate the name of the route. For example, "A trains operate between Inwood-207 St, Manhattan and Far Rockaway-Mott Avenue, Queens at all times. Also from about 6AM until about midnight, additional A trains operate between Inwood-207 St and Lefferts Boulevard (trains typically alternate between Lefferts Blvd and Far Rockaway)."'
   - name: route_type
     required: true
     inputType: DROPDOWN
@@ -314,6 +314,19 @@
         text: Black
     columnWidth: 6
     helpContent: The route_text_color field can be used to specify a legible color to use for text drawn against a background of route_color. The color must be provided as a six-character hexadecimal number, for example, FFD700. If no color is specified, the default text color is black (000000).
+  - name: wheelchair_boarding
+    required: false
+    displayName: Is route wheelchair accessible?
+    inputType: DROPDOWN
+    columnWidth: 12
+    helpContent: Indicates whether vehicles that operate on this route are wheelchair accessible.
+    options:
+      - value: 'UNKNOWN'
+        text: No information (0)
+      - value: 'AVAILABLE'
+        text: Yes (1)
+      - value: 'UNAVAILABLE'
+        text: No (2)
   - name: route_branding_url
     required: false
     displayName: Route branding URL
@@ -714,3 +727,16 @@
     inputType: POSITIVE_INT
     columnWidth: 6
     helpContent: "When a connection between routes requires an amount of time between arrival and departure (transfer_type=2), the min_transfer_time field defines the amount of time that must be available in an itinerary to permit a transfer between routes at these stops. The min_transfer_time must be sufficient to permit a typical rider to move between the two stops, including buffer time to allow for schedule variance on each route."
+
+
+- id: scheduleexception
+  name: (none)
+  helpContent: Conveyal-specific table for classifying schedule exceptions.
+  fields:
+  - name: "name"
+    required: true
+  - name: "dates"
+    required: true
+    inputType: EXCEPTION_DATE
+  - name: "exemplar"
+    required: true

@@ -4,6 +4,7 @@ entries:
 application:
   data:
     gtfs_s3_bucket: bucket-name
+    use_s3_storage: false
   title: Data Manager
   logo: http://gtfs-assets-dev.conveyal.com/data_manager.png # defaults to src/main/client/assets/application_logo.png
   active_project: project-id
@@ -17,20 +18,10 @@ modules:
     enabled: false
   editor:
     enabled: true
-  alerts:
-    enabled: false
-    use_extension: mtc
-  sign_config:
-    enabled: false
   user_admin:
     enabled: true
   validator:
     enabled: true
-  deployment:
-    enabled: false
-  gtfsapi:
-    enabled: false
-    use_extension: mtc
 extensions:
   transitland:
     enabled: false

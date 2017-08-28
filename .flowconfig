@@ -1,0 +1,15 @@
+[ignore]
+.*/node_modules/auth0-lock/.*
+.*/node_modules/config-chain/.*
+.*/node_modules/fbjs/flow/.*
+.*/node_modules/mapbox.js/docs/examples/.*
+.*/node_modules/nock/node_modules/changelog/examples/.*
+.*/node_modules/npmconf/.*
+.*/node_modules/react-leaflet/src/.*
+.*/node_modules/reqwest/.*
+
+[include]
+
+[libs]
+
+[options]

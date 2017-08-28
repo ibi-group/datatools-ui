@@ -2,7 +2,7 @@ node_modules/
 .DS_Store
 dist
 *.log
-coverage
+coverage*
 target/
 src/main/client/config.js
 datatools-manager.iml
@@ -27,3 +27,4 @@ assets
 # Secret config files
 env.yml
 env.yml-original
+.env

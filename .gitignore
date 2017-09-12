@@ -27,3 +27,4 @@ assets
 # Secret config files
 env.yml
 env.yml-original
+.env

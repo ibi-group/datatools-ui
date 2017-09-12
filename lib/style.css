@@ -125,8 +125,9 @@
 }
 
 
-.gtfs-map-select > .Select > .Select-menu-outer {
-	z-index: 2000;
+/* Ensure react-select menu is on top of leaflet */
+.Select > .Select-menu-outer {
+	z-index: 2000000;
 }
 
 .loading-ellipsis:after {
@@ -153,4 +154,50 @@
 
 /* TIMETABLE EDITOR */
 
-.editable-cell:focus {outline:0;}
+/* remove blue focus outline from timetable cell */
+.editable-cell:focus {
+  outline:0;
+}
+
+/* Bootstrap button dropdown fix for menu showing up underneath leaflet zoom controls */
+.dropdown.open.btn-group > ul.dropdown-menu {
+  z-index: 20000;
+}
+
+/* Line splitter for trip pattern editor sections */
+h4.line {
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+  text-align:left;
+}
+
+
+h4.line:after {
+  display: inline-block;
+  content: "";
+  height: 2px;
+  background: #eee;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+
+.nomargin {
+  margin: 0px;
+}
+
+/* Add error outline to react-select component */
+.form-group.has-error > .Select > .Select-control {
+  border-color: #a94442;
+}
+
+/* Scrollable button menu... requires custom Dropdown.Menu component (not simply DropdownButton) */
+.btn-group.dropdown > .dropdown-menu.scrollable-dropdown {
+  height: auto;
+  max-height: 400px;
+  overflow-x: hidden;
+}

@@ -173,6 +173,8 @@
       text: Far side of intersection
     - value: AT
       text: Stop is at position
+    - value: MB
+      text: Mid-block
     - value: OP
       text: Stop is across street
     columnWidth: 2

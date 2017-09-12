@@ -74,6 +74,11 @@ EditorFeedSourcePanel:
   publish: Publish
   createFromScratch: Create GTFS from Scratch
   loadLatest: Load latest for editing
+  help:
+    title: What are snapshots?
+    body:
+      - Snapshots are save points you can always revert back to when editing a GTFS feed.
+      - A snapshot might represent a work-in-progress, future planning scenario or even different service patterns (e.g., summer schedule markup).
   of: of
   noVersions: (No Versions)
   noVersionsExist: No versions exist for this feed source.
@@ -83,7 +88,9 @@ EditorFeedSourcePanel:
   active: Active
   restore: Make active
   load: Load for Editing
+  snapshot: snapshot
   confirmLoad: This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?
+  confirmDelete: This will permanently delete this snapshot. Any data saved here cannot be recovered. Are you sure you want to continue?
   feed: Feed
   delete: Delete
 FeedSourceViewer:
@@ -111,16 +118,16 @@ FeedSourceViewer:
   update: Update
 FeedVersionViewer:
   status: Status
-  version: Version
+  version: version
   noVersionsExist: No versions exist for this feed source.
   timestamp: File Timestamp
   download: Download
-  load: Load for Editing
+  load: Load
   confirmLoad: This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?
   feed: Feed
   delete: Delete
   confirmDelete: Are you sure you want to delete this version? This cannot be undone.
-FeedVersionReport:
+FeedVersionTabs:
   agencyCount: Agency Count
   routeCount: Route Count
   tripCount: Trip Count
@@ -195,8 +202,12 @@ NotesViewer:
 ProjectSettings:
   title: Settings
   save: Save
+  rename: Rename
+  confirmDelete: Are you sure you want to delete this project? This action cannot be undone and all feed sources and their versions will be permanently deleted.
+  deleteProject: Delete Project?
   general:
     title: General
+    name: Project name
     location:
       title: Location
       defaultLocation: Default location (lat, lng)
@@ -211,6 +222,10 @@ ProjectSettings:
     buildConfig:
       title: Build Config
       fetchElevationUS: Fetch Elevation
+      elevationBucket:
+        bucketName: S3 Bucket Name
+        accessKey: Access Key
+        secretKey: Secret Key
       stationTransfers: Sta. Transfers
       subwayAccessTime: Subway Access Time
       fares: Fares
@@ -222,7 +237,16 @@ ProjectSettings:
       carDropoffTime: Car Dropoff Time
       brandingUrlRoot: Branding URL Root
       requestLogFile: Request log file
-    servers:
+      updaters:
+        title: Real-time updaters
+        new: Add updater
+        $index:
+          type: Type
+          frequencySec: Frequency (in seconds)
+          sourceType: Source type
+          url: URL
+          defaultAgencyId: Default agency ID
+    otpServers:
       title: Servers
       new: Add server
       serverPlaceholder: Server name

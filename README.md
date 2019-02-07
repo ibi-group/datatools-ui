@@ -4,7 +4,7 @@ The core application for Conveyal's transit data tools suite.
 
 ## Configuration
 
-This repository serves as the front end UI for the Data Manager application. It must be run in conjunction with [datatools-server](https://github.com/conveyal/datatools-server)
+This repository serves as the front end UI for the Data Manager application. It must be run in conjunction with [datatools-server](https://github.com/conveyal/datatools-server).
 
 ## Documentation
 

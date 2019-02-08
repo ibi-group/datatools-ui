@@ -10,24 +10,28 @@ import moment from 'moment'
 import puppeteer from 'puppeteer'
 import SimpleNodeLogger from 'simple-node-logger'
 
+import {collectingCoverage, isCi} from './test-utils/utils'
+
 // TODO: Allow the below options (puppeteer and test) to be enabled via command
 // line options parsed by mastarm.
 const puppeteerOptions = {
-  headless: false
+  headless: isCi,
   // The following options can be enabled manually to help with debugging.
   // dumpio: true, // Logs all of browser console to stdout
   // slowMo: 30 // puts xx milliseconds between events (for easier watching in non-headless)
   // NOTE: In order to run on Travis CI, use args --no-sandbox option
-  // args: ['--no-sandbox']
+  args: isCi ? ['--no-sandbox'] : []
 }
 const testOptions = {
   // If enabled, failFast will break out of the test script immediately.
   failFast: false
 }
-const config: {
+let failingFast = false
+let successfullyCreatedTestProject = false
+let config: {
   password: string,
   username: string
-} = (safeLoad(fs.readFileSync('configurations/end-to-end/env.yml')): any)
+}
 let browser
 let page
 const gtfsUploadFile = './configurations/end-to-end/test-gtfs-to-upload.zip'
@@ -58,6 +62,7 @@ let feedSourceId
 let scratchFeedSourceId
 let routerId
 const log = SimpleNodeLogger.createSimpleFileLogger(`e2e-run-${testTime}.log`)
+const browserEventLogs = SimpleNodeLogger.createSimpleFileLogger(`e2e-run-${testTime}-browser-events.log`)
 const testResults = {}
 const defaultTestTimeout = 100000
 const defaultJobTimeout = 100000
@@ -74,6 +79,10 @@ function makeMakeTest (defaultDependentTests: Array<string> | string = []) {
   ) => {
     test(name, async () => {
       log.info(`Begin test: "${name}"`)
+      if (failingFast) {
+        log.error('Failing fast due to previous failed test')
+        throw new Error('Failing fast due to previous failed test')
+      }
 
       // first make sure all dependent tests have passed
       if (!(dependentTests instanceof Array)) {
@@ -93,19 +102,27 @@ function makeMakeTest (defaultDependentTests: Array<string> | string = []) {
         await fn()
       } catch (e) {
         log.error(`test "${name}" failed due to error: ${e}`)
-        // TODO: Add option to take screenshots
+
         // Take screenshot of page to help debugging.
-        // page.screenshot({
-        //   path: `e2e-error-${errorCount++}-${name.replace(' ', '_')}-${testTime}.png`,
-        //   fullPage: true
-        // })
+        await page.screenshot({
+          path: `e2e-error-${name.replace(' ', '_')}-${testTime}.png`,
+          fullPage: true
+        })
+
+        // report coverage thus far
+        await sendCoverageToServer()
+
+        // fail fast if needed
         if (testOptions.failFast) {
-          log.info('Fail fast option enabled. Shutting down end-to-end test immediately following single test failure.')
+          log.info('Fail fast option enabled. Failing remaining tests.')
           // Delay by a second so that log statement is processed.
-          setTimeout(() => process.exit(2), 1000)
+          failingFast = true
         }
         throw e
       }
+
+      // report coverage thus far
+      await sendCoverageToServer()
 
       // note successful completion
       testResults[name] = true
@@ -126,6 +143,23 @@ const makeEditorEntityTest = makeMakeTest([
 // this can be turned off in development mode to skip some tests that do not
 // need to be run in order for other tests to work properly
 const doNonEssentialSteps = true
+
+/**
+ * Collect current coverage and send it to coverage collector server
+ */
+async function sendCoverageToServer () {
+  if (collectingCoverage) {
+    const coverage = await page.evaluate(() => window.__coverage__)
+
+    await fetch('http://localhost:9999/coverage/client', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(coverage)
+    })
+  }
+}
 
 async function expectSelectorToContainHtml (selector: string, html: string) {
   const innerHTML = await getInnerHTMLFromSelector(selector)
@@ -455,6 +489,9 @@ async function wait (milliseconds: number, reason?: string) {
 }
 
 async function goto (url: string, options?: any) {
+  // before navigating away from the page, collect and report coverage thus far
+  await sendCoverageToServer()
+
   log.info(`navigating to: ${url}`)
   await page.goto(url, options)
   await wait(1000, 'for page to load')
@@ -524,6 +561,8 @@ async function type (selector: string, text: string) {
 
 describe('end-to-end', () => {
   beforeAll(async () => {
+    config = (safeLoad(fs.readFileSync('configurations/end-to-end/env.yml')): any)
+
     // Ping the otp endpoint to ensure the server is running.
     try {
       log.info(`Pinging OTP at ${OTP_ROOT}`)
@@ -533,36 +572,52 @@ describe('end-to-end', () => {
       // else log.info('OTP is OK.')
     } catch (e) {
       if (testOptions.failFast) {
-        log.error('OpenTripPlanner not accepting requests. Exiting due to fail fast option.')
-        // Exit immediately if failing fast.
-        process.exit(9)
+        log.error('OpenTripPlanner not accepting requests. Failing remaining tests due to fail fast option.')
+        failingFast = true
       } else log.warn('OpenTripPlanner not accepting requests. Start it up for deployment tests!!')
     }
     log.info('Launching chromium for testing...')
     browser = await puppeteer.launch(puppeteerOptions)
     page = await browser.newPage()
-    page.on('console', msg => {
-      const messageText = msg.text()
-      // Log any errors or warnings encountered in browser console to stdout
-      if (messageText.search(/warning|error/i) !== -1) {
-        log.warn(messageText)
-      }
+
+    // log certain events happening in the browser
+    page.on('console', msg => { browserEventLogs.info(msg.text()) })
+    page.on('error', error => {
+      browserEventLogs.error(error)
+      browserEventLogs.error(error.stack)
     })
+    page.on('pageerror', error => { browserEventLogs.error(`Page Error: ${error}`) })
+    page.on('requestfailed', req => {
+      browserEventLogs.error(`Request failed: ${req.method()} ${req.url()}`)
+    })
+    page.on('requestfinished', req => {
+      browserEventLogs.info(`Request finished: ${req.method()} ${req.url()}`)
+    })
+
+    // set the default download behavior to download files to the cwd
     page._client.send(
       'Page.setDownloadBehavior',
       { behavior: 'allow', downloadPath: './' }
     )
+
     log.info('Setup complete.')
-  })
+  }, 120000)
 
   afterAll(async () => {
     // delete test project
-    await deleteProject(testProjectId)
-    log.info('End-to-end testing complete. Closing Chromium...')
+    if (successfullyCreatedTestProject) {
+      try {
+        await deleteProject(testProjectId)
+        log.info('Successfully deleted test project. Closing Chromium...')
+      } catch (e) {
+        log.error(`could not delete project with id "${testProjectId}" due to error: ${e}`)
+      }
+    }
     // close browser
+    await page.close()
     await browser.close()
     log.info('Chromium closed.')
-  })
+  }, 120000)
 
   // ---------------------------------------------------------------------------
   // Begin tests
@@ -571,7 +626,7 @@ describe('end-to-end', () => {
   makeTest('should load the page', async () => {
     await goto('http://localhost:9966')
     await waitForSelector('h1')
-    await expectSelectorToContainHtml('h1', 'Conveyal Datatools')
+    await expectSelectorToContainHtml('h1', 'Conveyal Data Tools')
     testResults['should load the page'] = true
   })
 
@@ -614,6 +669,7 @@ describe('end-to-end', () => {
 
       await waitForSelector('#project-viewer-tabs')
       await expectSelectorToContainHtml('#project-viewer-tabs', 'What is a feed source?')
+      successfullyCreatedTestProject = true
     }, defaultTestTimeout)
 
     makeTestPostLogin('should update a project by adding a otp server', async () => {
@@ -716,6 +772,9 @@ describe('end-to-end', () => {
 
     makeTestPostFeedSource('should process uploaded gtfs', async () => {
       await uploadGtfs()
+
+      // wait for main tab to show up with version validity info
+      await waitForSelector('[data-test-id="feed-version-validity"]')
 
       // verify feed was uploaded
       await expectSelectorToContainHtml(
@@ -2248,10 +2307,10 @@ describe('end-to-end', () => {
       // go to main feed tab
       await click('#feed-source-viewer-tabs-tab-')
 
-      // wait for main tab to show up
-      await waitForSelector('#feed-source-viewer-tabs-pane-')
+      // wait for main tab to show up with version validity info
+      await waitForSelector('[data-test-id="feed-version-validity"]')
 
-      // verify that feed was fetched and processed
+      // verify that snapshot was made active version
       await expectSelectorToContainHtml(
         '[data-test-id="feed-version-validity"]',
         'Valid from May. 29, 2018 to May. 29, 2028'

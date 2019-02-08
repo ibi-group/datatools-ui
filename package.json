@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Core application for the Conveyal transit data tools suite",
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/test-utils/setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/test-utils/setup-test-framework.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +13,10 @@
   "license": "MIT",
   "scripts": {
     "build": "mastarm build --env production",
+    "build-dev": "mastarm build --env dev",
     "cover-client": "npm run test-client -- --coverage --coverage-paths \"lib/**/*.js\"",
     "cover-flow": "flow-coverage-report -t html -t text -i 'lib/**/*.js' -o coverage-flow",
+    "cover-end-to-end": "cross-env COLLECT_COVERAGE=true npm run test-end-to-end",
     "deploy": "mastarm deploy --minify --env production",
     "flow": "mastarm flow",
     "lint": "mastarm lint \"lib/**/*.js\"",
@@ -22,9 +24,10 @@
     "predeploy": "yarn",
     "prestart": "yarn",
     "start": "mastarm build --env dev --serve --proxy http://localhost:4000/api",
+    "start-instrumented": "mastarm build --env dev --serve --proxy http://localhost:4000/api --instrument",
     "test": "npm run lint && npm run lint-messages && yarn run flow && npm run test-client",
     "test-client": "mastarm test -c configurations/test --test-path-ignore-patterns \"__tests__/end-to-end __tests__/test-utils\"",
-    "test-end-to-end": "mastarm test --test-path-ignore-patterns \"lib __tests__/test-utils\"",
+    "test-end-to-end": "mastarm test --test-path-ignore-patterns \"lib __tests__/test-utils\" --test-environment ./__tests__/test-utils/e2e-environment.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
@@ -107,17 +110,28 @@
     "validator": "7.0.0"
   },
   "devDependencies": {
+    "archiver": "^3.0.0",
+    "async-each": "^1.0.1",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "express-http-proxy": "^1.5.1",
+    "extract-zip": "^1.6.7",
     "flow-bin": "^0.77.0",
     "flow-coverage-report": "^0.3.0",
     "fs-extra": "^6.0.1",
+    "istanbul-middleware": "^0.2.2",
     "js-yaml": "^3.11.0",
     "jsonwebtoken": "^7.4.1",
-    "mastarm": "^4.4.1",
+    "mastarm": "^4.5.0",
     "md5-file": "^4.0.0",
+    "mkdirp": "^0.5.1",
     "nock": "^9.0.14",
     "puppeteer": "^1.11.0",
+    "request": "^2.88.0",
+    "run-auto": "^2.0.3",
     "semantic-release": "^6.3.2",
-    "simple-node-logger": "^0.93.37"
+    "simple-node-logger": "^0.93.37",
+    "slack": "^11.0.1"
   },
   "standard": {
     "env": [

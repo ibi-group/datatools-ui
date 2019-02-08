@@ -4,22 +4,38 @@ notifications:
   slack: conveyal:WQxmWiu8PdmujwLw4ziW72Gc
 node_js:
   - '8'
+services:
+  # needed for e2e tests to start datatools-server
+  - mongodb
+  - postgresql
+addons:
+  postgresql: 9.6
 cache:
-  yarn: true
+  directories:
+    - $HOME/.cache/yarn
+    - $HOME/.cache/pip
 before_install:
-  - npm i -g codecov
   # Use updated python to avoid SSL insecure warnings:
   # https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   - python --version
   - pyenv versions
   - pyenv global 2.7.14
   - pip install --user mkdocs
+  - source ./scripts/check-if-e2e-should-run-on-travis.sh
+  # create database for e2e tests
+  - if [ "$SHOULD_RUN_E2E" = "true" ]; then psql -U postgres -c 'CREATE DATABASE catalogue;'; fi
+  # add aws credentials for datatools-server
+  - if [ "$SHOULD_RUN_E2E" = "true" ]; then mkdir ~/.aws && printf '%s\n' '[default]' 'aws_access_key_id=${AWS_ACCESS_KEY_ID}' 'aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}' 'region=us-east-1' > ~/.aws/config; else mkdir ~/.aws && printf '%s\n' '[default]' 'aws_access_key_id=foo' 'aws_secret_access_key=bar' 'region=us-east-1' > ~/.aws/config; fi
 script:
   - yarn run lint
   - yarn run lint-messages
   - yarn run flow
   - yarn run cover-client
-  - codecov
+  # upload coverage results from unit tests and then delete coverage reports
+  - bash <(curl -s https://codecov.io/bash) -c -F unit_tests
+  - if [ "$SHOULD_RUN_E2E" = "true" ]; then yarn run cover-end-to-end; fi
+  # upload coverage results from e2e tests and then delete coverage reports
+  - if [ "$SHOULD_RUN_E2E" = "true" ]; then bash <(curl -s https://codecov.io/bash) -c -F end_to_end_tests; fi
   - yarn run build -- --minify
   - mkdocs build
 
@@ -28,5 +44,4 @@ sudo: false
 
 # Push results to codecov.io
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
   - yarn run semantic-release

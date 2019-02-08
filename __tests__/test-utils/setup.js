@@ -1,3 +1,0 @@
-window.localStorage = {
-  getItem: () => null
-}

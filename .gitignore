@@ -5,6 +5,7 @@ dist
 coverage*
 tmp/
 .tags
+*.pid
 
 # Optional npm cache directory
 .npm

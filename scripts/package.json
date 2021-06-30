@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "auth0": "^2.27.1",
+    "auth0": "^2.34.2",
     "make-runnable": "^1.3.6",
     "request-promise-native": "^1.0.5"
   }

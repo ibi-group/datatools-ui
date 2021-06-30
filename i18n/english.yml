@@ -69,6 +69,8 @@ components:
       stationTransfers: Sta. Transfers
       subwayAccessTime: Subway Access Time
       title: Build Config
+    clear: Clear
+    manageServers: Manage deployment servers
     osm:
       bounds: Custom Extract Bounds
       custom: Use Custom Extract Bounds
@@ -138,8 +140,35 @@ components:
       name: Name
     title: Deployments
   DeploymentsPanel:
+    autoDeploy:
+      deployWithErrors:
+        checklabel: Deploy even if some feed versions have critical errors
+        help: >
+          If this is unchecked, an auto-deployment will halt if any of the feed
+          versions in the deployment have at least one critical error
+        title: Critical Errors Handling
+      help: >
+        A deployment will automatically be kicked off (assuming there are no
+        critical errors) whenever one of the above-defined events occurs.
+      label: Auto-deploy events
+      placeholder: Specify auto-deploy events
+      title: Auto-deployment
+      types:
+        ON_FEED_FETCH: A new version is fetched
+        ON_PROCESS_FEED: A new version is processed
+    config:
+      body: >
+        Deployments can use project-level configurations (e.g., for build or
+        router config files) or be configured individually.
+      editSettings: Edit deployment settings
+      manageServers: Manage deployment servers
+      title: Configuring deployments
     delete: Remove deployment
     new: New Deployment
+    pinnedDeployment:
+      help: Pin a deployment (and deploy to a server at least once) to enable auto-deployment.
+      label: Pinned deployment
+      placeholder: Select a deployment to pin
     search: Search for deployments
     table:
       creationDate: Created
@@ -244,10 +273,16 @@ components:
     DeleteRecordsTransformation:
       label: Delete records from %tablePlaceholder%
       name: Delete records transformation
+    NormalizeFieldTransformation:
+      filePlaceholder: Choose file/table to normalize
+      label: Normalize field
+      name: Normalize field transformation
     ReplaceFileFromStringTransformation:
+      filePlaceholder: Choose the file/table to replace
       label: Replace %tablePlaceholder% from %filePlaceholder%
       name: Replace file from string transformation
     ReplaceFileFromVersionTransformation:
+      filePlaceholder: Choose the file/table to replace
       label: Replace %tablePlaceholder% from %versionPlaceholder%
       name: Replace file from version transformation
   FeedVersionNavigator:

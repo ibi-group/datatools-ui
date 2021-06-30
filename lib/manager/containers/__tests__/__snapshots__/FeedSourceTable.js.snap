@@ -17,6 +17,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
     onNewFeedSourceClick={[Function]}
     project={
       Object {
+        "autoDeploy": false,
+        "autoDeployTypes": Array [],
+        "autoDeployWithCriticalErrors": false,
         "autoFetchFeeds": true,
         "autoFetchHour": 0,
         "autoFetchMinute": 0,
@@ -82,6 +85,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                   "transformRules": Array [],
                   "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                   "user": null,
+                  "versionCount": 1,
                 },
                 "id": "mock-feed-version-id",
                 "nextVersionId": null,
@@ -121,6 +125,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
             "osmExtractUrl": null,
             "otpCommit": null,
             "otpVersion": null,
+            "pinnedfeedVersionIds": Array [],
             "projectBounds": Object {
               "east": 0,
               "north": 0,
@@ -128,10 +133,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "west": 0,
             },
             "projectId": "mock-project-with-deployments-id",
-            "r5": false,
-            "r5Version": null,
             "routerId": null,
             "skipOsmExtract": false,
+            "tripPlannerVersion": "OTP_1",
             "user": null,
           },
         ],
@@ -178,6 +182,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
             "transformRules": Array [],
             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
             "user": null,
+            "versionCount": 1,
           },
         ],
         "id": "mock-project-with-deployments-id",
@@ -245,6 +250,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
             "transformRules": Array [],
             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
             "user": null,
+            "versionCount": 1,
           },
         ]
       }
@@ -292,6 +298,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
             "transformRules": Array [],
             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
             "user": null,
+            "versionCount": 1,
           },
         ]
       }
@@ -300,6 +307,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
       onNewFeedSourceClick={[Function]}
       project={
         Object {
+          "autoDeploy": false,
+          "autoDeployTypes": Array [],
+          "autoDeployWithCriticalErrors": false,
           "autoFetchFeeds": true,
           "autoFetchHour": 0,
           "autoFetchMinute": 0,
@@ -365,6 +375,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     "transformRules": Array [],
                     "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                     "user": null,
+                    "versionCount": 1,
                   },
                   "id": "mock-feed-version-id",
                   "nextVersionId": null,
@@ -404,6 +415,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "osmExtractUrl": null,
               "otpCommit": null,
               "otpVersion": null,
+              "pinnedfeedVersionIds": Array [],
               "projectBounds": Object {
                 "east": 0,
                 "north": 0,
@@ -411,10 +423,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                 "west": 0,
               },
               "projectId": "mock-project-with-deployments-id",
-              "r5": false,
-              "r5Version": null,
               "routerId": null,
               "skipOsmExtract": false,
+              "tripPlannerVersion": "OTP_1",
               "user": null,
             },
           ],
@@ -461,6 +472,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "transformRules": Array [],
               "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
               "user": null,
+              "versionCount": 1,
             },
           ],
           "id": "mock-project-with-deployments-id",
@@ -564,6 +576,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
             onNewFeedSourceClick={[Function]}
             project={
               Object {
+                "autoDeploy": false,
+                "autoDeployTypes": Array [],
+                "autoDeployWithCriticalErrors": false,
                 "autoFetchFeeds": true,
                 "autoFetchHour": 0,
                 "autoFetchMinute": 0,
@@ -629,6 +644,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           "transformRules": Array [],
                           "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                           "user": null,
+                          "versionCount": 1,
                         },
                         "id": "mock-feed-version-id",
                         "nextVersionId": null,
@@ -668,6 +684,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     "osmExtractUrl": null,
                     "otpCommit": null,
                     "otpVersion": null,
+                    "pinnedfeedVersionIds": Array [],
                     "projectBounds": Object {
                       "east": 0,
                       "north": 0,
@@ -675,10 +692,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                       "west": 0,
                     },
                     "projectId": "mock-project-with-deployments-id",
-                    "r5": false,
-                    "r5Version": null,
                     "routerId": null,
                     "skipOsmExtract": false,
+                    "tripPlannerVersion": "OTP_1",
                     "user": null,
                   },
                 ],
@@ -725,6 +741,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     "transformRules": Array [],
                     "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                     "user": null,
+                    "versionCount": 1,
                   },
                 ],
                 "id": "mock-project-with-deployments-id",
@@ -759,6 +776,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               onNewFeedSourceClick={[Function]}
               project={
                 Object {
+                  "autoDeploy": false,
+                  "autoDeployTypes": Array [],
+                  "autoDeployWithCriticalErrors": false,
                   "autoFetchFeeds": true,
                   "autoFetchHour": 0,
                   "autoFetchMinute": 0,
@@ -824,6 +844,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             "transformRules": Array [],
                             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                             "user": null,
+                            "versionCount": 1,
                           },
                           "id": "mock-feed-version-id",
                           "nextVersionId": null,
@@ -863,6 +884,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                       "osmExtractUrl": null,
                       "otpCommit": null,
                       "otpVersion": null,
+                      "pinnedfeedVersionIds": Array [],
                       "projectBounds": Object {
                         "east": 0,
                         "north": 0,
@@ -870,10 +892,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                         "west": 0,
                       },
                       "projectId": "mock-project-with-deployments-id",
-                      "r5": false,
-                      "r5Version": null,
                       "routerId": null,
                       "skipOsmExtract": false,
+                      "tripPlannerVersion": "OTP_1",
                       "user": null,
                     },
                   ],
@@ -920,6 +941,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                       "transformRules": Array [],
                       "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                       "user": null,
+                      "versionCount": 1,
                     },
                   ],
                   "id": "mock-project-with-deployments-id",
@@ -972,6 +994,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                 }
                 project={
                   Object {
+                    "autoDeploy": false,
+                    "autoDeployTypes": Array [],
+                    "autoDeployWithCriticalErrors": false,
                     "autoFetchFeeds": true,
                     "autoFetchHour": 0,
                     "autoFetchMinute": 0,
@@ -1037,6 +1062,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               "transformRules": Array [],
                               "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                               "user": null,
+                              "versionCount": 1,
                             },
                             "id": "mock-feed-version-id",
                             "nextVersionId": null,
@@ -1076,6 +1102,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                         "osmExtractUrl": null,
                         "otpCommit": null,
                         "otpVersion": null,
+                        "pinnedfeedVersionIds": Array [],
                         "projectBounds": Object {
                           "east": 0,
                           "north": 0,
@@ -1083,10 +1110,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           "west": 0,
                         },
                         "projectId": "mock-project-with-deployments-id",
-                        "r5": false,
-                        "r5Version": null,
                         "routerId": null,
                         "skipOsmExtract": false,
+                        "tripPlannerVersion": "OTP_1",
                         "user": null,
                       },
                     ],
@@ -1133,6 +1159,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                         "transformRules": Array [],
                         "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                         "user": null,
+                        "versionCount": 1,
                       },
                     ],
                     "id": "mock-project-with-deployments-id",
@@ -2833,11 +2860,15 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                         "transformRules": Array [],
                         "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                         "user": null,
+                        "versionCount": 1,
                       }
                     }
                     key="mock-feed-with-version-id"
                     project={
                       Object {
+                        "autoDeploy": false,
+                        "autoDeployTypes": Array [],
+                        "autoDeployWithCriticalErrors": false,
                         "autoFetchFeeds": true,
                         "autoFetchHour": 0,
                         "autoFetchMinute": 0,
@@ -2903,6 +2934,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   "transformRules": Array [],
                                   "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                                   "user": null,
+                                  "versionCount": 1,
                                 },
                                 "id": "mock-feed-version-id",
                                 "nextVersionId": null,
@@ -2942,6 +2974,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             "osmExtractUrl": null,
                             "otpCommit": null,
                             "otpVersion": null,
+                            "pinnedfeedVersionIds": Array [],
                             "projectBounds": Object {
                               "east": 0,
                               "north": 0,
@@ -2949,10 +2982,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               "west": 0,
                             },
                             "projectId": "mock-project-with-deployments-id",
-                            "r5": false,
-                            "r5Version": null,
                             "routerId": null,
                             "skipOsmExtract": false,
+                            "tripPlannerVersion": "OTP_1",
                             "user": null,
                           },
                         ],
@@ -2999,6 +3031,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             "transformRules": Array [],
                             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                             "user": null,
+                            "versionCount": 1,
                           },
                         ],
                         "id": "mock-project-with-deployments-id",
@@ -3091,10 +3124,14 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           "transformRules": Array [],
                           "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                           "user": null,
+                          "versionCount": 1,
                         }
                       }
                       project={
                         Object {
+                          "autoDeploy": false,
+                          "autoDeployTypes": Array [],
+                          "autoDeployWithCriticalErrors": false,
                           "autoFetchFeeds": true,
                           "autoFetchHour": 0,
                           "autoFetchMinute": 0,
@@ -3160,6 +3197,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "transformRules": Array [],
                                     "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                                     "user": null,
+                                    "versionCount": 1,
                                   },
                                   "id": "mock-feed-version-id",
                                   "nextVersionId": null,
@@ -3199,6 +3237,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               "osmExtractUrl": null,
                               "otpCommit": null,
                               "otpVersion": null,
+                              "pinnedfeedVersionIds": Array [],
                               "projectBounds": Object {
                                 "east": 0,
                                 "north": 0,
@@ -3206,10 +3245,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "west": 0,
                               },
                               "projectId": "mock-project-with-deployments-id",
-                              "r5": false,
-                              "r5Version": null,
                               "routerId": null,
                               "skipOsmExtract": false,
+                              "tripPlannerVersion": "OTP_1",
                               "user": null,
                             },
                           ],
@@ -3256,6 +3294,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               "transformRules": Array [],
                               "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                               "user": null,
+                              "versionCount": 1,
                             },
                           ],
                           "id": "mock-project-with-deployments-id",
@@ -3403,6 +3442,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "transformRules": Array [],
                                 "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                                 "user": null,
+                                "versionCount": 1,
                               }
                             }
                           >
@@ -3632,10 +3672,14 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "transformRules": Array [],
                                 "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                                 "user": null,
+                                "versionCount": 1,
                               }
                             }
                             project={
                               Object {
+                                "autoDeploy": false,
+                                "autoDeployTypes": Array [],
+                                "autoDeployWithCriticalErrors": false,
                                 "autoFetchFeeds": true,
                                 "autoFetchHour": 0,
                                 "autoFetchMinute": 0,
@@ -3701,6 +3745,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                           "transformRules": Array [],
                                           "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                                           "user": null,
+                                          "versionCount": 1,
                                         },
                                         "id": "mock-feed-version-id",
                                         "nextVersionId": null,
@@ -3740,6 +3785,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "osmExtractUrl": null,
                                     "otpCommit": null,
                                     "otpVersion": null,
+                                    "pinnedfeedVersionIds": Array [],
                                     "projectBounds": Object {
                                       "east": 0,
                                       "north": 0,
@@ -3747,10 +3793,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                       "west": 0,
                                     },
                                     "projectId": "mock-project-with-deployments-id",
-                                    "r5": false,
-                                    "r5Version": null,
                                     "routerId": null,
                                     "skipOsmExtract": false,
+                                    "tripPlannerVersion": "OTP_1",
                                     "user": null,
                                   },
                                 ],
@@ -3797,6 +3842,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "transformRules": Array [],
                                     "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
                                     "user": null,
+                                    "versionCount": 1,
                                   },
                                 ],
                                 "id": "mock-project-with-deployments-id",

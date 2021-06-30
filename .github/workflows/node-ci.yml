@@ -1,0 +1,104 @@
+name: Node.js CI
+
+on: [push, pull_request]
+
+jobs:
+  test-build-release:
+
+    runs-on: ubuntu-latest
+    # Add postgres for end-to-end
+    services:
+      postgres:
+        image: postgres:10.8
+        # Set postgres env variables according to test env.yml config
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      # install python 3.x in order to have mkdocs properly installed
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install mkdocs
+        run: |
+          pip install mkdocs
+          mkdocs --version
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install npm/yarn packages using cache
+        uses: bahmutov/npm-install@v1
+      # Inject slug vars, so that we can reference $GITHUB_HEAD_REF_SLUG for branch name
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v3.x
+      - name: Check if End-to-end should run
+        run: ./scripts/check-if-e2e-should-run-on-ci.sh
+      - name: Lint code
+        run: yarn lint
+      - name: Lint messages
+        run: yarn lint-messages
+      - name: Run flow check
+        run: yarn flow
+      - name: Run tests
+        run: yarn test-client
+      - name: Build with minification
+        run: yarn run build -- --minify
+      - name: Build docs
+        run: mkdocs build
+      - name: Start MongoDB
+        if: env.SHOULD_RUN_E2E == 'true'
+        uses: supercharge/mongodb-github-action@1.3.0
+        with:
+          mongodb-version: 4.2
+      - name: Add aws credentials for datatools-server
+        if: env.SHOULD_RUN_E2E == 'true'
+        run: mkdir ~/.aws && printf '%s\n' '[default]' 'aws_access_key_id=${AWS_ACCESS_KEY_ID}' 'aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}' 'region=${AWS_REGION}' > ~/.aws/config
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Run e2e tests
+        if: env.SHOULD_RUN_E2E == 'true'
+        run: yarn test-end-to-end
+        env:
+          AUTH0_API_CLIENT: ${{ secrets.AUTH0_API_CLIENT }}
+          AUTH0_API_SECRET: ${{ secrets.AUTH0_API_SECRET }}
+          AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+          AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
+          AUTH0_SECRET: ${{ secrets.AUTH0_SECRET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          E2E_AUTH0_PASSWORD: ${{ secrets.E2E_AUTH0_PASSWORD }}
+          E2E_AUTH0_USERNAME: ${{ secrets.E2E_AUTH0_USERNAME }}
+          GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }}
+          GTFS_DATABASE_PASSWORD: ${{ secrets.GTFS_DATABASE_PASSWORD }}
+          GTFS_DATABASE_URL: ${{ secrets.GTFS_DATABASE_URL }}
+          GTFS_DATABASE_USER: ${{ secrets.GTFS_DATABASE_USER }}
+          LOGS_S3_BUCKET: ${{ secrets.LOGS_S3_BUCKET }}
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+          MONGO_DB_NAME: ${{ secrets.MONGO_DB_NAME }}
+          MS_TEAMS_WEBHOOK_URL: ${{ secrets.MS_TEAMS_WEBHOOK_URL }}
+          OSM_VEX: ${{ secrets.OSM_VEX }}
+          RUN_E2E: "true"
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          SPARKPOST_EMAIL: ${{ secrets.SPARKPOST_EMAIL }}
+          SPARKPOST_KEY: ${{ secrets.SPARKPOST_KEY }}
+          TRANSITFEEDS_KEY: ${{ secrets.TRANSITFEEDS_KEY }}
+      # At this point, the build is successful.
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn semantic-release

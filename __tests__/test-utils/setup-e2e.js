@@ -20,7 +20,19 @@ const {
 } = require('./utils')
 
 const serverJarFilename = 'dt-latest-dev.jar'
-
+const ENV_YML_VARIABLES = [
+  'AUTH0_CLIENT_ID',
+  'AUTH0_DOMAIN',
+  'AUTH0_SECRET',
+  'AUTH0_API_CLIENT',
+  'AUTH0_API_SECRET',
+  'GTFS_DATABASE_PASSWORD',
+  'GTFS_DATABASE_USER',
+  'GTFS_DATABASE_URL',
+  'OSM_VEX',
+  'SPARKPOST_KEY',
+  'SPARKPOST_EMAIL'
+]
 /**
  * download, configure and start an instance of datatools-server
  */
@@ -35,24 +47,17 @@ async function startBackendServer () {
   // make sure required environment variables are set
   try {
     requireEnvVars([
-      'AUTH0_CLIENT_ID',
-      'AUTH0_DOMAIN',
-      'AUTH0_SECRET',
-      'AUTH0_API_CLIENT',
-      'AUTH0_API_SECRET',
-      'OSM_VEX',
-      'SPARKPOST_EMAIL',
-      'SPARKPOST_KEY',
+      ...ENV_YML_VARIABLES,
       'S3_BUCKET',
       'TRANSITFEEDS_KEY'
     ])
   } catch (e) {
-    console.error(`At least one required env var is missin: ${e}`)
+    console.error(`At least one required env var is missing: ${e}`)
     throw e
   }
 
   const serverFolder = path.join(
-    process.env.TRAVIS_BUILD_DIR,
+    process.env.GITHUB_WORKSPACE,
     '..',
     'datatools-server'
   )
@@ -109,16 +114,7 @@ async function startBackendServer () {
             results.readEnvTemplate,
             pick(
               process.env,
-              [
-                'AUTH0_CLIENT_ID',
-                'AUTH0_DOMAIN',
-                'AUTH0_SECRET',
-                'AUTH0_API_CLIENT',
-                'AUTH0_API_SECRET',
-                'OSM_VEX',
-                'SPARKPOST_KEY',
-                'SPARKPOST_EMAIL'
-              ]
+              ENV_YML_VARIABLES
             )
           )
         )
@@ -194,13 +190,13 @@ async function startClientServer () {
       'TRANSITFEEDS_KEY'
     ])
   } catch (e) {
-    console.error(`At least one required env var is missin: ${e}`)
+    console.error(`At least one required env var is missing: ${e}`)
     throw e
   }
 
   // set the working directories for datatools-ui
   const datatoolsUiDir = path.join(
-    process.env.TRAVIS_BUILD_DIR,
+    process.env.GITHUB_WORKSPACE,
     '..',
     'datatools-ui'
   )

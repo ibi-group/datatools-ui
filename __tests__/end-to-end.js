@@ -2338,10 +2338,14 @@ describe('end-to-end', () => {
 
           // add 1st stop
           await reactSelectOption('.pattern-stop-card', 'la', 1, true)
+          await wait(500, 'for 1st stop to be selected')
+          await click('[data-test-id="add-pattern-stop-button"]')
           await wait(2000, 'for 1st stop to save')
 
           // add 2nd stop
           await reactSelectOption('.pattern-stop-card', 'ru', 1, true)
+          await wait(500, 'for 2nd stop to be selected')
+          await click('[data-test-id="add-pattern-stop-button"]')
           await wait(2000, 'for auto-save to happen')
 
           // reload to make sure stuff was saved

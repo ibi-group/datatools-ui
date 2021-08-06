@@ -487,13 +487,16 @@ components:
     info: "Tip: when changing travel times, consider
     using the 'Normalize stop times' button above to automatically update
     all stop times to the updated travel time."
+  NoteForm:
+    adminOnly: 'Admin only?'
+    new: Post
+    postComment: Post a New Comment
   NotesViewer:
+    adminOnly: 'This message is visible to admins only.'
     all: All Comments
     feedSource: Feed Source
     feedVersion: Version
-    new: Post
     none: No comments.
-    postComment: Post a New Comment
     refresh: Refresh
     title: Comments
   OrganizationList:

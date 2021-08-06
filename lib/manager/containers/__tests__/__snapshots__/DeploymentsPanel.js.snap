@@ -51,6 +51,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                   "externalProperties": Object {},
                   "id": "mock-feed-with-version-id",
                   "isPublic": false,
+                  "labelIds": Array [],
                   "lastFetched": 1543389038810,
                   "lastUpdated": 1543389038810,
                   "latestValidation": Object {
@@ -180,6 +181,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
             "externalProperties": Object {},
             "id": "mock-feed-with-version-id",
             "isPublic": false,
+            "labelIds": Array [],
             "lastFetched": 1543389038810,
             "lastUpdated": 1543389038810,
             "latestValidation": Object {
@@ -219,6 +221,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
           },
         ],
         "id": "mock-project-with-deployments-id",
+        "labels": Array [],
         "lastUpdated": 1553236399556,
         "name": "mock-project-with-deployments",
         "organizationId": null,
@@ -277,6 +280,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                     "externalProperties": Object {},
                     "id": "mock-feed-with-version-id",
                     "isPublic": false,
+                    "labelIds": Array [],
                     "lastFetched": 1543389038810,
                     "lastUpdated": 1543389038810,
                     "latestValidation": Object {
@@ -406,6 +410,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
               "externalProperties": Object {},
               "id": "mock-feed-with-version-id",
               "isPublic": false,
+              "labelIds": Array [],
               "lastFetched": 1543389038810,
               "lastUpdated": 1543389038810,
               "latestValidation": Object {
@@ -445,6 +450,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
             },
           ],
           "id": "mock-project-with-deployments-id",
+          "labels": Array [],
           "lastUpdated": 1553236399556,
           "name": "mock-project-with-deployments",
           "organizationId": null,
@@ -555,6 +561,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                             "externalProperties": Object {},
                             "id": "mock-feed-with-version-id",
                             "isPublic": false,
+                            "labelIds": Array [],
                             "lastFetched": 1543389038810,
                             "lastUpdated": 1543389038810,
                             "latestValidation": Object {
@@ -712,6 +719,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                               "externalProperties": Object {},
                               "id": "mock-feed-with-version-id",
                               "isPublic": false,
+                              "labelIds": Array [],
                               "lastFetched": 1543389038810,
                               "lastUpdated": 1543389038810,
                               "latestValidation": Object {
@@ -841,6 +849,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                         "externalProperties": Object {},
                         "id": "mock-feed-with-version-id",
                         "isPublic": false,
+                        "labelIds": Array [],
                         "lastFetched": 1543389038810,
                         "lastUpdated": 1543389038810,
                         "latestValidation": Object {
@@ -880,6 +889,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                       },
                     ],
                     "id": "mock-project-with-deployments-id",
+                    "labels": Array [],
                     "lastUpdated": 1553236399556,
                     "name": "mock-project-with-deployments",
                     "organizationId": null,
@@ -1080,6 +1090,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                       "externalProperties": Object {},
                                       "id": "mock-feed-with-version-id",
                                       "isPublic": false,
+                                      "labelIds": Array [],
                                       "lastFetched": 1543389038810,
                                       "lastUpdated": 1543389038810,
                                       "latestValidation": Object {
@@ -1205,6 +1216,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                           "externalProperties": Object {},
                                           "id": "mock-feed-with-version-id",
                                           "isPublic": false,
+                                          "labelIds": Array [],
                                           "lastFetched": 1543389038810,
                                           "lastUpdated": 1543389038810,
                                           "latestValidation": Object {
@@ -1334,6 +1346,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                     "externalProperties": Object {},
                                     "id": "mock-feed-with-version-id",
                                     "isPublic": false,
+                                    "labelIds": Array [],
                                     "lastFetched": 1543389038810,
                                     "lastUpdated": 1543389038810,
                                     "latestValidation": Object {
@@ -1373,6 +1386,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                   },
                                 ],
                                 "id": "mock-project-with-deployments-id",
+                                "labels": Array [],
                                 "lastUpdated": 1553236399556,
                                 "name": "mock-project-with-deployments",
                                 "organizationId": null,
@@ -1604,6 +1618,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                           "externalProperties": Object {},
                                           "id": "mock-feed-with-version-id",
                                           "isPublic": false,
+                                          "labelIds": Array [],
                                           "lastFetched": 1543389038810,
                                           "lastUpdated": 1543389038810,
                                           "latestValidation": Object {
@@ -1733,6 +1748,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                     "externalProperties": Object {},
                                     "id": "mock-feed-with-version-id",
                                     "isPublic": false,
+                                    "labelIds": Array [],
                                     "lastFetched": 1543389038810,
                                     "lastUpdated": 1543389038810,
                                     "latestValidation": Object {
@@ -1772,6 +1788,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                   },
                                 ],
                                 "id": "mock-project-with-deployments-id",
+                                "labels": Array [],
                                 "lastUpdated": 1553236399556,
                                 "name": "mock-project-with-deployments",
                                 "organizationId": null,

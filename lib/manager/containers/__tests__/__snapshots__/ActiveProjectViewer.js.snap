@@ -67,6 +67,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
           "deployments": Array [],
           "feedSources": Array [],
           "id": "mock-project-id",
+          "labels": Array [],
           "lastUpdated": 1553236399556,
           "name": "mock-project",
           "organizationId": null,
@@ -1932,6 +1933,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                           "deployments": Array [],
                                                           "feedSources": Array [],
                                                           "id": "mock-project-id",
+                                                          "labels": Array [],
                                                           "lastUpdated": 1553236399556,
                                                           "name": "mock-project",
                                                           "organizationId": null,
@@ -1977,6 +1979,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                             "deployments": Array [],
                                                             "feedSources": Array [],
                                                             "id": "mock-project-id",
+                                                            "labels": Array [],
                                                             "lastUpdated": 1553236399556,
                                                             "name": "mock-project",
                                                             "organizationId": null,
@@ -2095,6 +2098,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                   "deployments": Array [],
                                                                   "feedSources": Array [],
                                                                   "id": "mock-project-id",
+                                                                  "labels": Array [],
                                                                   "lastUpdated": 1553236399556,
                                                                   "name": "mock-project",
                                                                   "organizationId": null,
@@ -2144,6 +2148,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                     "deployments": Array [],
                                                                     "feedSources": Array [],
                                                                     "id": "mock-project-id",
+                                                                    "labels": Array [],
                                                                     "lastUpdated": 1553236399556,
                                                                     "name": "mock-project",
                                                                     "organizationId": null,
@@ -2172,6 +2177,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                       "feedSourceTableComparisonColumn": null,
                                                                       "feedSourceTableFilterCountStrategy": "LATEST",
                                                                       "filter": null,
+                                                                      "labels": Array [],
+                                                                      "labelsFilterMode": "any",
                                                                       "searchText": null,
                                                                     }
                                                                   }
@@ -2210,6 +2217,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                       "deployments": Array [],
                                                                       "feedSources": Array [],
                                                                       "id": "mock-project-id",
+                                                                      "labels": Array [],
                                                                       "lastUpdated": 1553236399556,
                                                                       "name": "mock-project",
                                                                       "organizationId": null,
@@ -2231,6 +2239,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                   setFeedSort={[Function]}
                                                                   setFeedSourceTableFilterCountStrategy={[Function]}
                                                                   setVisibilityFilter={[Function]}
+                                                                  setVisibilityLabel={[Function]}
+                                                                  setVisibilityLabelMode={[Function]}
                                                                   setVisibilitySearchText={[Function]}
                                                                   sort="alphabetically-asc"
                                                                   thirdPartySync={[Function]}
@@ -2377,6 +2387,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                             </form>
                                                                           </Form>
                                                                           <DropdownButton
+                                                                            bsSize="small"
                                                                             id="project-feedsource-table-sort-button"
                                                                             style={
                                                                               Object {
@@ -2386,10 +2397,12 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                             title="Sort By"
                                                                           >
                                                                             <Uncontrolled(Dropdown)
+                                                                              bsSize="small"
                                                                               id="project-feedsource-table-sort-button"
                                                                             >
                                                                               <Dropdown
                                                                                 bsClass="dropdown"
+                                                                                bsSize="small"
                                                                                 componentClass={[Function]}
                                                                                 id="project-feedsource-table-sort-button"
                                                                                 onToggle={[Function]}
@@ -2397,16 +2410,18 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                 <ButtonGroup
                                                                                   block={false}
                                                                                   bsClass="btn-group"
+                                                                                  bsSize="small"
                                                                                   className="dropdown"
                                                                                   justified={false}
                                                                                   vertical={false}
                                                                                 >
                                                                                   <div
-                                                                                    className="dropdown btn-group"
+                                                                                    className="dropdown btn-group btn-group-sm"
                                                                                   >
                                                                                     <DropdownToggle
                                                                                       bsClass="dropdown-toggle"
                                                                                       bsRole="toggle"
+                                                                                      bsSize="small"
                                                                                       id="project-feedsource-table-sort-button"
                                                                                       key=".0"
                                                                                       onClick={[Function]}
@@ -2425,6 +2440,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         aria-haspopup={true}
                                                                                         block={false}
                                                                                         bsClass="btn"
+                                                                                        bsSize="small"
                                                                                         bsStyle="default"
                                                                                         className="dropdown-toggle"
                                                                                         disabled={false}
@@ -2441,7 +2457,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         <button
                                                                                           aria-expanded={false}
                                                                                           aria-haspopup={true}
-                                                                                          className="dropdown-toggle btn btn-default"
+                                                                                          className="dropdown-toggle btn btn-sm btn-default"
                                                                                           disabled={false}
                                                                                           id="project-feedsource-table-sort-button"
                                                                                           onClick={[Function]}
@@ -3125,13 +3141,24 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                 block={false}
                                                                                 bsClass="btn-group"
                                                                                 justified={false}
+                                                                                style={
+                                                                                  Object {
+                                                                                    "marginRight": 10,
+                                                                                  }
+                                                                                }
                                                                                 vertical={false}
                                                                               >
                                                                                 <div
                                                                                   className="btn-group"
+                                                                                  style={
+                                                                                    Object {
+                                                                                      "marginRight": 10,
+                                                                                    }
+                                                                                  }
                                                                                 >
                                                                                   <OptionButton
                                                                                     active={true}
+                                                                                    bsSize="small"
                                                                                     className="active"
                                                                                     key="all"
                                                                                     onClick={[Function]}
@@ -3141,6 +3168,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       active={true}
                                                                                       block={false}
                                                                                       bsClass="btn"
+                                                                                      bsSize="small"
                                                                                       bsStyle="default"
                                                                                       className="active"
                                                                                       disabled={false}
@@ -3149,7 +3177,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       value="all"
                                                                                     >
                                                                                       <SafeAnchor
-                                                                                        className="active btn btn-default active"
+                                                                                        className="active btn btn-sm btn-default active"
                                                                                         componentClass="a"
                                                                                         disabled={false}
                                                                                         href="#"
@@ -3157,7 +3185,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         value="all"
                                                                                       >
                                                                                         <a
-                                                                                          className="active btn btn-default active"
+                                                                                          className="active btn btn-sm btn-default active"
                                                                                           href="#"
                                                                                           onClick={[Function]}
                                                                                           role="button"
@@ -3191,6 +3219,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                   </OptionButton>
                                                                                   <OptionButton
                                                                                     active={false}
+                                                                                    bsSize="small"
                                                                                     className=""
                                                                                     key="active"
                                                                                     onClick={[Function]}
@@ -3200,6 +3229,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       active={false}
                                                                                       block={false}
                                                                                       bsClass="btn"
+                                                                                      bsSize="small"
                                                                                       bsStyle="default"
                                                                                       className=""
                                                                                       disabled={false}
@@ -3208,7 +3238,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       value="active"
                                                                                     >
                                                                                       <SafeAnchor
-                                                                                        className="btn btn-default"
+                                                                                        className="btn btn-sm btn-default"
                                                                                         componentClass="a"
                                                                                         disabled={false}
                                                                                         href="#"
@@ -3216,7 +3246,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         value="active"
                                                                                       >
                                                                                         <a
-                                                                                          className="btn btn-default"
+                                                                                          className="btn btn-sm btn-default"
                                                                                           href="#"
                                                                                           onClick={[Function]}
                                                                                           role="button"
@@ -3250,6 +3280,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                   </OptionButton>
                                                                                   <OptionButton
                                                                                     active={false}
+                                                                                    bsSize="small"
                                                                                     className=""
                                                                                     key="expiring"
                                                                                     onClick={[Function]}
@@ -3259,6 +3290,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       active={false}
                                                                                       block={false}
                                                                                       bsClass="btn"
+                                                                                      bsSize="small"
                                                                                       bsStyle="default"
                                                                                       className=""
                                                                                       disabled={false}
@@ -3267,7 +3299,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       value="expiring"
                                                                                     >
                                                                                       <SafeAnchor
-                                                                                        className="btn btn-default"
+                                                                                        className="btn btn-sm btn-default"
                                                                                         componentClass="a"
                                                                                         disabled={false}
                                                                                         href="#"
@@ -3275,7 +3307,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         value="expiring"
                                                                                       >
                                                                                         <a
-                                                                                          className="btn btn-default"
+                                                                                          className="btn btn-sm btn-default"
                                                                                           href="#"
                                                                                           onClick={[Function]}
                                                                                           role="button"
@@ -3309,6 +3341,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                   </OptionButton>
                                                                                   <OptionButton
                                                                                     active={false}
+                                                                                    bsSize="small"
                                                                                     className=""
                                                                                     key="expired"
                                                                                     onClick={[Function]}
@@ -3318,6 +3351,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       active={false}
                                                                                       block={false}
                                                                                       bsClass="btn"
+                                                                                      bsSize="small"
                                                                                       bsStyle="default"
                                                                                       className=""
                                                                                       disabled={false}
@@ -3326,7 +3360,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       value="expired"
                                                                                     >
                                                                                       <SafeAnchor
-                                                                                        className="btn btn-default"
+                                                                                        className="btn btn-sm btn-default"
                                                                                         componentClass="a"
                                                                                         disabled={false}
                                                                                         href="#"
@@ -3334,7 +3368,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         value="expired"
                                                                                       >
                                                                                         <a
-                                                                                          className="btn btn-default"
+                                                                                          className="btn btn-sm btn-default"
                                                                                           href="#"
                                                                                           onClick={[Function]}
                                                                                           role="button"
@@ -3368,6 +3402,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                   </OptionButton>
                                                                                   <OptionButton
                                                                                     active={false}
+                                                                                    bsSize="small"
                                                                                     className=""
                                                                                     key="future"
                                                                                     onClick={[Function]}
@@ -3377,6 +3412,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       active={false}
                                                                                       block={false}
                                                                                       bsClass="btn"
+                                                                                      bsSize="small"
                                                                                       bsStyle="default"
                                                                                       className=""
                                                                                       disabled={false}
@@ -3385,7 +3421,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                       value="future"
                                                                                     >
                                                                                       <SafeAnchor
-                                                                                        className="btn btn-default"
+                                                                                        className="btn btn-sm btn-default"
                                                                                         componentClass="a"
                                                                                         disabled={false}
                                                                                         href="#"
@@ -3393,7 +3429,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         value="future"
                                                                                       >
                                                                                         <a
-                                                                                          className="btn btn-default"
+                                                                                          className="btn btn-sm btn-default"
                                                                                           href="#"
                                                                                           onClick={[Function]}
                                                                                           role="button"
@@ -3427,6 +3463,211 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                   </OptionButton>
                                                                                 </div>
                                                                               </ButtonGroup>
+                                                                              <DropdownButton
+                                                                                bsSize="small"
+                                                                                id="project-feedsource-label-filter-button"
+                                                                                title={
+                                                                                  <span
+                                                                                    title="Filter feeds by labels"
+                                                                                  >
+                                                                                    <Icon
+                                                                                      type="tag"
+                                                                                    />
+                                                                                     
+                                                                                    <Badge
+                                                                                      bsClass="badge"
+                                                                                      pullRight={false}
+                                                                                      style={
+                                                                                        Object {
+                                                                                          "backgroundColor": "#babec0",
+                                                                                        }
+                                                                                      }
+                                                                                    >
+                                                                                      0
+                                                                                    </Badge>
+                                                                                  </span>
+                                                                                }
+                                                                              >
+                                                                                <Uncontrolled(Dropdown)
+                                                                                  bsSize="small"
+                                                                                  id="project-feedsource-label-filter-button"
+                                                                                >
+                                                                                  <Dropdown
+                                                                                    bsClass="dropdown"
+                                                                                    bsSize="small"
+                                                                                    componentClass={[Function]}
+                                                                                    id="project-feedsource-label-filter-button"
+                                                                                    onToggle={[Function]}
+                                                                                  >
+                                                                                    <ButtonGroup
+                                                                                      block={false}
+                                                                                      bsClass="btn-group"
+                                                                                      bsSize="small"
+                                                                                      className="dropdown"
+                                                                                      justified={false}
+                                                                                      vertical={false}
+                                                                                    >
+                                                                                      <div
+                                                                                        className="dropdown btn-group btn-group-sm"
+                                                                                      >
+                                                                                        <DropdownToggle
+                                                                                          bsClass="dropdown-toggle"
+                                                                                          bsRole="toggle"
+                                                                                          bsSize="small"
+                                                                                          id="project-feedsource-label-filter-button"
+                                                                                          key=".0"
+                                                                                          onClick={[Function]}
+                                                                                          onKeyDown={[Function]}
+                                                                                          open={false}
+                                                                                          useAnchor={false}
+                                                                                        >
+                                                                                          <Button
+                                                                                            active={false}
+                                                                                            aria-expanded={false}
+                                                                                            aria-haspopup={true}
+                                                                                            block={false}
+                                                                                            bsClass="btn"
+                                                                                            bsSize="small"
+                                                                                            bsStyle="default"
+                                                                                            className="dropdown-toggle"
+                                                                                            disabled={false}
+                                                                                            id="project-feedsource-label-filter-button"
+                                                                                            onClick={[Function]}
+                                                                                            onKeyDown={[Function]}
+                                                                                            role="button"
+                                                                                          >
+                                                                                            <button
+                                                                                              aria-expanded={false}
+                                                                                              aria-haspopup={true}
+                                                                                              className="dropdown-toggle btn btn-sm btn-default"
+                                                                                              disabled={false}
+                                                                                              id="project-feedsource-label-filter-button"
+                                                                                              onClick={[Function]}
+                                                                                              onKeyDown={[Function]}
+                                                                                              role="button"
+                                                                                              type="button"
+                                                                                            >
+                                                                                              <span
+                                                                                                title="Filter feeds by labels"
+                                                                                              >
+                                                                                                <Icon
+                                                                                                  type="tag"
+                                                                                                >
+                                                                                                  <i
+                                                                                                    className="fa fa-tag fa-fw "
+                                                                                                  />
+                                                                                                </Icon>
+                                                                                                 
+                                                                                                <Badge
+                                                                                                  bsClass="badge"
+                                                                                                  pullRight={false}
+                                                                                                  style={
+                                                                                                    Object {
+                                                                                                      "backgroundColor": "#babec0",
+                                                                                                    }
+                                                                                                  }
+                                                                                                >
+                                                                                                  <span
+                                                                                                    className="badge"
+                                                                                                    style={
+                                                                                                      Object {
+                                                                                                        "backgroundColor": "#babec0",
+                                                                                                      }
+                                                                                                    }
+                                                                                                  >
+                                                                                                    0
+                                                                                                  </span>
+                                                                                                </Badge>
+                                                                                              </span>
+                                                                                               
+                                                                                              <span
+                                                                                                className="caret"
+                                                                                              />
+                                                                                            </button>
+                                                                                          </Button>
+                                                                                        </DropdownToggle>
+                                                                                        <DropdownMenu
+                                                                                          bsClass="dropdown-menu"
+                                                                                          bsRole="menu"
+                                                                                          key=".1"
+                                                                                          labelledBy="project-feedsource-label-filter-button"
+                                                                                          onClose={[Function]}
+                                                                                          onSelect={[Function]}
+                                                                                          pullRight={false}
+                                                                                        >
+                                                                                          <RootCloseWrapper
+                                                                                            disabled={true}
+                                                                                            event="click"
+                                                                                            onRootClose={[Function]}
+                                                                                          >
+                                                                                            <ul
+                                                                                              aria-labelledby="project-feedsource-label-filter-button"
+                                                                                              className="dropdown-menu"
+                                                                                              role="menu"
+                                                                                            >
+                                                                                              <MenuItem
+                                                                                                bsClass="dropdown"
+                                                                                                disabled={false}
+                                                                                                divider={false}
+                                                                                                header={true}
+                                                                                                key=".0"
+                                                                                                onKeyDown={[Function]}
+                                                                                                onSelect={[Function]}
+                                                                                                style={
+                                                                                                  Object {
+                                                                                                    "width": 275,
+                                                                                                  }
+                                                                                                }
+                                                                                              >
+                                                                                                <li
+                                                                                                  className="dropdown-header"
+                                                                                                  onKeyDown={[Function]}
+                                                                                                  role="heading"
+                                                                                                  style={
+                                                                                                    Object {
+                                                                                                      "width": 275,
+                                                                                                    }
+                                                                                                  }
+                                                                                                >
+                                                                                                  <h5>
+                                                                                                    Show feeds with
+                                                                                                    <select
+                                                                                                      id="anyall"
+                                                                                                      name="anyall"
+                                                                                                      onChange={[Function]}
+                                                                                                      style={
+                                                                                                        Object {
+                                                                                                          "margin": "0 3px",
+                                                                                                        }
+                                                                                                      }
+                                                                                                      value="any"
+                                                                                                    >
+                                                                                                      <option
+                                                                                                        value="any"
+                                                                                                      >
+                                                                                                        any
+                                                                                                      </option>
+                                                                                                      <option
+                                                                                                        value="all"
+                                                                                                      >
+                                                                                                        all
+                                                                                                      </option>
+                                                                                                    </select>
+                                                                                                    of the labels:
+                                                                                                  </h5>
+                                                                                                  <div
+                                                                                                    className="feedLabelContainer grid"
+                                                                                                  />
+                                                                                                </li>
+                                                                                              </MenuItem>
+                                                                                            </ul>
+                                                                                          </RootCloseWrapper>
+                                                                                        </DropdownMenu>
+                                                                                      </div>
+                                                                                    </ButtonGroup>
+                                                                                  </Dropdown>
+                                                                                </Uncontrolled(Dropdown)>
+                                                                              </DropdownButton>
                                                                             </div>
                                                                           </FormGroup>
                                                                         </div>
@@ -3450,6 +3691,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                           }
                                                                         >
                                                                           <DropdownButton
+                                                                            bsSize="small"
                                                                             bsStyle="primary"
                                                                             data-test-id="project-header-action-dropdown-button"
                                                                             id="project-header-actions"
@@ -3461,11 +3703,13 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                             title="Actions"
                                                                           >
                                                                             <Uncontrolled(Dropdown)
+                                                                              bsSize="small"
                                                                               bsStyle="primary"
                                                                               id="project-header-actions"
                                                                             >
                                                                               <Dropdown
                                                                                 bsClass="dropdown"
+                                                                                bsSize="small"
                                                                                 bsStyle="primary"
                                                                                 componentClass={[Function]}
                                                                                 id="project-header-actions"
@@ -3474,17 +3718,19 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                 <ButtonGroup
                                                                                   block={false}
                                                                                   bsClass="btn-group"
+                                                                                  bsSize="small"
                                                                                   bsStyle="primary"
                                                                                   className="dropdown"
                                                                                   justified={false}
                                                                                   vertical={false}
                                                                                 >
                                                                                   <div
-                                                                                    className="dropdown btn-group btn-group-primary"
+                                                                                    className="dropdown btn-group btn-group-sm btn-group-primary"
                                                                                   >
                                                                                     <DropdownToggle
                                                                                       bsClass="dropdown-toggle"
                                                                                       bsRole="toggle"
+                                                                                      bsSize="small"
                                                                                       bsStyle="primary"
                                                                                       data-test-id="project-header-action-dropdown-button"
                                                                                       id="project-header-actions"
@@ -3505,6 +3751,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         aria-haspopup={true}
                                                                                         block={false}
                                                                                         bsClass="btn"
+                                                                                        bsSize="small"
                                                                                         bsStyle="primary"
                                                                                         className="dropdown-toggle"
                                                                                         data-test-id="project-header-action-dropdown-button"
@@ -3522,7 +3769,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                         <button
                                                                                           aria-expanded={false}
                                                                                           aria-haspopup={true}
-                                                                                          className="dropdown-toggle btn btn-primary"
+                                                                                          className="dropdown-toggle btn btn-sm btn-primary"
                                                                                           data-test-id="project-header-action-dropdown-button"
                                                                                           disabled={false}
                                                                                           id="project-header-actions"
@@ -3890,6 +4137,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                           "deployments": Array [],
                                                           "feedSources": Array [],
                                                           "id": "mock-project-id",
+                                                          "labels": Array [],
                                                           "lastUpdated": 1553236399556,
                                                           "name": "mock-project",
                                                           "organizationId": null,
@@ -3983,40 +4231,300 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                         </div>
                                                       </Panel>
                                                     </ProjectSummaryPanel>
-                                                    <Panel
-                                                      bsClass="panel"
-                                                      bsStyle="default"
-                                                      defaultExpanded={false}
-                                                      header={
-                                                        <h3>
-                                                          What is a feed source?
-                                                        </h3>
+                                                    <ExplanatoryPanel
+                                                      project={
+                                                        Object {
+                                                          "autoDeploy": false,
+                                                          "autoDeployTypes": Array [],
+                                                          "autoDeployWithCriticalErrors": false,
+                                                          "autoFetchFeeds": true,
+                                                          "autoFetchHour": 0,
+                                                          "autoFetchMinute": 0,
+                                                          "bounds": null,
+                                                          "buildConfig": Object {
+                                                            "fares": null,
+                                                            "fetchElevationUS": null,
+                                                            "stationTransfers": null,
+                                                            "subwayAccessTime": null,
+                                                          },
+                                                          "dateCreated": 1526305321824,
+                                                          "defaultTimeZone": null,
+                                                          "deployments": Array [],
+                                                          "feedSources": Array [],
+                                                          "id": "mock-project-id",
+                                                          "labels": Array [],
+                                                          "lastUpdated": 1553236399556,
+                                                          "name": "mock-project",
+                                                          "organizationId": null,
+                                                          "otpServers": Array [],
+                                                          "pinnedDeploymentId": null,
+                                                          "routerConfig": Object {
+                                                            "carDropoffTime": null,
+                                                            "numItineraries": null,
+                                                            "requestLogFile": null,
+                                                            "stairsReluctance": null,
+                                                            "updaters": null,
+                                                            "walkSpeed": null,
+                                                          },
+                                                          "useCustomOsmBounds": false,
+                                                          "user": null,
+                                                        }
                                                       }
                                                     >
-                                                      <div
-                                                        className="panel panel-default"
-                                                      >
-                                                        <div
-                                                          className="panel-heading"
-                                                        >
-                                                          <h3
-                                                            className="panel-title"
-                                                          >
+                                                      <Panel
+                                                        bsClass="panel"
+                                                        bsStyle="default"
+                                                        defaultExpanded={false}
+                                                        header={
+                                                          <h3>
                                                             What is a feed source?
                                                           </h3>
-                                                        </div>
+                                                        }
+                                                      >
                                                         <div
-                                                          className="panel-body"
-                                                          key="0"
+                                                          className="panel panel-default"
                                                         >
-                                                          A feed source defines the location or upstream source of a
-                                                           
-                                                          GTFS feed. GTFS can be populated via automatic fetch,
-                                                           
-                                                          directly editing or uploading a zip file.
+                                                          <div
+                                                            className="panel-heading"
+                                                          >
+                                                            <h3
+                                                              className="panel-title"
+                                                            >
+                                                              What is a feed source?
+                                                            </h3>
+                                                          </div>
+                                                          <div
+                                                            className="panel-body"
+                                                            key="0"
+                                                          >
+                                                            A feed source defines the location or upstream source of a GTFS feed. GTFS can be populated via automatic fetch, directly editing or uploading a zip file.
+                                                          </div>
                                                         </div>
-                                                      </div>
-                                                    </Panel>
+                                                      </Panel>
+                                                    </ExplanatoryPanel>
+                                                    <LabelPanel
+                                                      project={
+                                                        Object {
+                                                          "autoDeploy": false,
+                                                          "autoDeployTypes": Array [],
+                                                          "autoDeployWithCriticalErrors": false,
+                                                          "autoFetchFeeds": true,
+                                                          "autoFetchHour": 0,
+                                                          "autoFetchMinute": 0,
+                                                          "bounds": null,
+                                                          "buildConfig": Object {
+                                                            "fares": null,
+                                                            "fetchElevationUS": null,
+                                                            "stationTransfers": null,
+                                                            "subwayAccessTime": null,
+                                                          },
+                                                          "dateCreated": 1526305321824,
+                                                          "defaultTimeZone": null,
+                                                          "deployments": Array [],
+                                                          "feedSources": Array [],
+                                                          "id": "mock-project-id",
+                                                          "labels": Array [],
+                                                          "lastUpdated": 1553236399556,
+                                                          "name": "mock-project",
+                                                          "organizationId": null,
+                                                          "otpServers": Array [],
+                                                          "pinnedDeploymentId": null,
+                                                          "routerConfig": Object {
+                                                            "carDropoffTime": null,
+                                                            "numItineraries": null,
+                                                            "requestLogFile": null,
+                                                            "stairsReluctance": null,
+                                                            "updaters": null,
+                                                            "walkSpeed": null,
+                                                          },
+                                                          "useCustomOsmBounds": false,
+                                                          "user": null,
+                                                        }
+                                                      }
+                                                      user={
+                                                        Object {
+                                                          "isCheckingLogin": false,
+                                                          "permissions": UserPermissions {
+                                                            "appPermissionLookup": Object {
+                                                              "administer-application": Object {
+                                                                "type": "administer-application",
+                                                              },
+                                                            },
+                                                            "orgPermissionLookup": Object {},
+                                                            "organizationLookup": Object {},
+                                                            "projectLookup": Object {},
+                                                          },
+                                                          "profile": Object {
+                                                            "app_metadata": Object {
+                                                              "datatools": Array [
+                                                                Object {
+                                                                  "client_id": "mock-client-id",
+                                                                  "organizations": Array [],
+                                                                  "permissions": Array [
+                                                                    Object {
+                                                                      "type": "administer-application",
+                                                                    },
+                                                                  ],
+                                                                  "projects": Array [],
+                                                                  "subscriptions": Array [],
+                                                                },
+                                                              ],
+                                                            },
+                                                            "clientID": "mock-client-id",
+                                                            "created_at": "2016-03-04T18:59:22.569Z",
+                                                            "email": "mock-user@conveyal.com",
+                                                            "email_verified": true,
+                                                            "identities": Array [
+                                                              Object {
+                                                                "connection": "Username-Password-Authentication",
+                                                                "isSocial": false,
+                                                                "provider": "auth0",
+                                                                "user_id": "12345",
+                                                              },
+                                                            ],
+                                                            "jti": "gibberish",
+                                                            "last_password_reset": "2017-07-13T13:58:01.021Z",
+                                                            "name": "mock-user@conveyal.com",
+                                                            "nickname": "mock-user",
+                                                            "persistent": Object {},
+                                                            "picture": "https://s.gravatar.com/avatar/f8660ca52d1229e3d55e88f2db4affda?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fmu.png",
+                                                            "sub": "auth0|12345",
+                                                            "updated_at": "2019-03-21T19:05:30.180Z",
+                                                            "user_id": "auth0|12345",
+                                                            "user_metadata": Object {
+                                                              "datatools": Array [
+                                                                Object {
+                                                                  "client_id": "mock-client-id",
+                                                                  "editor": Object {
+                                                                    "map_id": "mapbox.streets",
+                                                                  },
+                                                                  "hideTutorial": true,
+                                                                  "sidebarExpanded": false,
+                                                                },
+                                                              ],
+                                                              "lang": "en",
+                                                            },
+                                                          },
+                                                          "recentActivity": null,
+                                                          "redirectOnSuccess": null,
+                                                          "subscriptions": UserSubscriptions {
+                                                            "subscriptionLookup": Object {},
+                                                          },
+                                                          "token": "mock-token",
+                                                        }
+                                                      }
+                                                    >
+                                                      <Panel
+                                                        bsClass="panel"
+                                                        bsStyle="default"
+                                                        defaultExpanded={false}
+                                                        header={
+                                                          <h3>
+                                                            <Icon
+                                                              type="tag"
+                                                            />
+                                                             
+                                                            Labels
+                                                          </h3>
+                                                        }
+                                                      >
+                                                        <div
+                                                          className="panel panel-default"
+                                                        >
+                                                          <div
+                                                            className="panel-heading"
+                                                          >
+                                                            <h3
+                                                              className="panel-title"
+                                                            >
+                                                              <Icon
+                                                                type="tag"
+                                                              >
+                                                                <i
+                                                                  className="fa fa-tag fa-fw "
+                                                                />
+                                                              </Icon>
+                                                               
+                                                              Labels
+                                                            </h3>
+                                                          </div>
+                                                          <div
+                                                            className="panel-body"
+                                                            key="0"
+                                                          >
+                                                            <div
+                                                              className="feedLabelContainer  grid"
+                                                              key=".0"
+                                                            >
+                                                              <LabelEditorModal
+                                                                projectId="mock-project-id"
+                                                              >
+                                                                <Modal
+                                                                  animation={true}
+                                                                  autoFocus={true}
+                                                                  backdrop={true}
+                                                                  bsClass="modal"
+                                                                  dialogComponentClass={[Function]}
+                                                                  enforceFocus={true}
+                                                                  keyboard={true}
+                                                                  manager={
+                                                                    ModalManager {
+                                                                      "containers": Array [],
+                                                                      "data": Array [],
+                                                                      "handleContainerOverflow": true,
+                                                                      "hideSiblingNodes": true,
+                                                                      "modals": Array [],
+                                                                    }
+                                                                  }
+                                                                  onHide={[Function]}
+                                                                  renderBackdrop={[Function]}
+                                                                  restoreFocus={true}
+                                                                  show={false}
+                                                                >
+                                                                  <Modal
+                                                                    autoFocus={true}
+                                                                    backdrop={true}
+                                                                    backdropClassName="modal-backdrop"
+                                                                    backdropTransitionTimeout={150}
+                                                                    containerClassName="modal-open"
+                                                                    dialogTransitionTimeout={300}
+                                                                    enforceFocus={true}
+                                                                    keyboard={true}
+                                                                    manager={
+                                                                      ModalManager {
+                                                                        "containers": Array [],
+                                                                        "data": Array [],
+                                                                        "handleContainerOverflow": true,
+                                                                        "hideSiblingNodes": true,
+                                                                        "modals": Array [],
+                                                                      }
+                                                                    }
+                                                                    onEntering={[Function]}
+                                                                    onExited={[Function]}
+                                                                    onHide={[Function]}
+                                                                    renderBackdrop={[Function]}
+                                                                    restoreFocus={true}
+                                                                    show={false}
+                                                                    transition={[Function]}
+                                                                  />
+                                                                </Modal>
+                                                              </LabelEditorModal>
+                                                              <button
+                                                                className="labelActionButton"
+                                                                onClick={[Function]}
+                                                              >
+                                                                Add a new label
+                                                              </button>
+                                                              <div
+                                                                className="noLabelsMessage"
+                                                              >
+                                                                There are no labels in this project.
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </Panel>
+                                                    </LabelPanel>
                                                   </div>
                                                 </Col>
                                               </div>

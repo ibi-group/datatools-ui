@@ -16,22 +16,22 @@ body {
 
 /* Font for entire app */
 * {
-  font-family: 'Sarabun', sans-serif;
+  font-family: "Sarabun", sans-serif;
 }
 
 kbd {
   display: inline-block;
-  margin: 0 .1em;
-  padding: .1em .6em;
-  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  margin: 0 0.1em;
+  padding: 0.1em 0.6em;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 11px;
   line-height: 1.4;
   color: #242729;
-  text-shadow: 0 1px 0 #FFF;
+  text-shadow: 0 1px 0 #fff;
   background-color: #e1e3e5;
   border: 1px solid #adb3b9;
   border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(12,13,14,0.2), 0 0 0 2px #FFF inset;
+  box-shadow: 0 1px 0 rgba(12, 13, 14, 0.2), 0 0 0 2px #fff inset;
   white-space: nowrap;
 }
 
@@ -50,7 +50,8 @@ kbd {
   margin-top: 15px;
 }
 
-.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover {
   outline: 0;
 }
 
@@ -66,7 +67,7 @@ kbd {
 /* Project */
 
 .project-header {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   border-bottom: 1px #e3e3e3 solid;
   margin: -40px;
   margin-bottom: -64px;
@@ -81,7 +82,8 @@ kbd {
   width: 100%;
 }
 
-.feed-source-table td, .feed-source-table th {
+.feed-source-table td,
+.feed-source-table th {
   padding: 10px;
 }
 
@@ -105,11 +107,11 @@ kbd {
 }
 
 .comparison-column {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 
 .feed-version-column {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
 
 .feed-source-table-row {
@@ -141,6 +143,117 @@ td.feed-source-info {
   margin-bottom: 5px;
 }
 
+/* LABELS */
+.feedLabelContainer {
+  width: 100%;
+}
+.feedLabelContainer.grid {
+  display: grid;
+  grid-template-columns: 100%;
+}
+.feedLabelContainer.large .noLabelsMessage {
+  /* Match the margin of the new labels "button" */
+  margin: 0 0 10px 0;
+}
+.feedSourceLabelRow {
+  align-items: baseline;
+  display: inline-flex;
+  width: 100%;
+}
+.feedLabel {
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid;
+  max-width: 100%;
+  min-width: 60px;
+  word-break: break-word;
+}
+.feedLabel.clickable {
+  cursor: pointer;
+}
+.feedLabel.smaller {
+  align-items: center;
+  justify-content: center;
+  padding: 0px 4px;
+}
+.feedLabel.small.clickable .labelName span {
+  /* The checkbox changes the math from above */
+  margin-bottom: 2px;
+}
+.feedLabel .labelName {
+  align-items: baseline;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 5px;
+  width: 100%;
+}
+.feedLabel.smaller .labelName {
+  align-items: baseline;
+  height: 100%;
+  padding: 0;
+}
+.feedLabel.smaller.clickable .labelName {
+  align-items: center;
+}
+
+.feedLabel .labelName i {
+  margin: 0;
+  padding-right: 2px;
+}
+.feedLabel .labelName span {
+  margin: 0 0 2px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.feedLabelWrapper {
+  align-items: center;
+  display: inline-flex;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 0 5px 2px 0;
+}
+.feedLabelWrapper.withButtons {
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+/* Label Buttons */
+.feedLabelWrapper .actionButtons {
+  display: flex;
+}
+.feedLabelWrapper .actionButtons button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  opacity: 0.7;
+  padding: 0px;
+  text-decoration: underline;
+}
+.feedLabelWrapper .actionButtons button:hover {
+  opacity: 1;
+}
+.feedLabelWrapper .actionButtons input[type="checkbox"] {
+  margin: 0 7px 0 0;
+}
+
+/* New Label "button" */
+.labelActionButton {
+  background: none;
+  border: none;
+  color: #337ab7;
+  grid-column: 1 / -1;
+  margin: 0 0 10px 0;
+  padding: 0;
+  text-decoration: none;
+}
+.labelActionButton:hover {
+  text-decoration: underline;
+}
+
 /* Feed transformation substitution styling */
 .substitution-row td {
   border-top: none;
@@ -150,7 +263,8 @@ td.feed-source-info {
   padding: 0;
 }
 
-.substitution-row .form-control, .substitution-row .input-group > * {
+.substitution-row .form-control,
+.substitution-row .input-group > * {
   height: unset;
   padding: 2px;
 }
@@ -160,7 +274,8 @@ td.feed-source-info {
   cursor: pointer;
 }
 
-.substitution-row.inactive .form-control, .substitution-row.inactive .input-group > * {
+.substitution-row.inactive .form-control,
+.substitution-row.inactive .input-group > * {
   background: none;
   border-color: transparent;
   box-shadow: none;
@@ -174,7 +289,7 @@ td.feed-source-info {
 }
 
 .status-active {
-  background-color: #59B542;
+  background-color: #59b542;
 }
 
 .status-expiring-20 {
@@ -182,7 +297,7 @@ td.feed-source-info {
 }
 
 .status-expiring-5 {
-  background-color: #C44C35;
+  background-color: #c44c35;
 }
 
 .status-expired {
@@ -190,11 +305,11 @@ td.feed-source-info {
 }
 
 .status-future {
-  background-color: #4366B8;
+  background-color: #4366b8;
 }
 
 .status-no-version {
-  background-color: #853BE5;
+  background-color: #853be5;
 }
 
 .feed-status-subtext {
@@ -299,23 +414,24 @@ td.feed-source-info {
 
 /* Prevent text from being selectable */
 .unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* EDITOR ENTITY LIST */
 
 .entity-list-row {
   /*background-color: '#f5f5f5';*/
-  outline: 'none';
+  outline: "none";
 }
 
-.EntityList input:focus, textarea:focus {
-    outline: none;
+.EntityList input:focus,
+textarea:focus {
+  outline: none;
 }
 
 /* Route List */
@@ -374,14 +490,14 @@ td.feed-source-info {
 
 .trip-pattern-list {
   height: 90%;
-  overflow-y: scroll
+  overflow-y: scroll;
 }
 
 .pattern-stop-card {
   border: 1px solid #ccc;
   padding: 0.5rem 0.5rem;
-  margin-bottom: .5rem;
-  background-color: #FAFFFD;
+  margin-bottom: 0.5rem;
+  background-color: #fafffd;
   border-radius: 3px;
 }
 
@@ -412,11 +528,11 @@ td.feed-source-info {
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   not supported by any browser */
 }
 
@@ -480,7 +596,6 @@ td.feed-source-info {
 
 /* SIDEBAR */
 .Sidebar {
-
 }
 
 .Sidebar > nav {
@@ -547,25 +662,23 @@ td.feed-source-info {
   font-weight: bold;
 }
 
-
 /* React Bootstrap Table adjustments (no way to change toolbar class otherwise) */
 
 .react-bs-table-tool-bar {
   margin: 0px;
 }
 
-
 /* Ensure react-select menu is on top of leaflet */
 .Select > .Select-menu-outer {
-	z-index: 2000000;
+  z-index: 2000000;
 }
 
 .loading-ellipsis:after {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
-  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
-  animation: ellipsis steps(4,end) 900ms infinite;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
   content: "\2026"; /* ascii code for the ellipsis character */
   width: 0px;
 }
@@ -596,7 +709,7 @@ td.feed-source-info {
 }
 
 .editable-cell .cell-input {
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   border: 0;
   height: 100%;
   width: 100%;
@@ -621,9 +734,8 @@ h4.line {
   font-size: 13px;
   position: relative;
   overflow: hidden;
-  text-align:left;
+  text-align: left;
 }
-
 
 h4.line:after {
   display: inline-block;
@@ -636,7 +748,6 @@ h4.line:after {
   margin-top: 0px;
   margin-left: 10px;
 }
-
 
 .nomargin {
   margin: 0px;
@@ -660,7 +771,7 @@ h4.line:after {
 }
 
 .manager-header {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   margin: -40px;
   padding-top: 40px;
   margin-bottom: -64px;
@@ -669,7 +780,6 @@ h4.line:after {
   padding-left: 20px;
   border-bottom: 1px #e3e3e3 solid;
 }
-
 
 /* GTFS+ Editor */
 
@@ -680,7 +790,6 @@ h4.line:after {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 
 .gtfs-plus-column-header {
   background: gray;
@@ -732,15 +841,13 @@ h4.line:after {
   text-align: center;
 }
 
-
 .link-disabled {
-  cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .link-disabled * {
-  pointer-events: none
+  pointer-events: none;
 }
-
 
 /* Recent activity */
 

@@ -114,6 +114,9 @@ Object {
           "osmExtractUrl": null,
           "otpCommit": null,
           "otpVersion": null,
+          "peliasCsvFiles": Array [],
+          "peliasUpdate": null,
+          "peliasWebhookUrl": null,
           "pinnedfeedVersionIds": Array [],
           "projectBounds": Object {
             "east": 0,

@@ -22,6 +22,14 @@ To deploy or update GTFS feeds to OTP:
 7. If you select `Custom` under `Build configuration` or `Router configuration`, enter the desired configuration settings.
 8. Click the `Deploy` dropdown at the top of the main pane, then pick the server on which to perform the deployment. Existing deployments on that server will be discarded.
 
+## Updating the Custom Places Index
+
+A GTFS feed's stops can be sent to a Custom Places Index, should one be set up. You'll need the secret Webhook URL of your Custom Places Index server.
+
+Only a pinned deployment's feed can be sent to a Custom Places Index. When opening a pinned deployment, a `Custom Geocoder Settings` pane appears below the `OTP Configuration` pane. In the text field, paste in the secret Webhook URL for your Custom Places Index server. Once it's entered, the `Update Custom Geocoder` checkbox will be clickable. If it is checked, your Custom Places Index will be updated when deploying the feed.
+
+The pane also has an option to upload Custom POI CSV files. These files contain special landmarks and coordinates which are prioritized when returning geocoder results. You can upload as many custom CSV files as you like. They will all be added to the Custom Places Index.
+
 ## Watching deployments take place
 
 After click Deploy, you can watch the deployment progress from the right-hand panel:

@@ -60,6 +60,9 @@ export function makeMockDeployment (
     routerId: null,
     skipOsmExtract: false,
     tripPlannerVersion: 'OTP_1',
+    peliasUpdate: null,
+    peliasWebhookUrl: null,
+    peliasCsvFiles: [],
     user: null
   }
 }

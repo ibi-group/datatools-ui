@@ -115,6 +115,7 @@ Object {
           "otpCommit": null,
           "otpVersion": null,
           "peliasCsvFiles": Array [],
+          "peliasResetDb": null,
           "peliasUpdate": null,
           "peliasWebhookUrl": null,
           "pinnedfeedVersionIds": Array [],

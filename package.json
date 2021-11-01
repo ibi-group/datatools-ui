@@ -1,7 +1,7 @@
 {
   "name": "datatools-manager",
   "version": "0.0.0-development",
-  "description": "Core application for the Conveyal transit data tools suite",
+  "description": "Core application for the IBI Group transit data tools suite",
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>/__tests__/test-utils/setup-test-framework.js"
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/conveyal/datatools-ui.git"
+    "url": "https://github.com/ibi-group/datatools-ui.git"
   },
-  "author": "Conveyal LLC",
+  "author": "Conveyal LLC, IBI Group",
   "license": "MIT",
   "scripts": {
     "build": "mastarm build --env production",

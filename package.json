@@ -113,7 +113,7 @@
     "turf-point-on-line": "^3.0.11",
     "turf-polygon": "^1.0.3",
     "uuid": "^3.1.0",
-    "validator": "7.0.0"
+    "validator": "13.7.0"
   },
   "devDependencies": {
     "aggregate-error": "^3.0.0",

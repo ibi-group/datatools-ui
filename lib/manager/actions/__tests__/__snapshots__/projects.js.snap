@@ -117,7 +117,6 @@ Object {
           "peliasCsvFiles": Array [],
           "peliasResetDb": null,
           "peliasUpdate": null,
-          "peliasWebhookUrl": null,
           "pinnedfeedVersionIds": Array [],
           "projectBounds": Object {
             "east": 0,
@@ -185,6 +184,7 @@ Object {
       "name": "mock-project-with-deployments",
       "organizationId": null,
       "otpServers": Array [],
+      "peliasWebhookUrl": null,
       "pinnedDeploymentId": null,
       "routerConfig": Object {
         "carDropoffTime": null,

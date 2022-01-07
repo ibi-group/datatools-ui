@@ -130,7 +130,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
             "peliasCsvFiles": Array [],
             "peliasResetDb": null,
             "peliasUpdate": null,
-            "peliasWebhookUrl": null,
             "pinnedfeedVersionIds": Array [],
             "projectBounds": Object {
               "east": 0,
@@ -166,7 +165,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
             "peliasCsvFiles": Array [],
             "peliasResetDb": null,
             "peliasUpdate": null,
-            "peliasWebhookUrl": null,
             "pinnedfeedVersionIds": Array [],
             "projectBounds": Object {
               "east": 0,
@@ -234,6 +232,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
         "name": "mock-project-with-deployments",
         "organizationId": null,
         "otpServers": Array [],
+        "peliasWebhookUrl": null,
         "pinnedDeploymentId": "mock-deployment-id-0",
         "routerConfig": Object {
           "carDropoffTime": null,
@@ -367,7 +366,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
               "peliasCsvFiles": Array [],
               "peliasResetDb": null,
               "peliasUpdate": null,
-              "peliasWebhookUrl": null,
               "pinnedfeedVersionIds": Array [],
               "projectBounds": Object {
                 "east": 0,
@@ -403,7 +401,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
               "peliasCsvFiles": Array [],
               "peliasResetDb": null,
               "peliasUpdate": null,
-              "peliasWebhookUrl": null,
               "pinnedfeedVersionIds": Array [],
               "projectBounds": Object {
                 "east": 0,
@@ -471,6 +468,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
           "name": "mock-project-with-deployments",
           "organizationId": null,
           "otpServers": Array [],
+          "peliasWebhookUrl": null,
           "pinnedDeploymentId": "mock-deployment-id-0",
           "routerConfig": Object {
             "carDropoffTime": null,
@@ -656,7 +654,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                       "peliasCsvFiles": Array [],
                       "peliasResetDb": null,
                       "peliasUpdate": null,
-                      "peliasWebhookUrl": null,
                       "pinnedfeedVersionIds": Array [],
                       "projectBounds": Object {
                         "east": 0,
@@ -692,7 +689,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                       "peliasCsvFiles": Array [],
                       "peliasResetDb": null,
                       "peliasUpdate": null,
-                      "peliasWebhookUrl": null,
                       "pinnedfeedVersionIds": Array [],
                       "projectBounds": Object {
                         "east": 0,
@@ -822,7 +818,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                         "peliasCsvFiles": Array [],
                         "peliasResetDb": null,
                         "peliasUpdate": null,
-                        "peliasWebhookUrl": null,
                         "pinnedfeedVersionIds": Array [],
                         "projectBounds": Object {
                           "east": 0,
@@ -858,7 +853,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                         "peliasCsvFiles": Array [],
                         "peliasResetDb": null,
                         "peliasUpdate": null,
-                        "peliasWebhookUrl": null,
                         "pinnedfeedVersionIds": Array [],
                         "projectBounds": Object {
                           "east": 0,
@@ -926,6 +920,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                     "name": "mock-project-with-deployments",
                     "organizationId": null,
                     "otpServers": Array [],
+                    "peliasWebhookUrl": null,
                     "pinnedDeploymentId": "mock-deployment-id-0",
                     "routerConfig": Object {
                       "carDropoffTime": null,
@@ -1201,7 +1196,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                 "peliasCsvFiles": Array [],
                                 "peliasResetDb": null,
                                 "peliasUpdate": null,
-                                "peliasWebhookUrl": null,
                                 "pinnedfeedVersionIds": Array [],
                                 "projectBounds": Object {
                                   "east": 0,
@@ -1331,7 +1325,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                     "peliasCsvFiles": Array [],
                                     "peliasResetDb": null,
                                     "peliasUpdate": null,
-                                    "peliasWebhookUrl": null,
                                     "pinnedfeedVersionIds": Array [],
                                     "projectBounds": Object {
                                       "east": 0,
@@ -1367,7 +1360,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                     "peliasCsvFiles": Array [],
                                     "peliasResetDb": null,
                                     "peliasUpdate": null,
-                                    "peliasWebhookUrl": null,
                                     "pinnedfeedVersionIds": Array [],
                                     "projectBounds": Object {
                                       "east": 0,
@@ -1435,6 +1427,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                 "name": "mock-project-with-deployments",
                                 "organizationId": null,
                                 "otpServers": Array [],
+                                "peliasWebhookUrl": null,
                                 "pinnedDeploymentId": "mock-deployment-id-0",
                                 "routerConfig": Object {
                                   "carDropoffTime": null,
@@ -1615,7 +1608,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                 "peliasCsvFiles": Array [],
                                 "peliasResetDb": null,
                                 "peliasUpdate": null,
-                                "peliasWebhookUrl": null,
                                 "pinnedfeedVersionIds": Array [],
                                 "projectBounds": Object {
                                   "east": 0,
@@ -1745,7 +1737,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                     "peliasCsvFiles": Array [],
                                     "peliasResetDb": null,
                                     "peliasUpdate": null,
-                                    "peliasWebhookUrl": null,
                                     "pinnedfeedVersionIds": Array [],
                                     "projectBounds": Object {
                                       "east": 0,
@@ -1781,7 +1772,6 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                     "peliasCsvFiles": Array [],
                                     "peliasResetDb": null,
                                     "peliasUpdate": null,
-                                    "peliasWebhookUrl": null,
                                     "pinnedfeedVersionIds": Array [],
                                     "projectBounds": Object {
                                       "east": 0,
@@ -1849,6 +1839,7 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                 "name": "mock-project-with-deployments",
                                 "organizationId": null,
                                 "otpServers": Array [],
+                                "peliasWebhookUrl": null,
                                 "pinnedDeploymentId": "mock-deployment-id-0",
                                 "routerConfig": Object {
                                   "carDropoffTime": null,

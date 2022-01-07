@@ -54,16 +54,15 @@ export function makeMockDeployment (
     osmExtractUrl: null,
     otpCommit: null,
     otpVersion: null,
+    peliasCsvFiles: [],
+    peliasResetDb: null,
+    peliasUpdate: null,
     pinnedfeedVersionIds: [],
-    projectId: project.id,
     projectBounds: {east: 0, west: 0, north: 0, south: 0},
+    projectId: project.id,
     routerId: null,
     skipOsmExtract: false,
     tripPlannerVersion: 'OTP_1',
-    peliasUpdate: null,
-    peliasResetDb: null,
-    peliasWebhookUrl: null,
-    peliasCsvFiles: [],
     user: null
   }
 }
@@ -94,6 +93,7 @@ export const mockProject = {
   organizationId: null,
   otpServers: [],
   pinnedDeploymentId: null,
+  peliasWebhookUrl: null,
   routerConfig: {
     carDropoffTime: null,
     numItineraries: null,

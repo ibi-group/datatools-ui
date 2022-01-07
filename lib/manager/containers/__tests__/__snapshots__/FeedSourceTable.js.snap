@@ -129,7 +129,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
             "peliasCsvFiles": Array [],
             "peliasResetDb": null,
             "peliasUpdate": null,
-            "peliasWebhookUrl": null,
             "pinnedfeedVersionIds": Array [],
             "projectBounds": Object {
               "east": 0,
@@ -197,6 +196,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
         "name": "mock-project-with-deployments",
         "organizationId": null,
         "otpServers": Array [],
+        "peliasWebhookUrl": null,
         "pinnedDeploymentId": null,
         "routerConfig": Object {
           "carDropoffTime": null,
@@ -428,7 +428,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "peliasCsvFiles": Array [],
               "peliasResetDb": null,
               "peliasUpdate": null,
-              "peliasWebhookUrl": null,
               "pinnedfeedVersionIds": Array [],
               "projectBounds": Object {
                 "east": 0,
@@ -496,6 +495,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
           "name": "mock-project-with-deployments",
           "organizationId": null,
           "otpServers": Array [],
+          "peliasWebhookUrl": null,
           "pinnedDeploymentId": null,
           "routerConfig": Object {
             "carDropoffTime": null,
@@ -704,7 +704,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     "peliasCsvFiles": Array [],
                     "peliasResetDb": null,
                     "peliasUpdate": null,
-                    "peliasWebhookUrl": null,
                     "pinnedfeedVersionIds": Array [],
                     "projectBounds": Object {
                       "east": 0,
@@ -772,6 +771,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                 "name": "mock-project-with-deployments",
                 "organizationId": null,
                 "otpServers": Array [],
+                "peliasWebhookUrl": null,
                 "pinnedDeploymentId": null,
                 "routerConfig": Object {
                   "carDropoffTime": null,
@@ -911,7 +911,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                       "peliasCsvFiles": Array [],
                       "peliasResetDb": null,
                       "peliasUpdate": null,
-                      "peliasWebhookUrl": null,
                       "pinnedfeedVersionIds": Array [],
                       "projectBounds": Object {
                         "east": 0,
@@ -979,6 +978,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                   "name": "mock-project-with-deployments",
                   "organizationId": null,
                   "otpServers": Array [],
+                  "peliasWebhookUrl": null,
                   "pinnedDeploymentId": null,
                   "routerConfig": Object {
                     "carDropoffTime": null,
@@ -1138,7 +1138,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                         "peliasCsvFiles": Array [],
                         "peliasResetDb": null,
                         "peliasUpdate": null,
-                        "peliasWebhookUrl": null,
                         "pinnedfeedVersionIds": Array [],
                         "projectBounds": Object {
                           "east": 0,
@@ -1206,6 +1205,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     "name": "mock-project-with-deployments",
                     "organizationId": null,
                     "otpServers": Array [],
+                    "peliasWebhookUrl": null,
                     "pinnedDeploymentId": null,
                     "routerConfig": Object {
                       "carDropoffTime": null,
@@ -3257,7 +3257,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             "peliasCsvFiles": Array [],
                             "peliasResetDb": null,
                             "peliasUpdate": null,
-                            "peliasWebhookUrl": null,
                             "pinnedfeedVersionIds": Array [],
                             "projectBounds": Object {
                               "east": 0,
@@ -3325,6 +3324,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                         "name": "mock-project-with-deployments",
                         "organizationId": null,
                         "otpServers": Array [],
+                        "peliasWebhookUrl": null,
                         "pinnedDeploymentId": null,
                         "routerConfig": Object {
                           "carDropoffTime": null,
@@ -3528,7 +3528,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               "peliasCsvFiles": Array [],
                               "peliasResetDb": null,
                               "peliasUpdate": null,
-                              "peliasWebhookUrl": null,
                               "pinnedfeedVersionIds": Array [],
                               "projectBounds": Object {
                                 "east": 0,
@@ -3596,6 +3595,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           "name": "mock-project-with-deployments",
                           "organizationId": null,
                           "otpServers": Array [],
+                          "peliasWebhookUrl": null,
                           "pinnedDeploymentId": null,
                           "routerConfig": Object {
                             "carDropoffTime": null,
@@ -3854,7 +3854,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "peliasCsvFiles": Array [],
                                     "peliasResetDb": null,
                                     "peliasUpdate": null,
-                                    "peliasWebhookUrl": null,
                                     "pinnedfeedVersionIds": Array [],
                                     "projectBounds": Object {
                                       "east": 0,
@@ -3922,6 +3921,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "name": "mock-project-with-deployments",
                                 "organizationId": null,
                                 "otpServers": Array [],
+                                "peliasWebhookUrl": null,
                                 "pinnedDeploymentId": null,
                                 "routerConfig": Object {
                                   "carDropoffTime": null,
@@ -4254,7 +4254,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                   "peliasCsvFiles": Array [],
                                                   "peliasResetDb": null,
                                                   "peliasUpdate": null,
-                                                  "peliasWebhookUrl": null,
                                                   "pinnedfeedVersionIds": Array [],
                                                   "projectBounds": Object {
                                                     "east": 0,
@@ -4322,6 +4321,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                               "name": "mock-project-with-deployments",
                                               "organizationId": null,
                                               "otpServers": Array [],
+                                              "peliasWebhookUrl": null,
                                               "pinnedDeploymentId": null,
                                               "routerConfig": Object {
                                                 "carDropoffTime": null,
@@ -4663,7 +4663,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "peliasCsvFiles": Array [],
                                     "peliasResetDb": null,
                                     "peliasUpdate": null,
-                                    "peliasWebhookUrl": null,
                                     "pinnedfeedVersionIds": Array [],
                                     "projectBounds": Object {
                                       "east": 0,
@@ -4731,6 +4730,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "name": "mock-project-with-deployments",
                                 "organizationId": null,
                                 "otpServers": Array [],
+                                "peliasWebhookUrl": null,
                                 "pinnedDeploymentId": null,
                                 "routerConfig": Object {
                                   "carDropoffTime": null,

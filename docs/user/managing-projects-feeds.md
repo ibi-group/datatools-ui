@@ -82,6 +82,7 @@ Once the Feed Transformations have all been configured, you can import a new GTF
 
 ![screenshot](../img/feed-transformation-summary.png)
 
+A more in depth summary is available under the Transformation Results tab on the left sidebar. This panel will show you the modifications made to each file in the feed, along with how many rows were added, deleted, or modified. 
 
 ## Viewing and Managing Feed Versions
 

@@ -22,6 +22,10 @@ components:
         placeholder: Additional information (optional)
       publishNewVersion:
         label: Publish snapshot as new feed version
+      confirmPublishWithUnapproved:
+        label: Confirm publish with unapproved routes 
+    unapprovedRoutesHeader: "The following routes are not approved"
+    unapprovedRoutesDesc: "These routes will not be included in the output:"
     missingNameAlert: Must give snapshot a valid name!
     ok: OK
     title: Create a new snapshot
@@ -210,6 +214,13 @@ components:
     fetchFeedEvery: Fetch feed every
     HOURS: hours
     MINUTES: minutes
+  FeedInfo:
+    autoFetch: Auto fetch
+    autoPublish: Auto publish
+    deployable: Deployable
+    edit: Edit
+    private: Private
+    public: Public
   FeedInfoPanel:
     uploadShapefile:
       body: 'Select a zipped shapefile to display on map. Note: this is only for use as a visual aid.'
@@ -226,17 +237,17 @@ components:
     createFirst: Create first feed source!
   FeedSourceTableRow:
     status:
-        active: Active
-        all: All
-        expired: Expired
-        expiring-within-20-days: Expiring within 20 days
-        expiring-within-5-days: Expiring within 5 days
-        feedNotInDeployment: Feed not in deployment
-        feedNotPublished: Feed not published
-        future: Future
-        no-version: No version
-        same-as-deployed: Same as Deployed
-        same-as-published: Same as Published
+      active: Active
+      all: All
+      expired: Expired
+      expiring-within-20-days: Expiring within 20 days
+      expiring-within-5-days: Expiring within 5 days
+      feedNotInDeployment: Feed not in deployment
+      feedNotPublished: Feed not published
+      future: Future
+      no-version: No version
+      same-as-deployed: Same as Deployed
+      same-as-published: Same as Published
   FeedSourceViewer:
     deploy: Deploy
     edit: Edit GTFS
@@ -483,6 +494,21 @@ components:
     placeholder: Select language...
   Login:
     title: Log in
+  MergeFeedsResult:
+    body:
+      failure: Merge failed with %errorCount% errors.
+      success: Merge was completed successfully. A new version will be processed/validated containing the resulting feed.
+    remappedIds: "Remapped IDs: %remappedIdCount%"
+    skipped: "Skipped records:"
+    skippedTableRecords: "%table%: %skippedCount%"
+    strategyUsed: "Strategy used: %strategy%"
+    tripIdsToCheck: "Trip IDs to check: %tripIdCount%"
+    DEFAULT: Trip IDs were unique in the source feeds. The merged feed was successfully created.
+    CHECK_STOP_TIMES: Some trip IDs were found in both feeds. The merged feed was successfully created.
+    title:
+      failure: 'Warning: Errors encountered during feed merge!'
+      success: 'Feed merge was successful!'
+
   NormalizeStopTimesTip:
     info: "Tip: when changing travel times, consider
     using the 'Normalize stop times' button above to automatically update

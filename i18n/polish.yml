@@ -22,6 +22,10 @@ components:
         placeholder: Dodatkowe informacje (opcjonalnie)
       publishNewVersion:
         label: Publikuj migawkę jako nowa wersja pliku
+      confirmPublishWithUnapproved:
+        label: Potwierdź publikację z niezatwierdzonymi trasami 
+    unapprovedRoutesHeader: "Następujące trasy nie są akceptowane:"
+    unapprovedRoutesDesc: "Trasy te nie zostaną uwzględnione w danych wyjściowych:"
     missingNameAlert: Migawce należy nadać prawidłową nazwę!
     ok: OK
     title: Utwórz nową migawkę
@@ -235,6 +239,13 @@ components:
     fetchFeedEvery: Pobieraj kanał co
     HOURS: godzin
     MINUTES: minut
+  FeedInfo: # Need to check these translations.
+    autoFetch: Automatyczne pobieranie
+    autoPublish: Automatycznie publikuj
+    deployable: Rozmieszczany
+    edit: Edytować
+    private: Prywatny
+    public: Publiczny
   FeedInfoPanel:
     uploadShapefile:
       body: >-

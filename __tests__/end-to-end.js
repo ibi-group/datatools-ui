@@ -2629,6 +2629,9 @@ describe('end-to-end', () => {
         // wait for dialog to appear
         await waitForSelector('[data-test-id="snapshot-dialog-name"]')
 
+        // confirm that we want to publish with unapproved routes
+        await click('[data-test-id="confirmPublishWithUnapproved"]')
+
         // enter name
         await type('[data-test-id="snapshot-dialog-name"]', 'test-snapshot')
 

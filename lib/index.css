@@ -17,5 +17,6 @@
 @import url(node_modules/rc-slider/assets/index.css);
 @import url(node_modules/react-toggle/style.css);
 @import url(node_modules/react-toastify/dist/ReactToastify.min.css);
+@import url(node_modules/react-dropdown-tree-select/dist/styles.css);
 
 @import url(lib/style.css);

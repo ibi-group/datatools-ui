@@ -565,6 +565,17 @@ async function pickColor (containerSelector: string, color: string) {
 }
 
 /**
+ * A helper method to choose a route type
+ * in the route editor (but not in the feed editor).
+ */
+async function pickRouteType (containerSelector: string, routeOptionId: string) {
+  await click(`${containerSelector} a`)
+  await waitForSelector(`${containerSelector} .dropdown-content`)
+  await waitForSelector(`[data-test-id="${routeOptionId}"]`)
+  await click(`[data-test-id="${routeOptionId}"] label`)
+}
+
+/**
  * A helper method to type in an autocomplete value and then select an option
  * from an react-select component.
  */
@@ -1599,9 +1610,9 @@ describe('end-to-end', () => {
         )
 
         // route type
-        await page.select(
-          '[data-test-id="route-route_type-input-container"] select',
-          '3'
+        await pickRouteType(
+          '[data-test-id="route-route_type-input-container"]',
+          'route-type-option-3'
         )
 
         // route color

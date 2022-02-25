@@ -879,3 +879,120 @@ h4.line:after {
 .recent-activity-inner {
   margin-left: 36;
 }
+
+
+/* Custom classes for the DropdownTreeSelect component that
+ * override CSS from 'react-dropdown-tree-select/dist/styles.css'.
+ * Modified from https://dowjones.github.io/react-dropdown-tree-select/#/story/with-bootstrap-styles.
+ * !important tags are used because somehow the tree selector default styles are applied after this stylesheet.
+ */
+
+.route-type-select .dropdown {
+  display: block;
+}
+
+ /* Make some styles look like bootstrap. */
+.route-type-select .dropdown-trigger {
+  background-color: #fff;
+  border-color: #ccc!important;
+  border-radius: 4px;
+  color: #555;
+  padding: 4px 6px!important;
+  width: 100%;
+}
+
+/* Remove border and background of tags
+ * (a "tag" is a selected item displayed inside the input portion of the selector). */
+.route-type-select .dropdown-trigger .tag {
+  background: none!important;
+  border: none!important;
+}
+
+/* Hide the search box and the mini "delete" button next to the value. */
+.route-type-select .dropdown-trigger .tag-item,
+.route-type-select .dropdown-trigger .tag-item .search,
+.route-type-select .dropdown-trigger .tag-remove {
+  display: none;
+}
+
+.route-type-select .dropdown-trigger .tag-item:first-of-type {
+  display: inherit;
+}
+
+/* Position the drop-down arrow. */
+.route-type-select .dropdown-trigger.arrow:after {
+  border-style: solid;
+  height: 0;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 0;
+}
+.route-type-select .dropdown-trigger.arrow.bottom:after {
+  border-color: #999 transparent transparent;
+  border-width: 5px 5px 2.5px;
+  content: ''!important;
+  margin-top: -5px;
+}
+.route-type-select .dropdown-trigger.arrow.top:after {
+  border-color: transparent transparent #999;
+  border-width: 2.5px 5px 5px;
+  content: ''!important;
+  margin-top: -7.5px;
+}
+
+/* Adjust position and width of the dropdown content wrt the input itself. */
+.route-type-select .dropdown-content {
+  margin-top: -4px;
+  width: 100%;
+}
+
+/* Hide the radio boxes in the tree list. */
+.route-type-select .dropdown-content input[type=radio] {
+  display: none;
+}
+
+/* Highlight the selected item, using same color as react-select 1.x. */
+.route-type-select .dropdown-content .node.checked {
+  background-color: #f5faff;
+}
+.route-type-select .dropdown-content .node:focus,
+.route-type-select .dropdown-content .node:hover {
+  background-color: #ebf5ff;
+}
+
+/* Don't show disabled itens (e.g. because they represent invalid values) */
+.route-type-select .dropdown-content .node.disabled {
+  display: none;
+}
+
+/* Reduce v-space between tree items, adjust font color. */
+.route-type-select .dropdown-content .node {
+  color: #555;
+  padding: 2px;
+}
+
+.route-type-select .dropdown-content .node > label {
+  /* Use regular font weight on labels rendered by the tree dropdown. */
+  font-weight: normal;
+  /* Make labels clickable on their entire width on their right... */
+  width: 100%;
+}
+
+/* ... but disable clicks for the header (not the +/- sign) for the extended routes. */
+.route-type-select .dropdown-content .node.tree.extended-values-node > label {
+  color: #999;
+  pointer-events: none;
+}
+
+/* For the plus/minus symbols for the tree view. */
+.route-type-select .toggle {
+  color: #555;
+  font: normal normal normal 12px/1 FontAwesome;
+}
+.route-type-select .toggle.collapsed::after {
+  content: "\f067";
+}
+.route-type-select .toggle.expanded::after {
+  content: "\f068";
+}

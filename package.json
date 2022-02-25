@@ -79,6 +79,7 @@
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.4.1",
+    "react-dropdown-tree-select": "^2.5.1",
     "react-dropzone": "^3.5.3",
     "react-ga": "^2.3.5",
     "react-leaflet": "1.1.0",

@@ -6,7 +6,7 @@ site_dir: target/mkdocs
 theme: readthedocs
 extra_css: [style.css]
 
-pages:
+nav:
 - Home: 'index.md'
 - Data Manager:
   - 'Introduction': 'user/introduction.md'

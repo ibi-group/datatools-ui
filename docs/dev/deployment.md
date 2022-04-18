@@ -4,8 +4,11 @@
 
 The application consists of two repositories: a [Spark-powered Java backend](https://github.com/ibi-group/datatools-server)
 and a [Javascript frontend written with React and Redux](https://github.com/ibi-group/datatools-ui).
-To install and deploy the application, you will need Java 8, Maven, Node/npm,
-yarn, and [mastarm](https://github.com/conveyal/mastarm).
+To install and deploy the application, you will need Java 8 and Maven for the
+[datatools-server](https://github.com/ibi-group/datatools-server)
+and Node (>= v10 required, >= v14 recommended), npm, yarn and
+[mastarm](https://github.com/conveyal/mastarm) for the
+[datatools-ui](https://github.com/ibi-group/datatools-ui).
 
 User authentication is done via [Auth0](http://auth0.com). You will need an
 Auth0 account and application to use the Data Manager.
@@ -34,10 +37,12 @@ $ cp datatools-server/configurations/default/env.yml.tmp datatools-server/config
 You'll then need to supply Auth0 account information (see below) and API keys
 for various services used in the application.
 
-The default `server.yml` (for `datatools-server`) and `settings.yml` (for
-`datatools-ui`) should work out of the box, but you may want to specify
-alternative settings files outside of these repositories. These can be specified
-as a directory during `datatools-ui` build with mastarm:
+The default
+[server.yml](https://github.com/ibi-group/datatools-server/blob/dev/configurations/default/server.yml.tmp) for `datatools-server` and
+[settings.yml](https://github.com/ibi-group/datatools-ui/blob/dev/configurations/default/settings.yml) for
+`datatools-ui` should work out of the box, but you may want to specify
+alternative settings files outside of these repositories.
+These can be specified as a directory during `datatools-ui` build with mastarm:
 
 ```bash
 $ mastarm build --config /path/to/configurations/dir
@@ -48,8 +53,7 @@ AND as individual file args for `datatools-server`:
 ```bash
 $ java -jar target/dt-v1.0.0.jar /path/to/env.yml /path/to/server.yml
 ```
-In `datatools-server:server.yml`, be sure to update the paths for where the
-databases will be stored:
+In `datatools-server:server.yml`, be sure to update the paths for the place where databases will be stored:
 
 ```yaml
 application:
@@ -65,12 +69,13 @@ the application has been significantly tuned and optimized for PostgreSQL 9, so
 we highly recommend using PostgreSQL.
 
 Once PostgreSQL is installed and the service has been started, create the
-database:
+database for instance by using the CLI [createdb](https://www.postgresql.org/docs/9.1/app-createdb.html):
 ```bash
 $ createdb gtfs_storage_db
 ```
-Pass the URL of the database in the server's `env.yml` (and optionally add
-additional connection variables):
+Pass the URL of the database in the `datatools-server`'s
+[env.yml](https://github.com/ibi-group/datatools-server/blob/dev/configurations/default/env.yml.tmp)
+(and optionally add additional connection variables):
 ```yaml
 GTFS_DATABASE_URL: jdbc:postgresql://localhost/gtfs_storage_db
 # GTFS_DATABASE_USER:
@@ -81,7 +86,8 @@ GTFS_DATABASE_URL: jdbc:postgresql://localhost/gtfs_storage_db
 Application data storage (i.e., where projects, feed sources, and feed versions
 are stored) is handled by MongoDB. There is no need to manually initialize a
 database in MongoDB (MongoDB will handle this automatically if you prefer).
-Connection details for MongoDB are also set in the server's `env.yml`:
+Connection details for MongoDB are also set in the `datatools-server`'s
+[env.yml](https://github.com/ibi-group/datatools-server/blob/dev/configurations/default/env.yml.tmp):
 ```yaml
 MONGO_URI: # defaults to localhost:27017 (MongoDB default) if empty
 MONGO_DB_NAME: application_db
@@ -176,32 +182,40 @@ function (user, context, callback) {
 
 ## Building and Running the Application
 
-Install the Javascript dependencies using yarn:
+Install the Javascript dependencies for `datatools-ui` using yarn:
 
 ```bash
+$ cd datatools-ui
 $ yarn
 ```
 
-Build and deploy the frontend to s3 using npm script (which calls [mastarm](https://github.com/conveyal/mastarm)):
+Build and deploy `datatools-ui` to s3 using npm script
+(which calls [mastarm](https://github.com/conveyal/mastarm)):
 
 ```bash
 $ npm run deploy -- s3://$S3_BUCKET_NAME/dist
 ```
 
-Package the application using Maven:
+Package `datatools-server` using Maven:
 
 ```bash
+$ cd datatools-server
 $ mvn package
 ```
 
-Deploy the application with Java:
+Deploy `datatools-server` with Java:
 
 ```bash
 $ java -jar target/dt-v1.0.0.jar /path/to/env.yml /path/to/server.yml
 ```
 
-
-The application back-end should now be running at `http://localhost:9000` (or whatever port you specified in `server.yml`). The front-end assets are obtained from the `dist` folder relative the url specified in `server.yml` at `application.client_assets_url`. While running a development server of datatools-ui, these assets are delivered to the client using budo, so the links defined in the backend `server.yml` are only used in a production setting.
+`Datatools-server` should now be running at `http://localhost:9000`
+(or whatever port you specified in `server.yml`).
+`Datatools-ui` assets are obtained from the `dist`
+folder relative the url specified in `server.yml` at `application.client_assets_url`.
+While running a development server of datatools-ui,
+these assets are delivered to the client using budo,
+so the links defined in the backend `server.yml` are only used in a production setting.
 
 ## Configuring Modules
 

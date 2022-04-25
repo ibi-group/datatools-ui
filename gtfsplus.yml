@@ -340,3 +340,79 @@
     inputType: TEXT
     maxLength: 35
     helpContent: Public name of the fare zone, as it should appear on 511.org such as EastBay, WestBay, etc
+
+- id: route_attributes
+  name: route_attributes.txt
+  helpContent: This file contains route attributes such as geographical extent, times of service, and right-of-way type.
+  fields:
+    - name: route_id
+      required: true
+      inputType: GTFS_ROUTE
+      columnWidth: 4
+      helpContent: From GTFS routes.txt file. This is necessary to maintain relationship between routes in this file and routes in the standard GTFS routes.txt file.
+    - name: category
+      required: true
+      inputType: DROPDOWN
+      options:
+        - text: Interregional / Intercity
+          value: '1'
+        - text: Regional
+          value: '2'
+        - text: Local
+          value: '3'
+        - text: Community
+          value: '4'
+        - text: Connector
+          value: '5'
+    - name: subcategory
+      required: true
+      inputType: DROPDOWN
+      parent: 'category'
+      options:
+        - parentValue: '1'
+          text: Interregional / Intercity
+          value: '101'
+        - parentValue: '2'
+          text: Regional All Day
+          value: '201'
+        - parentValue: '2'
+          text: Regional Peak
+          value: '202'
+        - parentValue: '2'
+          text: Regional Owl
+          value: '203'
+        - parentValue: '3'
+          text: Local All Day
+          value: '301'
+        - parentValue: '3'
+          text: Local Peak
+          value: '302'
+        - parentValue: '3'
+          text: Local Owl
+          value: '303'
+        - parentValue: '4'
+          text: Community All Day
+          value: '401'
+        - parentValue: '4'
+          text: Community Special
+          value: '402'
+        - parentValue: '4'
+          text: Community On Demand
+          value: '403'
+        - parentValue: '5'
+          text: First / Last Mile Connector
+          value: '501'
+    - name: running_way
+      required: true
+      inputType: DROPDOWN
+      options:
+        - text: Fully / Primarily Dedicated
+          value: '1'
+        - text: "Limited Dedicated: Highway/HOV"
+          value: '2'
+        - text: "Limited Dedicated: Local Roadway"
+          value: '3'
+        - text: Shared, With Signal Priority
+          value: '4'
+        - text: Shared, No Priority
+          value: '5'

@@ -996,3 +996,8 @@ h4.line:after {
 .route-type-select .toggle.expanded::after {
   content: "\f068";
 }
+
+/* Datatools backend exception in popover overflows the container */
+.popover-content {
+  overflow-x: scroll;
+}

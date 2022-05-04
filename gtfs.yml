@@ -857,6 +857,8 @@
       text: New Zealand dollar (NZD)
     - value: SEK
       text: Swedish krona (SEK)
+    - value: COP
+      text: Colombian Pesos (COP)
     columnWidth: 12
     helpContent: "The currency_type field defines the currency used to pay the fare. Please use the ISO 4217 alphabetical currency codes which can be found at the following URL:http://en.wikipedia.org/wiki/ISO_4217."
   - name: "payment_method"

@@ -267,6 +267,7 @@ export const mockFeedVersion = {
     uniqueIdentifier: 'ugez_nbyelwgcecgmjjabppvknj'
   },
   feedSource: mockFeedWithVersion,
+  feedSourceId: mockFeedWithVersion.id,
   fileSize: 126865,
   fileTimestamp: 1533824462000,
   id: 'mock-feed-version-id',

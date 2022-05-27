@@ -105,3 +105,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn semantic-release
+      - name: Upload files from build
+        if: github.repository_owner == 'ColombiaTransit' && matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v3
+        with:
+           name: ct-datatools-ui
+           path: dist/*.*

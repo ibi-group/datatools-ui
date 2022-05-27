@@ -41,7 +41,7 @@
     "@turf/line-slice-along": "^4.6.0",
     "@turf/nearest-point-on-line": "^5.1.5",
     "auth0-js": "^9.3.2",
-    "auth0-lock": "^11.27.1",
+    "auth0-lock": "^11.33.0",
     "bootstrap": "^3.4.1",
     "bugsnag-js": "^4.7.2",
     "bugsnag-react": "^1.1.1",

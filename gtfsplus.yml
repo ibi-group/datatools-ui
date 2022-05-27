@@ -347,7 +347,7 @@
   fields:
     - name: route_id
       required: true
-      inputType: GTFS_ROUTE
+      inputType: GTFS_ROUTE_NOT_ADDED
       columnWidth: 4
       helpContent: From GTFS routes.txt file. This is necessary to maintain relationship between routes in this file and routes in the standard GTFS routes.txt file.
     - name: category

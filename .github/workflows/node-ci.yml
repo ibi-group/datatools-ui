@@ -54,7 +54,13 @@ jobs:
         run: yarn test-client
       - name: Build with minification
         run: yarn run build -- --minify
-      - name: Build docs
+      - name: Upload files from build
+        if: github.repository_owner == 'ColombiaTransit'
+        uses: actions/upload-artifact@v3
+        with:
+           name: ct-datatools-ui
+           path: dist/*.*
+      - name: Build docs      
         run: mkdocs build
       - name: Start MongoDB
         if: env.SHOULD_RUN_E2E == 'true'
@@ -104,10 +110,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release
-      - name: Upload files from build
-        if: github.repository_owner == 'ColombiaTransit' && matrix.os == 'ubuntu-latest'
-        uses: actions/upload-artifact@v3
-        with:
-           name: ct-datatools-ui
-           path: dist/*.*
+        run: yarn semantic-release     

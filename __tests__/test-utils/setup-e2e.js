@@ -20,6 +20,8 @@ const {
 } = require('./utils')
 
 const serverJarFilename = 'dt-latest-dev.jar'
+const otpJarMavenUrl = 'https://repo1.maven.org/maven2/org/opentripplanner/otp/1.4.0/otp-1.4.0-shaded.jar'
+const otpJarForOtpRunner = '/opt/otp/otp-v1.4.0'
 const ENV_YML_VARIABLES = [
   'AUTH0_CLIENT_ID',
   'AUTH0_DOMAIN',
@@ -333,10 +335,7 @@ async function startOtp () {
   console.log('downloading otp jar')
 
   // download otp
-  await downloadFile(
-    'https://repo1.maven.org/maven2/org/opentripplanner/otp/1.4.0/otp-1.4.0-shaded.jar',
-    otpJarFilename
-  )
+  await downloadFile(otpJarMavenUrl, otpJarFilename)
 
   console.log('starting otp')
   // Ensure default folder for graphs exists.
@@ -406,6 +405,19 @@ async function verifySetupForLocalEnvironment () {
       url: 'http://localhost:8080'
     }
   ]
+
+  // Make sure that certain e2e folders have permissions (assumes running on Linux/MacOS).
+  const desiredMode = 0o2777
+  await fs.ensureDir('/tmp/otp', desiredMode) // For otp-runner manifest files
+  await fs.ensureDir('/tmp/otp/graphs', desiredMode) // For OTP graph
+  await fs.ensureDir('/var/log', desiredMode) // For otp-runner log
+  await fs.ensureDir('/opt/otp', desiredMode) // For OTP jar referenced by otp-runner
+
+  // Download OTP jar into /opt/otp/ if not already present.
+  const otpJarExists = await fs.exists(otpJarForOtpRunner)
+  if (!otpJarExists) {
+    await downloadFile(otpJarMavenUrl, otpJarForOtpRunner)
+  }
 
   await Promise.all(
     endpointChecks.map(

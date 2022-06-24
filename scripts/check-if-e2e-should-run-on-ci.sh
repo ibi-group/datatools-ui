@@ -3,6 +3,10 @@
 
 echo "GitHub Repo var: $GITHUB_REPOSITORY" 
 
+export TMP_REF_NAME=$GITHUB_REF_NAME
+export GITHUB_REF_NAME=dependabot/npm_and_yarn/shell-quote-1.7.3
+echo "Git ref name: $GITHUB_REF_NAME"
+
 # Run e2e tests on PRs to master
 if [[ "$GITHUB_BASE_REF_SLUG" = "master" ]]; then
   echo "SHOULD_RUN_E2E=true" >> $GITHUB_ENV && export SHOULD_RUN_E2E=true
@@ -25,7 +29,10 @@ if [[ "$SHOULD_RUN_E2E" != "true" ]]; then
   echo 'Skipping E2E tests...'
 fi
 
+export GITHUB_REF_NAME=$TMP_REF_NAME
+
 # Optionally override the conditions above with the below block:
-# OVERRIDE=true
-# echo "SHOULD_RUN_E2E=${OVERRIDE}" >> $GITHUB_ENV && export SHOULD_RUN_E2E=${OVERRIDE}
-# echo "Overriding E2E. Temporarily forcing to be ${OVERRIDE}..."
+OVERRIDE=false
+echo "SHOULD_RUN_E2E=${OVERRIDE}" >> $GITHUB_ENV && export SHOULD_RUN_E2E=${OVERRIDE}
+echo "Overriding E2E. Temporarily forcing to be ${OVERRIDE}..."
+

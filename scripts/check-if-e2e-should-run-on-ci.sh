@@ -1,6 +1,8 @@
 # Since the e2e tests take a while to run and it could present an inconvenience
 # to be making sure the e2e tests work on every single PR, only run the e2e tests on CI selectively.
 
+echo "GitHub Repo var: $GITHUB_REPOSITORY" 
+
 # Run e2e tests on PRs to master
 if [[ "$GITHUB_BASE_REF_SLUG" = "master" ]]; then
   echo "SHOULD_RUN_E2E=true" >> $GITHUB_ENV && export SHOULD_RUN_E2E=true

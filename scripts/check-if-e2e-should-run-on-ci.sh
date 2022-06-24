@@ -2,6 +2,7 @@
 # to be making sure the e2e tests work on every single PR, only run the e2e tests on CI selectively.
 
 echo "GitHub Repo var: $GITHUB_REPOSITORY" 
+echo "GITHUB_ENV var: $GITHUB_ENV"
 
 export TMP_REF_NAME=$GITHUB_REF_NAME
 export GITHUB_REF_NAME=dependabot/npm_and_yarn/shell-quote-1.7.3
@@ -12,6 +13,7 @@ if [[ "$GITHUB_BASE_REF_SLUG" = "master" ]]; then
   echo "SHOULD_RUN_E2E=true" >> $GITHUB_ENV && export SHOULD_RUN_E2E=true
   echo 'Will run E2E tests because this is a PR to master'
 elif [[ "$GITHUB_REPOSITORY" = "ibi-group/datatools-ui" ]]; then
+  echo "Targeting datatools-ui repo"
   # Run e2e tests on pushes to dev and master (and for checkout branches from github actions too).
   if [[ "$GITHUB_REF_SLUG" = "master" || "$GITHUB_REF_SLUG" = "dev" || "$GITHUB_REF_SLUG" = "github-actions" ]]; then
     echo "SHOULD_RUN_E2E=true" >> $GITHUB_ENV && export SHOULD_RUN_E2E=true

@@ -3,6 +3,8 @@
 
 echo "GitHub Repo var: $GITHUB_REPOSITORY" 
 echo "GITHUB_ENV var: $GITHUB_ENV"
+echo "GITHUB_REF_NAME var: $GITHUB_REF_NAME"
+echo "GITHUB_BASE_REF_SLUG var: $GITHUB_BASE_REF_SLUG"
 
 export TMP_REF_NAME=$GITHUB_REF_NAME
 export GITHUB_REF_NAME=dependabot/npm_and_yarn/shell-quote-1.7.3

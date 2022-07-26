@@ -60,7 +60,7 @@
     "leaflet": "^1.3.4",
     "leaflet-textpath": "^1.2.0",
     "lodash": "^4.17.10",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "numeral": "2.0.4",
     "object-path": "^0.11.5",
     "polyline": "^0.2.0",

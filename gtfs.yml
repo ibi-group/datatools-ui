@@ -91,45 +91,45 @@
     required: false
     inputType: GTFS_ID
     columnWidth: 12
-    helpContent: "The agency_id field is an ID that uniquely identifies a transit agency. A transit feed may represent data from more than one agency. The agency_id is dataset unique. This field is optional for transit feeds that only contain data for a single agency."
+    helpContent: "The agency_id field is an ID that uniquely identifies a transit agency. A transit feed may represent data from more than one agency. The agency_id is dataset unique. This field is optional for transit feeds that only contain data for a single agency."
   - name: "agency_name"
     required: true
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The agency_name field contains the full name of the transit agency. Google Maps will display this name."
+    helpContent: "The agency_name field contains the full name of the transit agency. Google Maps will display this name."
   - name: "agency_url"
     required: true
     inputType: URL
     placeholder: https://agency.org
     columnWidth: 12
-    helpContent: "The agency_url field contains the URL of the transit agency. The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped."
+    helpContent: "The agency_url field contains the URL of the transit agency. The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped."
   - name: "agency_timezone"
     required: true
     inputType: TIMEZONE
     columnWidth: 12
-    helpContent: "The agency_timezone field contains the timezone where the transit agency is located. Timezone names never contain the space character but may contain an underscore. If multiple agencies are specified in the feed, each must have the same agency_timezone."
+    helpContent: "The agency_timezone field contains the timezone where the transit agency is located. Timezone names never contain the space character but may contain an underscore. If multiple agencies are specified in the feed, each must have the same agency_timezone."
   - name: "agency_lang"
     required: false
     inputType: LANGUAGE
     columnWidth: 12
-    helpContent: "The agency_lang field contains a two-letter ISO 639-1 code for the primary language used by this transit agency. The language code is case-insensitive (both en and EN are accepted). This setting defines capitalization rules and other language-specific settings for all text contained in this transit agency's feed. Please refer to http://www.loc.gov/standards/iso639-2/php/code_list.php for a list of valid values."
+    helpContent: "The agency_lang field contains a two-letter ISO 639-1 code for the primary language used by this transit agency. The language code is case-insensitive (both en and EN are accepted). This setting defines capitalization rules and other language-specific settings for all text contained in this transit agency's feed. Please refer to http://www.loc.gov/standards/iso639-2/php/code_list.php for a list of valid values."
   - name: "agency_phone"
     required: false
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The agency_phone field contains a single voice telephone number for the specified agency. This field is a string value that presents the telephone number as typical for the agency's service area. It can and should contain punctuation marks to group the digits of the number. Dialable text (for example, TriMet's \"503-238-RIDE\") is permitted, but the field must not contain any other descriptive text."
+    helpContent: "The agency_phone field contains a single voice telephone number for the specified agency. This field is a string value that presents the telephone number as typical for the agency's service area. It can and should contain punctuation marks to group the digits of the number. Dialable text (for example, TriMet's \"503-238-RIDE\") is permitted, but the field must not contain any other descriptive text."
   - name: "agency_fare_url"
     required: false
     inputType: URL
     placeholder: https://agency.org/fares
     columnWidth: 12
-    helpContent: "The agency_fare_url specifies the URL of a web page that allows a rider to purchase tickets or other fare instruments for that agency online. The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. Seehttp://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values."
+    helpContent: "The agency_fare_url specifies the URL of a web page that allows a rider to purchase tickets or other fare instruments for that agency online. The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. Seehttp://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values."
   - name: "agency_email"
     required: false
     inputType: EMAIL
     placeholder: contact@agency.org
     columnWidth: 12
-    helpContent: "The agency_email field contains a single valid email address actively monitored by the agency’s customer service department. This email address will be considered a direct contact point where transit riders can reach a customer service representative at the agency."
+    helpContent: "The agency_email field contains a single valid email address actively monitored by the agency’s customer service department. This email address will be considered a direct contact point where transit riders can reach a customer service representative at the agency."
   - name: agency_branding_url
     required: false
     displayName: Agency branding URL
@@ -147,45 +147,45 @@
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The stop_id field contains an ID that uniquely identifies a stop or station. Multiple routes may use the same stop. The stop_id is dataset unique."
+    helpContent: "The stop_id field contains an ID that uniquely identifies a stop or station. Multiple routes may use the same stop. The stop_id is dataset unique."
   - name: "stop_code"
     required: false
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The stop_code field contains short text or a number that uniquely identifies the stop for passengers. Stop codes are often used in phone-based transit information systems or printed on stop signage to make it easier for riders to get a stop schedule or real-time arrival information for a particular stop."
+    helpContent: "The stop_code field contains short text or a number that uniquely identifies the stop for passengers. Stop codes are often used in phone-based transit information systems or printed on stop signage to make it easier for riders to get a stop schedule or real-time arrival information for a particular stop."
   - name: "stop_name"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The stop_name field contains the name of a stop or station. Please use a name that people will understand in the local and tourist vernacular."
+    helpContent: "The stop_name field contains the name of a stop or station. Please use a name that people will understand in the local and tourist vernacular."
   - name: "stop_desc"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The stop_desc field contains a description of a stop. Please provide useful, quality information. Do not simply duplicate the name of the stop."
+    helpContent: "The stop_desc field contains a description of a stop. Please provide useful, quality information. Do not simply duplicate the name of the stop."
   - name: "stop_lat"
     required: false
     inputType: LATITUDE
     columnWidth: 6
-    helpContent: "The stop_lat field contains the latitude of a stop or station. The field value must be a valid WGS 84 latitude."
+    helpContent: "The stop_lat field contains the latitude of a stop or station. The field value must be a valid WGS 84 latitude."
   - name: "stop_lon"
     required: false
     inputType: LONGITUDE
     columnWidth: 6
-    helpContent: "The stop_lon field contains the longitude of a stop or station. The field value must be a valid WGS 84 longitude value from -180 to 180."
+    helpContent: "The stop_lon field contains the longitude of a stop or station. The field value must be a valid WGS 84 longitude value from -180 to 180."
   - name: "zone_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 12
     bulkEditEnabled: true
-    helpContent: "The zone_id field defines the fare zone for a stop ID. Zone IDs are required if you want to provide fare information using fare_rules.txt. If this stop ID represents a station, the zone ID is ignored."
+    helpContent: "The zone_id field defines the fare zone for a stop ID. Zone IDs are required if you want to provide fare information using fare_rules.txt. If this stop ID represents a station, the zone ID is ignored."
   - name: "stop_url"
     required: false
     inputType: URL
     columnWidth: 12
-    helpContent: "The stop_url field contains the URL of a web page about a particular stop. This should be different from the agency_url and the route_url fields."
+    helpContent: "The stop_url field contains the URL of a web page about a particular stop. This should be different from the agency_url and the route_url fields."
   - name: "location_type"
     required: false
     bulkEditEnabled: true
@@ -202,7 +202,7 @@
     - value: '4'
       text: Boarding Area (4)
     columnWidth: 7
-    helpContent: "The location_type field identifies whether this stop ID represents a stop or station. If no location type is specified, or the location_type is blank, stop IDs are treated as stops. Stations may have different properties from stops when they are represented on a map or used in trip planning."
+    helpContent: "The location_type field identifies whether this stop ID represents a stop or station. If no location type is specified, or the location_type is blank, stop IDs are treated as stops. Stations may have different properties from stops when they are represented on a map or used in trip planning."
   - name: "platform_code"
     required: false
     inputType: TEXT
@@ -213,13 +213,13 @@
     inputType: GTFS_STOP
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "For stops that are physically located inside stations, the parent_station field identifies the station associated with the stop. To use this field, stops.txt must also contain a row where this stop ID is assigned location type=1."
+    helpContent: "For stops that are physically located inside stations, the parent_station field identifies the station associated with the stop. To use this field, stops.txt must also contain a row where this stop ID is assigned location type=1."
   - name: "stop_timezone"
     required: false
     inputType: TIMEZONE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The stop_timezone field contains the timezone in which this stop or station is located. If omitted, the stop should be assumed to be located in the timezone specified byagency_timezone in agency.txt."
+    helpContent: "The stop_timezone field contains the timezone in which this stop or station is located. If omitted, the stop should be assumed to be located in the timezone specified byagency_timezone in agency.txt."
   - name: "wheelchair_boarding"
     required: false
     inputType: DROPDOWN
@@ -232,7 +232,7 @@
     - value: 2
       text: Not possible (2)
     columnWidth: 12
-    helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
+    helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
 
 
 - id: route
@@ -558,29 +558,29 @@
     required: true
     inputType: GTFS_ROUTE
     columnWidth: 6
-    helpContent: "The route_id field contains an ID that uniquely identifies a route. This value is referenced from the routes.txt file."
+    helpContent: "The route_id field contains an ID that uniquely identifies a route. This value is referenced from the routes.txt file."
   - name: "service_id"
     required: true
     inputType: GTFS_SERVICE
     columnWidth: 6
-    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. This value is referenced from thecalendar.txt or calendar_dates.txt file."
+    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. This value is referenced from thecalendar.txt or calendar_dates.txt file."
   - name: "trip_id"
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The trip_id field contains an ID that identifies a trip. The trip_id is dataset unique."
+    helpContent: "The trip_id field contains an ID that identifies a trip. The trip_id is dataset unique."
   - name: "trip_headsign"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The trip_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to distinguish between different patterns of service in the same route. If the headsign changes during a trip, you can override the trip_headsign by specifying values for the the stop_headsign field in stop_times.txt."
+    helpContent: "The trip_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to distinguish between different patterns of service in the same route. If the headsign changes during a trip, you can override the trip_headsign by specifying values for the the stop_headsign field in stop_times.txt."
   - name: "trip_short_name"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The trip_short_name field contains the text that appears in schedules and sign boards to identify the trip to passengers, for example, to identify train numbers for commuter rail trips. If riders do not commonly rely on trip names, please leave this field blank."
+    helpContent: "The trip_short_name field contains the text that appears in schedules and sign boards to identify the trip to passengers, for example, to identify train numbers for commuter rail trips. If riders do not commonly rely on trip names, please leave this field blank."
   - name: "direction_id"
     required: false
     inputType: DROPDOWN
@@ -589,18 +589,18 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The direction_id field contains a binary value that indicates the direction of travel for a trip. Use this field to distinguish between bi-directional trips with the same route_id. This field is not used in routing; it provides a way to separate trips by direction when publishing time tables. You can specify names for each direction with the trip_headsign field."
+    helpContent: "The direction_id field contains a binary value that indicates the direction of travel for a trip. Use this field to distinguish between bi-directional trips with the same route_id. This field is not used in routing; it provides a way to separate trips by direction when publishing time tables. You can specify names for each direction with the trip_headsign field."
   - name: "block_id"
     required: false
     inputType: GTFS_BLOCK
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The block_id field identifies the block to which the trip belongs. A block consists of two or more sequential trips made using the same vehicle, where a passenger can transfer from one trip to the next just by staying in the vehicle. The block_id must be referenced by two or more trips in trips.txt."
+    helpContent: "The block_id field identifies the block to which the trip belongs. A block consists of two or more sequential trips made using the same vehicle, where a passenger can transfer from one trip to the next just by staying in the vehicle. The block_id must be referenced by two or more trips in trips.txt."
   - name: "shape_id"
     required: false
     inputType: GTFS_SHAPE
     columnWidth: 6
-    helpContent: "The shape_id field contains an ID that defines a shape for the trip. This value is referenced from the shapes.txt file. The shapes.txt file allows you to define how a line should be drawn on the map to represent a trip."
+    helpContent: "The shape_id field contains an ID that defines a shape for the trip. This value is referenced from the shapes.txt file. The shapes.txt file allows you to define how a line should be drawn on the map to represent a trip."
   - name: "wheelchair_accessible"
     required: false
     inputType: DROPDOWN
@@ -610,7 +610,7 @@
     - value: '1'
     - value: '2'
     columnWidth: 6
-    helpContent: "0 (or empty) - indicates that there is no accessibility information for the trip"
+    helpContent: "0 (or empty) - indicates that there is no accessibility information for the trip"
   - name: "bikes_allowed"
     required: false
     inputType: DROPDOWN
@@ -620,7 +620,7 @@
     - value: '1'
     - value: '2'
     columnWidth: 6
-    helpContent: "0 (or empty) - indicates that there is no bike information for the trip"
+    helpContent: "0 (or empty) - indicates that there is no bike information for the trip"
 
 
 - id: stop_time
@@ -631,33 +631,33 @@
     required: true
     inputType: GTFS_TRIP
     columnWidth: 6
-    helpContent: "The trip_id field contains an ID that identifies a trip. This value is referenced from the trips.txt file."
+    helpContent: "The trip_id field contains an ID that identifies a trip. This value is referenced from the trips.txt file."
   - name: "arrival_time"
     required: true
     inputType: TIME
     columnWidth: 6
-    helpContent: "The arrival_time specifies the arrival time at a specific stop for a specific trip on a route. The time is measured from "
+    helpContent: "The arrival_time specifies the arrival time at a specific stop for a specific trip on a route. The time is measured from "
   - name: "departure_time"
     required: true
     inputType: TIME
     columnWidth: 6
-    helpContent: "The departure_time specifies the departure time from a specific stop for a specific trip on a route. The time is measured from "
+    helpContent: "The departure_time specifies the departure time from a specific stop for a specific trip on a route. The time is measured from "
   - name: "stop_id"
     required: true
     inputType: GTFS_STOP
     columnWidth: 6
-    helpContent: "The stop_id field contains an ID that uniquely identifies a stop. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
+    helpContent: "The stop_id field contains an ID that uniquely identifies a stop. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
   - name: "stop_sequence"
     required: true
     inputType: POSITIVE_INT
     columnWidth: 6
-    helpContent: "The stop_sequence field identifies the order of the stops for a particular trip. The values for stop_sequence must be non-negative integers, and they must increase along the trip."
+    helpContent: "The stop_sequence field identifies the order of the stops for a particular trip. The values for stop_sequence must be non-negative integers, and they must increase along the trip."
   - name: "stop_headsign"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The stop_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to override the defaulttrip_headsign when the headsign changes between stops. If this headsign is associated with an entire trip, use trip_headsign instead."
+    helpContent: "The stop_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to override the defaulttrip_headsign when the headsign changes between stops. If this headsign is associated with an entire trip, use trip_headsign instead."
   - name: "pickup_type"
     required: false
     inputType: DROPDOWN
@@ -668,7 +668,7 @@
     - value: '2'
     - value: '3'
     columnWidth: 6
-    helpContent: "The pickup_type field indicates whether passengers are picked up at a stop as part of the normal schedule or whether a pickup at the stop is not available. This field also allows the transit agency to indicate that passengers must call the agency or notify the driver to arrange a pickup at a particular stop. Valid values for this field are:"
+    helpContent: "The pickup_type field indicates whether passengers are picked up at a stop as part of the normal schedule or whether a pickup at the stop is not available. This field also allows the transit agency to indicate that passengers must call the agency or notify the driver to arrange a pickup at a particular stop. Valid values for this field are:"
   - name: "drop_off_type"
     required: false
     inputType: DROPDOWN
@@ -679,12 +679,12 @@
     - value: '2'
     - value: '3'
     columnWidth: 6
-    helpContent: "The drop_off_type field indicates whether passengers are dropped off at a stop as part of the normal schedule or whether a drop off at the stop is not available. This field also allows the transit agency to indicate that passengers must call the agency or notify the driver to arrange a drop off at a particular stop. Valid values for this field are:"
+    helpContent: "The drop_off_type field indicates whether passengers are dropped off at a stop as part of the normal schedule or whether a drop off at the stop is not available. This field also allows the transit agency to indicate that passengers must call the agency or notify the driver to arrange a drop off at a particular stop. Valid values for this field are:"
   - name: "shape_dist_traveled"
     required: false
     inputType: POSITIVE_NUM
     columnWidth: 6
-    helpContent: "When used in the stop_times.txt file, the shape_dist_traveled field positions a stop as a distance from the first shape point. The shape_dist_traveled field represents a real distance traveled along the route in units such as feet or kilometers. For example, if a bus travels a distance of 5.25 kilometers from the start of the shape to the stop, the shape_dist_traveled for the stop ID would be entered as "
+    helpContent: "When used in the stop_times.txt file, the shape_dist_traveled field positions a stop as a distance from the first shape point. The shape_dist_traveled field represents a real distance traveled along the route in units such as feet or kilometers. For example, if a bus travels a distance of 5.25 kilometers from the start of the shape to the stop, the shape_dist_traveled for the stop ID would be entered as "
   - name: "timepoint"
     required: false
     inputType: DROPDOWN
@@ -694,7 +694,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The timepoint field can be used to indicate if the specified arrival and departure times for a stop are strictly adhered to by the transit vehicle or if they are instead approximate and/or interpolated times. The field allows a GTFS producer to provide interpolated stop times that potentially incorporate local knowledge, but still indicate if the times are approximate. For stop-time entries with specified arrival and departure times, valid values for this field are:"
+    helpContent: "The timepoint field can be used to indicate if the specified arrival and departure times for a stop are strictly adhered to by the transit vehicle or if they are instead approximate and/or interpolated times. The field allows a GTFS producer to provide interpolated stop times that potentially incorporate local knowledge, but still indicate if the times are approximate. For stop-time entries with specified arrival and departure times, valid values for this field are:"
 
 - id: calendar
   name: calendar.txt
@@ -704,7 +704,7 @@
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. Each service_id value can appear at most once in a calendar.txt file. This value is dataset unique. It is referenced by the trips.txt file."
+    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. Each service_id value can appear at most once in a calendar.txt file. This value is dataset unique. It is referenced by the trips.txt file."
   - name: "description"
     required: false
     datatools: true
@@ -720,7 +720,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The monday field contains a binary value that indicates whether the service is valid for all Mondays."
+    helpContent: "The monday field contains a binary value that indicates whether the service is valid for all Mondays."
   - name: "tuesday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -729,7 +729,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The tuesday field contains a binary value that indicates whether the service is valid for all Tuesdays."
+    helpContent: "The tuesday field contains a binary value that indicates whether the service is valid for all Tuesdays."
   - name: "wednesday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -738,7 +738,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The wednesday field contains a binary value that indicates whether the service is valid for all Wednesdays."
+    helpContent: "The wednesday field contains a binary value that indicates whether the service is valid for all Wednesdays."
   - name: "thursday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -747,7 +747,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The thursday field contains a binary value that indicates whether the service is valid for all Thursdays."
+    helpContent: "The thursday field contains a binary value that indicates whether the service is valid for all Thursdays."
   - name: "friday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -756,7 +756,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The friday field contains a binary value that indicates whether the service is valid for all Fridays."
+    helpContent: "The friday field contains a binary value that indicates whether the service is valid for all Fridays."
   - name: "saturday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -765,7 +765,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The saturday field contains a binary value that indicates whether the service is valid for all Saturdays."
+    helpContent: "The saturday field contains a binary value that indicates whether the service is valid for all Saturdays."
   - name: "sunday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -774,19 +774,19 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The sunday field contains a binary value that indicates whether the service is valid for all Sundays."
+    helpContent: "The sunday field contains a binary value that indicates whether the service is valid for all Sundays."
   - name: "start_date"
     required: true
     inputType: DATE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The start_date field contains the start date for the service."
+    helpContent: "The start_date field contains the start date for the service."
   - name: "end_date"
     required: true
     inputType: DATE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The end_date field contains the end date for the service. This date is included in the service interval."
+    helpContent: "The end_date field contains the end date for the service. This date is included in the service interval."
 
 
 - id: calendar_dates
@@ -797,13 +797,13 @@
     required: true
     inputType: GTFS_SERVICE
     columnWidth: 6
-    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when a service exception is available for one or more routes. Each (service_id, date) pair can only appear once in calendar_dates.txt. If the a service_id value appears in both the calendar.txt and calendar_dates.txt files, the information in calendar_dates.txt modifies the service information specified in calendar.txt. This field is referenced by the trips.txt file."
+    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when a service exception is available for one or more routes. Each (service_id, date) pair can only appear once in calendar_dates.txt. If the a service_id value appears in both the calendar.txt and calendar_dates.txt files, the information in calendar_dates.txt modifies the service information specified in calendar.txt. This field is referenced by the trips.txt file."
   - name: "date"
     required: true
     inputType: DATE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The date field specifies a particular date when service availability is different than the norm. You can use the exception_type field to indicate whether service is available on the specified date."
+    helpContent: "The date field specifies a particular date when service availability is different than the norm. You can use the exception_type field to indicate whether service is available on the specified date."
   - name: "exception_type"
     required: true
     inputType: DROPDOWN
@@ -812,7 +812,7 @@
     - value: '1'
     - value: '2'
     columnWidth: 6
-    helpContent: "The exception_type indicates whether service is available on the date specified in thedate field."
+    helpContent: "The exception_type indicates whether service is available on the date specified in thedate field."
 
 
 - id: fare_attributes
@@ -823,13 +823,13 @@
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The fare_id field contains an ID that uniquely identifies a fare class. The fare_id is dataset unique."
+    helpContent: "The fare_id field contains an ID that uniquely identifies a fare class. The fare_id is dataset unique."
   - name: "price"
     required: true
     inputType: NUMBER
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The price field contains the fare price, in the unit specified by currency_type."
+    helpContent: "The price field contains the fare price, in the unit specified by currency_type."
   - name: "currency_type"
     required: true
     inputType: DROPDOWN
@@ -860,7 +860,7 @@
     - value: COP
       text: Colombian Pesos (COP)
     columnWidth: 12
-    helpContent: "The currency_type field defines the currency used to pay the fare. Please use the ISO 4217 alphabetical currency codes which can be found at the following URL:http://en.wikipedia.org/wiki/ISO_4217."
+    helpContent: "The currency_type field defines the currency used to pay the fare. Please use the ISO 4217 alphabetical currency codes which can be found at the following URL:http://en.wikipedia.org/wiki/ISO_4217."
   - name: "payment_method"
     required: true
     inputType: DROPDOWN
@@ -871,7 +871,7 @@
     - value: '1'
       text: Paid before boarding (1)
     columnWidth: 12
-    helpContent: "The payment_method field indicates when the fare must be paid. Valid values for this field are:"
+    helpContent: "The payment_method field indicates when the fare must be paid. Valid values for this field are:"
   - name: "transfers"
     required: true
     inputType: DROPDOWN
@@ -886,13 +886,13 @@
     - value: ''
       text: Unlimited transfers (empty)
     columnWidth: 6
-    helpContent: "The transfers field specifies the number of transfers permitted on this fare. Valid values for this field are:"
+    helpContent: "The transfers field specifies the number of transfers permitted on this fare. Valid values for this field are:"
   - name: "transfer_duration"
     required: false
     inputType: POSITIVE_INT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The transfer_duration field specifies the length of time in seconds before a transfer expires."
+    helpContent: "The transfer_duration field specifies the length of time in seconds before a transfer expires."
   - name: agency_id
     required: false
     inputType: GTFS_AGENCY
@@ -909,27 +909,27 @@
     required: true
     inputType: GTFS_FARE
     columnWidth: 6
-    helpContent: "The fare_id field contains an ID that uniquely identifies a fare class. This value is referenced from the fare_attributes.txt file."
+    helpContent: "The fare_id field contains an ID that uniquely identifies a fare class. This value is referenced from the fare_attributes.txt file."
   - name: "route_id"
     required: false
     inputType: GTFS_ROUTE
     columnWidth: 12
-    helpContent: "The route_id field associates the fare ID with a route. Route IDs are referenced from the routes.txt file. If you have several routes with the same fare attributes, create a row in fare_rules.txt for each route."
+    helpContent: "The route_id field associates the fare ID with a route. Route IDs are referenced from the routes.txt file. If you have several routes with the same fare attributes, create a row in fare_rules.txt for each route."
   - name: "origin_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 6
-    helpContent: "The origin_id field associates the fare ID with an origin zone ID. Zone IDs are referenced from the stops.txt file. If you have several origin IDs with the same fare attributes, create a row in fare_rules.txt for each origin ID."
+    helpContent: "The origin_id field associates the fare ID with an origin zone ID. Zone IDs are referenced from the stops.txt file. If you have several origin IDs with the same fare attributes, create a row in fare_rules.txt for each origin ID."
   - name: "destination_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 6
-    helpContent: "The destination_id field associates the fare ID with a destination zone ID. Zone IDs are referenced from the stops.txt file. If you have several destination IDs with the same fare attributes, create a row in fare_rules.txt for each destination ID."
+    helpContent: "The destination_id field associates the fare ID with a destination zone ID. Zone IDs are referenced from the stops.txt file. If you have several destination IDs with the same fare attributes, create a row in fare_rules.txt for each destination ID."
   - name: "contains_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 6
-    helpContent: "The contains_id field associates the fare ID with a zone ID, referenced from thestops.txt file. The fare ID is then associated with itineraries that pass through every contains_id zone."
+    helpContent: "The contains_id field associates the fare ID with a zone ID, referenced from thestops.txt file. The fare ID is then associated with itineraries that pass through every contains_id zone."
 
 
 - id: frequencies
@@ -940,25 +940,25 @@
     required: true
     inputType: GTFS_TRIP
     columnWidth: 6
-    helpContent: "The trip_id contains an ID that identifies a trip on which the specified frequency of service applies. Trip IDs are referenced from the trips.txt file."
+    helpContent: "The trip_id contains an ID that identifies a trip on which the specified frequency of service applies. Trip IDs are referenced from the trips.txt file."
   - name: "start_time"
     required: true
     inputType: TIME
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The start_time field specifies the time at which service begins with the specified frequency. The time is measured from "
+    helpContent: "The start_time field specifies the time at which service begins with the specified frequency. The time is measured from "
   - name: "end_time"
     required: true
     inputType: TIME
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The end_time field indicates the time at which service changes to a different frequency (or ceases) at the first stop in the trip. The time is measured from "
+    helpContent: "The end_time field indicates the time at which service changes to a different frequency (or ceases) at the first stop in the trip. The time is measured from "
   - name: "headway_secs"
     required: true
     inputType: POSITIVE_INT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The headway_secs field indicates the time between departures from the same stop (headway) for this trip type, during the time interval specified by start_time andend_time. The headway value must be entered in seconds."
+    helpContent: "The headway_secs field indicates the time between departures from the same stop (headway) for this trip type, during the time interval specified by start_time andend_time. The headway value must be entered in seconds."
   - name: "exact_times"
     required: false
     inputType: DROPDOWN
@@ -967,7 +967,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The exact_times field determines if frequency-based trips should be exactly scheduled based on the specified headway information. Valid values for this field are:"
+    helpContent: "The exact_times field determines if frequency-based trips should be exactly scheduled based on the specified headway information. Valid values for this field are:"
 
 
 - id: transfers
@@ -978,12 +978,12 @@
     required: true
     inputType: GTFS_STOP
     columnWidth: 12
-    helpContent: "The from_stop_id field contains a stop ID that identifies a stop or station where a connection between routes begins. Stop IDs are referenced from the stops.txt file. If the stop ID refers to a station that contains multiple stops, this transfer rule applies to all stops in that station."
+    helpContent: "The from_stop_id field contains a stop ID that identifies a stop or station where a connection between routes begins. Stop IDs are referenced from the stops.txt file. If the stop ID refers to a station that contains multiple stops, this transfer rule applies to all stops in that station."
   - name: "to_stop_id"
     required: true
     inputType: GTFS_STOP
     columnWidth: 12
-    helpContent: "The to_stop_id field contains a stop ID that identifies a stop or station where a connection between routes ends. Stop IDs are referenced from the stops.txt file. If the stop ID refers to a station that contains multiple stops, this transfer rule applies to all stops in that station."
+    helpContent: "The to_stop_id field contains a stop ID that identifies a stop or station where a connection between routes ends. Stop IDs are referenced from the stops.txt file. If the stop ID refers to a station that contains multiple stops, this transfer rule applies to all stops in that station."
   - name: "transfer_type"
     required: true
     inputType: DROPDOWN
@@ -993,12 +993,12 @@
     - value: '2'
     - value: '3'
     columnWidth: 6
-    helpContent: "The transfer_type field specifies the type of connection for the specified (from_stop_id, to_stop_id) pair. Valid values for this field are:"
+    helpContent: "The transfer_type field specifies the type of connection for the specified (from_stop_id, to_stop_id) pair. Valid values for this field are:"
   - name: "min_transfer_time"
     required: false
     inputType: POSITIVE_INT
     columnWidth: 6
-    helpContent: "When a connection between routes requires an amount of time between arrival and departure (transfer_type=2), the min_transfer_time field defines the amount of time that must be available in an itinerary to permit a transfer between routes at these stops. The min_transfer_time must be sufficient to permit a typical rider to move between the two stops, including buffer time to allow for schedule variance on each route."
+    helpContent: "When a connection between routes requires an amount of time between arrival and departure (transfer_type=2), the min_transfer_time field defines the amount of time that must be available in an itinerary to permit a transfer between routes at these stops. The min_transfer_time must be sufficient to permit a typical rider to move between the two stops, including buffer time to allow for schedule variance on each route."
 
 
 - id: scheduleexception

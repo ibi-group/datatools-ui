@@ -13,7 +13,7 @@ elif [[ "$GITHUB_REPOSITORY" = "ibi-group/datatools-ui" ]]; then
   fi
   # Also run e2e tests on automatic dependabot PR branches to dev to facilitate approval of security-related PRs.
   # We check that the branch ref starts with "dependabot/" (refs are in the format "dependabot/<module>/<package-version>").
-  if [[ $GITHUB_REF_NAME = dependabot/* ]] && [[ "$GITHUB_BASE_REF_SLUG" = "dev" ]]; then
+  if [[ $GITHUB_HEAD_REF = dependabot/* ]] && [[ "$GITHUB_BASE_REF_SLUG" = "dev" ]]; then
     echo "SHOULD_RUN_E2E=true" >> $GITHUB_ENV && export SHOULD_RUN_E2E=true
     echo 'Will run E2E tests because this is an automatic dependabot PR to dev'
   fi

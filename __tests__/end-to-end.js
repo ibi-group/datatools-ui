@@ -2027,7 +2027,7 @@ describe('end-to-end', () => {
     describe('exceptions', () => {
       makeEditorEntityTest('should create exception', async () => {
         // open exception sidebar
-        await click('[data-test-id="exception-tab-button"]')
+        await waitForAndClick('[data-test-id="exception-tab-button"]')
 
         // wait for exception sidebar form to appear and click button to open
         // form to create exception
@@ -2341,7 +2341,7 @@ describe('end-to-end', () => {
         'should create pattern',
         async () => {
           // open route sidebar
-          await click('[data-test-id="editor-route-nav-button"]')
+          await waitForAndClick('[data-test-id="editor-route-nav-button"]')
 
           // wait for route sidebar form to appear and select first route
           await waitForAndClick('.entity-list-row')

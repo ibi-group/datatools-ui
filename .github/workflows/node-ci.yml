@@ -53,6 +53,14 @@ jobs:
         run: yarn test-client
       - name: Build with minification
         run: yarn run build -- --minify
+        env:                    
+          AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+          AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}          
+          GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }} 
+          GRAPH_HOPPER_URL: ${{ secrets.GRAPH_HOPPER_URL }} 
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+          MAPBOX_MAP_ID: ${{ secrets.MAPBOX_MAP_ID }}
+          MAPBOX_ATTRIBUTION: ${{ secrets.MAPBOX_ATTRIBUTION }}          
       - name: Upload files from build
         if: github.repository_owner == 'ColombiaTransit'
         uses: actions/upload-artifact@v3

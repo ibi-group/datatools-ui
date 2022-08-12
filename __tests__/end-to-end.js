@@ -770,6 +770,7 @@ async function getAllElements (selector: string) {
  */
 async function type (selector: string, text: string) {
   log.info(`typing text: "${text}" into selector: ${selector}`)
+  await page.focus(selector)
   await page.type(selector, text)
 }
 

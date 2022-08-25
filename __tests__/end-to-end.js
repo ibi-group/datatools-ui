@@ -2150,6 +2150,64 @@ describe('end-to-end', () => {
           'test exception updated to delete'
         )
       }, defaultTestTimeout, 'should create calendar')
+
+      makeEditorEntityTest('should create exception range', async () => {
+        // create a new exception
+        await waitForAndClick('[data-test-id="new-scheduleexception-button"]')
+
+        // name
+        await type(
+          '[data-test-id="exception-name-input-container"] input',
+          'test exception range'
+        )
+
+        // exception type
+        await page.select(
+          '[data-test-id="exception-type-input-container"] select',
+          '7' // no service
+        )
+
+        // add start range exception date
+        await click('[data-test-id="exception-add-date-button"]')
+        await waitForSelector(
+          '[data-test-id="exception-dates-container"] input'
+        )
+        await clearAndType(
+          '[data-test-id="exception-dates-container"] input',
+          '08/04/18'
+        )
+
+        await click('[data-test-id="exception-add-range"]')
+
+        // add end of range exception date (July 10, 2018)
+        await waitForSelector(
+          '[data-test-id="exception-date-range-0-2"] input'
+        )
+
+        await clearAndType(
+          '[data-test-id="exception-date-range-0-2"] input',
+          '08/10/18'
+        )
+
+        // save
+        await click('[data-test-id="save-entity-button"]')
+        await wait(2000, 'for save to happen')
+
+        // reload to make sure stuff was saved
+        await page.reload({ waitUntil: 'networkidle0' })
+
+        // wait for exception sidebar form to appear
+        await waitForSelector(
+          '[data-test-id="exception-name-input-container"]'
+        )
+
+        // verify data was saved and retrieved from server
+        // TODO: verify the contents of the range?
+        await expectSelectorToContainHtml(
+          '[data-test-id="exception-name-input-container"]',
+          'test exception range'
+        )
+      }, defaultTestTimeout, 'should create calendar')
     })
 
     // ---------------------------------------------------------------------------

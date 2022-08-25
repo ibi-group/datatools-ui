@@ -281,6 +281,11 @@ td.feed-source-info {
   box-shadow: none;
 }
 
+/* Exception date range date picker */
+.exception-date-picker .input-group.date .input-group-addon {
+  padding: 6px 4px;
+}
+
 /* Feed version status styling */
 .feed-status {
   border-radius: 5px;

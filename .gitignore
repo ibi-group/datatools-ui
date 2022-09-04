@@ -20,7 +20,6 @@ configurations/*
 !configurations/test
 !configurations/end-to-end
 dist
-assets
 
 # Secret config files
 env.yml

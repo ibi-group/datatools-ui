@@ -1,8 +1,8 @@
 # Mastarm/deployment configuration properties. Note: application configuration
 # is now taken entirely from server application (there are still some
 # UI-specific env variables are in this repository's env.yml).
-cloudfront: DEPLOY-DISTRIBUTION
+cloudfront: d3oufy0f4ylur0.cloudfront.net
 entries:
   - 'lib/main.js:dist/index.js'
   - 'lib/index.css:dist/index.css'
-s3Bucket: bucket-for-deployment
+s3Bucket: wri-conveyal-gtfs-ui

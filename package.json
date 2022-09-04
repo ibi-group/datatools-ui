@@ -14,7 +14,8 @@
   "author": "Conveyal LLC, IBI Group",
   "license": "MIT",
   "scripts": {
-    "build": "mastarm build --env production",
+    "build": "mastarm build",
+    "build-prod": "mastarm build --minify --env production",
     "build-dev": "mastarm build --env dev",
     "cover-client": "npm run test-client -- --coverage --coverage-paths \"lib/**/*.js\"",
     "cover-flow": "flow-coverage-report -t html -t text -i 'lib/**/*.js' -o coverage-flow",

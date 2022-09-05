@@ -19,4 +19,4 @@ RUN npm install -g npm@5.10.0
 COPY . .
 
 # CMD npm run build-prod
-CMD npm start
+CMD yarn start

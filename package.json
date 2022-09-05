@@ -26,7 +26,6 @@
     "lint-messages": "node scripts/lint-messages.js",
     "postinstall": "husky install",
     "predeploy": "yarn",
-    "prestart": "yarn",
     "semantic-release": "semantic-release --prepare false --publish @semantic-release/github --verify-conditions @semantic-release/github",
     "start": "mastarm build --env dev --serve --proxy http://localhost:4000/api",
     "test": "npm run lint && npm run lint-messages && yarn run flow && npm run test-client",

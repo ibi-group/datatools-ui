@@ -229,7 +229,7 @@ components:
   FeedSourceAttributes:
     lastUpdated: Updated
   FeedSourcePanel:
-    search: Search feeds
+    search: Buscar feeds
   FeedSourceTable:
     comparisonColumn:
       DEPLOYED: Deployed Version

@@ -5,9 +5,6 @@ COPY package.json yarn.lock ./
 
 RUN yarn
 
-# fix issue: TypeError: text.replace is not a function
-# RUN sed -i 's/text.replace/String(text).replace/' /app/node_modules/mastarm/lib/logger.js
-
 FROM node:8.17.0 AS build
 
 COPY --from=node_modules /app /app

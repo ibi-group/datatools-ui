@@ -2,16 +2,16 @@ clean:
 	rm -rf dist
 
 docker_build:
-	docker build -t wri-conveyal-gtfs-ui-mastarm:4.1.0 .
+	docker-compose build frontend
 
 run: docker_build
-	docker run -p 9966:9966 -p 4000:4000 --volume ${PWD}:/app wri-conveyal-gtfs-ui-mastarm:4.1.0
+	docker-compose up frontend
 
-build: docker_build clean
-	docker run --rm --volume ${PWD}/dist:/app/dist wri-conveyal-gtfs-ui-mastarm:4.1.0 npm run build
+build: clean docker_build
+	docker-compose run frontend npm run build
 
-build-prod: docker_build clean
-	docker run --rm --volume ${PWD}/dist:/app/dist wri-conveyal-gtfs-ui-mastarm:4.1.0 npm run build-prod
+build-prod: clean docker_build
+	docker-compose run frontend npm run build-prod
 
 deploy: build-prod
 	aws s3 sync ./dist s3://wri-conveyal-gtfs-ui/dist --delete

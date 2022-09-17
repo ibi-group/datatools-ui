@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: 
+      context: .
+      target: build
+    image: datatools-ui:latest
+    volumes:
+      - ${PWD}/dist:/app/dist
+    ports:
+      - "9966:9966"
+      - "4000:4000"

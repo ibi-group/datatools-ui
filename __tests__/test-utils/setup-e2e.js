@@ -12,6 +12,7 @@ const {
   downloadFile,
   getTestFolderFilename,
   isCi,
+  isDocker,
   isUiRepo,
   loadYamlFile,
   requireEnvVars,
@@ -31,10 +32,13 @@ const ENV_YML_VARIABLES = [
   'GTFS_DATABASE_PASSWORD',
   'GTFS_DATABASE_USER',
   'GTFS_DATABASE_URL',
+  'MONGO_HOST',
+  'MONGO_DB_NAME',
   'OSM_VEX',
   'SPARKPOST_KEY',
   'SPARKPOST_EMAIL'
 ]
+
 /**
  * download, configure and start an instance of datatools-server
  */
@@ -130,7 +134,7 @@ async function startBackendServer () {
         } = process.env
 
         const serverEnv = results.readServerTemplate
-        serverEnv.application.client_assets_url = 'http://localhost:4000'
+        serverEnv.application.client_assets_url = 'http://datatools-server:4000'
         serverEnv.application.data.gtfs_s3_bucket = S3_BUCKET
         serverEnv.application.data.use_s3_storage = true
         serverEnv.extensions.transitfeeds.key = TRANSITFEEDS_KEY
@@ -385,24 +389,17 @@ function recreateEndToEndTestResultDirectory () {
 async function verifySetupForLocalEnvironment () {
   const errors = []
 
-  // make sure e2e.yml exists
-  try {
-    await fs.stat('configurations/end-to-end/env.yml')
-  } catch (e) {
-    errors.push(new Error('Failed to detect file `configurations/end-to-end/env.yml`'))
-  }
-
   // make sure services are running
   const endpointChecks = [
     {
       name: 'Front-end server',
-      url: 'http://localhost:9966'
+      url: 'http://datatools-ui:9966'
     }, {
       name: 'Back-end server',
-      url: 'http://localhost:4000'
+      url: 'http://datatools-server:4000'
     }, {
       name: 'OTP server',
-      url: 'http://localhost:8080'
+      url: 'http://datatools-server:8080'
     }
   ]
 
@@ -415,7 +412,7 @@ async function verifySetupForLocalEnvironment () {
 
   // Download OTP jar into /opt/otp/ if not already present.
   const otpJarExists = await fs.exists(otpJarForOtpRunner)
-  if (!otpJarExists) {
+  if (!otpJarExists && !isDocker) {
     await downloadFile(otpJarMavenUrl, otpJarForOtpRunner)
   }
 
@@ -499,7 +496,7 @@ module.exports = async function () {
 
   // do different setup depending on runtime environment
   const setupItems = []
-  if (isCi) {
+  if (isCi && !isDocker) {
     setupItems.push(setupForContinuousIntegrationEnvironment())
   } else {
     setupItems.push(verifySetupForLocalEnvironment())

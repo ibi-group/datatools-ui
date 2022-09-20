@@ -10,23 +10,6 @@ on:
 jobs:
   test-build-release:
     runs-on: ubuntu-latest
-    # Add postgres for end-to-end
-    services:
-      postgres:
-        image: postgres:10.8
-        # Set postgres env variables according to test env.yml config
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
-        ports:
-          - 5432:5432
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
       - uses: actions/checkout@v2
       # install python 3.x in order to have mkdocs properly installed
@@ -57,49 +40,47 @@ jobs:
         run: mkdocs build
       - name: Whether e2e should run
         run: echo Running e2e - {{ inputs.e2e }}
-      - name: Start MongoDB
+      - name: Write .env file for Docker
         if: inputs.e2e
-        uses: supercharge/mongodb-github-action@1.3.0
-        with:
-          mongodb-version: 4.2
-      - name: Add aws credentials for datatools-server
-        if: inputs.e2e
-        run: mkdir ~/.aws && printf '%s\n' '[default]' 'aws_access_key_id=${AWS_ACCESS_KEY_ID}' 'aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}' 'region=${AWS_REGION}' > ~/.aws/config
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - name: Install otp-runner
-        if: inputs.e2e
-        run: yarn global add https://github.com/ibi-group/otp-runner.git
+        run: |
+          touch __tests__/e2e/.env 
+          echo BUGSNAG_KEY= ${{ secrets.BUGSNAG_KEY }} >> __tests__/e2e/.env
+          echo AUTH0_API_CLIENT= ${{ secrets.AUTH0_API_CLIENT }} >> __tests__/e2e/.env
+          echo AUTH0_API_SECRET= ${{ secrets.AUTH0_API_SECRET }} >> __tests__/e2e/.env
+          echo AUTH0_CLIENT_ID= ${{ secrets.AUTH0_CLIENT_ID }} >> __tests__/e2e/.env
+          echo AUTH0_DOMAIN= ${{ secrets.AUTH0_DOMAIN }} >> __tests__/e2e/.env
+          echo AUTH0_SECRET= ${{ secrets.AUTH0_SECRET }} >> __tests__/e2e/.env
+          echo AWS_ACCESS_KEY_ID= ${{ secrets.AWS_ACCESS_KEY_ID }} >> __tests__/e2e/.env
+          echo AWS_REGION=us-east-1 >> __tests__/e2e/.env
+          echo AWS_SECRET_ACCESS_KEY= ${{ secrets.AWS_SECRET_ACCESS_KEY }} >> __tests__/e2e/.env
+          echo GITHUB_REF_SLUG= $GITHUB_REF >> __tests__/e2e/.env
+          echo GITHUB_SHA= $GITHUB_SHA >> __tests__/e2e/.env
+          echo E2E_AUTH0_PASSWORD= ${{ secrets.E2E_AUTH0_PASSWORD }} >> __tests__/e2e/.env
+          echo E2E_AUTH0_USERNAME= ${{ secrets.E2E_AUTH0_USERNAME }} >> __tests__/e2e/.env
+          echo GRAPH_HOPPER_KEY= ${{ secrets.GRAPH_HOPPER_KEY }} >> __tests__/e2e/.env
+          echo LOGS_S3_BUCKET= ${{ secrets.LOGS_S3_BUCKET }} >> __tests__/e2e/.env
+          echo MAPBOX_ACCESS_TOKEN= ${{ secrets.MAPBOX_ACCESS_TOKEN }} >> __tests__/e2e/.env
+          echo MS_TEAMS_WEBHOOK_URL= ${{ secrets.MS_TEAMS_WEBHOOK_URL }} >> __tests__/e2e/.env
+          echo OSM_VEX= ${{ secrets.OSM_VEX }} >> __tests__/e2e/.env
+          echo RUN_E2E= "true" >> __tests__/e2e/.env
+          echo S3_BUCKET= ${{ secrets.S3_BUCKET }} >> __tests__/e2e/.env
+          echo SPARKPOST_EMAIL= ${{ secrets.SPARKPOST_EMAIL }} >> __tests__/e2e/.env
+          echo SPARKPOST_KEY= ${{ secrets.SPARKPOST_KEY }} >> __tests__/e2e/.env
+          echo TRANSITFEEDS_KEY= ${{ secrets.TRANSITFEEDS_KEY }} >> __tests__/e2e/.env
+
+      # In this step, this action saves a list of existing images,
+      # the cache is created without them in the post run.
+      # It also restores the cache if it exists.
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
       - name: Run e2e tests
         if: inputs.e2e
-        run: yarn test-end-to-end
-        env:
-          AUTH0_API_CLIENT: ${{ secrets.AUTH0_API_CLIENT }}
-          AUTH0_API_SECRET: ${{ secrets.AUTH0_API_SECRET }}
-          AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
-          AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
-          AUTH0_SECRET: ${{ secrets.AUTH0_SECRET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          E2E_AUTH0_PASSWORD: ${{ secrets.E2E_AUTH0_PASSWORD }}
-          E2E_AUTH0_USERNAME: ${{ secrets.E2E_AUTH0_USERNAME }}
-          GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }}
-          GTFS_DATABASE_PASSWORD: ${{ secrets.GTFS_DATABASE_PASSWORD }}
-          GTFS_DATABASE_URL: ${{ secrets.GTFS_DATABASE_URL }}
-          GTFS_DATABASE_USER: ${{ secrets.GTFS_DATABASE_USER }}
-          LOGS_S3_BUCKET: ${{ secrets.LOGS_S3_BUCKET }}
-          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
-          MONGO_DB_NAME: ${{ secrets.MONGO_DB_NAME }}
-          MS_TEAMS_WEBHOOK_URL: ${{ secrets.MS_TEAMS_WEBHOOK_URL }}
-          OSM_VEX: ${{ secrets.OSM_VEX }}
-          RUN_E2E: "true"
-          S3_BUCKET: ${{ secrets.S3_BUCKET }}
-          SPARKPOST_EMAIL: ${{ secrets.SPARKPOST_EMAIL }}
-          SPARKPOST_KEY: ${{ secrets.SPARKPOST_KEY }}
-          TRANSITFEEDS_KEY: ${{ secrets.TRANSITFEEDS_KEY }}
+        run: |
+          (echo "E2E Test Attempt 1" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
+          (echo "E2E Test Attempt 2" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
+          (echo "E2E Test Attempt 3" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
+          (echo "E2E Tests Failed" && exit 1)
       # At this point, the build is successful.
       - name: Semantic Release
         env:

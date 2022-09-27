@@ -7,6 +7,7 @@
 .*/node_modules/nock/node_modules/changelog/examples/.*
 .*/node_modules/npmconf/.*
 .*/node_modules/react-leaflet/src/.*
+.*/node_modules/react-leaflet/lib/*.*\.js\.flow
 .*/node_modules/reqwest/.*
 .*/node_modules/module-deps/test/invalid_pkg/package.json
 .*/node_modules/immutable/dist/immutable.js.flow

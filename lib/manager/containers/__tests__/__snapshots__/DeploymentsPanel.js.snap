@@ -504,11 +504,14 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
               keyboard={true}
               manager={
                 ModalManager {
+                  "add": [Function],
                   "containers": Array [],
                   "data": Array [],
                   "handleContainerOverflow": true,
                   "hideSiblingNodes": true,
+                  "isTopModal": [Function],
                   "modals": Array [],
+                  "remove": [Function],
                 }
               }
               onHide={[Function]}
@@ -520,18 +523,20 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                 autoFocus={true}
                 backdrop={true}
                 backdropClassName="modal-backdrop"
-                backdropTransitionTimeout={150}
+                backdropTransition={[Function]}
                 containerClassName="modal-open"
-                dialogTransitionTimeout={300}
                 enforceFocus={true}
                 keyboard={true}
                 manager={
                   ModalManager {
+                    "add": [Function],
                     "containers": Array [],
                     "data": Array [],
                     "handleContainerOverflow": true,
                     "hideSiblingNodes": true,
+                    "isTopModal": [Function],
                     "modals": Array [],
+                    "remove": [Function],
                   }
                 }
                 onEntering={[Function]}
@@ -937,180 +942,419 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                 saveDeployment={[Function]}
                 updateDeployment={[Function]}
               >
-                <Panel
-                  bsClass="panel"
-                  bsStyle="default"
-                  defaultExpanded={false}
-                  header={
-                    <Row
-                      bsClass="row"
-                      componentClass="div"
-                    >
-                      <Col
-                        bsClass="col"
-                        componentClass="div"
-                        xs={4}
-                      >
-                        <FormControl
-                          bsClass="form-control"
-                          componentClass="input"
-                          onChange={[Function]}
-                          placeholder="Search for deployments"
-                        />
-                      </Col>
-                      <Col
-                        bsClass="col"
-                        componentClass="div"
-                        xs={8}
-                      >
-                        <Button
-                          active={false}
-                          block={false}
-                          bsClass="btn"
-                          bsStyle="success"
-                          className="pull-right"
-                          disabled={false}
-                          onClick={[Function]}
-                        >
-                          <Glyphicon
-                            bsClass="glyphicon"
-                            glyph="plus"
-                          />
-                           
-                          New Deployment
-                        </Button>
-                      </Col>
-                    </Row>
-                  }
-                >
-                  <div
-                    className="panel panel-default"
+                <Uncontrolled(Panel)>
+                  <Panel
+                    bsClass="panel"
+                    bsStyle="default"
+                    onToggle={[Function]}
                   >
                     <div
-                      className="panel-heading"
+                      className="panel panel-default"
                     >
-                      <Row
-                        bsClass="row"
-                        className="panel-title"
+                      <PanelHeading
+                        bsClass="panel"
                         componentClass="div"
                       >
                         <div
-                          className="panel-title row"
+                          className="panel-heading"
                         >
-                          <Col
-                            bsClass="col"
-                            componentClass="div"
-                            xs={4}
+                          <PanelTitle
+                            bsClass="panel"
+                            componentClass="h3"
                           >
-                            <div
-                              className="col-xs-4"
+                            <h3
+                              className="panel-title"
                             >
-                              <FormControl
-                                bsClass="form-control"
-                                componentClass="input"
-                                onChange={[Function]}
-                                placeholder="Search for deployments"
+                              <Row
+                                bsClass="row"
+                                componentClass="div"
                               >
-                                <input
-                                  className="form-control"
-                                  onChange={[Function]}
-                                  placeholder="Search for deployments"
-                                />
-                              </FormControl>
-                            </div>
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            componentClass="div"
-                            xs={8}
-                          >
-                            <div
-                              className="col-xs-8"
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsStyle="success"
-                                className="pull-right"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                <button
-                                  className="pull-right btn btn-success"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
+                                <div
+                                  className="row"
                                 >
-                                  <Glyphicon
-                                    bsClass="glyphicon"
-                                    glyph="plus"
+                                  <Col
+                                    bsClass="col"
+                                    componentClass="div"
+                                    xs={4}
                                   >
-                                    <span
-                                      className="glyphicon glyphicon-plus"
-                                    />
-                                  </Glyphicon>
-                                   
-                                  New Deployment
-                                </button>
-                              </Button>
-                            </div>
-                          </Col>
+                                    <div
+                                      className="col-xs-4"
+                                    >
+                                      <FormControl
+                                        bsClass="form-control"
+                                        componentClass="input"
+                                        onChange={[Function]}
+                                        placeholder="Search for deployments"
+                                      >
+                                        <input
+                                          className="form-control"
+                                          onChange={[Function]}
+                                          placeholder="Search for deployments"
+                                        />
+                                      </FormControl>
+                                    </div>
+                                  </Col>
+                                  <Col
+                                    bsClass="col"
+                                    componentClass="div"
+                                    xs={8}
+                                  >
+                                    <div
+                                      className="col-xs-8"
+                                    >
+                                      <Button
+                                        active={false}
+                                        block={false}
+                                        bsClass="btn"
+                                        bsStyle="success"
+                                        className="pull-right"
+                                        disabled={false}
+                                        onClick={[Function]}
+                                      >
+                                        <button
+                                          className="pull-right btn btn-success"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          <Glyphicon
+                                            bsClass="glyphicon"
+                                            glyph="plus"
+                                          >
+                                            <span
+                                              className="glyphicon glyphicon-plus"
+                                            />
+                                          </Glyphicon>
+                                           
+                                          New Deployment
+                                        </button>
+                                      </Button>
+                                    </div>
+                                  </Col>
+                                </div>
+                              </Row>
+                            </h3>
+                          </PanelTitle>
                         </div>
-                      </Row>
-                    </div>
-                    <Table
-                      bordered={false}
-                      bsClass="table"
-                      condensed={false}
-                      hover={true}
-                      key=".0"
-                      responsive={false}
-                      striped={true}
-                    >
-                      <table
-                        className="table table-striped table-hover"
+                      </PanelHeading>
+                      <Table
+                        bordered={false}
+                        bsClass="table"
+                        condensed={false}
+                        fill={true}
+                        hover={true}
+                        responsive={false}
+                        striped={true}
                       >
-                        <thead>
-                          <tr>
-                            <th
-                              className="col-md-4"
-                            >
-                              Name
-                            </th>
-                            <th>
-                              Created
-                            </th>
-                            <th>
-                              Last deployed
-                            </th>
-                            <th>
-                              Deployed to
-                            </th>
-                            <th>
-                              # of feeds
-                            </th>
-                            <th>
-                              Test?
-                            </th>
-                            <th />
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <DeploymentListItem
-                            deleteDeployment={[Function]}
-                            deployment={
-                              Object {
-                                "customBuildConfig": null,
-                                "customRouterConfig": null,
-                                "dateCreated": 1553292345720,
-                                "deployJobSummaries": Array [],
-                                "deployedTo": null,
-                                "ec2Instances": Array [],
-                                "feedSourceId": null,
-                                "feedVersions": Array [
-                                  Object {
-                                    "feedSource": Object {
+                        <table
+                          className="table table-striped table-hover"
+                          fill={true}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="col-md-4"
+                              >
+                                Name
+                              </th>
+                              <th>
+                                Created
+                              </th>
+                              <th>
+                                Last deployed
+                              </th>
+                              <th>
+                                Deployed to
+                              </th>
+                              <th>
+                                # of feeds
+                              </th>
+                              <th>
+                                Test?
+                              </th>
+                              <th />
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <DeploymentListItem
+                              deleteDeployment={[Function]}
+                              deployment={
+                                Object {
+                                  "customBuildConfig": null,
+                                  "customRouterConfig": null,
+                                  "dateCreated": 1553292345720,
+                                  "deployJobSummaries": Array [],
+                                  "deployedTo": null,
+                                  "ec2Instances": Array [],
+                                  "feedSourceId": null,
+                                  "feedVersions": Array [
+                                    Object {
+                                      "feedSource": Object {
+                                        "dateCreated": 1536195264564,
+                                        "deployable": false,
+                                        "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
+                                        "externalProperties": Object {},
+                                        "id": "mock-feed-with-version-id",
+                                        "isPublic": false,
+                                        "labelIds": Array [],
+                                        "lastFetched": 1543389038810,
+                                        "lastUpdated": 1543389038810,
+                                        "latestValidation": Object {
+                                          "agencies": null,
+                                          "agencyCount": 1,
+                                          "avgDailyRevenueTime": 0,
+                                          "bounds": Object {
+                                            "east": -76.481211,
+                                            "north": 39.0486949672717,
+                                            "south": 38.92884,
+                                            "west": -76.5673055566884,
+                                          },
+                                          "endDate": "20190801",
+                                          "errorCount": 78,
+                                          "feedVersionId": "mock-feed-version-id",
+                                          "loadFailureReason": null,
+                                          "loadStatus": "SUCCESS",
+                                          "routeCount": 10,
+                                          "startDate": "20180801",
+                                          "stopCount": 237,
+                                          "stopTimesCount": 11170,
+                                          "tripCount": 415,
+                                        },
+                                        "latestVersionId": "mock-feed-version-id",
+                                        "name": "test feed with a version",
+                                        "noteCount": 0,
+                                        "organizationId": null,
+                                        "projectId": "mock-project-id",
+                                        "publishedVersionId": null,
+                                        "retrievalMethod": "MANUALLY_UPLOADED",
+                                        "s3Url": null,
+                                        "snapshotVersion": null,
+                                        "transformRules": Array [],
+                                        "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
+                                        "user": null,
+                                        "versionCount": 1,
+                                      },
+                                      "id": "mock-feed-version-id",
+                                      "nextVersionId": null,
+                                      "previousVersionId": null,
+                                      "updated": 1543389038810,
+                                      "validationResult": Object {
+                                        "agencies": null,
+                                        "agencyCount": 1,
+                                        "avgDailyRevenueTime": 0,
+                                        "bounds": Object {
+                                          "east": -76.481211,
+                                          "north": 39.0486949672717,
+                                          "south": 38.92884,
+                                          "west": -76.5673055566884,
+                                        },
+                                        "endDate": "20190801",
+                                        "errorCount": 78,
+                                        "feedVersionId": "mock-feed-version-id",
+                                        "loadFailureReason": null,
+                                        "loadStatus": "SUCCESS",
+                                        "routeCount": 10,
+                                        "startDate": "20180801",
+                                        "stopCount": 237,
+                                        "stopTimesCount": 11170,
+                                        "tripCount": 415,
+                                      },
+                                      "version": 1,
+                                    },
+                                  ],
+                                  "id": "mock-deployment-id-0",
+                                  "invalidFeedSources": Array [],
+                                  "lastDeployed": null,
+                                  "lastUpdated": 1553292345726,
+                                  "latest": null,
+                                  "name": "mock-deployment",
+                                  "organizationId": null,
+                                  "osmExtractUrl": null,
+                                  "otpCommit": null,
+                                  "otpVersion": null,
+                                  "peliasCsvFiles": Array [],
+                                  "peliasResetDb": null,
+                                  "peliasUpdate": null,
+                                  "pinnedfeedVersionIds": Array [],
+                                  "projectBounds": Object {
+                                    "east": 0,
+                                    "north": 0,
+                                    "south": 0,
+                                    "west": 0,
+                                  },
+                                  "projectId": "mock-project-with-deployments-id",
+                                  "routerId": null,
+                                  "skipOsmExtract": false,
+                                  "tripPlannerVersion": "OTP_1",
+                                  "user": null,
+                                }
+                              }
+                              key="mock-deployment-id-0"
+                              project={
+                                Object {
+                                  "autoDeploy": false,
+                                  "autoDeployTypes": Array [],
+                                  "autoDeployWithCriticalErrors": false,
+                                  "autoFetchFeeds": true,
+                                  "autoFetchHour": 0,
+                                  "autoFetchMinute": 0,
+                                  "bounds": null,
+                                  "buildConfig": Object {
+                                    "fares": null,
+                                    "fetchElevationUS": null,
+                                    "stationTransfers": null,
+                                    "subwayAccessTime": null,
+                                  },
+                                  "dateCreated": 1526305321824,
+                                  "defaultTimeZone": null,
+                                  "deployments": Array [
+                                    Object {
+                                      "customBuildConfig": null,
+                                      "customRouterConfig": null,
+                                      "dateCreated": 1553292345720,
+                                      "deployJobSummaries": Array [],
+                                      "deployedTo": null,
+                                      "ec2Instances": Array [],
+                                      "feedSourceId": null,
+                                      "feedVersions": Array [
+                                        Object {
+                                          "feedSource": Object {
+                                            "dateCreated": 1536195264564,
+                                            "deployable": false,
+                                            "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
+                                            "externalProperties": Object {},
+                                            "id": "mock-feed-with-version-id",
+                                            "isPublic": false,
+                                            "labelIds": Array [],
+                                            "lastFetched": 1543389038810,
+                                            "lastUpdated": 1543389038810,
+                                            "latestValidation": Object {
+                                              "agencies": null,
+                                              "agencyCount": 1,
+                                              "avgDailyRevenueTime": 0,
+                                              "bounds": Object {
+                                                "east": -76.481211,
+                                                "north": 39.0486949672717,
+                                                "south": 38.92884,
+                                                "west": -76.5673055566884,
+                                              },
+                                              "endDate": "20190801",
+                                              "errorCount": 78,
+                                              "feedVersionId": "mock-feed-version-id",
+                                              "loadFailureReason": null,
+                                              "loadStatus": "SUCCESS",
+                                              "routeCount": 10,
+                                              "startDate": "20180801",
+                                              "stopCount": 237,
+                                              "stopTimesCount": 11170,
+                                              "tripCount": 415,
+                                            },
+                                            "latestVersionId": "mock-feed-version-id",
+                                            "name": "test feed with a version",
+                                            "noteCount": 0,
+                                            "organizationId": null,
+                                            "projectId": "mock-project-id",
+                                            "publishedVersionId": null,
+                                            "retrievalMethod": "MANUALLY_UPLOADED",
+                                            "s3Url": null,
+                                            "snapshotVersion": null,
+                                            "transformRules": Array [],
+                                            "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
+                                            "user": null,
+                                            "versionCount": 1,
+                                          },
+                                          "id": "mock-feed-version-id",
+                                          "nextVersionId": null,
+                                          "previousVersionId": null,
+                                          "updated": 1543389038810,
+                                          "validationResult": Object {
+                                            "agencies": null,
+                                            "agencyCount": 1,
+                                            "avgDailyRevenueTime": 0,
+                                            "bounds": Object {
+                                              "east": -76.481211,
+                                              "north": 39.0486949672717,
+                                              "south": 38.92884,
+                                              "west": -76.5673055566884,
+                                            },
+                                            "endDate": "20190801",
+                                            "errorCount": 78,
+                                            "feedVersionId": "mock-feed-version-id",
+                                            "loadFailureReason": null,
+                                            "loadStatus": "SUCCESS",
+                                            "routeCount": 10,
+                                            "startDate": "20180801",
+                                            "stopCount": 237,
+                                            "stopTimesCount": 11170,
+                                            "tripCount": 415,
+                                          },
+                                          "version": 1,
+                                        },
+                                      ],
+                                      "id": "mock-deployment-id-0",
+                                      "invalidFeedSources": Array [],
+                                      "lastDeployed": null,
+                                      "lastUpdated": 1553292345726,
+                                      "latest": null,
+                                      "name": "mock-deployment",
+                                      "organizationId": null,
+                                      "osmExtractUrl": null,
+                                      "otpCommit": null,
+                                      "otpVersion": null,
+                                      "peliasCsvFiles": Array [],
+                                      "peliasResetDb": null,
+                                      "peliasUpdate": null,
+                                      "pinnedfeedVersionIds": Array [],
+                                      "projectBounds": Object {
+                                        "east": 0,
+                                        "north": 0,
+                                        "south": 0,
+                                        "west": 0,
+                                      },
+                                      "projectId": "mock-project-with-deployments-id",
+                                      "routerId": null,
+                                      "skipOsmExtract": false,
+                                      "tripPlannerVersion": "OTP_1",
+                                      "user": null,
+                                    },
+                                    Object {
+                                      "customBuildConfig": null,
+                                      "customRouterConfig": null,
+                                      "dateCreated": 1553292345720,
+                                      "deployJobSummaries": Array [],
+                                      "deployedTo": null,
+                                      "ec2Instances": Array [],
+                                      "feedSourceId": null,
+                                      "feedVersions": Array [],
+                                      "id": "mock-deployment-id-1",
+                                      "invalidFeedSources": Array [],
+                                      "lastDeployed": null,
+                                      "lastUpdated": 1553292345726,
+                                      "latest": null,
+                                      "name": "mock-deployment",
+                                      "organizationId": null,
+                                      "osmExtractUrl": null,
+                                      "otpCommit": null,
+                                      "otpVersion": null,
+                                      "peliasCsvFiles": Array [],
+                                      "peliasResetDb": null,
+                                      "peliasUpdate": null,
+                                      "pinnedfeedVersionIds": Array [],
+                                      "projectBounds": Object {
+                                        "east": 0,
+                                        "north": 0,
+                                        "south": 0,
+                                        "west": 0,
+                                      },
+                                      "projectId": "mock-project-with-deployments-id",
+                                      "routerId": null,
+                                      "skipOsmExtract": false,
+                                      "tripPlannerVersion": "OTP_1",
+                                      "user": null,
+                                    },
+                                  ],
+                                  "feedSources": Array [
+                                    Object {
                                       "dateCreated": 1536195264564,
                                       "deployable": false,
                                       "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
@@ -1155,101 +1399,283 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                       "user": null,
                                       "versionCount": 1,
                                     },
-                                    "id": "mock-feed-version-id",
-                                    "nextVersionId": null,
-                                    "previousVersionId": null,
-                                    "updated": 1543389038810,
-                                    "validationResult": Object {
-                                      "agencies": null,
-                                      "agencyCount": 1,
-                                      "avgDailyRevenueTime": 0,
-                                      "bounds": Object {
-                                        "east": -76.481211,
-                                        "north": 39.0486949672717,
-                                        "south": 38.92884,
-                                        "west": -76.5673055566884,
-                                      },
-                                      "endDate": "20190801",
-                                      "errorCount": 78,
-                                      "feedVersionId": "mock-feed-version-id",
-                                      "loadFailureReason": null,
-                                      "loadStatus": "SUCCESS",
-                                      "routeCount": 10,
-                                      "startDate": "20180801",
-                                      "stopCount": 237,
-                                      "stopTimesCount": 11170,
-                                      "tripCount": 415,
-                                    },
-                                    "version": 1,
+                                  ],
+                                  "id": "mock-project-with-deployments-id",
+                                  "labels": Array [],
+                                  "lastUpdated": 1553236399556,
+                                  "name": "mock-project-with-deployments",
+                                  "organizationId": null,
+                                  "otpServers": Array [],
+                                  "peliasWebhookUrl": null,
+                                  "pinnedDeploymentId": "mock-deployment-id-0",
+                                  "routerConfig": Object {
+                                    "carDropoffTime": null,
+                                    "numItineraries": null,
+                                    "requestLogFile": null,
+                                    "stairsReluctance": null,
+                                    "updaters": null,
+                                    "walkSpeed": null,
                                   },
-                                ],
-                                "id": "mock-deployment-id-0",
-                                "invalidFeedSources": Array [],
-                                "lastDeployed": null,
-                                "lastUpdated": 1553292345726,
-                                "latest": null,
-                                "name": "mock-deployment",
-                                "organizationId": null,
-                                "osmExtractUrl": null,
-                                "otpCommit": null,
-                                "otpVersion": null,
-                                "peliasCsvFiles": Array [],
-                                "peliasResetDb": null,
-                                "peliasUpdate": null,
-                                "pinnedfeedVersionIds": Array [],
-                                "projectBounds": Object {
-                                  "east": 0,
-                                  "north": 0,
-                                  "south": 0,
-                                  "west": 0,
-                                },
-                                "projectId": "mock-project-with-deployments-id",
-                                "routerId": null,
-                                "skipOsmExtract": false,
-                                "tripPlannerVersion": "OTP_1",
-                                "user": null,
+                                  "useCustomOsmBounds": false,
+                                  "user": null,
+                                }
                               }
-                            }
-                            key="mock-deployment-id-0"
-                            project={
-                              Object {
-                                "autoDeploy": false,
-                                "autoDeployTypes": Array [],
-                                "autoDeployWithCriticalErrors": false,
-                                "autoFetchFeeds": true,
-                                "autoFetchHour": 0,
-                                "autoFetchMinute": 0,
-                                "bounds": null,
-                                "buildConfig": Object {
-                                  "fares": null,
-                                  "fetchElevationUS": null,
-                                  "stationTransfers": null,
-                                  "subwayAccessTime": null,
-                                },
-                                "dateCreated": 1526305321824,
-                                "defaultTimeZone": null,
-                                "deployments": Array [
-                                  Object {
-                                    "customBuildConfig": null,
-                                    "customRouterConfig": null,
-                                    "dateCreated": 1553292345720,
-                                    "deployJobSummaries": Array [],
-                                    "deployedTo": null,
-                                    "ec2Instances": Array [],
-                                    "feedSourceId": null,
-                                    "feedVersions": Array [
-                                      Object {
-                                        "feedSource": Object {
-                                          "dateCreated": 1536195264564,
-                                          "deployable": false,
-                                          "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                          "externalProperties": Object {},
-                                          "id": "mock-feed-with-version-id",
-                                          "isPublic": false,
-                                          "labelIds": Array [],
-                                          "lastFetched": 1543389038810,
-                                          "lastUpdated": 1543389038810,
-                                          "latestValidation": Object {
+                              saveDeployment={[Function]}
+                              updateDeployment={[Function]}
+                            >
+                              <tr
+                                className="pinned-deployment"
+                              >
+                                <td>
+                                  <Icon
+                                    type="thumb-tack"
+                                  >
+                                    <i
+                                      className="fa fa-thumb-tack fa-fw "
+                                    />
+                                  </Icon>
+                                  <EditableTextField
+                                    inline={true}
+                                    isEditing={false}
+                                    link="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-0"
+                                    onChange={[Function]}
+                                    rejectEmptyValue={true}
+                                    style={Object {}}
+                                    type="text"
+                                    value="mock-deployment"
+                                  >
+                                    <div
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                        }
+                                      }
+                                    >
+                                      <span>
+                                        <span
+                                          title="mock-deployment"
+                                        >
+                                          <Link
+                                            onlyActiveOnIndex={false}
+                                            style={Object {}}
+                                            to="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-0"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              style={Object {}}
+                                            >
+                                              mock-deployment
+                                            </a>
+                                          </Link>
+                                        </span>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          data-test-id="editable-text-field-edit-button"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                        >
+                                          <button
+                                            className="btn btn-link"
+                                            data-test-id="editable-text-field-edit-button"
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="button"
+                                          >
+                                            <Icon
+                                              type="pencil"
+                                            >
+                                              <i
+                                                className="fa fa-pencil fa-fw "
+                                              />
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </span>
+                                    </div>
+                                  </EditableTextField>
+                                </td>
+                                <td>
+                                  <span
+                                    title="Mar 22nd 2019, 3:05pm"
+                                  >
+                                    2 months ago
+                                  </span>
+                                </td>
+                                <td>
+                                  <span
+                                    className="deployment-na"
+                                  >
+                                    N/A
+                                  </span>
+                                </td>
+                                <td>
+                                  <span
+                                    className="deployment-na"
+                                  >
+                                    N/A
+                                  </span>
+                                </td>
+                                <td>
+                                  1
+                                </td>
+                                <td>
+                                  <span
+                                    className="deployment-na"
+                                  >
+                                    N/A
+                                  </span>
+                                </td>
+                                <td>
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
+                                    bsStyle="danger"
+                                    className="pull-right"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                  >
+                                    <button
+                                      className="pull-right btn btn-xs btn-danger"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      <Glyphicon
+                                        bsClass="glyphicon"
+                                        glyph="remove"
+                                      >
+                                        <span
+                                          className="glyphicon glyphicon-remove"
+                                        />
+                                      </Glyphicon>
+                                    </button>
+                                  </Button>
+                                </td>
+                              </tr>
+                            </DeploymentListItem>
+                            <DeploymentListItem
+                              deleteDeployment={[Function]}
+                              deployment={
+                                Object {
+                                  "customBuildConfig": null,
+                                  "customRouterConfig": null,
+                                  "dateCreated": 1553292345720,
+                                  "deployJobSummaries": Array [],
+                                  "deployedTo": null,
+                                  "ec2Instances": Array [],
+                                  "feedSourceId": null,
+                                  "feedVersions": Array [],
+                                  "id": "mock-deployment-id-1",
+                                  "invalidFeedSources": Array [],
+                                  "lastDeployed": null,
+                                  "lastUpdated": 1553292345726,
+                                  "latest": null,
+                                  "name": "mock-deployment",
+                                  "organizationId": null,
+                                  "osmExtractUrl": null,
+                                  "otpCommit": null,
+                                  "otpVersion": null,
+                                  "peliasCsvFiles": Array [],
+                                  "peliasResetDb": null,
+                                  "peliasUpdate": null,
+                                  "pinnedfeedVersionIds": Array [],
+                                  "projectBounds": Object {
+                                    "east": 0,
+                                    "north": 0,
+                                    "south": 0,
+                                    "west": 0,
+                                  },
+                                  "projectId": "mock-project-with-deployments-id",
+                                  "routerId": null,
+                                  "skipOsmExtract": false,
+                                  "tripPlannerVersion": "OTP_1",
+                                  "user": null,
+                                }
+                              }
+                              key="mock-deployment-id-1"
+                              project={
+                                Object {
+                                  "autoDeploy": false,
+                                  "autoDeployTypes": Array [],
+                                  "autoDeployWithCriticalErrors": false,
+                                  "autoFetchFeeds": true,
+                                  "autoFetchHour": 0,
+                                  "autoFetchMinute": 0,
+                                  "bounds": null,
+                                  "buildConfig": Object {
+                                    "fares": null,
+                                    "fetchElevationUS": null,
+                                    "stationTransfers": null,
+                                    "subwayAccessTime": null,
+                                  },
+                                  "dateCreated": 1526305321824,
+                                  "defaultTimeZone": null,
+                                  "deployments": Array [
+                                    Object {
+                                      "customBuildConfig": null,
+                                      "customRouterConfig": null,
+                                      "dateCreated": 1553292345720,
+                                      "deployJobSummaries": Array [],
+                                      "deployedTo": null,
+                                      "ec2Instances": Array [],
+                                      "feedSourceId": null,
+                                      "feedVersions": Array [
+                                        Object {
+                                          "feedSource": Object {
+                                            "dateCreated": 1536195264564,
+                                            "deployable": false,
+                                            "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
+                                            "externalProperties": Object {},
+                                            "id": "mock-feed-with-version-id",
+                                            "isPublic": false,
+                                            "labelIds": Array [],
+                                            "lastFetched": 1543389038810,
+                                            "lastUpdated": 1543389038810,
+                                            "latestValidation": Object {
+                                              "agencies": null,
+                                              "agencyCount": 1,
+                                              "avgDailyRevenueTime": 0,
+                                              "bounds": Object {
+                                                "east": -76.481211,
+                                                "north": 39.0486949672717,
+                                                "south": 38.92884,
+                                                "west": -76.5673055566884,
+                                              },
+                                              "endDate": "20190801",
+                                              "errorCount": 78,
+                                              "feedVersionId": "mock-feed-version-id",
+                                              "loadFailureReason": null,
+                                              "loadStatus": "SUCCESS",
+                                              "routeCount": 10,
+                                              "startDate": "20180801",
+                                              "stopCount": 237,
+                                              "stopTimesCount": 11170,
+                                              "tripCount": 415,
+                                            },
+                                            "latestVersionId": "mock-feed-version-id",
+                                            "name": "test feed with a version",
+                                            "noteCount": 0,
+                                            "organizationId": null,
+                                            "projectId": "mock-project-id",
+                                            "publishedVersionId": null,
+                                            "retrievalMethod": "MANUALLY_UPLOADED",
+                                            "s3Url": null,
+                                            "snapshotVersion": null,
+                                            "transformRules": Array [],
+                                            "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
+                                            "user": null,
+                                            "versionCount": 1,
+                                          },
+                                          "id": "mock-feed-version-id",
+                                          "nextVersionId": null,
+                                          "previousVersionId": null,
+                                          "updated": 1543389038810,
+                                          "validationResult": Object {
                                             "agencies": null,
                                             "agencyCount": 1,
                                             "avgDailyRevenueTime": 0,
@@ -1270,729 +1696,275 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
                                             "stopTimesCount": 11170,
                                             "tripCount": 415,
                                           },
-                                          "latestVersionId": "mock-feed-version-id",
-                                          "name": "test feed with a version",
-                                          "noteCount": 0,
-                                          "organizationId": null,
-                                          "projectId": "mock-project-id",
-                                          "publishedVersionId": null,
-                                          "retrievalMethod": "MANUALLY_UPLOADED",
-                                          "s3Url": null,
-                                          "snapshotVersion": null,
-                                          "transformRules": Array [],
-                                          "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                          "user": null,
-                                          "versionCount": 1,
+                                          "version": 1,
                                         },
-                                        "id": "mock-feed-version-id",
-                                        "nextVersionId": null,
-                                        "previousVersionId": null,
-                                        "updated": 1543389038810,
-                                        "validationResult": Object {
-                                          "agencies": null,
-                                          "agencyCount": 1,
-                                          "avgDailyRevenueTime": 0,
-                                          "bounds": Object {
-                                            "east": -76.481211,
-                                            "north": 39.0486949672717,
-                                            "south": 38.92884,
-                                            "west": -76.5673055566884,
-                                          },
-                                          "endDate": "20190801",
-                                          "errorCount": 78,
-                                          "feedVersionId": "mock-feed-version-id",
-                                          "loadFailureReason": null,
-                                          "loadStatus": "SUCCESS",
-                                          "routeCount": 10,
-                                          "startDate": "20180801",
-                                          "stopCount": 237,
-                                          "stopTimesCount": 11170,
-                                          "tripCount": 415,
-                                        },
-                                        "version": 1,
+                                      ],
+                                      "id": "mock-deployment-id-0",
+                                      "invalidFeedSources": Array [],
+                                      "lastDeployed": null,
+                                      "lastUpdated": 1553292345726,
+                                      "latest": null,
+                                      "name": "mock-deployment",
+                                      "organizationId": null,
+                                      "osmExtractUrl": null,
+                                      "otpCommit": null,
+                                      "otpVersion": null,
+                                      "peliasCsvFiles": Array [],
+                                      "peliasResetDb": null,
+                                      "peliasUpdate": null,
+                                      "pinnedfeedVersionIds": Array [],
+                                      "projectBounds": Object {
+                                        "east": 0,
+                                        "north": 0,
+                                        "south": 0,
+                                        "west": 0,
                                       },
-                                    ],
-                                    "id": "mock-deployment-id-0",
-                                    "invalidFeedSources": Array [],
-                                    "lastDeployed": null,
-                                    "lastUpdated": 1553292345726,
-                                    "latest": null,
-                                    "name": "mock-deployment",
-                                    "organizationId": null,
-                                    "osmExtractUrl": null,
-                                    "otpCommit": null,
-                                    "otpVersion": null,
-                                    "peliasCsvFiles": Array [],
-                                    "peliasResetDb": null,
-                                    "peliasUpdate": null,
-                                    "pinnedfeedVersionIds": Array [],
-                                    "projectBounds": Object {
-                                      "east": 0,
-                                      "north": 0,
-                                      "south": 0,
-                                      "west": 0,
+                                      "projectId": "mock-project-with-deployments-id",
+                                      "routerId": null,
+                                      "skipOsmExtract": false,
+                                      "tripPlannerVersion": "OTP_1",
+                                      "user": null,
                                     },
-                                    "projectId": "mock-project-with-deployments-id",
-                                    "routerId": null,
-                                    "skipOsmExtract": false,
-                                    "tripPlannerVersion": "OTP_1",
-                                    "user": null,
-                                  },
-                                  Object {
-                                    "customBuildConfig": null,
-                                    "customRouterConfig": null,
-                                    "dateCreated": 1553292345720,
-                                    "deployJobSummaries": Array [],
-                                    "deployedTo": null,
-                                    "ec2Instances": Array [],
-                                    "feedSourceId": null,
-                                    "feedVersions": Array [],
-                                    "id": "mock-deployment-id-1",
-                                    "invalidFeedSources": Array [],
-                                    "lastDeployed": null,
-                                    "lastUpdated": 1553292345726,
-                                    "latest": null,
-                                    "name": "mock-deployment",
-                                    "organizationId": null,
-                                    "osmExtractUrl": null,
-                                    "otpCommit": null,
-                                    "otpVersion": null,
-                                    "peliasCsvFiles": Array [],
-                                    "peliasResetDb": null,
-                                    "peliasUpdate": null,
-                                    "pinnedfeedVersionIds": Array [],
-                                    "projectBounds": Object {
-                                      "east": 0,
-                                      "north": 0,
-                                      "south": 0,
-                                      "west": 0,
-                                    },
-                                    "projectId": "mock-project-with-deployments-id",
-                                    "routerId": null,
-                                    "skipOsmExtract": false,
-                                    "tripPlannerVersion": "OTP_1",
-                                    "user": null,
-                                  },
-                                ],
-                                "feedSources": Array [
-                                  Object {
-                                    "dateCreated": 1536195264564,
-                                    "deployable": false,
-                                    "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                    "externalProperties": Object {},
-                                    "id": "mock-feed-with-version-id",
-                                    "isPublic": false,
-                                    "labelIds": Array [],
-                                    "lastFetched": 1543389038810,
-                                    "lastUpdated": 1543389038810,
-                                    "latestValidation": Object {
-                                      "agencies": null,
-                                      "agencyCount": 1,
-                                      "avgDailyRevenueTime": 0,
-                                      "bounds": Object {
-                                        "east": -76.481211,
-                                        "north": 39.0486949672717,
-                                        "south": 38.92884,
-                                        "west": -76.5673055566884,
-                                      },
-                                      "endDate": "20190801",
-                                      "errorCount": 78,
-                                      "feedVersionId": "mock-feed-version-id",
-                                      "loadFailureReason": null,
-                                      "loadStatus": "SUCCESS",
-                                      "routeCount": 10,
-                                      "startDate": "20180801",
-                                      "stopCount": 237,
-                                      "stopTimesCount": 11170,
-                                      "tripCount": 415,
-                                    },
-                                    "latestVersionId": "mock-feed-version-id",
-                                    "name": "test feed with a version",
-                                    "noteCount": 0,
-                                    "organizationId": null,
-                                    "projectId": "mock-project-id",
-                                    "publishedVersionId": null,
-                                    "retrievalMethod": "MANUALLY_UPLOADED",
-                                    "s3Url": null,
-                                    "snapshotVersion": null,
-                                    "transformRules": Array [],
-                                    "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                    "user": null,
-                                    "versionCount": 1,
-                                  },
-                                ],
-                                "id": "mock-project-with-deployments-id",
-                                "labels": Array [],
-                                "lastUpdated": 1553236399556,
-                                "name": "mock-project-with-deployments",
-                                "organizationId": null,
-                                "otpServers": Array [],
-                                "peliasWebhookUrl": null,
-                                "pinnedDeploymentId": "mock-deployment-id-0",
-                                "routerConfig": Object {
-                                  "carDropoffTime": null,
-                                  "numItineraries": null,
-                                  "requestLogFile": null,
-                                  "stairsReluctance": null,
-                                  "updaters": null,
-                                  "walkSpeed": null,
-                                },
-                                "useCustomOsmBounds": false,
-                                "user": null,
-                              }
-                            }
-                            saveDeployment={[Function]}
-                            updateDeployment={[Function]}
-                          >
-                            <tr
-                              className="pinned-deployment"
-                            >
-                              <td>
-                                <Icon
-                                  type="thumb-tack"
-                                >
-                                  <i
-                                    className="fa fa-thumb-tack fa-fw "
-                                  />
-                                </Icon>
-                                <EditableTextField
-                                  inline={true}
-                                  isEditing={false}
-                                  link="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-0"
-                                  onChange={[Function]}
-                                  rejectEmptyValue={true}
-                                  style={
                                     Object {
-                                      "display": "inline-block",
-                                    }
-                                  }
-                                  type="text"
-                                  value="mock-deployment"
-                                >
-                                  <div
-                                    style={
-                                      Object {
-                                        "display": "inline-block",
-                                      }
-                                    }
+                                      "customBuildConfig": null,
+                                      "customRouterConfig": null,
+                                      "dateCreated": 1553292345720,
+                                      "deployJobSummaries": Array [],
+                                      "deployedTo": null,
+                                      "ec2Instances": Array [],
+                                      "feedSourceId": null,
+                                      "feedVersions": Array [],
+                                      "id": "mock-deployment-id-1",
+                                      "invalidFeedSources": Array [],
+                                      "lastDeployed": null,
+                                      "lastUpdated": 1553292345726,
+                                      "latest": null,
+                                      "name": "mock-deployment",
+                                      "organizationId": null,
+                                      "osmExtractUrl": null,
+                                      "otpCommit": null,
+                                      "otpVersion": null,
+                                      "peliasCsvFiles": Array [],
+                                      "peliasResetDb": null,
+                                      "peliasUpdate": null,
+                                      "pinnedfeedVersionIds": Array [],
+                                      "projectBounds": Object {
+                                        "east": 0,
+                                        "north": 0,
+                                        "south": 0,
+                                        "west": 0,
+                                      },
+                                      "projectId": "mock-project-with-deployments-id",
+                                      "routerId": null,
+                                      "skipOsmExtract": false,
+                                      "tripPlannerVersion": "OTP_1",
+                                      "user": null,
+                                    },
+                                  ],
+                                  "feedSources": Array [
+                                    Object {
+                                      "dateCreated": 1536195264564,
+                                      "deployable": false,
+                                      "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
+                                      "externalProperties": Object {},
+                                      "id": "mock-feed-with-version-id",
+                                      "isPublic": false,
+                                      "labelIds": Array [],
+                                      "lastFetched": 1543389038810,
+                                      "lastUpdated": 1543389038810,
+                                      "latestValidation": Object {
+                                        "agencies": null,
+                                        "agencyCount": 1,
+                                        "avgDailyRevenueTime": 0,
+                                        "bounds": Object {
+                                          "east": -76.481211,
+                                          "north": 39.0486949672717,
+                                          "south": 38.92884,
+                                          "west": -76.5673055566884,
+                                        },
+                                        "endDate": "20190801",
+                                        "errorCount": 78,
+                                        "feedVersionId": "mock-feed-version-id",
+                                        "loadFailureReason": null,
+                                        "loadStatus": "SUCCESS",
+                                        "routeCount": 10,
+                                        "startDate": "20180801",
+                                        "stopCount": 237,
+                                        "stopTimesCount": 11170,
+                                        "tripCount": 415,
+                                      },
+                                      "latestVersionId": "mock-feed-version-id",
+                                      "name": "test feed with a version",
+                                      "noteCount": 0,
+                                      "organizationId": null,
+                                      "projectId": "mock-project-id",
+                                      "publishedVersionId": null,
+                                      "retrievalMethod": "MANUALLY_UPLOADED",
+                                      "s3Url": null,
+                                      "snapshotVersion": null,
+                                      "transformRules": Array [],
+                                      "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
+                                      "user": null,
+                                      "versionCount": 1,
+                                    },
+                                  ],
+                                  "id": "mock-project-with-deployments-id",
+                                  "labels": Array [],
+                                  "lastUpdated": 1553236399556,
+                                  "name": "mock-project-with-deployments",
+                                  "organizationId": null,
+                                  "otpServers": Array [],
+                                  "peliasWebhookUrl": null,
+                                  "pinnedDeploymentId": "mock-deployment-id-0",
+                                  "routerConfig": Object {
+                                    "carDropoffTime": null,
+                                    "numItineraries": null,
+                                    "requestLogFile": null,
+                                    "stairsReluctance": null,
+                                    "updaters": null,
+                                    "walkSpeed": null,
+                                  },
+                                  "useCustomOsmBounds": false,
+                                  "user": null,
+                                }
+                              }
+                              saveDeployment={[Function]}
+                              updateDeployment={[Function]}
+                            >
+                              <tr
+                                className=""
+                              >
+                                <td>
+                                  <EditableTextField
+                                    inline={true}
+                                    isEditing={false}
+                                    link="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-1"
+                                    onChange={[Function]}
+                                    rejectEmptyValue={true}
+                                    style={Object {}}
+                                    type="text"
+                                    value="mock-deployment"
                                   >
-                                    <span>
-                                      <span
-                                        title="mock-deployment"
-                                      >
-                                        <Link
-                                          onlyActiveOnIndex={false}
-                                          style={Object {}}
-                                          to="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-0"
+                                    <div
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                        }
+                                      }
+                                    >
+                                      <span>
+                                        <span
+                                          title="mock-deployment"
                                         >
-                                          <a
-                                            onClick={[Function]}
+                                          <Link
+                                            onlyActiveOnIndex={false}
                                             style={Object {}}
+                                            to="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-1"
                                           >
-                                            mock-deployment
-                                          </a>
-                                        </Link>
-                                      </span>
-                                      <Button
-                                        active={false}
-                                        block={false}
-                                        bsClass="btn"
-                                        bsStyle="link"
-                                        data-test-id="editable-text-field-edit-button"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                      >
-                                        <button
-                                          className="btn btn-link"
+                                            <a
+                                              onClick={[Function]}
+                                              style={Object {}}
+                                            >
+                                              mock-deployment
+                                            </a>
+                                          </Link>
+                                        </span>
+                                        <Button
+                                          active={false}
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
                                           data-test-id="editable-text-field-edit-button"
                                           disabled={false}
                                           onClick={[Function]}
-                                          type="button"
                                         >
-                                          <Icon
-                                            type="pencil"
-                                          >
-                                            <i
-                                              className="fa fa-pencil fa-fw "
-                                            />
-                                          </Icon>
-                                        </button>
-                                      </Button>
-                                    </span>
-                                  </div>
-                                </EditableTextField>
-                              </td>
-                              <td>
-                                <span
-                                  title="Mar 22nd 2019, 3:05pm"
-                                >
-                                  2 months ago
-                                </span>
-                              </td>
-                              <td>
-                                <span
-                                  className="deployment-na"
-                                >
-                                  N/A
-                                </span>
-                              </td>
-                              <td>
-                                <span
-                                  className="deployment-na"
-                                >
-                                  N/A
-                                </span>
-                              </td>
-                              <td>
-                                1
-                              </td>
-                              <td>
-                                <span
-                                  className="deployment-na"
-                                >
-                                  N/A
-                                </span>
-                              </td>
-                              <td>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  className="pull-right"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  <button
-                                    className="pull-right btn btn-xs btn-danger"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                    type="button"
-                                  >
-                                    <Glyphicon
-                                      bsClass="glyphicon"
-                                      glyph="remove"
-                                    >
-                                      <span
-                                        className="glyphicon glyphicon-remove"
-                                      />
-                                    </Glyphicon>
-                                  </button>
-                                </Button>
-                              </td>
-                            </tr>
-                          </DeploymentListItem>
-                          <DeploymentListItem
-                            deleteDeployment={[Function]}
-                            deployment={
-                              Object {
-                                "customBuildConfig": null,
-                                "customRouterConfig": null,
-                                "dateCreated": 1553292345720,
-                                "deployJobSummaries": Array [],
-                                "deployedTo": null,
-                                "ec2Instances": Array [],
-                                "feedSourceId": null,
-                                "feedVersions": Array [],
-                                "id": "mock-deployment-id-1",
-                                "invalidFeedSources": Array [],
-                                "lastDeployed": null,
-                                "lastUpdated": 1553292345726,
-                                "latest": null,
-                                "name": "mock-deployment",
-                                "organizationId": null,
-                                "osmExtractUrl": null,
-                                "otpCommit": null,
-                                "otpVersion": null,
-                                "peliasCsvFiles": Array [],
-                                "peliasResetDb": null,
-                                "peliasUpdate": null,
-                                "pinnedfeedVersionIds": Array [],
-                                "projectBounds": Object {
-                                  "east": 0,
-                                  "north": 0,
-                                  "south": 0,
-                                  "west": 0,
-                                },
-                                "projectId": "mock-project-with-deployments-id",
-                                "routerId": null,
-                                "skipOsmExtract": false,
-                                "tripPlannerVersion": "OTP_1",
-                                "user": null,
-                              }
-                            }
-                            key="mock-deployment-id-1"
-                            project={
-                              Object {
-                                "autoDeploy": false,
-                                "autoDeployTypes": Array [],
-                                "autoDeployWithCriticalErrors": false,
-                                "autoFetchFeeds": true,
-                                "autoFetchHour": 0,
-                                "autoFetchMinute": 0,
-                                "bounds": null,
-                                "buildConfig": Object {
-                                  "fares": null,
-                                  "fetchElevationUS": null,
-                                  "stationTransfers": null,
-                                  "subwayAccessTime": null,
-                                },
-                                "dateCreated": 1526305321824,
-                                "defaultTimeZone": null,
-                                "deployments": Array [
-                                  Object {
-                                    "customBuildConfig": null,
-                                    "customRouterConfig": null,
-                                    "dateCreated": 1553292345720,
-                                    "deployJobSummaries": Array [],
-                                    "deployedTo": null,
-                                    "ec2Instances": Array [],
-                                    "feedSourceId": null,
-                                    "feedVersions": Array [
-                                      Object {
-                                        "feedSource": Object {
-                                          "dateCreated": 1536195264564,
-                                          "deployable": false,
-                                          "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                          "externalProperties": Object {},
-                                          "id": "mock-feed-with-version-id",
-                                          "isPublic": false,
-                                          "labelIds": Array [],
-                                          "lastFetched": 1543389038810,
-                                          "lastUpdated": 1543389038810,
-                                          "latestValidation": Object {
-                                            "agencies": null,
-                                            "agencyCount": 1,
-                                            "avgDailyRevenueTime": 0,
-                                            "bounds": Object {
-                                              "east": -76.481211,
-                                              "north": 39.0486949672717,
-                                              "south": 38.92884,
-                                              "west": -76.5673055566884,
-                                            },
-                                            "endDate": "20190801",
-                                            "errorCount": 78,
-                                            "feedVersionId": "mock-feed-version-id",
-                                            "loadFailureReason": null,
-                                            "loadStatus": "SUCCESS",
-                                            "routeCount": 10,
-                                            "startDate": "20180801",
-                                            "stopCount": 237,
-                                            "stopTimesCount": 11170,
-                                            "tripCount": 415,
-                                          },
-                                          "latestVersionId": "mock-feed-version-id",
-                                          "name": "test feed with a version",
-                                          "noteCount": 0,
-                                          "organizationId": null,
-                                          "projectId": "mock-project-id",
-                                          "publishedVersionId": null,
-                                          "retrievalMethod": "MANUALLY_UPLOADED",
-                                          "s3Url": null,
-                                          "snapshotVersion": null,
-                                          "transformRules": Array [],
-                                          "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                          "user": null,
-                                          "versionCount": 1,
-                                        },
-                                        "id": "mock-feed-version-id",
-                                        "nextVersionId": null,
-                                        "previousVersionId": null,
-                                        "updated": 1543389038810,
-                                        "validationResult": Object {
-                                          "agencies": null,
-                                          "agencyCount": 1,
-                                          "avgDailyRevenueTime": 0,
-                                          "bounds": Object {
-                                            "east": -76.481211,
-                                            "north": 39.0486949672717,
-                                            "south": 38.92884,
-                                            "west": -76.5673055566884,
-                                          },
-                                          "endDate": "20190801",
-                                          "errorCount": 78,
-                                          "feedVersionId": "mock-feed-version-id",
-                                          "loadFailureReason": null,
-                                          "loadStatus": "SUCCESS",
-                                          "routeCount": 10,
-                                          "startDate": "20180801",
-                                          "stopCount": 237,
-                                          "stopTimesCount": 11170,
-                                          "tripCount": 415,
-                                        },
-                                        "version": 1,
-                                      },
-                                    ],
-                                    "id": "mock-deployment-id-0",
-                                    "invalidFeedSources": Array [],
-                                    "lastDeployed": null,
-                                    "lastUpdated": 1553292345726,
-                                    "latest": null,
-                                    "name": "mock-deployment",
-                                    "organizationId": null,
-                                    "osmExtractUrl": null,
-                                    "otpCommit": null,
-                                    "otpVersion": null,
-                                    "peliasCsvFiles": Array [],
-                                    "peliasResetDb": null,
-                                    "peliasUpdate": null,
-                                    "pinnedfeedVersionIds": Array [],
-                                    "projectBounds": Object {
-                                      "east": 0,
-                                      "north": 0,
-                                      "south": 0,
-                                      "west": 0,
-                                    },
-                                    "projectId": "mock-project-with-deployments-id",
-                                    "routerId": null,
-                                    "skipOsmExtract": false,
-                                    "tripPlannerVersion": "OTP_1",
-                                    "user": null,
-                                  },
-                                  Object {
-                                    "customBuildConfig": null,
-                                    "customRouterConfig": null,
-                                    "dateCreated": 1553292345720,
-                                    "deployJobSummaries": Array [],
-                                    "deployedTo": null,
-                                    "ec2Instances": Array [],
-                                    "feedSourceId": null,
-                                    "feedVersions": Array [],
-                                    "id": "mock-deployment-id-1",
-                                    "invalidFeedSources": Array [],
-                                    "lastDeployed": null,
-                                    "lastUpdated": 1553292345726,
-                                    "latest": null,
-                                    "name": "mock-deployment",
-                                    "organizationId": null,
-                                    "osmExtractUrl": null,
-                                    "otpCommit": null,
-                                    "otpVersion": null,
-                                    "peliasCsvFiles": Array [],
-                                    "peliasResetDb": null,
-                                    "peliasUpdate": null,
-                                    "pinnedfeedVersionIds": Array [],
-                                    "projectBounds": Object {
-                                      "east": 0,
-                                      "north": 0,
-                                      "south": 0,
-                                      "west": 0,
-                                    },
-                                    "projectId": "mock-project-with-deployments-id",
-                                    "routerId": null,
-                                    "skipOsmExtract": false,
-                                    "tripPlannerVersion": "OTP_1",
-                                    "user": null,
-                                  },
-                                ],
-                                "feedSources": Array [
-                                  Object {
-                                    "dateCreated": 1536195264564,
-                                    "deployable": false,
-                                    "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                    "externalProperties": Object {},
-                                    "id": "mock-feed-with-version-id",
-                                    "isPublic": false,
-                                    "labelIds": Array [],
-                                    "lastFetched": 1543389038810,
-                                    "lastUpdated": 1543389038810,
-                                    "latestValidation": Object {
-                                      "agencies": null,
-                                      "agencyCount": 1,
-                                      "avgDailyRevenueTime": 0,
-                                      "bounds": Object {
-                                        "east": -76.481211,
-                                        "north": 39.0486949672717,
-                                        "south": 38.92884,
-                                        "west": -76.5673055566884,
-                                      },
-                                      "endDate": "20190801",
-                                      "errorCount": 78,
-                                      "feedVersionId": "mock-feed-version-id",
-                                      "loadFailureReason": null,
-                                      "loadStatus": "SUCCESS",
-                                      "routeCount": 10,
-                                      "startDate": "20180801",
-                                      "stopCount": 237,
-                                      "stopTimesCount": 11170,
-                                      "tripCount": 415,
-                                    },
-                                    "latestVersionId": "mock-feed-version-id",
-                                    "name": "test feed with a version",
-                                    "noteCount": 0,
-                                    "organizationId": null,
-                                    "projectId": "mock-project-id",
-                                    "publishedVersionId": null,
-                                    "retrievalMethod": "MANUALLY_UPLOADED",
-                                    "s3Url": null,
-                                    "snapshotVersion": null,
-                                    "transformRules": Array [],
-                                    "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                    "user": null,
-                                    "versionCount": 1,
-                                  },
-                                ],
-                                "id": "mock-project-with-deployments-id",
-                                "labels": Array [],
-                                "lastUpdated": 1553236399556,
-                                "name": "mock-project-with-deployments",
-                                "organizationId": null,
-                                "otpServers": Array [],
-                                "peliasWebhookUrl": null,
-                                "pinnedDeploymentId": "mock-deployment-id-0",
-                                "routerConfig": Object {
-                                  "carDropoffTime": null,
-                                  "numItineraries": null,
-                                  "requestLogFile": null,
-                                  "stairsReluctance": null,
-                                  "updaters": null,
-                                  "walkSpeed": null,
-                                },
-                                "useCustomOsmBounds": false,
-                                "user": null,
-                              }
-                            }
-                            saveDeployment={[Function]}
-                            updateDeployment={[Function]}
-                          >
-                            <tr
-                              className=""
-                            >
-                              <td>
-                                <EditableTextField
-                                  inline={true}
-                                  isEditing={false}
-                                  link="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-1"
-                                  onChange={[Function]}
-                                  rejectEmptyValue={true}
-                                  style={
-                                    Object {
-                                      "display": "inline-block",
-                                    }
-                                  }
-                                  type="text"
-                                  value="mock-deployment"
-                                >
-                                  <div
-                                    style={
-                                      Object {
-                                        "display": "inline-block",
-                                      }
-                                    }
-                                  >
-                                    <span>
-                                      <span
-                                        title="mock-deployment"
-                                      >
-                                        <Link
-                                          onlyActiveOnIndex={false}
-                                          style={Object {}}
-                                          to="/project/mock-project-with-deployments-id/deployments/mock-deployment-id-1"
-                                        >
-                                          <a
+                                          <button
+                                            className="btn btn-link"
+                                            data-test-id="editable-text-field-edit-button"
+                                            disabled={false}
                                             onClick={[Function]}
-                                            style={Object {}}
+                                            type="button"
                                           >
-                                            mock-deployment
-                                          </a>
-                                        </Link>
+                                            <Icon
+                                              type="pencil"
+                                            >
+                                              <i
+                                                className="fa fa-pencil fa-fw "
+                                              />
+                                            </Icon>
+                                          </button>
+                                        </Button>
                                       </span>
-                                      <Button
-                                        active={false}
-                                        block={false}
-                                        bsClass="btn"
-                                        bsStyle="link"
-                                        data-test-id="editable-text-field-edit-button"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                      >
-                                        <button
-                                          className="btn btn-link"
-                                          data-test-id="editable-text-field-edit-button"
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          <Icon
-                                            type="pencil"
-                                          >
-                                            <i
-                                              className="fa fa-pencil fa-fw "
-                                            />
-                                          </Icon>
-                                        </button>
-                                      </Button>
-                                    </span>
-                                  </div>
-                                </EditableTextField>
-                              </td>
-                              <td>
-                                <span
-                                  title="Mar 22nd 2019, 3:05pm"
-                                >
-                                  2 months ago
-                                </span>
-                              </td>
-                              <td>
-                                <span
-                                  className="deployment-na"
-                                >
-                                  N/A
-                                </span>
-                              </td>
-                              <td>
-                                <span
-                                  className="deployment-na"
-                                >
-                                  N/A
-                                </span>
-                              </td>
-                              <td>
-                                0
-                              </td>
-                              <td>
-                                <span
-                                  className="deployment-na"
-                                >
-                                  N/A
-                                </span>
-                              </td>
-                              <td>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  className="pull-right"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  <button
-                                    className="pull-right btn btn-xs btn-danger"
+                                    </div>
+                                  </EditableTextField>
+                                </td>
+                                <td>
+                                  <span
+                                    title="Mar 22nd 2019, 3:05pm"
+                                  >
+                                    2 months ago
+                                  </span>
+                                </td>
+                                <td>
+                                  <span
+                                    className="deployment-na"
+                                  >
+                                    N/A
+                                  </span>
+                                </td>
+                                <td>
+                                  <span
+                                    className="deployment-na"
+                                  >
+                                    N/A
+                                  </span>
+                                </td>
+                                <td>
+                                  0
+                                </td>
+                                <td>
+                                  <span
+                                    className="deployment-na"
+                                  >
+                                    N/A
+                                  </span>
+                                </td>
+                                <td>
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
+                                    bsStyle="danger"
+                                    className="pull-right"
                                     disabled={false}
                                     onClick={[Function]}
-                                    type="button"
                                   >
-                                    <Glyphicon
-                                      bsClass="glyphicon"
-                                      glyph="remove"
+                                    <button
+                                      className="pull-right btn btn-xs btn-danger"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <span
-                                        className="glyphicon glyphicon-remove"
-                                      />
-                                    </Glyphicon>
-                                  </button>
-                                </Button>
-                              </td>
-                            </tr>
-                          </DeploymentListItem>
-                        </tbody>
-                      </table>
-                    </Table>
-                  </div>
-                </Panel>
+                                      <Glyphicon
+                                        bsClass="glyphicon"
+                                        glyph="remove"
+                                      >
+                                        <span
+                                          className="glyphicon glyphicon-remove"
+                                        />
+                                      </Glyphicon>
+                                    </button>
+                                  </Button>
+                                </td>
+                              </tr>
+                            </DeploymentListItem>
+                          </tbody>
+                        </table>
+                      </Table>
+                    </div>
+                  </Panel>
+                </Uncontrolled(Panel)>
               </DeploymentsList>
             </div>
           </Col>
@@ -2005,645 +1977,655 @@ exports[`lib > manager > DeploymentsPanel should render with the list of deploym
             <div
               className="col-md-3 col-sm-12"
             >
-              <Panel
-                bsClass="panel"
-                bsStyle="default"
-                defaultExpanded={false}
-                header={
-                  <h3>
-                    <Icon
-                      type="rocket"
-                    />
-                     
-                    Auto-deployment
-                  </h3>
-                }
-              >
-                <div
-                  className="panel panel-default"
+              <Uncontrolled(Panel)>
+                <Panel
+                  bsClass="panel"
+                  bsStyle="default"
+                  onToggle={[Function]}
                 >
                   <div
-                    className="panel-heading"
+                    className="panel panel-default"
                   >
-                    <h3
-                      className="panel-title"
-                    >
-                      <Icon
-                        type="rocket"
-                      >
-                        <i
-                          className="fa fa-rocket fa-fw "
-                        />
-                      </Icon>
-                       
-                      Auto-deployment
-                    </h3>
-                  </div>
-                  <div
-                    className="panel-body"
-                    key="0"
-                  >
-                    <FormGroup
-                      bsClass="form-group"
-                      controlId="pinnedDeploymentId"
-                      key=".0"
+                    <PanelHeading
+                      bsClass="panel"
+                      componentClass="div"
                     >
                       <div
-                        className="form-group"
+                        className="panel-heading"
                       >
-                        <ControlLabel
-                          bsClass="control-label"
-                          srOnly={false}
+                        <PanelTitle
+                          bsClass="panel"
+                          componentClass="h3"
                         >
-                          <label
-                            className="control-label"
-                            htmlFor="pinnedDeploymentId"
+                          <h3
+                            className="panel-title"
                           >
                             <Icon
-                              type="thumb-tack"
+                              type="rocket"
                             >
                               <i
-                                className="fa fa-thumb-tack fa-fw "
+                                className="fa fa-rocket fa-fw "
                               />
                             </Icon>
                              
-                            Pinned deployment
-                          </label>
-                        </ControlLabel>
-                        <Select
-                          arrowRenderer={[Function]}
-                          autosize={true}
-                          backspaceRemoves={true}
-                          backspaceToRemoveMessage="Press backspace to remove {label}"
-                          clearAllText="Clear all"
-                          clearRenderer={[Function]}
-                          clearValueText="Clear value"
-                          clearable={true}
-                          closeOnSelect={true}
-                          deleteRemoves={true}
-                          delimiter=","
-                          disabled={false}
-                          escapeClearsValue={true}
-                          filterOptions={[Function]}
-                          ignoreAccents={true}
-                          ignoreCase={true}
-                          inputProps={Object {}}
-                          isLoading={false}
-                          joinValues={false}
-                          labelKey="label"
-                          matchPos="any"
-                          matchProp="any"
-                          menuBuffer={0}
-                          menuRenderer={[Function]}
-                          multi={false}
-                          name="pinnedDeploymentId"
-                          noResultsText="No results found"
-                          onBlurResetsInput={true}
-                          onChange={[Function]}
-                          onCloseResetsInput={true}
-                          onSelectResetsInput={true}
-                          openOnClick={true}
-                          optionComponent={[Function]}
-                          options={
-                            Array [
-                              Object {
-                                "label": "mock-deployment",
-                                "value": "mock-deployment-id-0",
-                              },
-                              Object {
-                                "label": "mock-deployment",
-                                "value": "mock-deployment-id-1",
-                              },
-                            ]
-                          }
-                          pageSize={5}
-                          placeholder="Select a deployment to pin"
-                          removeSelected={true}
-                          required={false}
-                          rtl={false}
-                          scrollMenuIntoView={true}
-                          searchable={true}
-                          simpleValue={false}
-                          tabSelectsValue={true}
-                          trimFilter={true}
-                          value="mock-deployment-id-0"
-                          valueComponent={[Function]}
-                          valueKey="value"
+                            Auto-deployment
+                          </h3>
+                        </PanelTitle>
+                      </div>
+                    </PanelHeading>
+                    <PanelBody
+                      bsClass="panel"
+                      collapsible={false}
+                    >
+                      <div
+                        className="panel-body"
+                      >
+                        <FormGroup
+                          bsClass="form-group"
+                          controlId="pinnedDeploymentId"
                         >
                           <div
-                            className="Select has-value is-clearable is-searchable Select--single"
+                            className="form-group"
                           >
-                            <input
+                            <ControlLabel
+                              bsClass="control-label"
+                              srOnly={false}
+                            >
+                              <label
+                                className="control-label"
+                                htmlFor="pinnedDeploymentId"
+                              >
+                                <Icon
+                                  type="thumb-tack"
+                                >
+                                  <i
+                                    className="fa fa-thumb-tack fa-fw "
+                                  />
+                                </Icon>
+                                 
+                                Pinned deployment
+                              </label>
+                            </ControlLabel>
+                            <Select
+                              arrowRenderer={[Function]}
+                              autosize={true}
+                              backspaceRemoves={true}
+                              backspaceToRemoveMessage="Press backspace to remove {label}"
+                              clearAllText="Clear all"
+                              clearRenderer={[Function]}
+                              clearValueText="Clear value"
+                              clearable={true}
+                              closeOnSelect={true}
+                              deleteRemoves={true}
+                              delimiter=","
                               disabled={false}
-                              key="hidden.0"
+                              escapeClearsValue={true}
+                              filterOptions={[Function]}
+                              ignoreAccents={true}
+                              ignoreCase={true}
+                              inputProps={Object {}}
+                              isLoading={false}
+                              joinValues={false}
+                              labelKey="label"
+                              matchPos="any"
+                              matchProp="any"
+                              menuBuffer={0}
+                              menuRenderer={[Function]}
+                              multi={false}
                               name="pinnedDeploymentId"
-                              type="hidden"
+                              noResultsText="No results found"
+                              onBlurResetsInput={true}
+                              onChange={[Function]}
+                              onCloseResetsInput={true}
+                              onSelectResetsInput={true}
+                              openOnClick={true}
+                              optionComponent={[Function]}
+                              options={
+                                Array [
+                                  Object {
+                                    "label": "mock-deployment",
+                                    "value": "mock-deployment-id-0",
+                                  },
+                                  Object {
+                                    "label": "mock-deployment",
+                                    "value": "mock-deployment-id-1",
+                                  },
+                                ]
+                              }
+                              pageSize={5}
+                              placeholder="Select a deployment to pin"
+                              removeSelected={true}
+                              required={false}
+                              rtl={false}
+                              scrollMenuIntoView={true}
+                              searchable={true}
+                              simpleValue={false}
+                              tabSelectsValue={true}
+                              trimFilter={true}
                               value="mock-deployment-id-0"
-                            />
-                            <div
-                              className="Select-control"
-                              onKeyDown={[Function]}
-                              onMouseDown={[Function]}
-                              onTouchEnd={[Function]}
-                              onTouchMove={[Function]}
-                              onTouchStart={[Function]}
+                              valueComponent={[Function]}
+                              valueKey="value"
                             >
                               <div
-                                className="Select-multi-value-wrapper"
-                                id="react-select-2--value"
+                                className="Select has-value is-clearable is-searchable Select--single"
                               >
-                                <Value
+                                <input
                                   disabled={false}
-                                  id="react-select-2--value-item"
-                                  instancePrefix="react-select-2-"
-                                  onClick={null}
-                                  placeholder="Select a deployment to pin"
-                                  value={
-                                    Object {
-                                      "label": "mock-deployment",
-                                      "value": "mock-deployment-id-0",
-                                    }
-                                  }
+                                  key="hidden.0"
+                                  name="pinnedDeploymentId"
+                                  type="hidden"
+                                  value="mock-deployment-id-0"
+                                />
+                                <div
+                                  className="Select-control"
+                                  onKeyDown={[Function]}
+                                  onMouseDown={[Function]}
+                                  onTouchEnd={[Function]}
+                                  onTouchMove={[Function]}
+                                  onTouchStart={[Function]}
                                 >
                                   <div
-                                    className="Select-value"
+                                    className="Select-multi-value-wrapper"
+                                    id="react-select-2--value"
                                   >
-                                    <span
-                                      aria-selected="true"
-                                      className="Select-value-label"
+                                    <Value
+                                      disabled={false}
                                       id="react-select-2--value-item"
-                                      role="option"
-                                    >
-                                      mock-deployment
-                                    </span>
-                                  </div>
-                                </Value>
-                                <AutosizeInput
-                                  aria-activedescendant="react-select-2--value"
-                                  aria-expanded="false"
-                                  aria-haspopup="false"
-                                  aria-owns=""
-                                  className="Select-input"
-                                  injectStyles={true}
-                                  minWidth="5"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  required={false}
-                                  role="combobox"
-                                  value=""
-                                >
-                                  <div
-                                    className="Select-input"
-                                    style={
-                                      Object {
-                                        "display": "inline-block",
+                                      instancePrefix="react-select-2-"
+                                      onClick={null}
+                                      placeholder="Select a deployment to pin"
+                                      value={
+                                        Object {
+                                          "label": "mock-deployment",
+                                          "value": "mock-deployment-id-0",
+                                        }
                                       }
-                                    }
-                                  >
-                                    <input
+                                    >
+                                      <div
+                                        className="Select-value"
+                                      >
+                                        <span
+                                          aria-selected="true"
+                                          className="Select-value-label"
+                                          id="react-select-2--value-item"
+                                          role="option"
+                                        >
+                                          mock-deployment
+                                        </span>
+                                      </div>
+                                    </Value>
+                                    <AutosizeInput
                                       aria-activedescendant="react-select-2--value"
                                       aria-expanded="false"
                                       aria-haspopup="false"
                                       aria-owns=""
+                                      className="Select-input"
+                                      injectStyles={true}
+                                      minWidth="5"
                                       onBlur={[Function]}
                                       onChange={[Function]}
                                       onFocus={[Function]}
                                       required={false}
                                       role="combobox"
-                                      style={
-                                        Object {
-                                          "boxSizing": "content-box",
-                                          "width": "5px",
-                                        }
-                                      }
                                       value=""
-                                    />
-                                    <div
-                                      style={
+                                    >
+                                      <div
+                                        className="Select-input"
+                                        style={
+                                          Object {
+                                            "display": "inline-block",
+                                          }
+                                        }
+                                      >
+                                        <input
+                                          aria-activedescendant="react-select-2--value"
+                                          aria-expanded="false"
+                                          aria-haspopup="false"
+                                          aria-owns=""
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          onFocus={[Function]}
+                                          required={false}
+                                          role="combobox"
+                                          style={
+                                            Object {
+                                              "boxSizing": "content-box",
+                                              "width": "5px",
+                                            }
+                                          }
+                                          value=""
+                                        />
+                                        <div
+                                          style={
+                                            Object {
+                                              "height": 0,
+                                              "left": 0,
+                                              "overflow": "scroll",
+                                              "position": "absolute",
+                                              "top": 0,
+                                              "visibility": "hidden",
+                                              "whiteSpace": "pre",
+                                            }
+                                          }
+                                        />
+                                      </div>
+                                    </AutosizeInput>
+                                  </div>
+                                  <span
+                                    aria-label="Clear value"
+                                    className="Select-clear-zone"
+                                    onMouseDown={[Function]}
+                                    onTouchEnd={[Function]}
+                                    onTouchMove={[Function]}
+                                    onTouchStart={[Function]}
+                                    title="Clear value"
+                                  >
+                                    <span
+                                      className="Select-clear"
+                                      dangerouslySetInnerHTML={
                                         Object {
-                                          "height": 0,
-                                          "left": 0,
-                                          "overflow": "scroll",
-                                          "position": "absolute",
-                                          "top": 0,
-                                          "visibility": "hidden",
-                                          "whiteSpace": "pre",
+                                          "__html": "&times;",
                                         }
                                       }
                                     />
-                                  </div>
-                                </AutosizeInput>
+                                  </span>
+                                  <span
+                                    className="Select-arrow-zone"
+                                    onMouseDown={[Function]}
+                                  >
+                                    <span
+                                      className="Select-arrow"
+                                      onMouseDown={[Function]}
+                                    />
+                                  </span>
+                                </div>
                               </div>
-                              <span
-                                aria-label="Clear value"
-                                className="Select-clear-zone"
-                                onMouseDown={[Function]}
-                                onTouchEnd={[Function]}
-                                onTouchMove={[Function]}
-                                onTouchStart={[Function]}
-                                title="Clear value"
-                              >
-                                <span
-                                  className="Select-clear"
-                                  dangerouslySetInnerHTML={
-                                    Object {
-                                      "__html": "&times;",
-                                    }
-                                  }
-                                />
-                              </span>
-                              <span
-                                className="Select-arrow-zone"
-                                onMouseDown={[Function]}
-                              >
-                                <span
-                                  className="Select-arrow"
-                                  onMouseDown={[Function]}
-                                />
-                              </span>
-                            </div>
-                          </div>
-                        </Select>
-                        <HelpBlock
-                          bsClass="help-block"
-                        >
-                          <span
-                            className="help-block"
-                          >
-                            Pin a deployment (and deploy to a server at least once) to enable auto-deployment.
-                          </span>
-                        </HelpBlock>
-                      </div>
-                    </FormGroup>
-                    <FormGroup
-                      bsClass="form-group"
-                      controlId="autoDeployTypes"
-                      key=".1"
-                    >
-                      <div
-                        className="form-group"
-                      >
-                        <ControlLabel
-                          bsClass="control-label"
-                          srOnly={false}
-                        >
-                          <label
-                            className="control-label"
-                            htmlFor="autoDeployTypes"
-                          >
-                            <Icon
-                              type="bolt"
+                            </Select>
+                            <HelpBlock
+                              bsClass="help-block"
                             >
-                              <i
-                                className="fa fa-bolt fa-fw "
-                              />
-                            </Icon>
-                             
-                            Auto-deploy events
-                          </label>
-                        </ControlLabel>
-                        <Select
-                          arrowRenderer={[Function]}
-                          autosize={true}
-                          backspaceRemoves={true}
-                          backspaceToRemoveMessage="Press backspace to remove {label}"
-                          clearAllText="Clear all"
-                          clearRenderer={[Function]}
-                          clearValueText="Clear value"
-                          clearable={true}
-                          closeOnSelect={true}
-                          deleteRemoves={true}
-                          delimiter=","
-                          disabled={false}
-                          escapeClearsValue={true}
-                          filterOptions={[Function]}
-                          ignoreAccents={true}
-                          ignoreCase={true}
-                          inputProps={Object {}}
-                          isLoading={false}
-                          joinValues={false}
-                          labelKey="label"
-                          matchPos="any"
-                          matchProp="any"
-                          menuBuffer={0}
-                          menuRenderer={[Function]}
-                          multi={true}
-                          name="autoDeployTypes"
-                          noResultsText="No results found"
-                          onBlurResetsInput={true}
-                          onChange={[Function]}
-                          onCloseResetsInput={true}
-                          onSelectResetsInput={true}
-                          openOnClick={true}
-                          optionComponent={[Function]}
-                          options={
-                            Array [
-                              Object {
-                                "label": "A new version is fetched",
-                                "value": "ON_FEED_FETCH",
-                              },
-                              Object {
-                                "label": "A new version is processed",
-                                "value": "ON_PROCESS_FEED",
-                              },
-                            ]
-                          }
-                          pageSize={5}
-                          placeholder="Specify auto-deploy events"
-                          removeSelected={true}
-                          required={false}
-                          rtl={false}
-                          scrollMenuIntoView={true}
-                          searchable={true}
-                          simpleValue={false}
-                          tabSelectsValue={true}
-                          trimFilter={true}
-                          value={Array []}
-                          valueComponent={[Function]}
-                          valueKey="value"
+                              <span
+                                className="help-block"
+                              >
+                                Pin a deployment (and deploy to a server at least once) to enable auto-deployment.
+                              </span>
+                            </HelpBlock>
+                          </div>
+                        </FormGroup>
+                        <FormGroup
+                          bsClass="form-group"
+                          controlId="autoDeployTypes"
                         >
                           <div
-                            className="Select is-clearable is-searchable Select--multi"
+                            className="form-group"
                           >
-                            <div
-                              className="Select-control"
-                              onKeyDown={[Function]}
-                              onMouseDown={[Function]}
-                              onTouchEnd={[Function]}
-                              onTouchMove={[Function]}
-                              onTouchStart={[Function]}
+                            <ControlLabel
+                              bsClass="control-label"
+                              srOnly={false}
+                            >
+                              <label
+                                className="control-label"
+                                htmlFor="autoDeployTypes"
+                              >
+                                <Icon
+                                  type="bolt"
+                                >
+                                  <i
+                                    className="fa fa-bolt fa-fw "
+                                  />
+                                </Icon>
+                                 
+                                Auto-deploy events
+                              </label>
+                            </ControlLabel>
+                            <Select
+                              arrowRenderer={[Function]}
+                              autosize={true}
+                              backspaceRemoves={true}
+                              backspaceToRemoveMessage="Press backspace to remove {label}"
+                              clearAllText="Clear all"
+                              clearRenderer={[Function]}
+                              clearValueText="Clear value"
+                              clearable={true}
+                              closeOnSelect={true}
+                              deleteRemoves={true}
+                              delimiter=","
+                              disabled={false}
+                              escapeClearsValue={true}
+                              filterOptions={[Function]}
+                              ignoreAccents={true}
+                              ignoreCase={true}
+                              inputProps={Object {}}
+                              isLoading={false}
+                              joinValues={false}
+                              labelKey="label"
+                              matchPos="any"
+                              matchProp="any"
+                              menuBuffer={0}
+                              menuRenderer={[Function]}
+                              multi={true}
+                              name="autoDeployTypes"
+                              noResultsText="No results found"
+                              onBlurResetsInput={true}
+                              onChange={[Function]}
+                              onCloseResetsInput={true}
+                              onSelectResetsInput={true}
+                              openOnClick={true}
+                              optionComponent={[Function]}
+                              options={
+                                Array [
+                                  Object {
+                                    "label": "A new version is fetched",
+                                    "value": "ON_FEED_FETCH",
+                                  },
+                                  Object {
+                                    "label": "A new version is processed",
+                                    "value": "ON_PROCESS_FEED",
+                                  },
+                                ]
+                              }
+                              pageSize={5}
+                              placeholder="Specify auto-deploy events"
+                              removeSelected={true}
+                              required={false}
+                              rtl={false}
+                              scrollMenuIntoView={true}
+                              searchable={true}
+                              simpleValue={false}
+                              tabSelectsValue={true}
+                              trimFilter={true}
+                              value={Array []}
+                              valueComponent={[Function]}
+                              valueKey="value"
                             >
                               <div
-                                className="Select-multi-value-wrapper"
-                                id="react-select-3--value"
+                                className="Select is-clearable is-searchable Select--multi"
                               >
                                 <div
-                                  className="Select-placeholder"
-                                >
-                                  Specify auto-deploy events
-                                </div>
-                                <AutosizeInput
-                                  aria-activedescendant="react-select-3--value"
-                                  aria-expanded="false"
-                                  aria-haspopup="false"
-                                  aria-owns=""
-                                  className="Select-input"
-                                  injectStyles={true}
-                                  minWidth="5"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  required={false}
-                                  role="combobox"
-                                  value=""
+                                  className="Select-control"
+                                  onKeyDown={[Function]}
+                                  onMouseDown={[Function]}
+                                  onTouchEnd={[Function]}
+                                  onTouchMove={[Function]}
+                                  onTouchStart={[Function]}
                                 >
                                   <div
-                                    className="Select-input"
-                                    style={
-                                      Object {
-                                        "display": "inline-block",
-                                      }
-                                    }
+                                    className="Select-multi-value-wrapper"
+                                    id="react-select-3--value"
                                   >
-                                    <input
+                                    <div
+                                      className="Select-placeholder"
+                                    >
+                                      Specify auto-deploy events
+                                    </div>
+                                    <AutosizeInput
                                       aria-activedescendant="react-select-3--value"
                                       aria-expanded="false"
                                       aria-haspopup="false"
                                       aria-owns=""
+                                      className="Select-input"
+                                      injectStyles={true}
+                                      minWidth="5"
                                       onBlur={[Function]}
                                       onChange={[Function]}
                                       onFocus={[Function]}
                                       required={false}
                                       role="combobox"
-                                      style={
-                                        Object {
-                                          "boxSizing": "content-box",
-                                          "width": "5px",
-                                        }
-                                      }
                                       value=""
-                                    />
-                                    <div
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "left": 0,
-                                          "overflow": "scroll",
-                                          "position": "absolute",
-                                          "top": 0,
-                                          "visibility": "hidden",
-                                          "whiteSpace": "pre",
+                                    >
+                                      <div
+                                        className="Select-input"
+                                        style={
+                                          Object {
+                                            "display": "inline-block",
+                                          }
                                         }
-                                      }
-                                    />
+                                      >
+                                        <input
+                                          aria-activedescendant="react-select-3--value"
+                                          aria-expanded="false"
+                                          aria-haspopup="false"
+                                          aria-owns=""
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          onFocus={[Function]}
+                                          required={false}
+                                          role="combobox"
+                                          style={
+                                            Object {
+                                              "boxSizing": "content-box",
+                                              "width": "5px",
+                                            }
+                                          }
+                                          value=""
+                                        />
+                                        <div
+                                          style={
+                                            Object {
+                                              "height": 0,
+                                              "left": 0,
+                                              "overflow": "scroll",
+                                              "position": "absolute",
+                                              "top": 0,
+                                              "visibility": "hidden",
+                                              "whiteSpace": "pre",
+                                            }
+                                          }
+                                        />
+                                      </div>
+                                    </AutosizeInput>
                                   </div>
-                                </AutosizeInput>
+                                  <span
+                                    className="Select-arrow-zone"
+                                    onMouseDown={[Function]}
+                                  >
+                                    <span
+                                      className="Select-arrow"
+                                      onMouseDown={[Function]}
+                                    />
+                                  </span>
+                                </div>
                               </div>
+                            </Select>
+                            <HelpBlock
+                              bsClass="help-block"
+                            >
                               <span
-                                className="Select-arrow-zone"
-                                onMouseDown={[Function]}
+                                className="help-block"
                               >
-                                <span
-                                  className="Select-arrow"
-                                  onMouseDown={[Function]}
-                                />
-                              </span>
-                            </div>
-                          </div>
-                        </Select>
-                        <HelpBlock
-                          bsClass="help-block"
-                        >
-                          <span
-                            className="help-block"
-                          >
-                            A deployment will automatically be kicked off (assuming there are no critical errors) whenever one of the above-defined events occurs.
+                                A deployment will automatically be kicked off (assuming there are no critical errors) whenever one of the above-defined events occurs.
 
-                          </span>
-                        </HelpBlock>
+                              </span>
+                            </HelpBlock>
+                          </div>
+                        </FormGroup>
+                        <FormGroup
+                          bsClass="form-group"
+                          controlId="autoDeployWithCriticalErrors"
+                        >
+                          <div
+                            className="form-group"
+                          >
+                            <ControlLabel
+                              bsClass="control-label"
+                              srOnly={false}
+                            >
+                              <label
+                                className="control-label"
+                                htmlFor="autoDeployWithCriticalErrors"
+                              >
+                                <Icon
+                                  type="warning"
+                                >
+                                  <i
+                                    className="fa fa-warning fa-fw "
+                                  />
+                                </Icon>
+                                 
+                                Critical Errors Handling
+                              </label>
+                            </ControlLabel>
+                            <Checkbox
+                              bsClass="checkbox"
+                              checked={false}
+                              disabled={false}
+                              inline={false}
+                              name="autoDeployWithCriticalErrors"
+                              onChange={[Function]}
+                              title=""
+                            >
+                              <div
+                                className="checkbox"
+                              >
+                                <label
+                                  title=""
+                                >
+                                  <input
+                                    checked={false}
+                                    disabled={false}
+                                    name="autoDeployWithCriticalErrors"
+                                    onChange={[Function]}
+                                    type="checkbox"
+                                  />
+                                  Deploy even if some feed versions have critical errors
+                                </label>
+                              </div>
+                            </Checkbox>
+                            <HelpBlock
+                              bsClass="help-block"
+                            >
+                              <span
+                                className="help-block"
+                              >
+                                If this is unchecked, an auto-deployment will halt if any of the feed versions in the deployment have at least one critical error
+
+                              </span>
+                            </HelpBlock>
+                          </div>
+                        </FormGroup>
                       </div>
-                    </FormGroup>
-                    <FormGroup
-                      bsClass="form-group"
-                      controlId="autoDeployWithCriticalErrors"
-                      key=".2"
+                    </PanelBody>
+                  </div>
+                </Panel>
+              </Uncontrolled(Panel)>
+              <Uncontrolled(Panel)>
+                <Panel
+                  bsClass="panel"
+                  bsStyle="default"
+                  onToggle={[Function]}
+                >
+                  <div
+                    className="panel panel-default"
+                  >
+                    <PanelHeading
+                      bsClass="panel"
+                      componentClass="div"
                     >
                       <div
-                        className="form-group"
+                        className="panel-heading"
                       >
-                        <ControlLabel
-                          bsClass="control-label"
-                          srOnly={false}
+                        <PanelTitle
+                          bsClass="panel"
+                          componentClass="h3"
                         >
-                          <label
-                            className="control-label"
-                            htmlFor="autoDeployWithCriticalErrors"
+                          <h3
+                            className="panel-title"
                           >
                             <Icon
-                              type="warning"
+                              type="cog"
                             >
                               <i
-                                className="fa fa-warning fa-fw "
+                                className="fa fa-cog fa-fw "
                               />
                             </Icon>
                              
-                            Critical Errors Handling
-                          </label>
-                        </ControlLabel>
-                        <Checkbox
-                          bsClass="checkbox"
-                          checked={false}
-                          disabled={false}
-                          inline={false}
-                          name="autoDeployWithCriticalErrors"
-                          onChange={[Function]}
-                        >
-                          <div
-                            className="checkbox"
-                          >
-                            <label>
-                              <input
-                                checked={false}
-                                disabled={false}
-                                name="autoDeployWithCriticalErrors"
-                                onChange={[Function]}
-                                type="checkbox"
-                              />
-                              Deploy even if some feed versions have critical errors
-                            </label>
-                          </div>
-                        </Checkbox>
-                        <HelpBlock
-                          bsClass="help-block"
-                        >
-                          <span
-                            className="help-block"
-                          >
-                            If this is unchecked, an auto-deployment will halt if any of the feed versions in the deployment have at least one critical error
-
-                          </span>
-                        </HelpBlock>
+                            Configuring deployments
+                          </h3>
+                        </PanelTitle>
                       </div>
-                    </FormGroup>
-                  </div>
-                </div>
-              </Panel>
-              <Panel
-                bsClass="panel"
-                bsStyle="default"
-                defaultExpanded={false}
-                header={
-                  <h3>
-                    <Icon
-                      type="cog"
-                    />
-                     
-                    Configuring deployments
-                  </h3>
-                }
-              >
-                <div
-                  className="panel panel-default"
-                >
-                  <div
-                    className="panel-heading"
-                  >
-                    <h3
-                      className="panel-title"
+                    </PanelHeading>
+                    <PanelBody
+                      bsClass="panel"
+                      collapsible={false}
                     >
-                      <Icon
-                        type="cog"
+                      <div
+                        className="panel-body"
                       >
-                        <i
-                          className="fa fa-cog fa-fw "
-                        />
-                      </Icon>
-                       
-                      Configuring deployments
-                    </h3>
-                  </div>
-                  <div
-                    className="panel-body"
-                    key="0"
-                  >
-                    <p
-                      key=".0"
-                    >
-                      Deployments can use project-level configurations (e.g., for build or router config files) or be configured individually.
+                        <p>
+                          Deployments can use project-level configurations (e.g., for build or router config files) or be configured individually.
 
-                    </p>
-                    <LinkContainer
-                      action="push"
-                      key=".1"
-                      onlyActiveOnIndex={false}
-                      to="/project/mock-project-with-deployments-id/settings/deployment"
-                    >
-                      <Button
-                        action="push"
-                        active={false}
-                        block={true}
-                        bsClass="btn"
-                        bsStyle="default"
-                        disabled={false}
-                        onClick={[Function]}
-                      >
-                        <button
+                        </p>
+                        <LinkContainer
                           action="push"
-                          className="btn btn-default btn-block"
-                          disabled={false}
-                          onClick={[Function]}
-                          type="button"
+                          onlyActiveOnIndex={false}
+                          to="/project/mock-project-with-deployments-id/settings/deployment"
                         >
-                          <Icon
-                            type="cog"
+                          <Button
+                            action="push"
+                            active={false}
+                            block={true}
+                            bsClass="btn"
+                            bsStyle="default"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <i
-                              className="fa fa-cog fa-fw "
-                            />
-                          </Icon>
-                           
-                          Edit deployment settings
-                        </button>
-                      </Button>
-                    </LinkContainer>
-                    <LinkContainer
-                      action="push"
-                      key=".2"
-                      onlyActiveOnIndex={false}
-                      to="/admin/servers"
-                    >
-                      <Button
-                        action="push"
-                        active={false}
-                        block={true}
-                        bsClass="btn"
-                        bsStyle="default"
-                        disabled={false}
-                        onClick={[Function]}
-                      >
-                        <button
+                            <button
+                              action="push"
+                              className="btn btn-default btn-block"
+                              disabled={false}
+                              onClick={[Function]}
+                              type="button"
+                            >
+                              <Icon
+                                type="cog"
+                              >
+                                <i
+                                  className="fa fa-cog fa-fw "
+                                />
+                              </Icon>
+                               
+                              Edit deployment settings
+                            </button>
+                          </Button>
+                        </LinkContainer>
+                        <LinkContainer
                           action="push"
-                          className="btn btn-default btn-block"
-                          disabled={false}
-                          onClick={[Function]}
-                          type="button"
+                          onlyActiveOnIndex={false}
+                          to="/admin/servers"
                         >
-                          <Icon
-                            type="server"
+                          <Button
+                            action="push"
+                            active={false}
+                            block={true}
+                            bsClass="btn"
+                            bsStyle="default"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <i
-                              className="fa fa-server fa-fw "
-                            />
-                          </Icon>
-                           
-                          Manage deployment servers
-                        </button>
-                      </Button>
-                    </LinkContainer>
+                            <button
+                              action="push"
+                              className="btn btn-default btn-block"
+                              disabled={false}
+                              onClick={[Function]}
+                              type="button"
+                            >
+                              <Icon
+                                type="server"
+                              >
+                                <i
+                                  className="fa fa-server fa-fw "
+                                />
+                              </Icon>
+                               
+                              Manage deployment servers
+                            </button>
+                          </Button>
+                        </LinkContainer>
+                      </div>
+                    </PanelBody>
                   </div>
-                </div>
-              </Panel>
+                </Panel>
+              </Uncontrolled(Panel)>
             </div>
           </Col>
         </div>

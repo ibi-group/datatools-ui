@@ -28,6 +28,7 @@ env.yml-original
 .env
 !configurations/test/env.yml
 scripts/*client.json
+*.pem
 
 # Vs code settings
 .vscode/

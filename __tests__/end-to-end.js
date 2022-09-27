@@ -28,7 +28,7 @@ const puppeteerOptions = {
   // dumpio: true, // Logs all of browser console to stdout
   // slowMo: 50, // puts xx milliseconds between events (for easier watching in non-headless)
   // NOTE: In order to run on Travis CI, use args --no-sandbox option
-  args: isCi || isDocker ? ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu'] : []
+  args: isCi || isDocker ? ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--ignore-certificate-errors'] : []
 }
 const testOptions = {
   // If enabled, failFast will break out of the test script immediately.
@@ -301,7 +301,7 @@ async function createProject (projectName: string) {
   await expectSelectorToContainHtml('.project-header', projectName)
 
   // go back to project list
-  await goto('http://datatools-ui:9966/project', {waitUntil: 'networkidle0'})
+  await goto('https://datatools-ui-proxy/project', {waitUntil: 'networkidle0'})
 
   // verify the new project is listed in the project list
   await expectSelectorToContainHtml('[data-test-id="project-list-table"]', projectName)
@@ -314,7 +314,7 @@ async function createProject (projectName: string) {
 async function deleteProject (projectId: string) {
   log.info(`deleting project with id: ${projectId}`)
   // navigate to that project's settings
-  await goto(`http://datatools-ui:9966/project/${projectId}/settings`)
+  await goto(`https://datatools-ui-proxy/project/${projectId}/settings`)
 
   // delete that project
   await waitForAndClick('[data-test-id="delete-project-button"]')
@@ -323,7 +323,7 @@ async function deleteProject (projectId: string) {
   log.info('deleted project')
 
   // verify deletion
-  await goto(`http://datatools-ui:9966/project/${projectId}`)
+  await goto(`https://datatools-ui-proxy/project/${projectId}`)
   await wait(3000, 'for project page to load')
   await waitForSelector('.project-not-found')
   await wait(5000, 'for previously rendered project markup to be removed')
@@ -404,7 +404,7 @@ async function createFeedSourceViaProjectHeaderButton (feedSourceName) {
   log.info(`create Feed Source with name: ${feedSourceName} via project header button`)
   // go to project page
   await goto(
-    `http://datatools-ui:9966/project/${testProjectId}`,
+    `https://datatools-ui-proxy/project/${testProjectId}`,
     {
       waitUntil: 'networkidle0'
     }
@@ -851,9 +851,9 @@ describe('end-to-end', () => {
       browserEventLogs.error(`Request failed: ${req.method()} ${req.url()}`)
     })
     // log all successful requests
-    page.on('requestfinished', req => {
-      browserEventLogs.info(`Request finished: ${req.method()} ${req.url()}`)
-    })
+    // page.on('requestfinished', req => {
+    //   browserEventLogs.info(`Request finished: ${req.method()} ${req.url()}`)
+    // })
 
     // set the default download behavior to download files to the cwd
     cdpSession.send(
@@ -892,7 +892,7 @@ describe('end-to-end', () => {
   // ---------------------------------------------------------------------------
 
   makeTest('should load the page', async () => {
-    await goto('http://datatools-ui:9966')
+    await goto('https://datatools-ui-proxy')
     await waitForSelector('h1')
     await expectSelectorToContainHtml('h1', 'Data Tools')
     testResults['should load the page'] = true
@@ -903,7 +903,7 @@ describe('end-to-end', () => {
     const password = process.env.E2E_AUTH0_PASSWORD
     if (!username || !password) throw Error('E2E username and password must be set!')
 
-    await goto('http://datatools-ui:9966', { waitUntil: 'networkidle0' })
+    await goto('https://datatools-ui-proxy', { waitUntil: 'networkidle0' })
     await waitForAndClick('[data-test-id="header-log-in-button"]')
     await waitForSelector('button[class="auth0-lock-submit"]', { visible: true })
     await waitForSelector('input[class="auth0-lock-input"][name="email"]')
@@ -919,7 +919,7 @@ describe('end-to-end', () => {
     const testUserSlug = testUserEmail.split('@')[0]
     makeTestPostLogin('should allow admin user to create another user', async () => {
       // navigage to admin page
-      await goto('http://datatools-ui:9966/admin/users', { waitUntil: 'networkidle0' })
+      await goto('https://datatools-ui-proxy/admin/users', { waitUntil: 'networkidle0' })
 
       // click on create user button
       await waitForAndClick('[data-test-id="create-user-button"]')
@@ -991,7 +991,7 @@ describe('end-to-end', () => {
 
   describe('project', () => {
     makeTestPostLogin('should create a project', async () => {
-      await goto('http://datatools-ui:9966/home', { waitUntil: 'networkidle0' })
+      await goto('https://datatools-ui-proxy/home', { waitUntil: 'networkidle0' })
       await createProject(testProjectName)
 
       // go into the project page and verify that it looks ok-ish
@@ -1018,7 +1018,7 @@ describe('end-to-end', () => {
     makeTestPostLogin('should update a project by adding an otp server', async () => {
       // navigate to server admin page
       await goto(
-        `http://datatools-ui:9966/admin/servers`,
+        `https://datatools-ui-proxy/admin/servers`,
         {
           waitUntil: 'networkidle0'
         }
@@ -1058,7 +1058,7 @@ describe('end-to-end', () => {
 
         // navigate to home project view
         await goto(
-          `http://datatools-ui:9966/home/${testProjectId}`,
+          `https://datatools-ui-proxy/home/${testProjectId}`,
           {
             waitUntil: 'networkidle0'
           }
@@ -1098,7 +1098,7 @@ describe('end-to-end', () => {
     makeTestPostLogin('should create feed source', async () => {
       // go to project page
       await goto(
-        `http://datatools-ui:9966/project/${testProjectId}`,
+        `https://datatools-ui-proxy/project/${testProjectId}`,
         {
           waitUntil: 'networkidle0'
         }
@@ -1239,7 +1239,7 @@ describe('end-to-end', () => {
 
   describe('feed version', () => {
     makeTestPostFeedSource('should download a feed version', async () => {
-      await goto(`http://datatools-ui:9966/feed/${feedSourceId}`)
+      await goto(`https://datatools-ui-proxy/feed/${feedSourceId}`)
       // Select previous version
       await waitForAndClick('[data-test-id="decrement-feed-version-button"]')
       await wait(2000, 'for previous version to be active')
@@ -1278,7 +1278,7 @@ describe('end-to-end', () => {
       // feed versions after this test takes place
       makeTestPostFeedSource('should delete a feed version', async () => {
         // browse to feed source page
-        await goto(`http://datatools-ui:9966/feed/${feedSourceId}`)
+        await goto(`https://datatools-ui-proxy/feed/${feedSourceId}`)
         // for whatever reason, waitUntil: networkidle0 was not working with the
         // above goto, so wait for a few seconds here
         await wait(5000, 'additional time for page to load')
@@ -2764,7 +2764,7 @@ describe('end-to-end', () => {
     makeEditorEntityTest('should make snapshot active version', async () => {
       // go back to feed
       // not sure why, but clicking on the nav home button doesn't work
-      await goto(`http://datatools-ui:9966/feed/${scratchFeedSourceId}`)
+      await goto(`https://datatools-ui-proxy/feed/${scratchFeedSourceId}`)
 
       // wait for page to be visible and go to snapshots tab
       await waitForAndClick('#feed-source-viewer-tabs-tab-snapshots')

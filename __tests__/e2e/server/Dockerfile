@@ -13,8 +13,9 @@ ARG GITHUB_REPOSITORY
 ARG GITHUB_WORKSPACE
 ARG GITHUB_RUN_ID
 ARG AUTH0_CLIENT_ID
+ARG AUTH0_PUBLIC_KEY
 ARG AUTH0_DOMAIN
-ARG AUTH0_SECRET
+ARG AUTH0_CONNECTION_NAME
 ARG AUTH0_API_CLIENT
 ARG AUTH0_API_SECRET
 ARG OSM_VEX
@@ -32,6 +33,9 @@ ARG AWS_SECRET_ACCESS_KEY
 # Grab latest dev build of Datatools Server
 RUN git clone https://github.com/ibi-group/datatools-server.git
 WORKDIR /datatools/datatools-server
+# TEMPORARY!
+RUN git checkout gtfs-lib-update-sep-22
+
 RUN mvn package -DskipTests
 RUN cp target/dt*.jar ./datatools-server-3.8.1-SNAPSHOT.jar
 
@@ -47,6 +51,7 @@ RUN mkdir /config
 RUN wget https://raw.githubusercontent.com/ibi-group/datatools-server/dev/configurations/default/server.yml.tmp -O /config/server.yml
 
 # The enviornment variables contain everything needed on the server
+COPY __tests__/e2e/server/datatools.pem /datatools/
 RUN touch /config/env.yml
 RUN env | sed 's/\=/\: /' > /config/env.yml
 

@@ -4,7 +4,7 @@ import multi from '@conveyal/woonerf/store/multi'
 import promise from '@conveyal/woonerf/store/promise'
 import {middleware as fetchMiddleware} from '@conveyal/woonerf/fetch'
 import Enzyme, {mount} from 'enzyme'
-import EnzymeReactAdapter from 'enzyme-adapter-react-15.4'
+import EnzymeReactAdapter from '@wojtekmaj/enzyme-adapter-react-17'
 import {mountToJson} from 'enzyme-to-json'
 import clone from 'lodash/cloneDeep'
 import {get} from 'object-path'
@@ -43,9 +43,9 @@ import {defaultState as defaultManagerProjectsState} from '../../../lib/manager/
 import {defaultState as defaultManagerStatusState} from '../../../lib/manager/reducers/status'
 import {defaultState as defaultManagerUiState} from '../../../lib/manager/reducers/ui'
 import {defaultState as defaultManagerUserState} from '../../../lib/manager/reducers/user'
-import * as manager from './manager'
-
 import type {AppState} from '../../../lib/types/reducers'
+
+import * as manager from './manager'
 
 Enzyme.configure({ adapter: new EnzymeReactAdapter() })
 

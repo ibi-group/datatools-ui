@@ -370,7 +370,6 @@ function makeUser (profile) {
     profile,
     permissions: new UserPermissions(profile.app_metadata.datatools),
     recentActivity: null,
-    redirectOnSuccess: null,
     subscriptions: new UserSubscriptions(profile.app_metadata.datatools)
   }
 }

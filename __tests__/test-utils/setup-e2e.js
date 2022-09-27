@@ -26,7 +26,6 @@ const otpJarForOtpRunner = '/opt/otp/otp-v1.4.0'
 const ENV_YML_VARIABLES = [
   'AUTH0_CLIENT_ID',
   'AUTH0_DOMAIN',
-  'AUTH0_SECRET',
   'AUTH0_API_CLIENT',
   'AUTH0_API_SECRET',
   'GTFS_DATABASE_PASSWORD',

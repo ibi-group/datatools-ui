@@ -1,0 +1,4 @@
+datatools-ui-proxy {
+    reverse_proxy datatools-ui:9966
+    tls internal
+}

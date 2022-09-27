@@ -1,56 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`manager > actions > user >  checkLogin should work with expired token 1`] = `
-Array [
-  Object {
-    "payload": Object {
-      "permissions": UserPermissions {
-        "appPermissionLookup": Object {},
-        "orgPermissionLookup": Object {},
-        "organizationLookup": Object {},
-        "projectLookup": Object {},
-      },
-      "profile": Object {
-        "app_metadata": Object {
-          "datatools": Array [],
-        },
-      },
-    },
-    "type": "USER_LOGGED_IN",
-  },
-]
-`;
-
-exports[`manager > actions > user >  checkLogin should work with no token saved in localStorage 1`] = `
-Array [
-  Object {
-    "type": "CHECKING_EXISTING_LOGIN",
-  },
-  Object {
-    "type": "USER_LOGGED_OUT",
-  },
-]
-`;
-
-exports[`manager > actions > user >  checkLogin should work with unexpired token 1`] = `
-Object {
-  "payload": Object {
-    "permissions": UserPermissions {
-      "appPermissionLookup": Object {},
-      "orgPermissionLookup": Object {},
-      "organizationLookup": Object {},
-      "projectLookup": Object {},
-    },
-    "profile": Object {
-      "app_metadata": Object {
-        "datatools": Array [],
-      },
-    },
-  },
-  "type": "USER_LOGGED_IN",
-}
-`;
-
 exports[`manager > actions > user >  receiveTokenAndProfile should receive token and profile 1`] = `
 Object {
   "payload": Object {

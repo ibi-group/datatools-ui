@@ -21,3 +21,12 @@ Big thanks to [BrowserStack](https://www.browserstack.com) for letting the maint
 <img src="https://www.graphhopper.com/wp-content/uploads/2018/03/graphhopper-logo-small.png" height="25" alt="GraphHopper Logo" />
 
 Street snapping powered by the <a href="https://www.graphhopper.com/">GraphHopper API</a>.
+
+## How to start application (backend + frontend)
+
+1. Start `conveyal-datatools-server`
+2. Start frontend
+    ```sh
+    make run
+    ```
+3. Check the application running at `http://localhost:5000/`

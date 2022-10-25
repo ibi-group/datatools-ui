@@ -4219,6 +4219,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             className="comparison-column"
                           >
                             <Status
+                              dateFormat="MMM D, YYYY"
                               icon="check-circle"
                               statusSpanClass="status-active"
                               statusText="Active"
@@ -4252,6 +4253,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             className="feed-version-column"
                           >
                             <Status
+                              dateFormat="MMM D, YYYY"
                               icon="check-circle"
                               statusSpanClass="status-active"
                               statusText="Same as Deployed"
@@ -4885,7 +4887,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                           className="glyphicon glyphicon-pencil"
                                                         />
                                                       </Glyphicon>
-                                                       Open in Editor
+                                                       
+                                                      Open in Editor
                                                     </a>
                                                   </SafeAnchor>
                                                 </li>
@@ -4926,7 +4929,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                           className="glyphicon glyphicon-refresh"
                                                         />
                                                       </Glyphicon>
-                                                       Fetch
+                                                       
+                                                      Fetch
                                                     </a>
                                                   </SafeAnchor>
                                                 </li>
@@ -4967,7 +4971,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                           className="glyphicon glyphicon-upload"
                                                         />
                                                       </Glyphicon>
-                                                       Upload
+                                                       
+                                                      Upload
                                                     </a>
                                                   </SafeAnchor>
                                                 </li>
@@ -5026,7 +5031,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                           className="glyphicon glyphicon-globe"
                                                         />
                                                       </Glyphicon>
-                                                       Deploy
+                                                       
+                                                      Deploy
                                                     </a>
                                                   </SafeAnchor>
                                                 </li>
@@ -5067,7 +5073,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                           className="glyphicon glyphicon-link"
                                                         />
                                                       </Glyphicon>
-                                                       View public page
+                                                       
+                                                      View public page
                                                     </a>
                                                   </SafeAnchor>
                                                 </li>
@@ -5125,7 +5132,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                           className="fa fa-trash fa-fw "
                                                         />
                                                       </Icon>
-                                                       Delete
+                                                       
+                                                      Delete
                                                     </a>
                                                   </SafeAnchor>
                                                 </li>

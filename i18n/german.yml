@@ -1,0 +1,1424 @@
+_id: de
+_name: Deutsch
+components:
+  Actions:
+    error: Fehler beim %method% Aufruf von %url%
+    errorGraphQL: Fehler beim GTFS-Abruf via GraphQL
+    errorWithStatus: Fehler (%status%) beim %method% Aufruf von %url%
+    networkError: Netzwerk-Fehler (%status%)!\n\n(%method% Aufruf von %url%)
+    noFile: Keine Datei zum Hochladen!
+  AdminPage:
+    applicationLogs: Anwendungs-Logs
+    backToDashboard: Zurück zum Dashboard
+    deploymentServers: Deployment Server
+    noAccess: Sie haben keine ausreichenden Berechtigung zum Zugriff auf diesen Bereich.
+    organizations: Organisationen
+    title: Administration
+    userManagement: Konten-Verwaltung
+  ApplicationStatusView:
+    actions: Aktionen
+    columns:
+      id: ID
+      name: Name
+      path: Pfad
+      status: Status
+      time: Zeit
+      user: Konto
+    feed:
+      filterByLabels: Filtere Feeds nach Etiketten
+      isPublic: Ist öffentlich
+      lastFetched: Letzter Zeitpunkt des Feedabrufs von Feed-URL
+      lastUpdated: Zuletzt aktualisiert
+    lastApiRequests: Letzte API Anfrage nach Nutzenden
+    lastUpdatedAt: letzte Aktualisierung um
+    latestValidation:
+      endDate: 'Aktuellste Version: End-Datum'
+      errorCount: 'Aktuellste Version: Anzahl Fehler'
+      routeCount: 'Aktuellste Version: Anzahl Routen'
+      startDate: 'Aktuellste Version: Start-Datum'
+      stopCount: 'Aktuellste Version: Anzahl Haltestellen'
+      stopTimesCount: 'Aktuellste Version: Anzahl Abfahrtszeiten'
+      tripCount: 'Aktuellste Version: Anzahl Trips'
+    name: Name
+    noDataText: Keine aktiven Jobs.
+    refresh: Aktualisieren
+    serverJobs: Aktive Server Jobs
+    sortBy: Sortiere nach
+    unauthenticated: (unangemeldet)
+    url: Feed-Abruf-URL
+    userLogs: Nutzer-Authentisierungs-Logs
+    viewUserLogs: Nutzenden-Logs auf Auth0.com ansehen
+  Brand:
+    dataTools: Data Tools
+  Breadcrumbs:
+    deployments: Deployments
+    projects: Projekte
+    root: Erkunden
+  ConfirmModal:
+    cancel: Abbrechen
+    ok: OK
+  CreateProject:
+    new: Neues Projekt erstellen
+  CreateSnapshotModal:
+    cancel: Abbrechen
+    description: Schnappschüsse sind gespeicherte Zwischenstände, die Sie immer wiederherstellen
+      können, während Sie eine GTFS Feed bearbeiten. Erstellen Sie einen Schnappschuss
+      mit der aktivierter Option  um automatisch eine neue GTFS-Datei zu veröffentlichen
+      (und diese als neue Feed-Version zu prozessieren).
+    fields:
+      comment:
+        label: Kommentar
+        placeholder: Zusätzliche Information (optional)
+      confirmPublishWithUnapproved:
+        label: Veröffentlichung mit nicht freigegebenen Routen bestätigen
+      name:
+        label: Name
+        placeholder: Name des Schnappschusses (erforderlich)
+      publishNewVersion:
+        label: Veröffentliche Schnappschuss als neue Feed-Version
+    missingNameAlert: Gültiger Schnappschuss-Name erforderlich!
+    ok: OK
+    title: Neuen Schnappschuss erstellen
+    unapprovedRoutesDesc: 'Diese Routen werden nicht im Export enthalten sein:'
+    unapprovedRoutesHeader: Die folgenden Routen sind nicht freigegeben
+  CreateUser:
+    email:
+      label: Email-Adresse
+      placeholder: Email-Adresse eingeben
+    new: Nutzerkonto erstellen
+    password:
+      label: Passwort
+      placeholder: Passwort für neues Konto eingeben
+    title: Erstelle Nutzerkonto
+  DatatoolsNavbar:
+    account: Mein Konto
+    alerts: Warnungen
+    editor: Editor
+    guide: Leitfaden
+    login: Anmelden
+    logout: Abmelden
+    manager: Manager
+    resetPassword: Passwort zurücksetzen
+    signConfig: eTID Konfiguration
+    users: Benutzende
+  DeploymentConfirmModal:
+    alert:
+      alreadyDeployed: ist bereits auf diesen Server und den gleiche Routing-Dienst
+        deployed. (Deployen würde den aktuellen Graph löschen.)
+      boundsTooLarge: Grenzen sind viel zu groß um erfolgreich in OpenTripPlanner
+        bereitgestellt zu werden. Deployment ist deaktiviert.
+      expiredFeeds: Die folgenden Feeds sind abgelaufen (alle Trips liegen in der
+        Vergangenheit)
+      missingBounds: Für diese Feeds sind keinge Grenzen definiert. Deployment ist
+        deaktiviert.
+      missingFeeds: Für dieses Deployment sind keine Feeds definiert. Deployment ist
+        deaktiviert.
+      success: Deployment erfolgreich ausgeführt.
+    cancel: Abbrechen
+    close: Schließen
+    danger: Gefahr!
+    deploy: Deployen
+    invalidBounds: Grenzen sind ungültig!
+    success: Erfolg!
+    to: zu
+    warning: Warnung!
+  DeploymentConfirmModalAlert:
+    danger: Gefahr!
+    success: Erfolg!
+    warning: Warnung!
+  DeploymentSettings:
+    boundsPlaceholder: min_lon, min_lat, max_lon, max_lat
+    buildConfig:
+      elevationBucket:
+        accessKey: Zugangs-Schlüssel
+        bucketName: S3 Bucket Name
+        secretKey: Secret Key
+      fares: Tarife
+      fetchElevationUS: Höhenmodell abrufen
+      save: Speichern
+      stationTransfers: Umstiege
+      subwayAccessTime: U-Bahn-Zugangszeiten
+      title: Build-Konfiguration
+    clear: Zurücksetzen
+    manageServers: Deployment-Server verwalten
+    osm:
+      bounds: Selbst-definierte Extrakt-Grenzen
+      custom: Benutze selbst-definierte Extrakt-Grenzen
+      gtfs: Grenzen aus GTFS ableiten
+      title: OSM-Extrakt
+    routerConfig:
+      brandingUrlRoot: Branding-URL Wurzel
+      carDropoffTime: PKW-Rückgabe-Zeit
+      numItineraries: '# of Reisevorschläge'
+      requestLogFile: Log-Datei anfordern
+      stairsReluctance: Treppen-Abneigung
+      title: Router Konfiguration
+      updaters:
+        $index:
+          defaultAgencyId: Standard-Betreiber ID
+          frequencySec: Frequenz (in Sekunden)
+          sourceType: Quellen-Typ
+          type: Typ
+          url: URL
+        new: Aktualisierer hinzufügen
+        placeholder: Aktualisierer-Name
+        title: Echtzeit-Aktualisierungs-Updater
+      walkSpeed: Geh-Geschwindigkeit
+    save: Speichern
+    title: Deployment
+  DeploymentVersionsTable:
+    dateRetrieved: Abrufdatum
+    errorCount: Fehlerzahl
+    expires: Läuft aus
+    loadStatus: Erfolgreich geladen
+    name: Name
+    routeCount: Routen-Anzahl
+    stopTimesCount: Anzahl StopTimes
+    tripCount: Trip-Anzahl
+    validFrom: Gültig von
+    version: Version
+  DeploymentViewer:
+    addFeedSource: Feed-Quelle hinzufügen
+    allFeedsAdded: Alle Feeds hinzugefügt
+    deploy: Deploy
+    download: Herunterladen
+    noServers: Keine Server definiert
+    search: Suche nach Name
+    table:
+      dateRetrieved: Abrufdatum
+      errorCount: Fehler-Anzahl
+      expires: Läuft aus
+      loadStatus: Erfolgreich geladen
+      name: Name
+      routeCount: Route-Anzahl
+      stopTimesCount: Anzahl StopTimes
+      tripCount: Trip-Anzahl
+      validFrom: Gültig von
+      version: Version
+    to: nach
+    versions: Feed Versionen
+  DeploymentsList:
+    delete: Deployment entfernen
+    new: Neues Deployment
+    search: Nach Deployments suchen
+    table:
+      creationDate: Erstellt
+      deployedTo: Deployed nach
+      feedCount: '# Feeds'
+      lastDeployed: Zuletzt deployed
+      name: Name
+      testDeployment: Testen?
+    title: Deployments
+  DeploymentsPanel:
+    autoDeploy:
+      deployWithErrors:
+        checklabel: Deployen, auch falls einige Feeds kritische Fehler aufweisen?
+        help: |
+          Wenn abgewählt, wird Auto-Deployment will anhalten, falls mindestens eine der Feed-Versionen im Deployment einen kritischen Fehler aufweist
+        title: Critical Errors Handling
+      help: |
+        Ein Deployment wird automatisch gestartet (angenommen es treten keine kritischen Fehler auf) wenn eines der oben definierten Ereignisse auftritt.
+      label: Auto-Deploy Ereignisse
+      placeholder: Auto-Deploy Ereignisse spezifizieren
+      title: Auto-Deployment
+      types:
+        ON_FEED_FETCH: Eine neue Version wurde abgerufen
+        ON_PROCESS_FEED: Eine neue Version wird verarbeitet
+    config:
+      body: |
+        Deployments können projekt-spezifische Konfigurationen nutzen (z.B. für Graphbau- der Router-Konfigurations-Dateien) oder individuell konfiguriert werden.
+      editSettings: Deployment-Einstellungen bearbeiten
+      manageServers: Deployment-Server verwalten
+      title: Deployments konfigurieren
+    delete: Entferne Deployment
+    new: Neues Deployment
+    pinnedDeployment:
+      help: Deployment pinnen (und zumindest einmaliges Deployment auf einen Server
+        ausführen) um Auto-Deployment zu aktivieren.
+      label: Gepinntes Deployment
+      placeholder: Wählen Sie ein zu pinnendes Deployment
+    search: Suche nach Deployments
+    table:
+      creationDate: Erstellt
+      deployedTo: Deployed nach
+      feedCount: '# Feeds'
+      lastDeployed: Zuletzt deployed
+      name: Name
+      testDeployment: Testen?
+    title: Deployments
+  EC2InstanceCard:
+    aws: AWS
+    confirmTermination: 'Sind Sie sicher, dass Sie %count% Instanz(en) beenden möchten?\n\n
+      ACHTUNG: Dies wird OTP Dienste aller auf diesem Server gestarteten Deployments
+      beenden.'
+    log: Log-Datei
+    noPublicIP: Keine öffentliche IP
+    notApplicable: N/A
+    status:
+      booting: Startet.
+      running: Server läuft.
+      terminated: Beendet.
+      terminatedAt: Beendet %moment%
+    terminate: Instanz beenden
+    view: Deployment ansehen
+  EditableTextField:
+    invalidInput: Gültige Eingabe erforderlich.
+    none: (leer)
+  EditorFeedSourcePanel:
+    active: Aktiv
+    availableSnapshots: Verfügbare Schnappschüssse
+    confirmDelete: Dies wird den Schnappschuss dauerhaft löschen. Alle damit gespeicherten
+      Date können nicht wiederhergestellt werden. Sind Sie sicher, dass Sie fortfahren
+      möchten?
+    confirmLoad: Dies wird alle aktiven GTFS Editor Daten dieser Feed-Quelle mit den
+      Daten dieser Version überschreiben. Wenn Sie im Editor ungespeicherte Änderungen
+      behalten möchten, müssen Sie für diese Daten zuerst einen Schnappschuss erstellen.
+      Sind Sie sicher, dass Sie fortfahren möchten?
+    createFromScratch: Erstelle leeren GTFS-Feed
+    created: erstellt
+    date: Datum
+    delete: Löschen
+    download: Herunterladen
+    editFeed: Feed bearbeiten
+    feed: Feed
+    help:
+      body:
+      - Schnappschüsse sind gespeicherte Zwischenstände, die Sie immer wiederherstellen
+        können, während Sie eine GTFS Feed bearbeiten.
+      - Ein Schnapschuss kein eine Arbeitsstand, ein zukünftiges Planungsszenario
+        oder sogar verschiedene Fahrpläne abbilden (z.B. Sommerfahrplan).
+      title: Was sind Schnappschüsse?
+    load: Zur Bearbeitung laden
+    loadLatest: Aktuellsten zur Bearbeitung herunterladen
+    name: Name
+    noSnapshotsExist: Für diese Feed-Quelle existieren noch keine Schnappschüsse.
+      Schnappschüsse können im Editor erstellt werden. Wählen Sie "Feed bearbeiten"
+      um den Bearbeitungsmodus zu starten.
+    noVersions: (Keine Versionen)
+    noVersionsExist: Für diese Feed-Quelle existieren noch keine Versionen.
+    of: von
+    publish: Veröffentlichen
+    restore: Wiederherstellen
+    snapshot: Schnappschuss
+    snapshotLatest: Schnappschuss erstellen
+    title: Schnappschüsse
+    version: Version
+  EditorInput:
+    daysOfService: Service-Tage
+    dropImage: Ziehen Sie ein %activeComponent%-Bild hier hin, oder klicken Sie um
+      ein Bild hochzuladen.
+    optional: (optional)
+    selectAgency: Betreiber auswählen...
+    selectDate: Bitte wählen Sie ein Datum
+    selectOption: -- Option auswählen --
+    uploadAsset: '%activeComponent%-Branding-Asset hochladen'
+  EditorSidebar:
+    backToFeed: Zurück zum Feed
+  EntityDetailsHeader:
+    attributes: Attribute
+    feedInfo: Feed Info
+    noValidationIssues: Keine Validierungsfehler
+    requiredField: '* kenzeichnet Pflichtfeld'
+    routeDetails: Routen-Details
+    rules: Regeln
+    saveChanges: Änderungen speicheren
+    tripPatterns: Trip-Muster
+    undoChanges: Änderungen rückgängig machen
+    validationIssues: Validatungsfehler
+    zoomTo: Zoome auf
+  EntityList:
+    createFirst: Erstelle erste/n
+    createStop: Um eine neue Haltestelle zu erstellen, klicken Sie per rechter Maustaste
+      auf eine Örtlickeit in der Karte
+    editSchedules: Abfahrzeiten erstellen
+    name: Name
+  FeedActionsDropdown:
+    delete: Löschen
+    deleteFeedSource: Feed-Quelle löschen?
+    deploy: Deployen
+    deployFeed: Feed-Quelle deployen.
+    deployNoPermission: Sie haben keine Berechtigungen, um den Feed zu deployen
+    fetch: Abrufen
+    menu: Menü
+    noVersions: Keine Versionen. Erstellen Sie eine neue Version um den Feed zu deployen
+    notDeployable: Feed-Quelle nicht deploybar. Ändern Sie die Feed-Quelle-Einstellungen.
+    openInEditor: Im Editor öffnen
+    upload: Hochladen
+    uploadFeed: Feed hochladen
+    view: Öffentliche Seite ansehen
+  FeedFetchFrequency:
+    DAYS: Tage
+    HOURS: Stunden
+    MINUTES: Minuten
+    fetchFeedEvery: Feed-Abruf alle
+  FeedInfo:
+    autoFetch: Automatischer Abruf
+    autoPublish: Automatische Veröffentlichung
+    dateFormat: DD.MM.YYYY
+    deployable: Deploybar
+    edit: Bearbeiten
+    lastUpdatedDate: Zuletzt aktualisiert am %date%
+    noUpdates: Keine Aktualisierungen
+    private: Privat
+    public: Öffentlich
+  FeedInfoPanel:
+    add: '%id% hinzufügen'
+    backToFeedSource: Zurück zur Feed-Quelle
+    backToProject: Zurück zum Projekt
+    editingFeed: '%feed% bearbeiten'
+    noSnapshot: Keine Schnappschüsse erstellt
+    restoreSnapshot:
+      body: Sind Sie sicher, dass Sie diesen Schnappschuss wiederherstellen möchten?
+      title: '%key% wiederherstellen?'
+    revert: '%snapshot% wiederherstelllen'
+    takeSnapshot: Schnappschuss erstelllen
+    toolbar:
+      hide: Verberge Werkzeugleiste
+      show: Zeige Werkzeugleiste
+    unnamed: Unbenannt
+    uploadShapefile:
+      body: 'Wählen Sie eine gezippte Shape-Datei zur Darstellung in der Karte. Hinweis:
+        Dies dient nur zur visuellen Unterstützung.'
+      error: Hochgeladene Datei muss gültige zip-Datei sein (.zip).
+      title: Routen-Shapefile hochladen
+  FeedLabel:
+    delete:
+      body: Sind Sie sicher, dass Sie Etikett %name% löschen möchten? Diese Aktion
+        wird das Etikett von allen Feed-Quellen, denen es zugewiesen ist, entfernen.
+      title: Etikett löschen?
+  FeedSourceAttributes:
+    lastUpdated: Aktualisiert
+  FeedSourcePanel:
+    chooseProject: '[Projekt auswählen]'
+    chooseProjectToView: Projekt wählen um Feeds anzusehen
+    createOne: Projekt erstellen.
+    filters:
+      ALL: Alle
+      PRIVATE: Privat
+      PUBLIC: Öffentlich
+      STARRED: Favoriten
+    forFeed: Feeds für
+    noFeedsYet: Noch keine Feeds.
+    search: Suche Feeds
+    unnamed: unbenannt
+  FeedSourceSettings:
+    autoPublish: Auto-Veröffentlichung
+    feedTransformations: Feed-Transformationen
+    general: Allgemein
+    noPermission: Sie verfügen nicht über die notwendigen Berechtigungen um Eigenschaften
+      dieser Feed-Quelle zu bearbeiten.
+    properties: Eigenschaften
+    warning: Achtung!
+  FeedSourceTable:
+    comparisonColumn:
+      DEPLOYED: Deployte Version
+      PUBLISHED: Veröffentlichte Version
+    createFirst: Erste Feed-Quelle erstellen!
+    datesValid: Gültigkeits-Zeitraum
+    feedInfo: Feed Info
+    issues: Fehler
+    latestVersion: Aktuellste Version
+    status: Status
+  FeedSourceTableRow:
+    dateFormat: DD.MM.YYYY
+    delete: Löschen
+    expired: Vor %duration% ausgelaufen
+    lastUpdated: Zuletzt aktualsiert vor %lastVersionUpdate%
+    noUpdates: Noch keine Aktualisierungen
+    none: Keine
+    startingIn: Beginnt in %duration%
+    status:
+      active: Aktiv
+      all: Alle
+      expired: Veraltet
+      expiring-within-5-days: Veraltet in 5 Tagen
+      expiring-within-20-days: Veraltet in 20 Tagen
+      feedNotInDeployment: Feed nicht deployed
+      feedNotPublished: Feed nicht veröffentlicht
+      future: Zukunft
+      no-version: Keine Version
+      same-as-deployed: Entspricht deploytem
+      same-as-published: Entspricht veröffentlichtem
+    validFor: Gültig für weitere %duration%
+  FeedSourceViewer:
+    deploy: Deployen
+    edit: GTFS bearbeiten
+    gtfs: GTFS
+    notesTitle: Notizen
+    private: Private Ansicht
+    properties:
+      deployable: Deploybar?
+      name: Name
+      noneSelected: (Nichts ausgewählt)
+      property: Eigenschaft
+      public: Öffentlich?
+      retrievalMethod:
+        fetchedAutomatically: Automatisch abgerufen
+        manuallyUploaded: Manuell hochgeladen
+        producedInHouse: Selbst produziert
+        producedInHouseGtfsPlus: Selbst produziert (GTFS+)
+        regionalMerge: Regionale Zusammenführung
+        servicePeriodMerge: Service -Zeitraum Zusammenführung
+        title: Abruf-Methode
+        versionClone: Version klonen
+      snapshot: Editor Schnappschuss
+      title: Einstellungen
+      value: Wert
+    snapshotsTitle: Schnappschüsse
+    update: Aktualisieren
+    upload: Hochladen
+    versions: Versionen
+    viewPublic: Öffentliche Seite ansehen
+  FeedTransformationDescriptions:
+    DeleteRecordsTransformation:
+      label: Lösche Einträge von %tablePlaceholder%
+      name: Lösche Datensatz-Transformation
+    NormalizeFieldTransformation:
+      filePlaceholder: Zu normalisierende Datei/Tabelle auswählen
+      label: Feld normalisieren
+      name: Feld-Normalisierungs-Abbildung
+    ReplaceFileFromStringTransformation:
+      filePlaceholder: Zu ersetzende Datei/Tabelle auswählen
+      label: Ersetze %tablePlaceholder% durch %filePlaceholder%
+      name: Ersetze Datei von String-Transformation
+    ReplaceFileFromVersionTransformation:
+      filePlaceholder: Zu ersetzende Datei/Tabelle auswählen
+      label: Ersetze %tablePlaceholder% durch %versionPlaceholder%
+      name: Ersetze Datei von Versions-Transformation
+    general:
+      fileDefined: unterhalb des Textes
+      filePlaceholder: '[Datei auswählen]'
+      table: Tabelle
+      tablePlaceholder: '[Tabelle auswählen]'
+      version: Version
+      versionPlaceholder: '[Version auswählen]'
+  FeedVersionNavigator:
+    confirmDelete: Sind Sie sicher, dass sie diese Version endgültig löschen möchten?
+    confirmLoad: Dies wird alle aktiven GTFS Editor Daten dieser Feed-Quelle mit den
+      Daten dieser Version überschreiben. Wenn Sie im Editor ungespeicherte Änderungen
+      behalten möchten, müssen Sie für diese Daten zuerst einen Schnappschuss erstellen.
+      Sind Sie sicher, dass Sie fortfahren möchten?
+    delete: Löschen
+    deployFeed: Feed deployen
+    download: Herunterladen
+    editFeed: Feed bearbeiten
+    feed: Feed
+    fetch: Abrufen
+    fromSnapshot: Von Schnapschuss
+    load: Zur Bearbeitung laden
+    newVersion: Erstelle neue Version
+    next: Nächster
+    of: von
+    previous: Voriger
+    selectFeed: 'Hochzuladenden GTFS-Feed auswählen:'
+    selectVersion: Wählen Sie eine Version umd Zusammenfassung anzuzeigen
+    upload: Hochladen
+    uploadFeed: Feed hochladen
+    version: Version
+    zipWarning: Hochgeladene Datei muss gültige Zip-Datei sein (.zip).
+  FeedVersionTabs:
+    agencyCount: Betreiber-Anzahl
+    daysActive: aktive Tage
+    routeCount: Routen-Anzahl
+    stopCount: Haltestellen-Anzahl
+    stopTimesCount: Abfahrtszeiten-Anzahl
+    tripCount: Trip-Anzahl
+    validDates: Gültige Daten
+  FeedVersionViewer:
+    confirmDelete: Sind Sie sicher, dass Sie diese Version löschen möchten? Dies kann
+      nicht rückgängig gemacht werden.
+    confirmLoad: Dies wird alle aktiven GTFS Editor Daten dieser Feed-Quelle mit den
+      Daten dieser Version überschreiben. Wenn Sie im Editor ungespeicherte Änderungen
+      behalten möchten, müssen Sie für diese Daten zuerst einen Schnappschuss erstellen.
+      Sind Sie sicher, dass Sie fortfahren möchten?
+    delete: Löschen
+    download: Herunterladen
+    feed: Feed
+    load: Laden
+    noVersionsExist: Für diese Feed-Quelle existieren keine Versionen.
+    status: Status
+    timestamp: Datei Zeitstempel
+    version: Version
+  FormInput:
+    buildConfig:
+      elevationBucket:
+        accessKey: Zugriffs-Schlüssel (access)
+        bucketName: S3 Bucket Name
+        secretKey: Geheim-Schlüssel (secret)
+      fares: Tarife
+      fetchElevationUS: Höheninformation abrufen
+      stationTransfers: Umstiege
+      subwayAccessTime: Zeitaufschlag U-Bahn-Zugang
+      title: Graph-Bau-Konfiguration
+    deployment:
+      osm:
+        bounds: Benutzerdefinierte Extrakt-Grenzen
+        custom: Benutze benutzerdefinierte Extrakt-Grenzen
+        gtfs: Benutze GTFS-abgeleitete Extrakt-Grenzen
+        title: OSM Extrakt
+      title: Deployment
+    otpServers:
+      $index:
+        admin: Nur Admin-Zugriff?
+        delete: Entfernen
+        ec2Info:
+          amiId: AMI ID
+          buildAmiId: Graphbau AMI ID
+          buildImageDescription: Neue Image-Beschreibung
+          buildImageName: Neuer Image-Name
+          buildInstanceType: Graph build instance type
+          iamInstanceProfileArn: IAM Instanz Profil ARN
+          instanceCount: Instanz-Anzahl
+          instanceType: Instanztyp
+          keyName: Name Schlüsseldatei
+          recreateBuildImage: Build-Image nach Graphbau eu erstellen?
+          region: Name der Region
+          securityGroupId: ID der Sicherheitsgrupp
+          subnetId: Subnetz ID
+          targetGroupArn: Zielgruppen ARN (Load-Aalancer)
+        internalUrl: Interne URLs
+        name: Name
+        namePlaceholder: Produktion
+        publicUrl: Öffentliche URL
+        role: AWS Rolle
+        s3Bucket: S3 Bucket-Name
+        serverPlaceholder: Server-Name
+        title: Server
+    routerConfig:
+      brandingUrlRoot: Branding Wurzel-URL
+      carDropoffTime: Zeitaufschlag PKW abstellen
+      numItineraries: '# Reisevorschläge'
+      requestLogFile: Log-Datei anfordern
+      stairsReluctance: Treppen-Abneigung
+      title: Router Konfiguration
+      updaters:
+        $index:
+          defaultAgencyId: Standard-Betreiber-ID
+          frequencySec: Frequenz (in Sekunden)
+          sourceType: Quell-Type
+          type: Typ
+          url: URL
+        new: Updater hinzufügen
+        placeholder: Updater name
+        title: Real-time Updater
+      walkSpeed: Geh-Geschwindigkeit
+  GeneralSettings:
+    autoFetch:
+      checkbox: Feed-Quelle automatisch abrufen
+      hint: Aktiviert den automatischen Feed-Abruf. (Feed-Quelle-URL must angegeben
+        sein und Projekteinstellung Automatischer Abruf muss aktiviert sein.)
+      title: Automatischer Abruf
+      url: Feed-Quelle Abruf-URL
+      urlButton: URL ändern
+    confirmDelete: Sind Sie sicher, dass Sie dieses Projekt löschen möchten? Diese
+      Aktion kan nicht rückgängig gemacht werden und alle Feed-Quellen und ihre Versionen
+      werden dauerhaft gelöscht.
+    dangerZone: Gefahrenzone
+    deleteFeedSource: Feed-Quelle löschen
+    deleteFeedSourceDesc: Diese Feed-Quelle löschen.
+    deleteFeedSourceHint: Wenn Sie eine Feed-Quelle löschen, kann diese nicht wiederhergestellt
+      werden.
+    deleteProject: Projekt löschen?
+    deployment:
+      buildConfig:
+        elevationBucket:
+          accessKey: Zugriffs-Schlüssel (access)
+          bucketName: S3 Bucket Name
+          secretKey: Geheim-Schlüssel (secret)
+        fares: Tarife
+        fetchElevationUS: Höheninformation abrufen
+        stationTransfers: Umstiege
+        subwayAccessTime: Zeitaufschlag U-Bahn-Zugang
+        title: Graph-Bau-Konfiguration
+      osm:
+        bounds: Benutzerdefinierte Extrakt-Grenzen
+        custom: Benutze benutzerdefinierte Extrakt-Grenzen
+        gtfs: Benutze GTFS-abgeleitete Extrakt-Grenzen
+        title: OSM Extrakt
+      otpServers:
+        $index:
+          admin: Nur Admin-Zugriff?
+          delete: Entfernen
+          internalUrl: Interne URLs
+          name: Name
+          namePlaceholder: Produktion
+          publicUrl: Öffentliche URL
+          s3Bucket: S3 Bucket-Name
+        new: Server hinzufügen
+        serverPlaceholder: Server-Name
+        title: Server
+      routerConfig:
+        brandingUrlRoot: Branding Wurzel-URL
+        carDropoffTime: PKW-Abstell-Zeit
+        numItineraries: '# of Reisevorschläge'
+        requestLogFile: Log-Datei anfordern
+        stairsReluctance: Treppen-Abneigung
+        title: Router Konfiguration
+        updaters:
+          $index:
+            defaultAgencyId: Standard-Betreiber-ID
+            frequencySec: Frequenz (in Sekunden)
+            sourceType: Quell-Type
+            type: Type
+            url: URL
+          new: Updater hinzufügen
+          placeholder: Updater-Name
+          title: Real-time Updater
+        walkSpeed: Geh-Geschwindigkeit
+      title: Deployment
+    feedSourceName: Feed-Quellen-Name
+    general:
+      location:
+        boundingBox: Geographische Grenzen (W,S,E,N)
+        defaultLanguage: Standard-Sprache
+        defaultLocation: Standard-Örtlichkeit (Breitengrad, Längengrad)
+        defaultTimeZone: Standard-Zeitzone
+        title: Örtlichkeit
+      name: Projektname
+      title: Allgemein
+      updates:
+        autoFetchFeeds: Feed-Quellen automatisch abrufen?
+        title: Aktualisierungen
+    labels:
+      title: Ettiketten
+    make:
+      private: Privat setzen
+      privateDesc: Setzt diese Feed-Quelle auf Privat.
+      privateState: Diese Feed-Quelle ist aktuell privat.
+      public: Öffentlich setzen
+      publicDesc: Setzt diese Feed-Quelle auf Öffentlich.
+      publicState: Diese Feed-Quelle ist aktuell öffentlich.
+    makeDeployable: Deploybar machen
+    makeDeployableHint: Setzen Sie diese Feed-Quelle auf Deploybar, um Sie zu einer
+      (in den Organisations-Einstellungen definierten) OpenTripPlanner (OTP) Instanz
+      als Teil einer Feed-Quelle oder als einzelen Feed zu deployen.
+    rename: Umbenennen
+    save: Speichern
+    title: Einstellungen
+  GtfsIcons:
+    agency:
+      label: Betreiber
+      title: Betreiber bearbeiten
+    calendar:
+      label: Abfahrtzeiten
+      title: Abfahrtzeiten bearbeiten
+    fare:
+      label: Tarife
+      title: Tarife bearbeiten
+    feedinfo:
+      label: Feed Info
+      title: Feed-Info bearbeiten
+    route:
+      label: Routen
+      title: Routen bearbeiten
+    scheduleExceptions:
+      label: Fahrplan-Ausnahmen
+      title: Fahrplan-Ausnahmen bearbeiten
+    stop:
+      label: Haltestellen
+      title: Haltestellen bearbeiten
+  GtfsValidationExplorer:
+    accessibilityValidation: Erreichbarkeits-Explorer
+    table:
+      count: Anzahl
+      file: Datei
+      issue: Fehler
+      priority: Priorität
+    timeValidation: Zeit-basierte Validierung
+    title: Validierungs-Explorer
+    validationIssues: Validatierungs-Fehler
+  GtfsValidationViewer:
+    explorer: Validierungs-Explorer
+    issues:
+      other: Andere Fehler
+      routes: Routen-Fehler
+      shapes: Streckenverlauf-Fehler
+      stop_times: Abfahrtszeiten-Fehler
+      stops: Haltestellen-Fehler
+      trips: Trip-Fehler
+    noResults: Keine anzuzeigenden Validierungsergebnisse.
+    tips:
+      DATE_NO_SERVICE: Wenn die Linie nicht an Wochenenden verkehrt, können einige
+        oder alle dieser Validierungsergebnisse ignoriert werden. Analog können Feiertage,
+        an denen keine Fahrten verkehren, in dieser Liste erscheinen.
+      FEED_TRAVEL_TIMES_ROUNDED: Dies ist eine übliche Eigenschaft von GTFS-Feeds,
+        die keine sekundengenaue Präzision für Abfahrts- und Ankunftszeite nutzen.
+        Wenn diese Präzision jedoch erwartet wird, könnte beim Feed-Export ein Problem
+        entstehen.
+      MISSING_TABLE: Eine fehlende Pflicht-Tabelle ist ein größeres Problem, das behoben
+        werden muss, bevor die meisten GTFS-Konsumenten diese Daten für Reiseauskünfte
+        oder in anderen Anwendungen nutzen können.
+    title: Validierungs-Fehler
+  HomeProjectDropdown:
+    new: Neues Projekt
+    select: Projekt auswählen
+    view: '%name% ansehen'
+  InfoModal:
+    ok: OK
+  JobMonitor:
+    clearCompleted: Abgeschlossene löschen
+    jobs:
+      none: Kein aktiver Job
+      one: Ein aktiver Job
+      some: '%count% aktive Jobs'
+    jobsCompleted: Alle Jobs abgeschlossen
+    serverJobs: Server Jobs
+    waiting: Wartend
+  LabelPanel:
+    labels: Etiketten
+    new: Neues Etikett hinzufügen
+    noLabels: Es gibt keine Etiketten in diesem Projekt.
+  LanguageSelect:
+    placeholder: Sprache wählen...
+  Login:
+    title: Anmelden
+  ManagerHeader:
+    noUpdateYet: keine
+    noUrl: (keine URL)
+    private: Diese Feed-Quelle und all ihre Versionen sind privat.
+  ManagerPage:
+    alerts: Alarme
+    changelog: Änderungs-Liste
+    contact: Kontakt
+    copyright: Copyright
+    datatools: Data Tools
+    guide: Leitfaden
+    home: Startseite
+  MapModal:
+    cancel: Cancel
+    ok: OK
+  MergeFeedsResult:
+    CHECK_STOP_TIMES: Einige Trip IDs wurden in beiden Quell-Feeds gefunden. Der zusammengeführte
+      Feed wurde erfolgreich erstellt.
+    DEFAULT: Trip IDs waren in den Quell-Feeds eindeutig. Der zusammengeführte Feed
+      wurde erfolgreich erstellt.
+    body:
+      failure: Zusammenführung mit %errorCount% Fehlern fehlgeschlagen.
+      success: Zusammenführung erfolgreich durchgeführt. Eine neue Version mit dem
+        Ergebnios-Feed wird verarbeitet/validiert.
+    remappedIds: 'Abgebildete IDs: %remappedIdCount%'
+    skipped: 'Übersprungene Datensätze:'
+    skippedTableRecords: '%table%: %skippedCount%'
+    strategyUsed: 'Benutzte Strategie: %strategy%'
+    title:
+      failure: 'Warnung: Während der Feed-Zusammenführung sind Fehler aufgetreten!'
+      success: Feed-Zusammeführung war erfolgreich!
+    tripIdsToCheck: 'Zu prüfende Trip IDs: %tripIdCount%'
+  NormalizeField:
+    issues:
+      fieldUndefined: Zu normalisierendes Feld muss angegeben werden.
+      substitutionInvalid: Substitutions-Muster ungültig.
+      substitutionUndefined: Substitution-Muster müssen angegeben werden.
+  NormalizeStopTimesTip:
+    info: 'Tipp: Wenn Sie Reisezeiten ändern, erwägen Sie die Benutzung des "Stop
+      times normalisieren"-Buttons oberhalb, um automatisch alle Stop Times auf die
+      aktualisierte Reisezeit anzupassen.'
+  NoteForm:
+    adminOnly: Nur für Admins?
+    new: Senden
+    postComment: Neuen Kommentar absenden
+  NotesViewer:
+    adminOnly: Diese Nachricht ist nur für Administratoren sichtbar.
+    all: Alle Kommentare
+    feedSource: Feed-Quelle
+    feedVersion: Version
+    none: Keine Kommentare.
+    refresh: Aktualisieren
+    title: Kommentare
+  OrganizationList:
+    create: Organisation erstellen
+    missingName: Sie müssen einen Namen für die Organisations angeben.
+    new: Organisation anlegen
+    search: Organisation suchen
+  OrganizationSettings:
+    extensions: Erweiterungen
+    logoUrl:
+      label: Logo URL
+      placeholder: http://example.com/logo_30x30.png
+    name:
+      label: Name
+      placeholder: Big City Transit
+    orgDetails: Organisations-Details
+    projects: Projekte
+    subDetails: Subskriptions-Details
+    subscriptionBeginDate: Subskription beginnt
+    subscriptionEndDate: Subskription endet
+    usageTier:
+      high: Hoch
+      low: Niedrig
+      medium: Mittel
+      title: Nutzungsstufe
+  PageNotFound:
+    homePage: Startseite
+    pageNotFound: Seite nicht gefunden.
+  Permissions:
+    approve-alert: GTFS-RT Alerts freigeben
+    approve-gtfs: GTFS Feeds freigeben
+    edit-alert: GTFS-RT Alerts bearbeiten
+    edit-gtfs: GTFS Feeds bearbeiten
+    manage-feed: Feed-Konfiguration verwalten
+  ProjectAccessSettings:
+    admin: Admin
+    cannotFetchFeeds: Feeds nicht abrufbar
+    custom: Benutzerdefiniert
+    feeds: Feed-Quellen
+    noAccess: Kein Zugriff
+    permissions: Berechtigungen
+    title: Projekt-Einstellungen für
+  ProjectFeedListToolbar:
+    actions: Aktionen
+    all: alle
+    any: mind. einer
+    comparison:
+      DEPLOYED: deployter
+      LATEST: aktuellster
+      PUBLISHED: veröffentlichter
+    deployedVersion: 'Deployte Version:'
+    deployments: Deployments
+    downloadCsv: Zusammenfassung als CSV herunterladen
+    feeds:
+      createFirst: Erste Feed-Quelle erstellen!
+      new: Neu
+      search: Suche nach Name
+      table:
+        deployable: Deploybar?
+        errorCount: Fehler
+        lastUpdated: Aktualisiert
+        name: Name
+        public: Öffentlich?
+        retrievalMethod: Abruf-Methode
+        validRange: Gültigkeits-Zeitraum
+      title: Feed-Quellem
+      update: Alle abrufen
+    filter:
+      active: Aktiv
+      all: Alle
+      expired: Abgelaufen
+      expiring: Ablaufend
+      future: Zukünftig
+    filterByLabels: Filtere Feeds nach Label
+    filterFeedSources: Filtere Feed-Quellen nach
+    hasDeployedVersion: Hat deployete Version?
+    hasLatestVersion: Hat aktuellste Version?
+    hasPublishedVersion: Hat veröffentlichte Version?
+    isPublic: Ist Öffentlich
+    labelEndDate: '%labelPrefix% End-Datum'
+    labelNumberIssues: '%labelPrefix% Anzahl Fehler'
+    labelNumberRoutes: '%labelPrefix% Anzahl Routen'
+    labelNumberStopTimes: '%labelPrefix% Anzahl Abfahrtszeiten'
+    labelNumberStops: '%labelPrefix% Anzahl  Haltestellen'
+    labelNumberTrips: '%labelPrefix% Anzahl Trips'
+    labelStartDate: '%labelPrefix% Start-Datum'
+    lastFetched: Zeitpunkt des letzten Datenabrufs des Feeds von URL
+    lastUpdated: Zuletzt aktualisiert
+    latestValidation:
+      endDate: 'Aktuellste Version: End-Datum'
+      errorCount: 'Aktuellste Version: Anzahl Fehler'
+      routeCount: 'Aktuellste Version: Anzahl Routen'
+      startDate: 'Aktuellste Version: Start-Datum'
+      stopCount: 'Aktuellste Version: Anzahl Haltestellen'
+      stopTimesCount: 'Aktuellste Version: Anzahl Abfahrtszeiten'
+      tripCount: 'Aktuellste Version: Anzahl Trips'
+    makePublic: Öffentliche Feeds veröffentlichen
+    mergeFeeds: Alle Zusammenführen
+    name: Name
+    noteSorting: 'Hinweis: Sortieren ist nur anhand der jeweils aktuellste Feed-Version
+      möglich'
+    ofTheLabels: 'der Labels:'
+    publishedVersion: 'Veröffentlichte Version:'
+    settings: Einstellungen
+    showFeedsWith: Zeige Feeds mit
+    sort:
+      alphabetically:
+        asc: A-Z
+        desc: Z-A
+        title: Alphabetisch
+      endDate:
+        asc: Frühest-Spätest
+        desc: Spätest-Frühest
+        title: Auslauf-Datum
+      lastUpdated:
+        asc: Veraltet-Aktuell
+        desc: Aktuell-Veraltet
+        title: Letzte Aktualisierung
+      numErrors:
+        asc: Wenigste-Meiste
+        desc: Meiste-Wenigste
+        title: Anzahl Auffälligkeiten
+      startDate:
+        asc: Frühest-Spätest
+        desc: Spätest-Frühest
+        title: Start-Datum
+    sortBy: Sortiere nach
+    sync:
+      mtc: Sync von MTC
+      transitfeeds: Sync von transitfeeds
+      transitland: Sync von transit.land
+    url: Feed-Abruf URL
+    version: Version
+  ProjectSettings:
+    deployment:
+      buildConfig:
+        elevationBucket:
+          accessKey: Zugriffs-Schlüssel (access)
+          bucketName: S3 Bucket Name
+          secretKey: Geheim-Schlüssel (secret)
+        fares: Tarife
+        fetchElevationUS: Rufe Geländemodell ab
+        stationTransfers: Umstiege
+        subwayAccessTime: U-Bahn-Zugangszeiten
+        title: Build Konfiguration
+      osm:
+        bounds: Benutzerdefinierte Extraktions-Grenzen
+        custom: Benutzerdefinierte Extraktions-Grenzen verwenden
+        gtfs: Benutzerdefinierte Extraktions-Grenzen verwenden
+        title: OSM Extrakt
+      otpServers:
+        $index:
+          admin: Nur Admin-Zugriff?
+          delete: Entfernen
+          internalUrl: Interne URLs
+          name: Name
+          namePlaceholder: Produktion
+          publicUrl: Öffentliche URL
+          r5: R5 Server?
+          s3Bucket: S3 Bucket Name
+          targetGroupArn: Zielgruppen ARN
+        new: Server hinzufügen
+        serverPlaceholder: Server-Name
+        title: Server
+      routerConfig:
+        brandingUrlRoot: Branding-URL Wurzel
+        carDropoffTime: PKW-Abstell-Zeit
+        numItineraries: '# Reisevorschläge'
+        requestLogFile: Log-Datei anfordern
+        stairsReluctance: Treppen-Vermeidung
+        title: Router Konfiguration
+        updaters:
+          $index:
+            defaultAgencyId: Default Betreiber-ID
+            frequencySec: Frequenz (in Sekunden)
+            sourceType: Quellen-Typ
+            type: Typ
+            url: URL
+          new: Updater hinzufügen
+          placeholder: Updater-Name
+          title: Real-time Updater
+        walkSpeed: Lauf-Geschwindigkeit
+      title: Deployment
+    project:
+      cannotFetchFeeds: Feeds können nicht abgerufen werden
+      feeds: Feeds
+      permissions: Berechtigungen
+    rename: Umbennenen
+    save: Speichern
+    title: Einstellungen
+  ProjectSettingsForm:
+    cancel: Abbrechen
+    confirmDelete: Sind Sie sicher, dass Sie dieses Projekt löschen möchten? Diese
+      Aktion kan nicht rückgängig gemacht werden und alle Feed-Quellen und ihre Versionen
+      werden dauerhaft gelöscht.
+    dangerZone: Gefarenzone
+    deleteProject: Projekt löschen?
+    deleteProjectAction: Projekt löschen
+    deleteThisProject: Dieses Projekt löschen.
+    deleteWarning: Wenn Sie ein Projekt löschen, kann das Projekt und all seine Feed-Quellen
+      nicht wieder hergestellt werden.
+    fields:
+      localPlacesIndex:
+        title: Adress-Index
+        webhookUrl: Webhook URL
+      location:
+        boundingBox: Gebiets-Grenzen (W,S,E,N)
+        boundingBoxPlaceHolder: min_lon, min_lat, max_lon, max_lat
+        defaultLanguage: Standard-Sprache
+        defaultLocation: Standard-Ort (lat, lng)
+        defaultTimeZone: Standard-Zeitzone
+        title: Bereich
+      name: Projektname
+      title: Allgemein
+      updates:
+        autoFetchFeeds: Feed-Quelle automatisch abrufen?
+        title: Aktualisierungen
+    noPermissions: Sie haben keine Bearbeitungs-Rechte für die Eigenschaften dieser
+      Feed-Quelle.
+    required: Erforderlich.
+    save: Speichern
+    selectBounds: Wähle Projekt-Grenzen
+    selectBoundsHint: Spiegele Karte vor
+    title: Einstellungen
+    warning: Warnung!
+  ProjectSummaryPanel:
+    hoursPerWeekday: Stunden pro Wochentag
+    numberOfFeeds: 'Anzahl Feeds:'
+    summary: Zusammenfassung
+    totalErrors: 'Anzahl Fehler:'
+    totalService: 'Anzahl Services:'
+  ProjectViewer:
+    autoFetchDisabled: Automatischer Abruf deaktiviert
+    deployments: Deployments
+    feedSourceDesc: Eine Feed-Quelle defininert den Veröffentlichungsort eines GTFS-Feeds.
+      GTFS kann durch automatischen Abruf, direktes Bearbeiten, oder das manuelle
+      Hochladen einer GTFS-Zip-Datei befüllt werden.
+    feedSourceTitle: Was ist eine Feed-Quelle?
+    feeds:
+      createFirst: Erste Feed-Quelle erstellen!
+      new: Neue Feed Quelle
+      search: Suchen nach Name
+      table:
+        deployable: Deploybar?
+        errorCount: Fehler
+        lastUpdated: Aktualisiert
+        name: Name
+        public: Öffentlich?
+        retrievalMethod: Abruf-Method
+        validRange: Gültiger Bereich
+      title: Feed Quellen
+      update: Alle abrufen
+    here: hier
+    makePublic: Öffentliche Feeds publizieren
+    mergeFeeds: Alle zusammeführen
+    noProjectFound: Keine Projekte gefunden für
+    note: 'Hinweis:'
+    publicViewed: Öffentliche Feed-Seite ist sichtbar
+    returnToProjects: Zurück zur Projektliste
+    settings: Einstellungen
+  ProjectsList:
+    createFirst: Erstelle mein erstes Projekt
+    help:
+      content: Ein Projekt dient dazu, GTFS-Feeds zu gruppieren. Zum Beispiel können
+        die Feeds eines Projekts alle zur gleichen Region gehören oder sie definieren
+        zusammen ein Planungs-Szenario.
+      title: Was ist ein Projekt?
+    new: Neues Projekt
+    noProjects: Sie haben derzeit noch keine Projekte.
+    search: Suche nach Projektname
+    table:
+      name: Projektname
+    title: Projekte
+  PublicFeedsTable:
+    country: Ablaufend
+    lastUpdated: Letzte Aktualisierung
+    link: Link zum GTFS
+    name: Feed-Name
+    region: Region
+    search: Suche
+    stateProvince: Staat oder Bundesland
+  PublicFeedsViewer:
+    title: Katalog
+  PublicLandingPage:
+    appLogo: Applikations-Logo
+    copyright: Copyright
+    existingUsers: Existiende Nutzer
+    here: hier
+    learnMore: Erfahre mehr über Daten-Werkzeuge
+    signInHere: hier anmelden
+    viewDashboard: Dashboard ansehen
+  RegionSearch:
+    placeholder: Suche nach Regionen oder Unternehmen
+  ResultTable:
+    affectedIds: Betroffene ID(s)
+    description: Beschreibung
+    line: Linie
+    priority: Priorität
+    problemType: Problemtyp
+  RetiredJob:
+    bug: Oh nein! Es sieht so aus, als wäre ein Fehler aufgetreten.
+    support: Um einen Fehlerbericht einzusenden, übermitteln Sie bitte einen Screenshot
+      ihres Browser-Fensters, de folgenden Text (aktuelle URL and Fehler-Details),
+      und eine detailierte Beschreibung der Schritte, die Sie zuvor ausgeführt haben
+      an <a href='mailto:%supportEmail%'>%supportEmail%</a>.
+    view: Ansehen
+  SelectFileModal:
+    cancel: Abbrechen
+    ok: OK
+  ServerSettings:
+    awsSetup: Anleitungen um OTP Deployment Server auf AWS aufzusetzen
+    confirmDelete: Sind Sie sicher, dass Sie diesen Server-Eintrag löschen möchten?
+    confirmTermination: 'Sind Sie sicher, dass Sie %count% Instanz(en) beenden möchten?\n\n
+      ACHTUNG: Dies wird OTP Dienste aller auf diesem Server gestarteten Deployments
+      beenden.'
+    deployment:
+      otpServers:
+        new: Server hinzufügen
+        refresh: Aktualisieren
+        serverPlaceholder: Servername
+        title: Deployment Server Verwaltung
+    instructions: Anleitungen
+    noServers: Keine Server angelegt
+    save: Speichern
+    title: Einstellungen
+  ServerSpecialFields:
+    confirmTermination: Sind Sie sicher, dass Sie diese EC2-Instanz beenden möchten?
+      Diese Aktion kann nicht rückgängig gemacht werden und entfernt diese Instanz
+      aus dem Load Balancer.
+    noEC2Instances: Keine mit diesem Server assoziierten EC2-Instanzen.
+    projectSpecific: Project spezifisch?
+    projectSpecificPlaceholder: Weisen Sie ein Projekt zu oder lassen Sie es das Feld
+      leer für beliebige Projekte
+    terminateEC2: EC2-Instanzen beenden
+    useELB: Elastic Load Balancer (ELB) verwenden?
+  ShowAllRoutesOnMapFilter:
+    fetching: Abruf läuft...
+    showAllRoutesOnMap: Zeige alle Routen
+    tooManyShapeRecords: große shapes.txt können Performance beeinträchtigen
+  Sidebar:
+    about: Über diese Applikation
+    account: Konto
+    serverJobs: Server Jobs
+    serverVersion: 'Server Version:'
+    settings: Einstellungen
+    uiDeployedAt: 'UI deployed:'
+    uiVersion: 'UI Version:'
+    unknown: Unbekannt
+  SnapshotItem:
+    active: Aktiv
+    confirmDelete: Dies wird den Schnappschuss dauerhaft löschen. Alle damit gespeicherten
+      Date können nicht wiederhergestellt werden. Sind Sie sicher, dass Sie fortfahren
+      möchten?
+    confirmLoad: Dies wird alle aktiven GTFS Editor Daten dieser Feed-Quelle mit den
+      Daten dieser Version überschreiben. Wenn Sie im Editor ungespeicherte Änderungen
+      behalten möchten, müssen Sie für diese Daten zuerst einen Schnappschuss erstellen.
+      Sind Sie sicher, dass Sie fortfahren möchten?
+    createFromScratch: Erstelle leeres GTFS
+    created: erstellt
+    date: Datum
+    delete: Löschen
+    download: Herunterladen
+    feed: Feed
+    load: Zur Bearbeitung laden
+    loadLatest: Lade aktuellste Version zur Bearbeitung
+    name: Name
+    noVersions: (Keine Versionen)
+    noVersionsExist: Für diese Feed-Quelle existieren noch keine Versionen.
+    of: von
+    publish: Veröffentlichen
+    restore: Wiederherstellen
+    snapshot: Schnappschuss
+    title: Schnappschüsse
+    version: Version
+  StarButton:
+    star: Favorisieren
+    unstar: Favorisieren aufheben
+  Status:
+    CREATED_SNAPSHOT:
+      body: Neuer Schnappschuss "%payload%" erstellt. Er wird vom "Schnappschüsse"
+        Reiter in der Feed-Quelle-Seite aus zugänglich sein.
+      title: Schnappschuss erstellt
+    CREATING_SNAPSHOT: Erstelle Schnappschuss...
+    DELETING_AGENCY: Lösche Betreiber...
+    DELETING_FEEDVERSION: Lösche Feed-Version...
+    DELETING_SNAPSHOT: Lösche Schnappschuss...
+    DELETING_TRIPS_FOR_CALENDAR: Lösche Trips...
+    FETCHING_ALL_JOBS: Rufe Jobs ab...
+    LOADING_FEEDVERSION_FOR_EDITING: Lade Version in Editor...
+    PUBLISHING_GTFSPLUS_FEED: Veröffentlichte GTFS+ Feed...
+    RENAMING_FEEDVERSION: Benenne Feed-Version um...
+    REQUEST_RTD_ALERTS: Lade Alerts...
+    REQUESTING_AGENCIES: Lade Betreiber...
+    REQUESTING_DEPLOYMENT: Lade Deployment...
+    REQUESTING_DEPLOYMENTS: Lade Deployments...
+    REQUESTING_FEEDSOURCE: Lade Feed...
+    REQUESTING_FEEDSOURCES: Lade Feeds...
+    REQUESTING_FEEDVERSION_ISOCHRONES: Berechne Zugangszeiten...
+    REQUESTING_FEEDVERSIONS: Lade Feed-Versionen...
+    REQUESTING_GTFSEDITOR_SNAPSHOTS: Lade Schnappschuss...
+    REQUESTING_GTFSPLUS_CONTENT: Lade GTFS+ Daten...
+    REQUESTING_NOTES: Lade Kommentare...
+    REQUESTING_ORGANIZATIONS: Lade Organisationen...
+    REQUESTING_PROJECT: Lade Projekt...
+    REQUESTING_PROJECTS: Lade Projekte...
+    REQUESTING_PUBLIC_FEEDS: Lade öffentliche Feeds...
+    REQUESTING_ROUTES: Lade Routes...
+    REQUESTING_STOPS: Lade Haltestellen...
+    REQUESTING_SYNC: Synchronisiere Feeds...
+    REQUESTING_TRIPS_FOR_CALENDAR: Lade Trips...
+    REQUESTING_USERS: Lade Nutzer...
+    REQUESTING_VALIDATION_ISSUE_COUNT: Lade Validatierungs-Ergebnisse...
+    RESTORING_SNAPSHOT: Stelle Schnappschuss wieder her...
+    RUNNING_FETCH_FEED_FOR_PROJECT: Aktualisiere Feeds für Projekt...
+    SAVING_AGENCY: Speichere Betreiber...
+    SAVING_DEPLOYMENT: Speichere Deployment...
+    SAVING_FEEDSOURCE: Speichere Feed...
+    SAVING_PROJECT: Speichere Projekt...
+    SAVING_ROUTE: Speichere Route...
+    SAVING_STOP: Speichere Haltestelle...
+    UPDATING_SERVER: Speichere Server...
+    UPDATING_USER_DATA: Aktualisiere Nutzerkonto...
+    UPLOADING_FEED: Lade Feed hoch...
+    UPLOADING_GTFSPLUS_FEED: Speichere GTFS+ Daten...
+    VALIDATING_GTFSPLUS_FEED: Aktualisiere GTFS+ Validierung...
+  StatusModal:
+    close: Schließen
+    login: Anmelden
+    reload: Seite neu laden
+    relock: Feed zur Bearbeitung sperren
+    relockingFailed:
+      body: Erneutes Sperren ist nur erlaubt, wenn eine andere Bearbeitung-Sitzung
+        durch Sie im Gange ist (nicht für andere Nutzende). Sie können es später erneut
+        versuchen, oder den/die aktuelle Bearbeiter*in kontaktieren, dass sie die
+        Sitzung beendet.
+      title: Versuch, Bearbeitung zu übernehmen, ist fehlgeschlagen!
+  TimetableEditor:
+    choosePattern: Trip-Muster auswählen.
+    createNew: Erstelle neues
+    deleteSelectedTrip: Sind Sie sicher, dass Sie den ausgewählten Trip permanent
+      lösche möchten?
+    deleteSelectedTrips: Sind Sie sicher, dass Sie die %count% ausgewählten Trips
+      permanent lösche möchten?
+    deleteTrips: Lösche Trips
+    deleteTripsQuestion: Trips löschen?
+  TimetableHelpModal:
+    close: Schließen
+    pressQuestionmark: Drücken Sie <kbd>?</kbd> um Tastatur-Shortcuts anzusehen
+    shortcuts:
+      modify:
+        desc:
+        - Lösche ausgewählte Trip(s)
+        - Neuer Trip
+        - Klone ausgewählte(n) Trip(s)
+        - Wert von benachbarter Zelle (links) übernehmen
+        - Wert von Zelle oberhalb übernehmen
+        title: Ändere Trips
+      navigate:
+        desc:
+        - Voriger/nächter Trip
+        - Voorige/nächste Spalte
+        - Wähle Trip
+        - Alle Trips auswählen
+        - Alle Trips abwählen
+        title: Navigatieren und Trips auswählen
+      offset:
+        desc:
+        - Verschiebe Abfahrtszeiten des ausgewählten Trips durch Addieren eines Zeitversatzes
+        - Verschiebe Abfahrtszeiten des ausgewählten Trips durch Subtrahieren eines
+          Zeitversatzes
+        - Verschiebe nur Zeit der aktiven Zelle durch Addieren eines Zeitversatzes
+        - Verschiebe nur Zeit der aktiven Zelle durch Subtrahieren eines Zeitversatzes
+        - Reduziere Zeitversatz um 1 Minute
+        - Reduziere Zeitversatz um 10 Minuten
+        - Erhöhe Zeitversatz um 1 Minute
+        - Erhöhe Zeitversatz um 10 Minuten
+        title: Zeiten verschieben
+    title: Abfahrtszeiten-Editor Tastatur-Shortcuts
+  TimezoneSelect:
+    placeholder: Zeitzone auswählen...
+  UserAccount:
+    account:
+      title: Konto
+    billing:
+      title: Rechnung
+    notifications:
+      methods: Benachrichtigungs-Methoden
+      subscriptions: Ihre Subskriptionen
+      title: Benachrichtigungen
+      unsubscribeAll: Von allen abmelden
+    organizationSettings: Organisations-Einstellungen
+    organizations:
+      title: Organisationen
+    personalSettings: Persönliche Einstellungen
+    profile:
+      profileInformation: Profil-Information
+      title: Profil
+    title: Meine Einstellungen
+  UserAccountInfoPanel:
+    hello: Hallo
+    profile: Profil
+    roles:
+      applicationAdmin: Applikations-Admin
+      organizationAdmin: Organisations-Admin
+      standardUser: Standard-Nutzer*in
+  UserButtons:
+    admin: Verwaltung
+    logout: Abmelden
+    myAccount: Mein Konto
+  UserHomePage:
+    createFirst: Erstelle mein erstes Projekt
+    help:
+      content: Ein Projekt dient dazu, GTFS-Feeds zu gruppieren. Zum Beispiel können
+        die Feeds eines Projekts alle zur gleichen Region gehören oder sie definieren
+        zusammen ein Planungs-Szenario.
+      title: Was ist ein Projekt?
+    new: Neues Projekt
+    noProjects: Sie haben derzeit noch keine Projekte.
+    recentActivity: Letzte Aktivitäten
+    recentActivityNone: Keine aktuellen Aktivitäten für Ihre Subskriptionen.
+    table:
+      name: Projekt Name
+    title: Projekte
+    userDocs: Benutzungs-Dokumentation
+    welcomeTo: Willkommen zu
+  UserList:
+    filterByOrg: Filtere nach Org.
+    noResults: (Keine anzuzeigenden Ergebnisse)
+    of: von
+    perPage: Konten pro Seite
+    search: Suche nach Kontoname
+    showing: Angezeigt werden Nutzer*innen
+    title: Nutzer*innen-Verwaltungen
+  UserRow:
+    appAdmin: App-Admin
+    cancel: Abbrechen
+    delete: Löschen
+    deleteConfirm: Sind Sie sicher, dass Sie dieses Konto dauerhaft löschen möchten?
+    edit: Bearbeiten
+    missingProject: unbekannt
+    noProjectsFound: Keine Projekte
+    orgAdmin: Organisation-Admin
+    save: Speichern
+  UserSettings:
+    admin:
+      description: Applikations-Admininistrator*innen haben vollen Zugriff auf alle
+        Projekte.
+      title: Applikations-Admininistrator*in
+    application: Applikations-Einstellungen
+    cancel: Abbrechen
+    delete: Löschen
+    edit: Bearbeiten
+    noProjects: Keine Projekte verfügbar
+    org:
+      admin: Organisations-Administrator*in
+      billing: Rechungsstellung-Admin
+      description: Organisations-Administratoren haben vollen Zugriff auf Projekte
+        dieser Organisation.
+    project:
+      admin: Admin
+      custom: Benutzerdefiniert
+      noAccess: Kein Zugriff
+    save: Speichern
+  VersionButtonToolbar:
+    confirmDelete: Sind Sie sicher, dass sie diese Version endgültig löschen möchten?
+    confirmLoad: Dies wird alle aktiven GTFS Editor Daten dieser Feed-Quelle mit den
+      Daten dieser Version überschreiben. Wenn Sie im Editor ungespeicherte Änderungen
+      behalten möchten, müssen Sie für diese Daten zuerst einen Schnappschuss erstellen.
+      Sind Sie sicher, dass Sie fortfahren möchten?
+    delete: Löschen
+    download: Herunterladen
+    feed: Feed
+    load: Laden
+    noVersionsExist: Für diese Feed-Quelle existieren keine Versionen.
+    status: Status
+    timestamp: Datei-Zeitstempel
+    version: Version
+  VersionComparisonDropdown:
+    compareToVersion: Vergleich mit Version %version%
+    compareVersions: Vergleiche Versionen
+    exit: Vergleichsmodus verlassen
+    loadAnother: Andere Version laden um zu vergleichen
+    selectVersion: Version zum Vergleich auswählen
+  VersionSelectorDropdown:
+    noVersions: Keine Versionen verfügbar
+  WatchButton:
+    emailVerificationConfirm: Um EMail-Benachrichtigungen zu erhalten, müssen Sie
+      zuerst Ihre EMail-Adresse bestätigen. Möchten Sie die Email-Bestätigungs-Nachricht
+      für Ihr Konto erneut versenden lassen?
+    unwatch: Nicht weiter verfolgen.
+    verificationSendError: Beim Versenden der EMail-Überprüfung ist ein Fehler aufgetreten!
+    verificationSent: Bitte prüfen Sie Ihr Posteingangsfach und bestätigen Sie Ihre
+      Email-Adresse durch Klick auf den Bestätigen-Links. Sie müssen dann diese Seite
+      aktualisieren und den 'Verfolgen'-Button klicken, um sich für Benachrichtigungen
+      zu registrieren.
+    watch: Beobachten
+  WrapComponentInAuthStrategy:
+    adminTestFailed: Sie haben versucht, eine eingeschränkt sichtbare Seite aufzurufen,
+      verfügen jedoch nicht über die erforderlichen Rechte.

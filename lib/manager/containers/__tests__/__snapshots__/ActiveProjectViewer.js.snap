@@ -1119,7 +1119,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                         className="fa fa-times-circle fa-fw "
                                       />
                                     </Icon>
-                                     Clear completed
+                                    Clear completed
                                   </button>
                                 </Button>
                                 <div
@@ -1362,7 +1362,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                           className="fa fa-user fa-fw "
                                         />
                                       </Icon>
-                                       My account
+                                       
+                                      My account
                                     </button>
                                   </Button>
                                 </LinkContainer>
@@ -1405,7 +1406,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                           className="fa fa-cog fa-fw "
                                         />
                                       </Icon>
-                                       Admin
+                                       
+                                      Admin
                                     </button>
                                   </Button>
                                 </LinkContainer>
@@ -1441,7 +1443,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                         className="fa fa-sign-out fa-fw "
                                       />
                                     </Icon>
-                                     Log out
+                                     
+                                    Log out
                                   </button>
                                 </Button>
                               </div>
@@ -4161,8 +4164,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                         <strong>
                                                           Note:
                                                         </strong>
-                                                         Public feeds page can be viewed
                                                          
+                                                        Public feeds page can be viewed
                                                         <a
                                                           href="https://s3.amazonaws.com/bucket-name/public/index.html"
                                                           target="_blank"
@@ -4238,7 +4241,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                     className="panel-title"
                                                                   >
                                                                     mock-project
-                                                                     summary
+                                                                     
+                                                                    summary
                                                                   </h3>
                                                                 </PanelTitle>
                                                               </div>
@@ -4257,7 +4261,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                   <li
                                                                     className="list-group-item"
                                                                   >
-                                                                    Number of feeds: 
+                                                                    Number of feeds:
+                                                                     
                                                                     0
                                                                   </li>
                                                                 </ListGroupItem>
@@ -4269,7 +4274,8 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                   <li
                                                                     className="list-group-item"
                                                                   >
-                                                                    Total errors: 
+                                                                    Total errors:
+                                                                     
                                                                     0
                                                                   </li>
                                                                 </ListGroupItem>

@@ -1324,6 +1324,11 @@ components:
     welcomeTo: Welcome to
   UserList:
     filterByOrg: Filter by org.
+    headings:
+      accountType: Account Type
+      lastLogin: Last Login
+      projects: Projects
+      user: User
     noResults: (No results to show)
     of: of
     perPage: Users per page
@@ -1340,6 +1345,7 @@ components:
     noProjectsFound: No projects
     orgAdmin: Org admin
     save: Save
+    unknownAccount: Unknown
   UserSettings:
     admin:
       description: Application administrators have full access to all projects.

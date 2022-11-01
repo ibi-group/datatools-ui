@@ -2082,6 +2082,7 @@ describe('end-to-end', () => {
           '[data-test-id="exception-dates-container"] input'
         )
         await wait(250, 'for date range picker to load')
+        await wait(1000, 'for date range animation to finish')
         await clearAndType(
           '[data-test-id="exception-dates-container"] input',
           '07/04/18'
@@ -2143,7 +2144,7 @@ describe('end-to-end', () => {
         )
 
         // set new date
-        await wait(250, 'for date range picker to load')
+        await wait(1250, 'for date range picker to load')
         await clearAndType(
           '[data-test-id="exception-dates-container"] input',
           '07/05/18'
@@ -2200,20 +2201,22 @@ describe('end-to-end', () => {
         await waitForSelector(
           '[data-test-id="exception-dates-container"] input'
         )
-        await wait(250, 'for date range picker to load')
+        await wait(1050, 'for date range picker to load')
         await clearAndType(
           '[data-test-id="exception-dates-container"] input',
           '08/04/18'
         )
 
+        await wait(1050, 'for date range picker to load')
         await click('[data-test-id="exception-add-range"]')
 
         // add end of range exception date (July 10, 2018)
+        await wait(1050, 'for date range picker to load')
         await waitForSelector(
           '[data-test-id="exception-date-range-0-2"] input'
         )
 
-        await wait(250, 'for date range picker to load')
+        await wait(1050, 'for date range picker to load')
         await clearAndType(
           '[data-test-id="exception-date-range-0-2"] input',
           '08/10/18'
@@ -2602,22 +2605,22 @@ describe('end-to-end', () => {
           await page.keyboard.press('Enter')
 
           // Laurel Dr arrival
-          await page.keyboard.type('1234')
+          await page.keyboard.type('12:34')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Enter')
 
           // Laurel Dr departure
-          await page.keyboard.type('1235')
+          await page.keyboard.type('12:35')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Enter')
 
           // Russell Av arrival
-          await page.keyboard.type('1244')
+          await page.keyboard.type('12:44')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Enter')
 
           // Russell Av departure
-          await page.keyboard.type('1245')
+          await page.keyboard.type('12:45')
           await page.keyboard.press('Enter')
 
           // save
@@ -2822,7 +2825,7 @@ describe('end-to-end', () => {
 
       // wait for jobs to complete
       await waitAndClearCompletedJobs()
-    }, defaultTestTimeout + 30000) // Add thirty seconds for deployment job
+    }, defaultTestTimeout + 60000) // Add sixty seconds for deployment job
 
     makeEditorEntityTest('should be able to do a trip plan on otp', async () => {
       await wait(15000, 'for OTP to pick up the newly-built graph')

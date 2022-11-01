@@ -286,6 +286,14 @@ td.feed-source-info {
   padding: 6px 4px;
 }
 
+/* Exception ranges  */
+
+.exception-subtitle {
+  text-transform: uppercase;
+  font-size: 80%;
+  opacity: 0.7;
+}
+
 /* Feed version status styling */
 .feed-status {
   border-radius: 5px;
@@ -885,7 +893,6 @@ h4.line:after {
   margin-left: 36;
 }
 
-
 /* Custom classes for the DropdownTreeSelect component that
  * override CSS from 'react-dropdown-tree-select/dist/styles.css'.
  * Modified from https://dowjones.github.io/react-dropdown-tree-select/#/story/with-bootstrap-styles.
@@ -896,21 +903,21 @@ h4.line:after {
   display: block;
 }
 
- /* Make some styles look like bootstrap. */
+/* Make some styles look like bootstrap. */
 .route-type-select .dropdown-trigger {
   background-color: #fff;
-  border-color: #ccc!important;
+  border-color: #ccc !important;
   border-radius: 4px;
   color: #555;
-  padding: 4px 6px!important;
+  padding: 4px 6px !important;
   width: 100%;
 }
 
 /* Remove border and background of tags
  * (a "tag" is a selected item displayed inside the input portion of the selector). */
 .route-type-select .dropdown-trigger .tag {
-  background: none!important;
-  border: none!important;
+  background: none !important;
+  border: none !important;
 }
 
 /* Hide the search box and the mini "delete" button next to the value. */
@@ -936,13 +943,13 @@ h4.line:after {
 .route-type-select .dropdown-trigger.arrow.bottom:after {
   border-color: #999 transparent transparent;
   border-width: 5px 5px 2.5px;
-  content: ''!important;
+  content: "" !important;
   margin-top: -5px;
 }
 .route-type-select .dropdown-trigger.arrow.top:after {
   border-color: transparent transparent #999;
   border-width: 2.5px 5px 5px;
-  content: ''!important;
+  content: "" !important;
   margin-top: -7.5px;
 }
 
@@ -953,7 +960,7 @@ h4.line:after {
 }
 
 /* Hide the radio boxes in the tree list. */
-.route-type-select .dropdown-content input[type=radio] {
+.route-type-select .dropdown-content input[type="radio"] {
   display: none;
 }
 

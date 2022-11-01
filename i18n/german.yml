@@ -1350,6 +1350,11 @@ components:
     welcomeTo: Willkommen zu
   UserList:
     filterByOrg: Filtere nach Org.
+    headings:
+      accountType: Typ
+      lastLogin: Letzte Anmeldung
+      projects: Projekte
+      user: Konto
     noResults: (Keine anzuzeigenden Ergebnisse)
     of: von
     perPage: Konten pro Seite
@@ -1366,6 +1371,7 @@ components:
     noProjectsFound: Keine Projekte
     orgAdmin: Organisation-Admin
     save: Speichern
+    unknownAccount: Unbekannt
   UserSettings:
     admin:
       description: Applikations-Admininistrator*innen haben vollen Zugriff auf alle

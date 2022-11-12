@@ -25,8 +25,9 @@ Street snapping powered by the <a href="https://www.graphhopper.com/">GraphHoppe
 ## How to start application (backend + frontend)
 
 1. Start `conveyal-datatools-server`
-2. Start frontend
+2. Download from 1password the file `WRI-CONVEYAL-GTFS: env.yml (prod)` and place it at `conveyal-datatools-ui/configurations/default/env.yml`
+3. Start frontend
     ```sh
     make run
     ```
-3. Check the application running at `http://localhost:5000/`
+4. Check the application running at `http://localhost:5000/`

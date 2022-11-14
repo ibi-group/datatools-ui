@@ -11,15 +11,7 @@ jobs:
   test-build-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      # install python 3.x in order to have mkdocs properly installed
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-      - name: Install mkdocs
-        run: |
-          pip install Jinja2==3.0.3 mkdocs
-          mkdocs --version
+      - uses: actions/checkout@v2      
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -34,7 +26,8 @@ jobs:
         run: yarn flow
       - name: Write .env file for Build        
         run: |
-          touch configurations/default/env.yml          
+          touch configurations/default/env.yml
+          echo # Github created file >> configurations/default/env.yml
           echo AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }} >> configurations/default/env.yml          
           echo AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }} >> configurations/default/env.yml   
           echo GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }} >> configurations/default/env.yml 

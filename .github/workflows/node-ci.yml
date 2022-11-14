@@ -32,55 +32,20 @@ jobs:
         run: yarn lint-messages
       - name: Run flow check
         run: yarn flow
-      - name: Run tests
-        run: yarn test-client
+      - name: Write .env file for Build        
+        run: |
+          touch configurations/default/env.yml          
+          echo AUTH0_CLIENT_ID= ${{ secrets.AUTH0_CLIENT_ID }} >> configurations/default/env.yml          
+          echo AUTH0_DOMAIN= ${{ secrets.AUTH0_DOMAIN }} >> configurations/default/env.yml   
+          echo GRAPH_HOPPER_KEY= ${{ secrets.GRAPH_HOPPER_KEY }} >> configurations/default/env.yml 
+          echo GRAPH_HOPPER_URL= ${{ secrets.GRAPH_HOPPER_URL }} >> configurations/default/env.yml 
+          echo MAPBOX_ACCESS_TOKEN= ${{ secrets.MAPBOX_ACCESS_TOKEN }} >> configurations/default/env.yml 
+          echo MAPBOX_ATTRIBUTION= ${{ secrets.MAPBOX_ATTRIBUTION }} >> configurations/default/env.yml 
       - name: Build with minification
         run: yarn run build -- --minify
-      - name: Build docs      
-        run: mkdocs build
-      - name: Whether e2e should run
-        run: echo Running e2e - {{ inputs.e2e }}
-      - name: Write .env file for Docker
-        if: inputs.e2e
-        run: |
-          touch __tests__/e2e/.env 
-          echo BUGSNAG_KEY= ${{ secrets.BUGSNAG_KEY }} >> __tests__/e2e/.env
-          echo AUTH0_API_CLIENT= ${{ secrets.AUTH0_API_CLIENT }} >> __tests__/e2e/.env
-          echo AUTH0_API_SECRET= ${{ secrets.AUTH0_API_SECRET }} >> __tests__/e2e/.env
-          echo AUTH0_CLIENT_ID= ${{ secrets.AUTH0_CLIENT_ID }} >> __tests__/e2e/.env
-          echo AUTH0_PUBLIC_KEY=/datatools/datatools.pem >> __tests__/e2e/.env
-          echo AUTH0_CONNECTION_NAME= ${{ secrets.AUTH0_CONNECTION_NAME }} >> __tests__/e2e/.env
-          echo AUTH0_DOMAIN= ${{ secrets.AUTH0_DOMAIN }} >> __tests__/e2e/.env
-          echo AWS_ACCESS_KEY_ID= ${{ secrets.AWS_ACCESS_KEY_ID }} >> __tests__/e2e/.env
-          echo AWS_REGION=us-east-1 >> __tests__/e2e/.env
-          echo AWS_SECRET_ACCESS_KEY= ${{ secrets.AWS_SECRET_ACCESS_KEY }} >> __tests__/e2e/.env
-          echo GITHUB_REF_SLUG= $GITHUB_REF >> __tests__/e2e/.env
-          echo GITHUB_SHA= $GITHUB_SHA >> __tests__/e2e/.env
-          echo E2E_AUTH0_PASSWORD= ${{ secrets.E2E_AUTH0_PASSWORD }} >> __tests__/e2e/.env
-          echo E2E_AUTH0_USERNAME= ${{ secrets.E2E_AUTH0_USERNAME }} >> __tests__/e2e/.env
-          echo GRAPH_HOPPER_KEY= ${{ secrets.GRAPH_HOPPER_KEY }} >> __tests__/e2e/.env
-          echo LOGS_S3_BUCKET= ${{ secrets.LOGS_S3_BUCKET }} >> __tests__/e2e/.env
-          echo MAPBOX_ACCESS_TOKEN= ${{ secrets.MAPBOX_ACCESS_TOKEN }} >> __tests__/e2e/.env
-          echo MS_TEAMS_WEBHOOK_URL= ${{ secrets.MS_TEAMS_WEBHOOK_URL }} >> __tests__/e2e/.env
-          echo OSM_VEX= ${{ secrets.OSM_VEX }} >> __tests__/e2e/.env
-          echo RUN_E2E= "true" >> __tests__/e2e/.env
-          echo S3_BUCKET= ${{ secrets.S3_BUCKET }} >> __tests__/e2e/.env
-          echo SPARKPOST_EMAIL= ${{ secrets.SPARKPOST_EMAIL }} >> __tests__/e2e/.env
-          echo SPARKPOST_KEY= ${{ secrets.SPARKPOST_KEY }} >> __tests__/e2e/.env
-          echo TRANSITFEEDS_KEY= ${{ secrets.TRANSITFEEDS_KEY }} >> __tests__/e2e/.env
-          touch __tests__/e2e/server/datatools.pem
-          echo ${{ secrets.AUTH0_DATATOOLS_PEM }} | base64 --decode > __tests__/e2e/server/datatools.pem
-
-      - name: Run e2e tests
-        if: inputs.e2e
-        run: |
-          (echo "E2E Test Attempt 1" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
-          (echo "E2E Test Attempt 2" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
-          (echo "E2E Test Attempt 3" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
-          (echo "E2E Tests Failed" && exit 1)
-      # At this point, the build is successful.
-      - name: Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release     
+      - name: Upload result for build
+        uses: actions/upload-artifact@v3
+        with:
+           name: datatools-ct
+           path: dist/
+      

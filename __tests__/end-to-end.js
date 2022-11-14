@@ -538,6 +538,7 @@ async function createStop ({
  * @param  {string} searchText the text to enter into the search input
  */
 async function filterUsers (searchText: string) {
+  await wait(8000, 'for user list to load')
   // type in text
   await type('[data-test-id="search-user-input"]', searchText)
 

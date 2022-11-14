@@ -14,6 +14,20 @@ import type {
 let COUNTER = 0
 
 /**
+ * Make a mock deployment summary given a project and some FeedVersions. This is a
+ * function so that circular references can be defined.
+ */
+export function makeMockDeploymentSummary () {
+  return {
+    dateCreated: 1553292345720,
+    deployedTo: null,
+    // Don't increment counter as we want to match the main deployment
+    id: `mock-deployment-id-${COUNTER}`,
+    lastDeployed: null,
+    name: 'mock-deployment'
+  }
+}
+/**
  * Make a mock deployment given a project and some FeedVersions. This is a
  * function so that circular references can be defined.
  */
@@ -353,6 +367,7 @@ export const mockDeployment = makeMockDeployment(
   mockProjectWithDeployment,
   [mockFeedVersion]
 )
+export const mockDeploymentSummary = makeMockDeploymentSummary()
 mockProjectWithDeployment.deployments.push(mockDeployment)
 mockProjectWithDeployment.feedSources.push(mockFeedWithVersion)
 

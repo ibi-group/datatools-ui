@@ -23,12 +23,13 @@ jobs:
         run: |
           touch configurations/default/env.yml
           echo # Github created file >> configurations/default/env.yml
-          echo AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }} >> configurations/default/env.yml          
+          echo AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }} >> configurations/default/env.yml
+          echo AUTH0_CONNECTION_NAME: ${{ secrets.AUTH0_CONNECTION_NAME }} >> configurations/default/env.yml
           echo AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }} >> configurations/default/env.yml   
           echo GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }} >> configurations/default/env.yml 
           echo GRAPH_HOPPER_URL: ${{ secrets.GRAPH_HOPPER_URL }} >> configurations/default/env.yml 
           echo MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }} >> configurations/default/env.yml 
-          echo MAPBOX_ATTRIBUTION: ${{ secrets.MAPBOX_ATTRIBUTION }} >> configurations/default/env.yml 
+          echo MAPBOX_ATTRIBUTION: '${{ secrets.MAPBOX_ATTRIBUTION }}' >> configurations/default/env.yml 
       - name: Build with minification
         run: yarn run build -- --minify
       - name: Upload result for build

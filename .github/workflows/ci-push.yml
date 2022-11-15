@@ -1,11 +1,6 @@
-name: Node.js CI
+name: CT Node.js CI
 
-on:
-  workflow_call:
-    inputs:
-      e2e:
-        required: true
-        type: boolean
+on: [push]
     
 jobs:
   test-build-release:

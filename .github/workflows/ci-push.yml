@@ -1,0 +1,43 @@
+name: Node.js CI
+
+on:
+  workflow_call:
+    inputs:
+      e2e:
+        required: true
+        type: boolean
+    
+jobs:
+  test-build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2      
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install npm/yarn packages using cache
+        uses: bahmutov/npm-install@v1
+      - name: Lint code
+        run: yarn lint
+      - name: Lint messages
+        run: yarn lint-messages
+      - name: Run flow check
+        run: yarn flow
+      - name: Write .env file for Build        
+        run: |
+          touch configurations/default/env.yml
+          echo # Github created file >> configurations/default/env.yml
+          echo AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }} >> configurations/default/env.yml          
+          echo AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }} >> configurations/default/env.yml   
+          echo GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }} >> configurations/default/env.yml 
+          echo GRAPH_HOPPER_URL: ${{ secrets.GRAPH_HOPPER_URL }} >> configurations/default/env.yml 
+          echo MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }} >> configurations/default/env.yml 
+          echo MAPBOX_ATTRIBUTION: ${{ secrets.MAPBOX_ATTRIBUTION }} >> configurations/default/env.yml 
+      - name: Build with minification
+        run: yarn run build -- --minify
+      - name: Upload result for build
+        uses: actions/upload-artifact@v3
+        with:
+           name: datatools-ct
+           path: dist/

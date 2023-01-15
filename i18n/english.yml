@@ -2,44 +2,44 @@ _id: en-US
 _name: English
 components:
   Breadcrumbs:
-    deployments: Deployments
-    projects: Projects
-    root: Explore
+    deployments: Despliegues
+    projects: Proyectos
+    root: Explorar
   CreateUser:
-    new: Create User
+    new: Crear usuario
   CreateSnapshotModal:
     cancel: Cancelar
     description: >-
-      Snapshots are save points you can always revert back to when
-      editing a GTFS feed. To auto-publish a new GTFS file (and process as a
-      new feed version), create a snapshot with the below option checked.
+      Los Snapshots son puntos de guardado a los que siempre puede volver 
+      cuando edita un feed GTFS. Para publicar automáticamente un nuevo archivo GTFS 
+      (y procesarlo como una nueva versión del feed), cree un snapshot con la siguiente opción marcada.
     fields:
       name:
-        label: Name
-        placeholder: Snapshot name (required)
+        label: Nombre
+        placeholder: Nombre del snapshot (obligatorio)
       comment:
-        label: Comment
-        placeholder: Additional information (optional)
+        label: Comentario
+        placeholder: Información adicional (Opcional)
       publishNewVersion:
-        label: Publish snapshot as new feed version
+        label: Publicar snapshot como una nueva versión del feed
       confirmPublishWithUnapproved:
-        label: Confirm publish with unapproved routes 
-    unapprovedRoutesHeader: "The following routes are not approved"
-    unapprovedRoutesDesc: "These routes will not be included in the output:"
-    missingNameAlert: Must give snapshot a valid name!
+        label: Confirmar publicar con rutas no aprobadas 
+    unapprovedRoutesHeader: "Las siguientes rutas no están aprobadas"
+    unapprovedRoutesDesc: "Estas rutas no se incluirán:"
+    missingNameAlert: Debe dar al snapshot un nombre válido!
     ok: OK
-    title: Create a new snapshot
+    title: Crear una nuevo snapshot
   DatatoolsNavbar:
-    account: My Account
-    alerts: Alerts
+    account: Mi cuenta
+    alerts: Alertas
     editor: Editor
-    guide: Guide
-    login: Log In
-    logout: Log Out
+    guide: Guía
+    login: Iniciar sesión
+    logout: Cerrar sesión
     manager: Manager
-    resetPassword: Reset Password
+    resetPassword: Restablecer la contraseña
     signConfig: eTID Config
-    users: Users
+    users: Usuarios
   DeploymentConfirmModal:
     alert:
       alreadyDeployed: is already deployed to this server at the same router. (Deploying would evict the current graph.)
@@ -110,12 +110,12 @@ components:
     stopTimesCount: Stop time count
     tripCount: Trip Count
     validFrom: Valid from
-    version: Version
+    version: Versión
   DeploymentViewer:
     addFeedSource: Add Feed Source
     allFeedsAdded: All feeds added
     deploy: Deploy
-    download: Download
+    download: Descargar
     noServers: No servers defined
     search: Buscar por nombre
     table:
@@ -128,7 +128,7 @@ components:
       stopTimesCount: Stop time count
       tripCount: Trip Count
       validFrom: Valid from
-      version: Version
+      version: Versión
     to: to
     versions: Feed Versions
   DeploymentsList:
@@ -184,40 +184,40 @@ components:
     title: Deployments
   EditorFeedSourcePanel:
     active: Activos
-    confirmDelete: This will permanently delete this snapshot. Any data saved here cannot be recovered. Are you sure you want to continue?
-    confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
-    created: created
-    createFromScratch: Create GTFS from Scratch
-    date: Date
-    delete: Delete
-    download: Download
+    confirmDelete: Esto eliminará permanentemente este snapshot. Los datos guardados aquí no se podrán recuperar. ¿Estás seguro de que quieres continuar?
+    confirmLoad: 'Esto reemplazara todos los datos activos del Editor GTFS para este Feed Source con los datos de esta versión. Si hay trabajo sin guardar en el Editor que desea conservar, primero debes crear un snapshot de los datos del Editor actual. ¿Estás seguro de que quieres continuar?'
+    created: creado
+    createFromScratch: Crear GTFS desde cero
+    date: Fecha
+    delete: Eliminar
+    download: Descargar
     feed: Feed
     help:
       body:
-        - Snapshots are save points you can always revert back to when editing a GTFS feed.
-        - 'A snapshot might represent a work-in-progress, future planning scenario or even different service patterns (e.g., summer schedule markup).'
-      title: What are snapshots?
-    load: Load for Editing
-    loadLatest: Load latest for editing
+        - Los Snapshots son puntos de guardado a los que siempre puede volver cuando edita un feed GTFS.
+        - 'Un snapshot puede representar un trabajo en progreso, un escenario de planificación futura o incluso diferentes patrones de servicio (por ejemplo, marcado de horario de verano).'
+      title: ¿Qué son los Snapshots?
+    load: Cargar para editar
+    loadLatest: Cargar último para editar
     name: Nombre
-    noSnapshotsExist: No snapshots currently exist for this feed. Snapshots can be created within the Editor. Click "Edit Feed" to enter editing mode.
-    noVersions: (No Versions)
-    noVersionsExist: No versions exist for this feed source.
-    of: of
-    publish: Publish
-    restore: Restore
+    noSnapshotsExist: No existen snapshots para este Feed. Puedes crearlos en el editor. Da clic en "Editar Feed" para entrar al modo de edición.
+    noVersions: (Sin versiones)
+    noVersionsExist: No existen versiones para este Feed Source.
+    of: de
+    publish: Publicar
+    restore: Restaurar
     snapshot: snapshot
     title: Snapshots
-    version: Version
+    version: Versión
   FeedFetchFrequency:
-    DAYS: days
-    fetchFeedEvery: Fetch feed every
-    HOURS: hours
-    MINUTES: minutes
+    DAYS: días
+    fetchFeedEvery: Descargar Feed cada
+    HOURS: horas
+    MINUTES: minutos
   FeedInfo:
     autoFetch: Auto fetch
     autoPublish: Auto publish
-    deployable: Deployable
+    deployable: Desplegable
     edit: Editar
     private: Privado
     public: Público
@@ -255,7 +255,7 @@ components:
     notesTitle: Notes
     private: Private view
     properties:
-      deployable: Deployable?
+      deployable: Desplegable?
       name: Nombre
       noneSelected: (None Selected)
       property: Property
@@ -283,7 +283,7 @@ components:
       filePlaceholder: '[choose file]'
       tablePlaceholder: '[choose table]'
       table: table
-      version: version
+      version: versión
       versionPlaceholder: '[choose version]'
     DeleteRecordsTransformation:
       label: Delete records from %tablePlaceholder%
@@ -303,33 +303,33 @@ components:
   FeedVersionNavigator:
     confirmDelete: Are you sure you want to delete this version? This cannot be undone.
     confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
-    delete: Delete
-    download: Download
+    delete: Eliminar
+    download: Descargar
     feed: Feed
-    load: Load for Editing
+    load: Cargar para editar
     next: Next
-    of: of
+    of: de
     previous: Previous
-    version: Version
+    version: Versión
   FeedVersionTabs:
-    agencyCount: Agency count
-    daysActive: Days active
-    routeCount: Route count
-    stopCount: Stop count
-    stopTimesCount: Stop time count
-    tripCount: Trip count
-    validDates: Valid Dates
+    agencyCount: "# de agencias"
+    daysActive: Días activos
+    routeCount: "# de rutas"
+    stopCount: "# de paradas"
+    stopTimesCount: Tiempo en paradas
+    tripCount: "# de viajes"
+    validDates: Fechas válidas
   FeedVersionViewer:
     confirmDelete: Are you sure you want to delete this version? This cannot be undone.
     confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
-    delete: Delete
-    download: Download
+    delete: Eliminar
+    download: Descargar
     feed: Feed
-    load: Load
-    noVersionsExist: No versions exist for this feed source.
-    status: Status
+    load: Cargar
+    noVersionsExist: No existen versiones para este Feed Source.
+    status: Estatus
     timestamp: File Timestamp
-    version: version
+    version: versión
   FormInput:
     buildConfig:
       elevationBucket:
@@ -521,38 +521,38 @@ components:
     adminOnly: 'This message is visible to admins only.'
     all: All Comments
     feedSource: Feed Source
-    feedVersion: Version
+    feedVersion: Versión
     none: No comments.
     refresh: Refresh
     title: Comments
   OrganizationList:
-    new: Create org
-    search: Search orgs
+    new: Crear org
+    search: Buscar organización
   OrganizationSettings:
-    extensions: Extensions
+    extensions: Extensiones
     logoUrl:
       label: Logo URL
       placeholder: 'http://example.com/logo_30x30.png'
     name:
-      label: Name
+      label: Nombre
       placeholder: Big City Transit
-    orgDetails: Organization details
-    projects: Projects
-    subDetails: Subscription details
-    subscriptionBeginDate: Subscription begins
-    subscriptionEndDate: Subscription ends
+    orgDetails: Detalles de la organización
+    projects: Proyectos
+    subDetails: Detalles de suscripción
+    subscriptionBeginDate: Inicio de la suscripción
+    subscriptionEndDate: Fin de la suscripción
     usageTier:
-      high: High
-      low: Low
-      medium: Medium
+      high: Alto
+      low: Bajo
+      medium: Medio
   ProjectAccessSettings:
-    admin: Admin
-    cannotFetchFeeds: Cannot fetch feeds
-    custom: Custom
+    admin: Administrador
+    cannotFetchFeeds: No se pudieron obtener Feeds
+    custom: Personalizado
     feeds: Feed Sources
-    noAccess: No Access
-    permissions: Permissions
-    title: Project Settings for
+    noAccess: Sin acceso
+    permissions: Permisos
+    title: Configuración del proyecto
   ProjectSettings:
     deployment:
       buildConfig:
@@ -606,7 +606,7 @@ components:
     project:
       cannotFetchFeeds: Cannot fetch feeds
       feeds: Feeds
-      permissions: Permissions
+      permissions: Permisos
     rename: Renombrar
     save: Guardar
     title: Ajustes
@@ -636,7 +636,7 @@ components:
       new: Nuevo Feed Source
       search: Buscar por nombre
       table:
-        deployable: Deployable?
+        deployable: Desplegable?
         errorCount: Errors
         lastUpdated: Updated
         name: Nombre
@@ -660,7 +660,7 @@ components:
       new: Nuevo
       search: Buscar por nombre
       table:
-        deployable: Deployable?
+        deployable: Desplegable?
         errorCount: Errores
         lastUpdated: Actualizado
         name: Nombre
@@ -742,32 +742,32 @@ components:
     save: Guardar
     title: Ajustes
   ShowAllRoutesOnMapFilter:
-    fetching: Fetching
-    showAllRoutesOnMap: Show all routes
-    tooManyShapeRecords: large shapes.txt may impact performance
+    fetching: Actualizando
+    showAllRoutesOnMap: Mostrar todas las rutas
+    tooManyShapeRecords: Grandes shapes.txt pueden impactar en el performance
   Sidebar:
-    unknown: Unknown
+    unknown: Desconocido
   SnapshotItem:
     active: Activos
-    confirmDelete: This will permanently delete this snapshot. Any data saved here cannot be recovered. Are you sure you want to continue?
-    confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
-    created: created
-    createFromScratch: Create GTFS from Scratch
-    date: Date
-    delete: Delete
-    download: Download
+    confirmDelete: Esto eliminará permanentemente este snapshot. Los datos guardados aquí no se pueden recuperar ¿Estás seguro de que quieres continuar?
+    confirmLoad: 'Esto anulará todos los datos activos del Editor GTFS para este Feed Source con los datos de esta versión. Si hay trabajo sin guardar en el Editor que desea conservar, primero debe crear un snapshot de los datos del Editor actual. ¿Estás seguro de que quieres continuar?'
+    created: creado
+    createFromScratch: Crear GTFS desde cero
+    date: Fecha
+    delete: Eliminar
+    download: Descargar
     feed: Feed
-    load: Load for Editing
-    loadLatest: Load latest for editing
+    load: Cargar para editar
+    loadLatest: Cargar lo último para editar
     name: Nombre
-    noVersions: (No Versions)
-    noVersionsExist: No versions exist for this feed source.
-    of: of
-    publish: Publish
-    restore: Restore
+    noVersions: (Sin versiones)
+    noVersionsExist: No existen versiones para este Feed Source.
+    of: de
+    publish: Publicar
+    restore: Restaurar
     snapshot: snapshot
     title: Snapshots
-    version: Version
+    version: Versión
   StarButton:
     star: Star
     unstar: Unstar
@@ -822,8 +822,8 @@ components:
       title: Perfil
     title: My settings
   AdminPage:
-    noAccess: You do not have sufficient user privileges to access this area.
-    title: Administration
+    noAccess: No tienes suficientes privilegios de usuario para acceder.
+    title: Administración
   UserHomePage:
     createFirst: Create my first project
     help:
@@ -835,53 +835,53 @@ components:
       name: Nombre del proyecto
     title: Projects
   UserList:
-    filterByOrg: Filter by org.
-    of: of
-    perPage: Users per page
-    search: Search by username
-    showing: Showing Users
-    title: User Management
+    filterByOrg: Filtrar por organización
+    of: de
+    perPage: Usuarios por página
+    search: Buscar por nombre de usuario
+    showing: Mostrando usuarios
+    title: Administración de usuarios
   UserRow:
-    appAdmin: App admin
+    appAdmin: Administrador
     cancel: Cancelar
-    delete: Delete
-    deleteConfirm: Are you sure you want to permanently delete this user?
-    edit: Edit
-    missingProject: unknown
-    noProjectsFound: No projects
-    orgAdmin: Org admin
+    delete: Eliminar
+    deleteConfirm: ¿Está seguro de que desea eliminar permanentemente a este usuario?
+    edit: Editar
+    missingProject: desconocido
+    noProjectsFound: Sin proyectos
+    orgAdmin: Administrador de la organización
     save: Guardar
   UserSettings:
     admin:
-      description: Application administrators have full access to all projects.
-      title: Application Admininistrator
-    application: Application Settings
+      description: Los administradores tienen acceso completo a todos los proyectos.
+      title: Administrador de la aplicación
+    application: Configuración de la aplicación
     cancel: Cancelar
-    delete: Delete
-    edit: Edit
+    delete: Eliminar
+    edit: Editar
     org:
-      admin: Organization administrator
+      admin: Administrador de la organización
       billing: Billing admin
-      description: Organization administrators have full access to projects within the organization.
+      description: Los administradores de la organización tienen acceso total a los proyectos dentro de la organización.
     project:
-      admin: Admin
-      custom: Custom
-      noAccess: No Access
+      admin: Administrador
+      custom: Personalizado
+      noAccess: Sin acceso
     save: Guardar
   VersionButtonToolbar:
-    confirmDelete: Are you sure you want to delete this version? This cannot be undone.
-    confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
-    delete: Delete
-    download: Download
+    confirmDelete: ¿Está seguro de que desea eliminar esta versión? Esto no se puede deshacer.
+    confirmLoad: 'Esto reemplazara todos los datos activos del Editor GTFS para este Feed Source con los datos de esta versión. Si hay trabajo sin guardar en el Editor que desea conservar, primero debes crear un snapshot de los datos del Editor actual. ¿Estás seguro de que quieres continuar?'
+    delete: Eliminar
+    download: Descargar
     feed: Feed
-    load: Load
-    noVersionsExist: No versions exist for this feed source.
-    status: Status
-    timestamp: File Timestamp
-    version: version
+    load: Cargar
+    noVersionsExist: No existen versiones para este Feed Source.
+    status: Estatus
+    timestamp: Marca de tiempo del archivo
+    version: versión
   WatchButton:
-    emailVerificationConfirm: In order to receive email notification, you must first verify your email address. Would you like to resend the email verification message for your account?
-    unwatch: Unwatch
-    verificationSendError: There was an error sending the email verification!
-    verificationSent: Please check your inbox and confirm your email address by clicking the verify link. You will then need to refresh this page after a moment or two and re-click the Watch button to subscribe to notifications.
-    watch: Watch
+    emailVerificationConfirm: Para recibir una notificación por correo electrónico, primero debe verificar su dirección de correo electrónico. ¿Le gustaría volver a enviar el mensaje de verificación de correo electrónico para su cuenta?
+    unwatch: Dejar de seguir
+    verificationSendError: Hubo un error al enviar el correo electrónico de verificación!
+    verificationSent: Verifique su bandeja de entrada y confirme su dirección de correo electrónico haciendo clic en el enlace de verificación. Luego deberá actualizar esta página después de un momento volver a hacer clic en el botón Seguir para suscribirse a las notificaciones.
+    watch: Seguir

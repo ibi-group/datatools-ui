@@ -1104,7 +1104,7 @@ describe('end-to-end', () => {
       await wait(4000, 'for feed versions to load')
       expectSelectorToContainHtml(
         '#feed-source-viewer-tabs',
-        'No versions exist for this feed source.'
+        'No existen versiones para este Feed Source.'
       )
     }, defaultTestTimeout, 'should create a project')
 

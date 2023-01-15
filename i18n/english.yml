@@ -252,26 +252,26 @@ components:
     deploy: Deploy
     edit: Edit GTFS
     gtfs: GTFS
-    notesTitle: Notes
+    notesTitle: Notas
     private: Private view
     properties:
       deployable: Desplegable?
       name: Nombre
-      noneSelected: (None Selected)
+      noneSelected: (Ninguno seleccionado)
       property: Property
       public: ¿Público?
       retrievalMethod:
-        fetchedAutomatically: Fetched Automatically
-        manuallyUploaded: Manually Uploaded
-        producedInHouse: Produced In-house
-        producedInHouseGtfsPlus: Produced In-house (GTFS+)
-        regionalMerge: Regional Merge
-        servicePeriodMerge: Service Period Merge
-        versionClone: Version Clone
+        fetchedAutomatically: Actualizado automáticamente
+        manuallyUploaded: Cargado manualmente
+        producedInHouse: Creado en la herramienta
+        producedInHouseGtfsPlus: Creado en la herramienta (GTFS+)
+        regionalMerge: Fusión regional
+        servicePeriodMerge: Fusión por período de servicio
+        versionClone: Clon de versión
         title: Método de obtención
       snapshot: Editor Snapshot
       title: Ajustes
-      value: Value
+      value: Valor
     snapshotsTitle: Snapshots
     update: Update
     upload: Upload
@@ -514,17 +514,17 @@ components:
     using the 'Normalize stop times' button above to automatically update
     all stop times to the updated travel time."
   NoteForm:
-    adminOnly: 'Admin only?'
-    new: Post
-    postComment: Post a New Comment
+    adminOnly: 'Solo para administradores?'
+    new: Publicar
+    postComment: Publicar un nuevo comentario
   NotesViewer:
-    adminOnly: 'This message is visible to admins only.'
-    all: All Comments
+    adminOnly: 'Este mensaje solo es visible para los administradores.'
+    all: Todos los comentarios
     feedSource: Feed Source
     feedVersion: Versión
-    none: No comments.
-    refresh: Refresh
-    title: Comments
+    none: Sin comentarios.
+    refresh: Actualizar
+    title: Comentarios
   OrganizationList:
     new: Crear org
     search: Buscar organización

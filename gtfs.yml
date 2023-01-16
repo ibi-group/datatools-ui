@@ -1,43 +1,43 @@
 ---
 - id: feedinfo
   name: feed_info.txt
-  helpContent: The file contains information about the feed itself, rather than the services that the feed describes. GTFS currently has an agency.txt file to provide information about the agencies that operate the services described by the feed. However, the publisher of the feed is sometimes a different entity than any of the agencies (in the case of regional aggregators). In addition, there are some fields that are really feed-wide settings, rather than agency-wide.
+  helpContent: El archivo contiene información sobre el feed en sí, en lugar de los servicios que describe el feed. GTFS actualmente tiene un archivo agency.txt para proporcionar información sobre las agencias que operan los servicios descritos por el feed. Sin embargo, el editor del feed a veces es una entidad diferente a cualquiera de las agencias (en el caso de los agregadores regionales). Además, hay algunos campos que en realidad son configuraciones para todo el feed, en lugar de para toda la agencia.
   fields:
   - name: "feed_id"
     required: false
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The feed_id field contains the feed_id which should uniquely identify the GTFS feed within trip planning applications and ideally be universally unique among public transit operators."
+    helpContent: "El campo feed_id contiene el feed_id que debe identificar de forma única el feed GTFS dentro de las aplicaciones de planificación de viajes e, idealmente, ser universalmente único entre los operadores de transporte público."
   - name: "feed_publisher_name"
     required: true
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The feed_publisher_name field contains the full name of the organization that publishes the feed. (This may be the same as one of the agency_name values in agency.txt.) GTFS-consuming applications can display this name when giving attribution for a particular feed's data."
+    helpContent: "El campo feed_publisher_name contiene el nombre completo de la organización que publica el feed. (Este puede ser el mismo que uno de los valores de agency_name en agency.txt). Las aplicaciones que consumen GTFS pueden mostrar este nombre cuando otorgan la atribución de los datos de un feed en particular."
   - name: "feed_publisher_url"
     required: true
     inputType: URL
     columnWidth: 12
-    helpContent: "The feed_publisher_url field contains the URL of the feed publishing organization's website. (This may be the same as one of the agency_url values in agency.txt.) The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. See http://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values."
+    helpContent: "El campo feed_publisher_url contiene la URL del sitio web de la organización de publicación de feeds. (Este puede ser el mismo que uno de los valores de agency_url en agency.txt). El valor debe ser una URL completamente calificada que incluya http:// o https://, y cualquier carácter especial en la URL se debe escapar correctamente. Consulte http://www.w3.org/Addressing/URL/4_URI_Recommentations.html para obtener una descripción de cómo crear valores de URL completamente calificados."
   - name: "feed_lang"
     required: true
     inputType: LANGUAGE
     columnWidth: 12
-    helpContent: "The feed_lang field contains a IETF BCP 47 language code specifying the default language used for the text in this feed. This setting helps GTFS consumers choose capitalization rules and other language-specific settings for the feed. For an introduction to IETF BCP 47, please refer to http://www.rfc-editor.org/rfc/bcp/bcp47.txt and http://www.w3.org/International/articles/language-tags/."
+    helpContent: "El campo feed_lang contiene un código de idioma IETF BCP 47 que especifica el idioma predeterminado utilizado para el texto en este feed. Esta configuración ayuda a los consumidores de GTFS a elegir las reglas de uso de mayúsculas y otras configuraciones específicas del idioma para el feed. Para obtener una introducción a IETF BCP 47, consulte http://www.rfc-editor.org/rfc/bcp/bcp47.txt y http://www.w3.org/International/articles/language-tags/."
   - name: "default_lang"
     required: false
     inputType: LANGUAGE
     columnWidth: 12
-    helpContent: "Defines the language used when the data consumer doesn’t know the language of the rider. It's often defined as en, English."
+    helpContent: "Define el idioma utilizado cuando el consumidor de datos no sabe el idioma del pasajero. A menudo se define como en, inglés."
   - name: "feed_start_date"
     required: false
     inputType: DATE
     columnWidth: 12
-    helpContent: "The feed provides complete and reliable schedule information for service in the period from the beginning of the feed_start_date day to the end of the feed_end_date day. Both days are given as dates in YYYYMMDD format as for calendar.txt, or left empty if unavailable. The feed_end_date date must not precede the feed_start_date date if both are given. Feed providers are encouraged to give schedule data outside this period to advise of likely future service, but feed consumers should treat it mindful of its non-authoritative status. If feed_start_date or feed_end_date extend beyond the active calendar dates defined in calendar.txt and calendar_dates.txt, the feed is making an explicit assertion that there is no service for dates within the feed_start_date or feed_end_date range but not included in the active calendar dates."
+    helpContent: "El feed proporciona información de programación completa y confiable para el servicio en el período desde el comienzo del día feed_start_date hasta el final del día feed_end_date. Ambos días se dan como fechas en formato YYYYMMDD como para calendar.txt, o se dejan vacíos si no están disponibles. La fecha feed_end_date no debe preceder a la fecha feed_start_date si se proporcionan ambas. Se alienta a los proveedores de feeds a proporcionar datos de programación fuera de este período para informar sobre un posible servicio futuro, pero los consumidores de feeds deben tener en cuenta su estado no autorizado. Si feed_start_date o feed_end_date se extienden más allá de las fechas activas del calendario definidas en calendar.txt y calendar_dates.txt, el feed afirma explícitamente que no hay servicio para las fechas dentro del intervalo feed_start_date o feed_end_date pero que no están incluidas en las fechas activas del calendario."
   - name: "feed_end_date"
     required: false
     inputType: DATE
     columnWidth: 12
-    helpContent: "The feed provides complete and reliable schedule information for service in the period from the beginning of the feed_start_date day to the end of the feed_end_date day. Both days are given as dates in YYYYMMDD format as for calendar.txt, or left empty if unavailable. The feed_end_date date must not precede the feed_start_date date if both are given. Feed providers are encouraged to give schedule data outside this period to advise of likely future service, but feed consumers should treat it mindful of its non-authoritative status. If feed_start_date or feed_end_date extend beyond the active calendar dates defined in calendar.txt and calendar_dates.txt, the feed is making an explicit assertion that there is no service for dates within the feed_start_date or feed_end_date range but not included in the active calendar dates."
+    helpContent: "El feed proporciona información de programación completa y confiable para el servicio en el período desde el comienzo del día feed_start_date hasta el final del día feed_end_date. Ambos días se dan como fechas en formato YYYYMMDD como para calendar.txt, o se dejan vacíos si no están disponibles. La fecha feed_end_date no debe preceder a la fecha feed_start_date si se proporcionan ambas. Se alienta a los proveedores de feeds a proporcionar datos de programación fuera de este período para informar sobre un posible servicio futuro, pero los consumidores de feeds deben tener en cuenta su estado no autorizado. Si feed_start_date o feed_end_date se extienden más allá de las fechas activas del calendario definidas en calendar.txt y calendar_dates.txt, el feed afirma explícitamente que no hay servicio para las fechas dentro del intervalo feed_start_date o feed_end_date pero que no están incluidas en las fechas activas del calendario."
   - name: default_route_color
     displayName: Default color
     datatools: true
@@ -71,65 +71,65 @@
     required: false
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The feed publisher can specify a string here that indicates the current version of their GTFS feed. GTFS-consuming applications can display this value to help feed publishers determine whether the latest version of their feed has been incorporated."
+    helpContent: "El editor del feed puede especificar una cadena aquí que indique la versión actual de su feed GTFS. Las aplicaciones que consumen GTFS pueden mostrar este valor para ayudar a los editores de feeds a determinar si se ha incorporado la última versión de su feed."
   - name: "feed_contact_email"
     required: false
     inputType: EMAIL
     columnWidth: 12
-    helpContent: "Email address for communication regarding the GTFS dataset and data publishing practices."
+    helpContent: "Dirección de correo electrónico para comunicaciones sobre el conjunto de datos GTFS y las prácticas de publicación de datos."
   - name: "feed_contact_url"
     required: false
     inputType: URL
     columnWidth: 12
-    helpContent: "URL for contact information, a web-form, support desk, or other tools for communication regarding the GTFS dataset and data publishing practices."
+    helpContent: "URL para información de contacto, un formulario web, servicio de asistencia u otras herramientas de comunicación sobre el conjunto de datos GTFS y las prácticas de publicación de datos."
 
 - id: agency
   name: agency.txt
-  helpContent: One or more transit agencies that provide the data in this feed.
+  helpContent: Una o más agencias de transporte público que proporcionan los datos en este feed.
   fields:
   - name: "agency_id"
     required: false
     inputType: GTFS_ID
     columnWidth: 12
-    helpContent: "The agency_id field is an ID that uniquely identifies a transit agency. A transit feed may represent data from more than one agency. The agency_id is dataset unique. This field is optional for transit feeds that only contain data for a single agency."
+    helpContent: "El campo agency_id es un ID que identifica de forma única a una agencia de transporte. Un feed de tránsito puede representar datos de más de una agencia. El agency_id es un conjunto de datos único. Este campo es opcional para los feeds de tránsito que solo contienen datos de una sola agencia."
   - name: "agency_name"
     required: true
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The agency_name field contains the full name of the transit agency. Google Maps will display this name."
+    helpContent: "El campo agency_name contiene el nombre completo de la agencia de tránsito. Google Maps mostrará este nombre."
   - name: "agency_url"
     required: true
     inputType: URL
     placeholder: https://agency.org
     columnWidth: 12
-    helpContent: "The agency_url field contains the URL of the transit agency. The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped."
+    helpContent: "El campo agency_url contiene la URL de la agencia de tránsito. El valor debe ser una URL completamente calificada que incluya http:// o https://, y todos los caracteres especiales de la URL deben escaparse correctamente."
   - name: "agency_timezone"
     required: true
     inputType: TIMEZONE
     columnWidth: 12
-    helpContent: "The agency_timezone field contains the timezone where the transit agency is located. Timezone names never contain the space character but may contain an underscore. If multiple agencies are specified in the feed, each must have the same agency_timezone."
+    helpContent: "El campo agency_timezone contiene la zona horaria donde se encuentra la agencia de tránsito. Los nombres de las zonas horarias nunca contienen el carácter de espacio, pero pueden contener un guión bajo. Si se especifican varias agencias en el feed, cada una debe tener la misma agency_timezone."
   - name: "agency_lang"
     required: false
     inputType: LANGUAGE
     columnWidth: 12
-    helpContent: "The agency_lang field contains a two-letter ISO 639-1 code for the primary language used by this transit agency. The language code is case-insensitive (both en and EN are accepted). This setting defines capitalization rules and other language-specific settings for all text contained in this transit agency's feed. Please refer to http://www.loc.gov/standards/iso639-2/php/code_list.php for a list of valid values."
+    helpContent: "El campo agency_lang contiene un código ISO 639-1 de dos letras para el idioma principal utilizado por esta agencia de tránsito. El código de idioma no distingue entre mayúsculas y minúsculas (ambas en y EN son aceptadas). Esta configuración define las reglas de uso de mayúsculas y otras configuraciones específicas del idioma para todo el texto contenido en el feed de esta agencia de transporte. Consulte http://www.loc.gov/standards/iso639-2/php/code_list.php para obtener una lista de valores válidos."
   - name: "agency_phone"
     required: false
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The agency_phone field contains a single voice telephone number for the specified agency. This field is a string value that presents the telephone number as typical for the agency's service area. It can and should contain punctuation marks to group the digits of the number. Dialable text (for example, TriMet's \"503-238-RIDE\") is permitted, but the field must not contain any other descriptive text."
+    helpContent: "El campo agency_phone contiene un único número de teléfono de voz para la agencia especificada. Este campo es un valor de cadena que presenta el número de teléfono como típico para el área de servicio de la agencia. Puede y debe contener signos de puntuación para agrupar los dígitos del número. Se permite el texto marcable (por ejemplo, \"503-238-RIDE\" de TriMet), pero el campo no debe contener ningún otro texto descriptivo."
   - name: "agency_fare_url"
     required: false
     inputType: URL
     placeholder: https://agency.org/fares
     columnWidth: 12
-    helpContent: "The agency_fare_url specifies the URL of a web page that allows a rider to purchase tickets or other fare instruments for that agency online. The value must be a fully qualified URL that includes http:// or https://, and any special characters in the URL must be correctly escaped. Seehttp://www.w3.org/Addressing/URL/4_URI_Recommentations.html for a description of how to create fully qualified URL values."
+    helpContent: "El campo agency_fare_url especifica la URL de una página web que permite a un pasajero comprar boletos u otros instrumentos de tarifas para esa agencia en línea. El valor debe ser una URL completamente calificada que incluya http:// o https://, y todos los caracteres especiales de la URL deben escaparse correctamente. Consulte http://www.w3.org/Addressing/URL/4_URI_Recommentations.html para obtener una descripción de cómo crear valores de URL totalmente calificados."
   - name: "agency_email"
     required: false
     inputType: EMAIL
     placeholder: contact@agency.org
     columnWidth: 12
-    helpContent: "The agency_email field contains a single valid email address actively monitored by the agency’s customer service department. This email address will be considered a direct contact point where transit riders can reach a customer service representative at the agency."
+    helpContent: "El campo agency_email contiene una única dirección de correo electrónico válida monitoreada activamente por el departamento de atención al cliente de la agencia. Esta dirección de correo electrónico se considerará un punto de contacto directo donde los usuarios de transporte público pueden comunicarse con un representante de servicio al cliente en la agencia."
   - name: agency_branding_url
     required: false
     displayName: Agency branding URL
@@ -141,103 +141,103 @@
 
 - id: stop
   name: stops.txt
-  helpContent: Individual locations where vehicles pick up or drop off passengers.
+  helpContent: Ubicaciones individuales donde los vehículos recogen o dejan pasajeros.
   fields:
   - name: "stop_id"
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The stop_id field contains an ID that uniquely identifies a stop or station. Multiple routes may use the same stop. The stop_id is dataset unique."
+    helpContent: "El campo stop_id contiene un ID que identifica de forma única una parada o estación. Múltiples rutas pueden usar la misma parada. El stop_id es un conjunto de datos único."
   - name: "stop_code"
     required: false
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The stop_code field contains short text or a number that uniquely identifies the stop for passengers. Stop codes are often used in phone-based transit information systems or printed on stop signage to make it easier for riders to get a stop schedule or real-time arrival information for a particular stop."
+    helpContent: "El campo stop_code contiene un texto corto o un número que identifica de forma única la parada para los pasajeros. Los códigos de parada a menudo se usan en sistemas de información de tránsito basados en teléfonos o se imprimen en la señalización de parada para que sea más fácil para los pasajeros obtener un horario de parada o información de llegada en tiempo real para una parada en particular."
   - name: "stop_name"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The stop_name field contains the name of a stop or station. Please use a name that people will understand in the local and tourist vernacular."
+    helpContent: "El campo stop_name contiene el nombre de una parada o estación. Por favor use un nombre que la gente entienda en la lengua vernácula local y turística."
   - name: "stop_desc"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The stop_desc field contains a description of a stop. Please provide useful, quality information. Do not simply duplicate the name of the stop."
+    helpContent: "El campo stop_desc contiene una descripción de una parada. Por favor proporcione información útil y de calidad. No duplique simplemente el nombre de la parada."
   - name: "stop_lat"
     required: false
     inputType: LATITUDE
     columnWidth: 6
-    helpContent: "The stop_lat field contains the latitude of a stop or station. The field value must be a valid WGS 84 latitude."
+    helpContent: "El campo stop_lat contiene la latitud de una parada o estación. El valor del campo debe ser una latitud WGS 84 válida."
   - name: "stop_lon"
     required: false
     inputType: LONGITUDE
     columnWidth: 6
-    helpContent: "The stop_lon field contains the longitude of a stop or station. The field value must be a valid WGS 84 longitude value from -180 to 180."
+    helpContent: "El campo stop_lon contiene la longitud de una parada o estación. El valor del campo debe ser un valor de longitud WGS 84 válido de -180 a 180."
   - name: "zone_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 12
     bulkEditEnabled: true
-    helpContent: "The zone_id field defines the fare zone for a stop ID. Zone IDs are required if you want to provide fare information using fare_rules.txt. If this stop ID represents a station, the zone ID is ignored."
+    helpContent: "El campo zone_id define la zona tarifaria para una ID de parada. Los ID de zona son requeridos si desea proporcionar información sobre tarifas mediante fare_rules.txt. Si esta ID de parada representa una estación, la ID de zona es ignorada."
   - name: "stop_url"
     required: false
     inputType: URL
     columnWidth: 12
-    helpContent: "The stop_url field contains the URL of a web page about a particular stop. This should be different from the agency_url and the route_url fields."
+    helpContent: "El campo stop_url contiene la URL de una página web sobre una parada en particular. Debe ser diferente de los campos agency_url y route_url."
   - name: "location_type"
     required: false
     bulkEditEnabled: true
     inputType: DROPDOWN
     options:
     - value: '0'
-      text: Stop (0)
+      text: Parada (0)
     - value: '1'
-      text: Station (1)
+      text: Estación (1)
     - value: '2'
-      text: Entrance/Exit (2)
+      text: Entrada/Salida (2)
     - value: '3'
-      text: Generic Node (3)
+      text: Nodo genérico (3)
     - value: '4'
-      text: Boarding Area (4)
+      text: Área de abordaje (4)
     columnWidth: 7
-    helpContent: "The location_type field identifies whether this stop ID represents a stop or station. If no location type is specified, or the location_type is blank, stop IDs are treated as stops. Stations may have different properties from stops when they are represented on a map or used in trip planning."
+    helpContent: "El campo location_type identifica si este ID de parada representa una parada o una estación. Si no se especifica ningún tipo de ubicación, o el location_type está en blanco, los ID de parada se tratan como paradas. Las estaciones pueden tener propiedades diferentes a las de las paradas cuando se representan en un mapa o se utilizan en la planificación de viajes."
   - name: "platform_code"
     required: false
     inputType: TEXT
     columnWidth: 5
-    helpContent: "Platform identifier for a platform stop (a stop belonging to a station). This should be just the platform identifier (eg. G or 3)."
+    helpContent: "Identificador de plataforma para una parada de plataforma (una parada perteneciente a una estación). Este debe ser solo el identificador de la plataforma (por ejemplo, G o 3)."
   - name: "parent_station"
     required: false
     inputType: GTFS_STOP
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "For stops that are physically located inside stations, the parent_station field identifies the station associated with the stop. To use this field, stops.txt must also contain a row where this stop ID is assigned location type=1."
+    helpContent: "Para las paradas que están ubicadas físicamente dentro de las estaciones, el campo parent_station identifica la estación asociada con la parada. Para utilizar este campo, stops.txt también debe contener una fila en la que a este ID de parada se le asigne el tipo de ubicación=1."
   - name: "stop_timezone"
     required: false
     inputType: TIMEZONE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The stop_timezone field contains the timezone in which this stop or station is located. If omitted, the stop should be assumed to be located in the timezone specified byagency_timezone in agency.txt."
+    helpContent: "El campo stop_timezone contiene la zona horaria en la que se encuentra esta parada o estación. Si se omite, se debe asumir que la parada está ubicada en la zona horaria especificada por agency_timezone en agency.txt."
   - name: "wheelchair_boarding"
     required: false
     inputType: DROPDOWN
     bulkEditEnabled: true
     options:
     - value: 0
-      text: No information (0)
+      text: Sin información (0)
     - value: 1
-      text: At least some vehicles (1)
+      text: Al menos unos vehículos (1)
     - value: 2
-      text: Not possible (2)
+      text: No es posible (2)
     columnWidth: 12
-    helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
+    helpContent: "El campo wheelchair_boarding identifica si es posible abordar sillas de ruedas desde la parada o estación especificada. El campo puede tener los siguientes valores:"
 
 
 - id: route
   name: routes.txt
-  helpContent: This file contains information for a route.
+  helpContent: Este archivo contiene información para una ruta.
   fields:
   - name: status
     datatools: true
@@ -247,14 +247,14 @@
     inputType: DROPDOWN
     options:
     - value: 0
-      text: 'In Progress'
+      text: 'En progreso'
     - value: 1
-      text: 'Pending Approval'
+      text: 'Aprobación pendiente'
     - value: 2
-      text: 'Approved'
+      text: 'Aprobado'
     columnWidth: 6
     adminOnly: true
-    # helpContent: The route_id field contains an ID that uniquely identifies a route. The route_id is dataset unique.
+    # helpContent: El campo route_id contiene un ID que identifica de forma única una ruta. El route_id es un conjunto de datos único.
   - name: publicly_visible
     datatools: true
     displayName: Public?
@@ -265,15 +265,15 @@
     - value: 0
       text: 'No'
     - value: 1
-      text: 'Yes'
+      text: 'Si'
     columnWidth: 6
     adminOnly: true
-    # helpContent: The route_id field contains an ID that uniquely identifies a route. The route_id is dataset unique.
+    # helpContent: El campo route_id contiene un ID que identifica de forma única una ruta. El route_id es un conjunto de datos único.
   - name: route_id
     required: true
     inputType: GTFS_ID
     columnWidth: 5
-    helpContent: The route_id field contains an ID that uniquely identifies a route. The route_id is dataset unique.
+    helpContent: El campo route_id contiene un ID que identifica de forma única una ruta. El route_id es un conjunto de datos único.
   - name: route_short_name
     required: true
     inputType: TEXT

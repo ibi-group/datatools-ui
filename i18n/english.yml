@@ -493,7 +493,7 @@ components:
   LanguageSelect:
     placeholder: Select language...
   Login:
-    title: Log in
+    title: Iniciar sesión
   MergeFeedsResult:
     body:
       failure: Merge failed with %errorCount% errors.

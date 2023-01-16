@@ -1,5 +1,5 @@
 clean:
-	rm -rf dist
+	sudo rm -rf dist
 
 docker_build:
 	docker compose build frontend
@@ -13,8 +13,8 @@ build: clean docker_build
 build-prod: clean docker_build
 	docker compose run frontend npm run build-prod
 
-deploy: build-prod
-	aws s3 sync ./dist s3://wri-conveyal-gtfs-ui/dist --delete
+deploy-wri-prod: build-prod
+	aws s3 --profile wri-prod sync ./dist s3://wri-conveyal-gtfs-ui/dist --delete
 
 upload-assets:
-	aws s3 sync ./assets s3://wri-conveyal-gtfs-ui/assets --delete
+	aws s3 --profile wri-prod sync ./assets s3://wri-conveyal-gtfs-ui/assets --delete

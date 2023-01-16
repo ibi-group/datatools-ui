@@ -31,3 +31,19 @@ Street snapping powered by the <a href="https://www.graphhopper.com/">GraphHoppe
     make run
     ```
 4. Check the application running at `http://localhost:5000/`
+
+## How to deploy
+
+1. Download from 1password the file `WRI-CONVEYAL-GTFS: env.yml (prod)` and place it at `./configurations/default/env.yml`
+3. Install the [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+4. Setup your aws credentials
+    1. Run `aws configure --profile wri-prod`
+    2. Grab the values from 1password item `aws - wri-prod`
+    3. Example: 
+        ```
+        AWS Access Key ID [None]: AKI...
+        AWS Secret Access Key [None]: Ux...
+        Default region name [None]: 
+        Default output format [None]: 
+        ```
+3. Run `make deploy-wri-prod`

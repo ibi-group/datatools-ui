@@ -278,23 +278,23 @@
     required: true
     inputType: TEXT
     columnWidth: 7
-    helpContent: The route_short_name contains the short name of a route. This will often be a short, abstract identifier like "32", "100X", or "Green" that riders use to identify a route, but which doesn't give any indication of what places the route serves.
+    helpContent: El campo route_short_name contiene el nombre corto de una ruta. Éste a menudo será un identificador corto y abstracto como "32", "100X" o "Green" que los pasajeros usan para identificar una ruta, pero que no brinda ninguna indicación de a qué lugares sirve la ruta.
   - name: route_long_name
     required: true
     inputType: TEXT
     columnWidth: 12
-    helpContent: The route_long_name contains the full name of a route. This name is generally more descriptive than the route_short_name and will often include the route's destination or stop. At least one of route_short_name or route_long_name must be specified, or potentially both if appropriate. If the route does not have a long name, please specify a route_short_name and use an empty string as the value for this field.
+    helpContent: El campo route_long_name contiene el nombre completo de una ruta. Este nombre suele ser más descriptivo que route_short_name y, a menudo, incluirá el destino o la parada de la ruta. Al menos uno de route_short_name o route_long_name debe de ser especificado, o potencialmente ambos, si corresponde. Si la ruta no tiene un nombre largo, por favor especifique un route_short_name y use una cadena vacía como valor para este campo.
   - name: agency_id
     required: false
     inputType: GTFS_AGENCY
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: The agency_id field defines an agency for the specified route. This value is referenced from the agency.txt file. Use this field when you are providing data for routes from more than one agency.
+    helpContent: El campo agency_id define una agencia para la ruta especificada. Se hace referencia a este valor desde el archivo agency.txt. Utilice este campo cuando proporcione datos para rutas de más de una agencia.
   - name: route_desc
     required: false
     inputType: TEXT
     columnWidth: 12
-    helpContent: 'Contains a description of a route. Please provide useful, quality information. Do not simply duplicate the name of the route. For example, "A trains operate between Inwood-207 St, Manhattan and Far Rockaway-Mott Avenue, Queens at all times. Also from about 6AM until about midnight, additional A trains operate between Inwood-207 St and Lefferts Boulevard (trains typically alternate between Lefferts Blvd and Far Rockaway)."'
+    helpContent: 'Contiene una descripción de una ruta. Por favor proporcione información útil y de calidad. No duplique simplemente el nombre de la ruta. Por ejemplo, "los trenes A operan entre Inwood-207 St, Manhattan y Far Rockaway-Mott Avenue, Queens en todo momento. También desde aproximadamente las 6 a.m hasta cerca de la media noche, trenes A adicionales operan entre Inwood-207 St y Lefferts Boulevard (trenes normalmente alterna entre Lefferts Blvd y Far Rockaway)."'
   - name: route_type
     required: true
     inputType: GTFS_ROUTE_TYPE
@@ -467,55 +467,55 @@
     - value: 1702
       text: Horse-drawn Carriage
     columnWidth: 12
-    helpContent: The route_type field describes the type of transportation used on a route. Valid values for this field are...
+    helpContent: El campo route_type describe el tipo de transporte utilizado en una ruta. Los valores válidos para este campo son...
   - name: route_sort_order
     required: false
     inputType: POSITIVE_INT
     columnWidth: 6
-    helpContent: The route_sort_order field can be used to order the routes in a way which is ideal for presentation to customers. It must be a non-negative integer. Routes with smaller route_sort_order values should be displayed before routes with larger route_sort_order values.
+    helpContent: El campo route_sort_order se puede utilizar para ordenar las rutas de una manera ideal para presentarlas a los clientes. Debe ser un entero no negativo. Las rutas con valores de route_sort_order más pequeños deben mostrarse antes que las rutas con valores de route_sort_order más grandes.
   - name: continuous_pickup
     required: false
     inputType: DROPDOWN
     bulkEditEnabled: true
     options:
     - value: 0
-      text: Continuous stopping pickup (0)
+      text: Recolección de parada continua (0)
     - value: 1
-      text: No continuous stopping pickup (1)
+      text: No recolección de parada continua (1)
     - value: 2
-      text: Must phone an agency to arrange continuous stopping pickup (2)
+      text: Debe llamar a una agencia para organizar la recolección de parada continua (2)
     - value: 3
-      text: Must coordinate with a driver to arrange continuous stopping pickup (3)
+      text: Debe coordinar con un conductor para organizar la recolección de parada continua (3)
     columnWidth: 12
-    helpContent: Indicates whether a rider can board the transit vehicle anywhere along the vehicle’s travel path.
+    helpContent: Indica si un pasajero puede abordar el vehículo de tránsito en cualquier lugar a lo largo de la ruta de viaje del vehículo.
   - name: continuous_drop_off
     required: false
     inputType: DROPDOWN
     bulkEditEnabled: true
     options:
     - value: 0
-      text: Continuous stopping drop-off (0)
+      text: Entrega de parada continua  (0)
     - value: 1
-      text: No continuous stopping drop-off (1)
+      text: No entrega de parada continua (1)
     - value: 2
-      text: Must phone an agency to arrange continuous stopping drop-off (2)
+      text: Debe llamar a una agencia para organizar la entrega de parada continua (2)
     - value: 3
-      text: Must coordinate with a driver to arrange continuous stopping drop-off (3)
+      text: Debe coordinar con un conductor para organizar la entrega de parada continua (3)
     columnWidth: 12
-    helpContent: Indicates whether a rider can alight from the transit vehicle at any point along the vehicle’s travel path.
+    helpContent: Indica si un pasajero puede bajarse del vehículo de tránsito en cualquier punto a lo largo de la ruta de viaje del vehículo.
   - name: route_url
     required: false
     inputType: URL
     placeholder: https://agency.org/route/1234
     columnWidth: 12
-    helpContent: The route_url field contains the URL of a web page about that particular route. This should be different from the agency_url.
+    helpContent: El campo route_url contiene la URL de una página web sobre esa ruta en particular. Debe ser diferente de agency_url.
   - name: route_color
     required: false
     inputType: COLOR
     placeholder: 'FF0000'
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: In systems that have colors assigned to routes, the route_color field defines a color that corresponds to a route. The color must be provided as a six-character hexadecimal number, for example, 00FFFF. If no color is specified, the default route color is white (FFFFFF).
+    helpContent: En los sistemas que tienen colores asignados a las rutas, el campo route_color define un color que corresponde a una ruta. El color se debe proporcionar como un número hexadecimal de seis caracteres, por ejemplo, 00FFFF. Si no se especifica ningún color, el color de ruta predeterminado es blanco (FFFFFF).
   - name: route_text_color
     required: false
     inputType: DROPDOWN
@@ -526,19 +526,19 @@
       - value: '000000'
         text: Black
     columnWidth: 6
-    helpContent: The route_text_color field can be used to specify a legible color to use for text drawn against a background of route_color. The color must be provided as a six-character hexadecimal number, for example, FFD700. If no color is specified, the default text color is black (000000).
+    helpContent: El campo route_text_color se puede usar para especificar un color legible para el texto dibujado sobre un fondo de route_color. El color se debe proporcionar como un número hexadecimal de seis caracteres, por ejemplo, FFD700. Si no se especifica ningún color, el color de texto predeterminado es negro (000000).
   - name: wheelchair_accessible
     required: false
     displayName: Is route wheelchair accessible?
     inputType: DROPDOWN
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: Indicates whether vehicles that operate on this route are wheelchair accessible.
+    helpContent: Indica si los vehículos que operan en esta ruta son accesibles para sillas de ruedas.
     options:
       - value: 0
-        text: No information (0)
+        text: Sin información (0)
       - value: 1
-        text: Yes (1)
+        text: Si (1)
       - value: 2
         text: No (2)
   - name: route_branding_url
@@ -552,35 +552,35 @@
 
 - id: trip
   name: trips.txt
-  helpContent: Trips for each route. A trip is a sequence of two or more stops that occurs at specific time.
+  helpContent: Viajes para cada ruta. Un viaje es una secuencia de dos o más paradas que ocurre en un tiempo específico.
   fields:
   - name: "route_id"
     required: true
     inputType: GTFS_ROUTE
     columnWidth: 6
-    helpContent: "The route_id field contains an ID that uniquely identifies a route. This value is referenced from the routes.txt file."
+    helpContent: "El campo route_id contiene un ID que identifica de forma única una ruta. Se hace referencia a este valor desde el archivo route.txt."
   - name: "service_id"
     required: true
     inputType: GTFS_SERVICE
     columnWidth: 6
-    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. This value is referenced from thecalendar.txt or calendar_dates.txt file."
+    helpContent: "El campo service_id contiene una identificación que identifica de manera única un conjunto de fechas cuando el servicio está disponible para una o más rutas. Se hace referencia a este valor desde el archivo thecalendar.txt o calendar_dates.txt."
   - name: "trip_id"
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The trip_id field contains an ID that identifies a trip. The trip_id is dataset unique."
+    helpContent: "El campo trip_id contiene un ID que identifica un viaje. El trip_id es un conjunto de datos único."
   - name: "trip_headsign"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The trip_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to distinguish between different patterns of service in the same route. If the headsign changes during a trip, you can override the trip_headsign by specifying values for the the stop_headsign field in stop_times.txt."
+    helpContent: "El campo trip_headsign contiene el texto que aparece en un letrero que identifica el destino del viaje a los pasajeros. Utilice este campo para distinguir entre diferentes patrones de servicio en la misma ruta. Si el letrero cambia durante un viaje, puede anular trip_headsign especificando valores para el campo stop_headsign en stop_times.txt."
   - name: "trip_short_name"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The trip_short_name field contains the text that appears in schedules and sign boards to identify the trip to passengers, for example, to identify train numbers for commuter rail trips. If riders do not commonly rely on trip names, please leave this field blank."
+    helpContent: "El campo trip_short_name contiene el texto que aparece en los horarios y letreros para identificar el viaje a los pasajeros, por ejemplo, para identificar los números de tren para viajes en tren suburbano. Si los pasajeros no suelen confiar en los nombres de los viajes, por favor deje este campo en blanco."
   - name: "direction_id"
     required: false
     inputType: DROPDOWN
@@ -589,13 +589,13 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The direction_id field contains a binary value that indicates the direction of travel for a trip. Use this field to distinguish between bi-directional trips with the same route_id. This field is not used in routing; it provides a way to separate trips by direction when publishing time tables. You can specify names for each direction with the trip_headsign field."
+    helpContent: "El campo direction_id contiene un valor binario que indica la dirección de viaje de un viaje. Utilice este campo para distinguir entre viajes bidireccionales con el mismo route_id. Este campo no se utiliza en el enrutamiento; proporciona una forma de separar los viajes por dirección al publicar las tablas de tiempos. Puede especificar nombres para cada dirección con el campo trip_headsign."
   - name: "block_id"
     required: false
     inputType: GTFS_BLOCK
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The block_id field identifies the block to which the trip belongs. A block consists of two or more sequential trips made using the same vehicle, where a passenger can transfer from one trip to the next just by staying in the vehicle. The block_id must be referenced by two or more trips in trips.txt."
+    helpContent: "El campo block_id identifica el bloque al que pertenece el viaje. Un bloque consiste en dos o más viajes secuenciales realizados utilizando el mismo vehículo, donde un pasajero puede transferirse de un viaje al siguiente simplemente permaneciendo en el vehículo. El block_id debe ser referenciado por dos o más viajes en trips.txt."
   - name: "shape_id"
     required: false
     inputType: GTFS_SHAPE

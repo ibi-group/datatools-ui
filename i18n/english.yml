@@ -822,6 +822,24 @@ components:
   PageNotFound:
     homePage: home page
     pageNotFound: Page Not Found.
+  PatternStopCard:
+    PatternStopContents:
+      defaultDwellTime: Default dwell time
+      defaultTravelTime: Default travel time
+      firstStopTravelTime: Travel time for first stop must be zero
+      timepoint: Timepoint?
+      travelTimeHelp: Define the default time it takes to travel to this stop from the previous stop.
+    PickupDropOffSelect:
+      available: Available (0)
+      continuousDropOffTitle: Indicates whether a rider can alight from the transit vehicle at any point along the vehicle's travel path.
+      continuousPickupTitle: Indicates whether a rider can board the transit vehicle anywhere along the vehicle's travel path.
+      continuousServiceDefault: (Inherit from route)
+      dropOffTitle: Define the dropff method/availability at this stop.
+      mustCoordinate: Must coordinate with driver to arrange (3)
+      mustPhoneAgency: Must phone agency to arrange (2)
+      notAvailable: Not available (1)
+      pickupDropOffDefault: (Default - Available)
+      pickupTitle: Define the pickup method/availability at this stop.
   Permissions:
     approve-alert: Approve GTFS-RT Alerts
     approve-gtfs: Approve GTFS Feeds

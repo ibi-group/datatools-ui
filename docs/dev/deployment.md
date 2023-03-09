@@ -180,6 +180,11 @@ function (user, context, callback) {
 }
 ```
 
+Update maps provider.
+
+```yaml
+MAPTYPE: OSM # or alternatively MAPBOX
+```
 ## Building and Running the Application
 
 Install the Javascript dependencies for `datatools-ui` using yarn:

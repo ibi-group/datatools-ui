@@ -600,7 +600,7 @@
     required: false
     inputType: GTFS_SHAPE
     columnWidth: 6
-    helpContent: "The shape_id field contains an ID that defines a shape for the trip. This value is referenced from the shapes.txt file. The shapes.txt file allows you to define how a line should be drawn on the map to represent a trip."
+    helpContent: "El campo shape_id contiene un ID que define una forma para el viaje. Se hace referencia a este valor desde el archivo shapes.txt. El archivo shapes.txt le permite definir cómo se debe dibujar una línea en el mapa para representar un viaje."
   - name: "wheelchair_accessible"
     required: false
     inputType: DROPDOWN
@@ -610,7 +610,7 @@
     - value: '1'
     - value: '2'
     columnWidth: 6
-    helpContent: "0 (or empty) - indicates that there is no accessibility information for the trip"
+    helpContent: "0 (o vacío): indica que no hay información de accesibilidad para el viaje"
   - name: "bikes_allowed"
     required: false
     inputType: DROPDOWN
@@ -620,44 +620,44 @@
     - value: '1'
     - value: '2'
     columnWidth: 6
-    helpContent: "0 (or empty) - indicates that there is no bike information for the trip"
+    helpContent: "0 (o vacío): indica que no hay información de bicicleta para el viaje"
 
 
 - id: stop_time
   name: stop_times.txt
-  helpContent: Times that a vehicle arrives at and departs from individual stops for each trip.
+  helpContent: Veces que un vehículo llega y sale de paradas individuales para cada viaje.
   fields:
   - name: "trip_id"
     required: true
     inputType: GTFS_TRIP
     columnWidth: 6
-    helpContent: "The trip_id field contains an ID that identifies a trip. This value is referenced from the trips.txt file."
+    helpContent: "El campo trip_id contiene un ID que identifica un viaje. Se hace referencia a este valor desde el archivo trips.txt."
   - name: "arrival_time"
     required: true
     inputType: TIME
     columnWidth: 6
-    helpContent: "The arrival_time specifies the arrival time at a specific stop for a specific trip on a route. The time is measured from "
+    helpContent: "El campo arrival_time especifica la hora de llegada a una parada específica para un viaje específico en una ruta. El tiempo se mide desde "
   - name: "departure_time"
     required: true
     inputType: TIME
     columnWidth: 6
-    helpContent: "The departure_time specifies the departure time from a specific stop for a specific trip on a route. The time is measured from "
+    helpContent: "La departure_time especifica la hora de salida desde una parada específica para un viaje específico en una ruta. El tiempo se mide desde "
   - name: "stop_id"
     required: true
     inputType: GTFS_STOP
     columnWidth: 6
-    helpContent: "The stop_id field contains an ID that uniquely identifies a stop. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
+    helpContent: "El campo stop_id contiene un ID que identifica de forma única una parada. Múltiples rutas pueden usar la misma parada. Se hace referencia a stop_id desde el archivo stop.txt. Si se usa location_type en stops.txt, todas las paradas a las que se hace referencia en stop_times.txt deben tener location_type de 0."
   - name: "stop_sequence"
     required: true
     inputType: POSITIVE_INT
     columnWidth: 6
-    helpContent: "The stop_sequence field identifies the order of the stops for a particular trip. The values for stop_sequence must be non-negative integers, and they must increase along the trip."
+    helpContent: "El campo stop_sequence identifica el orden de las paradas para un viaje en particular. Los valores de stop_sequence deben ser números enteros no negativos y deben aumentar a lo largo del viaje."
   - name: "stop_headsign"
     required: false
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The stop_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to override the defaulttrip_headsign when the headsign changes between stops. If this headsign is associated with an entire trip, use trip_headsign instead."
+    helpContent: "El campo stop_headsign contiene el texto que aparece en un letrero que identifica el destino del viaje a los pasajeros. Utilice este campo para anular el defaulttrip_headsign cuando el letrero cambia entre paradas. Si este letrero está asociado con un viaje completo, use trip_headsign en su lugar."
   - name: "pickup_type"
     required: false
     inputType: DROPDOWN
@@ -668,7 +668,7 @@
     - value: '2'
     - value: '3'
     columnWidth: 6
-    helpContent: "The pickup_type field indicates whether passengers are picked up at a stop as part of the normal schedule or whether a pickup at the stop is not available. This field also allows the transit agency to indicate that passengers must call the agency or notify the driver to arrange a pickup at a particular stop. Valid values for this field are:"
+    helpContent: "El campo pickup_type indica si se recoge a los pasajeros en una parada como parte del horario normal o si no está disponible la recogida en la parada. Este campo también permite que la agencia de tránsito indique que los pasajeros deben llamar a la agencia o notificar al conductor para programar una recogida en una parada en particular. Los valores válidos para este campo son:"
   - name: "drop_off_type"
     required: false
     inputType: DROPDOWN
@@ -679,12 +679,12 @@
     - value: '2'
     - value: '3'
     columnWidth: 6
-    helpContent: "The drop_off_type field indicates whether passengers are dropped off at a stop as part of the normal schedule or whether a drop off at the stop is not available. This field also allows the transit agency to indicate that passengers must call the agency or notify the driver to arrange a drop off at a particular stop. Valid values for this field are:"
+    helpContent: "El campo drop_off_type indica si se deja a los pasajeros en una parada como parte del horario normal o si no está disponible una bajada en la parada. Este campo también permite que la agencia de tránsito indique que los pasajeros deben llamar a la agencia o notificar al conductor para programar una bajada en una parada en particular. Los valores válidos para este campo son:"
   - name: "shape_dist_traveled"
     required: false
     inputType: POSITIVE_NUM
     columnWidth: 6
-    helpContent: "When used in the stop_times.txt file, the shape_dist_traveled field positions a stop as a distance from the first shape point. The shape_dist_traveled field represents a real distance traveled along the route in units such as feet or kilometers. For example, if a bus travels a distance of 5.25 kilometers from the start of the shape to the stop, the shape_dist_traveled for the stop ID would be entered as "
+    helpContent: "Cuando se usa en el archivo stop_times.txt, el campo shape_dist_traveled coloca una parada como una distancia desde el primer punto de forma. El campo shape_dist_traveled representa una distancia real recorrida a lo largo de la ruta en unidades como pies o kilómetros. Por ejemplo, si un autobús recorre una distancia de 5,25 kilómetros desde el inicio de la forma hasta la parada, la shape_dist_traveled para el ID de la parada se ingresaría como "
   - name: "timepoint"
     required: false
     inputType: DROPDOWN
@@ -694,17 +694,17 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The timepoint field can be used to indicate if the specified arrival and departure times for a stop are strictly adhered to by the transit vehicle or if they are instead approximate and/or interpolated times. The field allows a GTFS producer to provide interpolated stop times that potentially incorporate local knowledge, but still indicate if the times are approximate. For stop-time entries with specified arrival and departure times, valid values for this field are:"
+    helpContent: "El campo timepoint se puede utilizar para indicar si el vehículo de tránsito cumple estrictamente los tiempos de llegada y salida especificados para una parada o si, en cambio, son tiempos aproximados y/o interpolados. El campo permite que un productor de GTFS proporcione tiempos de parada interpolados que potencialmente incorporen el conocimiento local, pero que aún indiquen si los tiempos son aproximados. Para entradas de tiempo de parada con horas de llegada y salida especificadas, los valores válidos para este campo son:"
 
 - id: calendar
   name: calendar.txt
-  helpContent: Dates for service IDs using a weekly schedule. Specify when service starts and ends, as well as days of the week where service is available.
+  helpContent: Fechas para IDs de servicio usando un programa semanal. Especifique cuándo comienza y termina el servicio, así como los días de la semana en los que el servicio está disponible.
   fields:
   - name: "service_id"
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. Each service_id value can appear at most once in a calendar.txt file. This value is dataset unique. It is referenced by the trips.txt file."
+    helpContent: "El campo service_id contiene un ID que identifica de manera única un conjunto de fechas cuando el servicio está disponible para una o más rutas. Cada valor de service_id puede aparecer como máximo una vez en un archivo calendar.txt. Este valor es único para el conjunto de datos. Está referenciado por el archivo trips.txt."
   - name: "description"
     required: false
     datatools: true
@@ -720,7 +720,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The monday field contains a binary value that indicates whether the service is valid for all Mondays."
+    helpContent: "El campo monday contiene un valor binario que indica si el servicio es válido para todos los lunes."
   - name: "tuesday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -729,7 +729,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The tuesday field contains a binary value that indicates whether the service is valid for all Tuesdays."
+    helpContent: "El campo tuesday contiene un valor binario que indica si el servicio es válido para todos los martes."
   - name: "wednesday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -738,7 +738,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The wednesday field contains a binary value that indicates whether the service is valid for all Wednesdays."
+    helpContent: "El campo wednesday contiene un valor binario que indica si el servicio es válido para todos los miércoles."
   - name: "thursday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -747,7 +747,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The thursday field contains a binary value that indicates whether the service is valid for all Thursdays."
+    helpContent: "El campo thursday contiene un valor binario que indica si el servicio es válido para todos los jueves."
   - name: "friday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -756,7 +756,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The friday field contains a binary value that indicates whether the service is valid for all Fridays."
+    helpContent: "El campo friday contiene un valor binario que indica si el servicio es válido para todos los viernes."
   - name: "saturday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -765,7 +765,7 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The saturday field contains a binary value that indicates whether the service is valid for all Saturdays."
+    helpContent: "El campo saturday contiene un valor binario que indica si el servicio es válido para todos los sábados."
   - name: "sunday"
     required: true
     inputType: DAY_OF_WEEK_BOOLEAN
@@ -774,36 +774,36 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The sunday field contains a binary value that indicates whether the service is valid for all Sundays."
+    helpContent: "El campo sunday contiene un valor binario que indica si el servicio es válido para todos los domingos."
   - name: "start_date"
     required: true
     inputType: DATE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The start_date field contains the start date for the service."
+    helpContent: "El campo start_date contiene la fecha de inicio del servicio."
   - name: "end_date"
     required: true
     inputType: DATE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The end_date field contains the end date for the service. This date is included in the service interval."
+    helpContent: "El campo end_date contiene la fecha de finalización del servicio. Esta fecha está incluida en el intervalo de servicio."
 
 
 - id: calendar_dates
   name: calendar_dates.txt
-  helpContent: Exceptions for the service IDs defined in the calendar.txt file. If calendar_dates.txt includes ALL dates of service, this file may be specified instead of calendar.txt.
+  helpContent: Excepciones para los IDs de servicio definidos en el archivo calendar.txt. Si calendar_dates.txt incluye TODAS las fechas de servicio, se puede especificar este archivo en lugar de calendar.txt.
   fields:
   - name: "service_id"
     required: true
     inputType: GTFS_SERVICE
     columnWidth: 6
-    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when a service exception is available for one or more routes. Each (service_id, date) pair can only appear once in calendar_dates.txt. If the a service_id value appears in both the calendar.txt and calendar_dates.txt files, the information in calendar_dates.txt modifies the service information specified in calendar.txt. This field is referenced by the trips.txt file."
+    helpContent: "El campo service_id contiene un ID que identifica de manera única un conjunto de fechas cuando una excepción de servicio está disponible para una o más rutas. Cada par (service_id, date) solo puede aparecer una vez en calendar_dates.txt. Si el valor de service_id aparece en los archivos calendar.txt y calendar_dates.txt, la información en calendar_dates.txt modifica la información de servicio especificada en calendar.txt. Este campo está referenciado por el archivo trips.txt."
   - name: "date"
     required: true
     inputType: DATE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The date field specifies a particular date when service availability is different than the norm. You can use the exception_type field to indicate whether service is available on the specified date."
+    helpContent: "El campo date especifica una fecha particular cuando la disponibilidad del servicio es diferente a la norma. Puede utilizar el campo exception_type para indicar si el servicio está disponible en la fecha especificada."
   - name: "exception_type"
     required: true
     inputType: DROPDOWN
@@ -812,151 +812,151 @@
     - value: '1'
     - value: '2'
     columnWidth: 6
-    helpContent: "The exception_type indicates whether service is available on the date specified in thedate field."
+    helpContent: "El exception_type indica si el servicio está disponible en la fecha especificada en el campo date."
 
 
 - id: fare_attributes
   name: fare_attributes.txt
-  helpContent: Fare information for a transit organization's routes.
+  helpContent: Información de tarifas para las rutas de una organización de tránsito.
   fields:
   - name: "fare_id"
     required: true
     inputType: GTFS_ID
     columnWidth: 6
-    helpContent: "The fare_id field contains an ID that uniquely identifies a fare class. The fare_id is dataset unique."
+    helpContent: "El campo fare_id contiene un ID que identifica de forma única una clase de tarifa. El campo fare_id es un conjunto de datos único."
   - name: "price"
     required: true
     inputType: NUMBER
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The price field contains the fare price, in the unit specified by currency_type."
+    helpContent: "El campo price contiene el precio de la tarifa, en la unidad especificada por currency_type."
   - name: "currency_type"
     required: true
     inputType: DROPDOWN
     bulkEditEnabled: true
     options:
     - value: USD
-      text: US dollar (USD)
+      text: Dólar estadounidense (USD)
     - value: AUD
-      text: Australian dollar (AUD)
+      text: Dólar australiano (AUD)
     - value: CAD
-      text: Canadian dollar (CAD)
+      text: Dólar canadiense (CAD)
     - value: CHF
-      text: Swiss franc (CHF)
+      text: Franco suizo (CHF)
     - value: CNH
-      text: Chinese renminbi (CNH)
+      text: Renminbi chino (CNH)
     - value: EUR
       text: Euro (EUR)
     - value: GBP
-      text: Pound sterling (GBP)
+      text: Libra esterlina (GBP)
     - value: JPY
-      text: Japanese yen (JPY)
+      text: Yen japonés (JPY)
     - value: MXN
-      text: Mexican peso (MXN)
+      text: Peso mexicano (MXN)
     - value: NZD
-      text: New Zealand dollar (NZD)
+      text: Dólar neozelandés (NZD)
     - value: SEK
-      text: Swedish krona (SEK)
+      text: Corona sueca (SEK)
     columnWidth: 12
-    helpContent: "The currency_type field defines the currency used to pay the fare. Please use the ISO 4217 alphabetical currency codes which can be found at the following URL:http://en.wikipedia.org/wiki/ISO_4217."
+    helpContent: "El campo currency_type define la moneda utilizada para pagar la tarifa. Por favor use los códigos de moneda alfabéticos ISO 4217 que se pueden encontrar en la siguiente URL: http://en.wikipedia.org/wiki/ISO_4217."
   - name: "payment_method"
     required: true
     inputType: DROPDOWN
     bulkEditEnabled: true
     options:
     - value: '0'
-      text: Paid on board (0)
+      text: Pagado a bordo (0)
     - value: '1'
-      text: Paid before boarding (1)
+      text: Pagado antes de abordar (1)
     columnWidth: 12
-    helpContent: "The payment_method field indicates when the fare must be paid. Valid values for this field are:"
+    helpContent: "El campo payment_method indica cuándo se debe pagar la tarifa. Los valores válidos para este campo son:"
   - name: "transfers"
     required: true
     inputType: DROPDOWN
     bulkEditEnabled: true
     options:
     - value: '0'
-      text: No transfers permitted (0)
+      text: No se permiten transferencias (0)
     - value: '1'
-      text: One transfers permitted (1)
+      text: Una transferencia permitida (1)
     - value: '2'
-      text: Two transfers permitted (2)
+      text: Dos transferencias permitidas (2)
     - value: ''
-      text: Unlimited transfers (empty)
+      text: Transferencias ilimitadas (vacío)
     columnWidth: 6
-    helpContent: "The transfers field specifies the number of transfers permitted on this fare. Valid values for this field are:"
+    helpContent: "El campo transfers especifica el número de transferencias permitidas en esta tarifa. Los valores válidos para este campo son:"
   - name: "transfer_duration"
     required: false
     inputType: POSITIVE_INT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The transfer_duration field specifies the length of time in seconds before a transfer expires."
+    helpContent: "El campo transfer_duration especifica el tiempo en segundos antes de que caduque una transferencia."
   - name: agency_id
     required: false
     inputType: GTFS_AGENCY
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "Required for feeds with multiple agencies defined in the agency.txt file. Each fare attribute must specify an agency_id value to indicate which agency the fare applies to."
+    helpContent: "Obligatorio para feeds con varias agencias definidas en el archivo agency.txt. Cada atributo de tarifa debe especificar un valor de agency_id para indicar a qué agencia se aplica la tarifa."
 
 
 - id: fare_rules
   name: fare_rules.txt
-  helpContent: Rules for applying fare information for a transit organization's routes.
+  helpContent: Reglas para aplicar la información de tarifas para las rutas de una organización de tránsito.
   fields:
   - name: "fare_id"
     required: true
     inputType: GTFS_FARE
     columnWidth: 6
-    helpContent: "The fare_id field contains an ID that uniquely identifies a fare class. This value is referenced from the fare_attributes.txt file."
+    helpContent: "El campo fare_id contiene un ID que identifica de forma única una clase de tarifa. Se hace referencia a este valor desde el archivo fare_attributes.txt."
   - name: "route_id"
     required: false
     inputType: GTFS_ROUTE
     columnWidth: 12
-    helpContent: "The route_id field associates the fare ID with a route. Route IDs are referenced from the routes.txt file. If you have several routes with the same fare attributes, create a row in fare_rules.txt for each route."
+    helpContent: "El campo route_id asocia el ID de tarifa con una ruta. Se hace referencia a los IDs de ruta desde el archivo route.txt. Si tiene varias rutas con los mismos atributos de tarifa, cree una fila en fare_rules.txt para cada ruta."
   - name: "origin_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 6
-    helpContent: "The origin_id field associates the fare ID with an origin zone ID. Zone IDs are referenced from the stops.txt file. If you have several origin IDs with the same fare attributes, create a row in fare_rules.txt for each origin ID."
+    helpContent: "El campo origin_id asocia el ID de tarifa con un ID de zona de origen. Se hace referencia a los IDs de zona desde el archivo stops.txt. Si tiene varios IDs de origen con los mismos atributos de tarifa, cree una fila en fare_rules.txt para cada ID de origen."
   - name: "destination_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 6
-    helpContent: "The destination_id field associates the fare ID with a destination zone ID. Zone IDs are referenced from the stops.txt file. If you have several destination IDs with the same fare attributes, create a row in fare_rules.txt for each destination ID."
+    helpContent: "El campo destination_id asocia el ID de tarifa con un ID de zona de destino. Se hace referencia a los IDs de zona desde el archivo stops.txt. Si tiene varios IDs de destino con los mismos atributos de tarifa, cree una fila en fare_rules.txt para cada ID de destino."
   - name: "contains_id"
     required: false
     inputType: GTFS_ZONE
     columnWidth: 6
-    helpContent: "The contains_id field associates the fare ID with a zone ID, referenced from thestops.txt file. The fare ID is then associated with itineraries that pass through every contains_id zone."
+    helpContent: "El campo contains_id asocia el ID de tarifa con un ID de zona, al que se hace referencia desde el archivo stops.txt. El ID de tarifa se asocia luego con los itinerarios que pasan por cada zona contains_id."
 
 
 - id: frequencies
   name: frequencies.txt
-  helpContent: Headway (time between trips) for routes with variable frequency of service.
+  helpContent: Progreso (tiempo entre viajes) para rutas con frecuencia de servicio variable.
   fields:
   - name: "trip_id"
     required: true
     inputType: GTFS_TRIP
     columnWidth: 6
-    helpContent: "The trip_id contains an ID that identifies a trip on which the specified frequency of service applies. Trip IDs are referenced from the trips.txt file."
+    helpContent: "El campo trip_id contiene un ID que identifica un viaje en el que se aplica la frecuencia de servicio especificada. Se hace referencia a los IDs de viajes desde el archivo trips.txt."
   - name: "start_time"
     required: true
     inputType: TIME
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The start_time field specifies the time at which service begins with the specified frequency. The time is measured from "
+    helpContent: "El campo start_time especifica la hora a la que comienza el servicio con la frecuencia especificada. El tiempo se mide desde "
   - name: "end_time"
     required: true
     inputType: TIME
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The end_time field indicates the time at which service changes to a different frequency (or ceases) at the first stop in the trip. The time is measured from "
+    helpContent: "El campo end_time indica la hora a la que el servicio cambia a una frecuencia diferente (o cesa) en la primera parada del viaje. El tiempo se mide desde "
   - name: "headway_secs"
     required: true
     inputType: POSITIVE_INT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The headway_secs field indicates the time between departures from the same stop (headway) for this trip type, during the time interval specified by start_time andend_time. The headway value must be entered in seconds."
+    helpContent: "El campo headway_secs indica el tiempo entre salidas desde una misma parada (avance) para este tipo de viaje, durante el intervalo de tiempo especificado por start_time y end_time. El valor de avance debe ingresarse en segundos."
   - name: "exact_times"
     required: false
     inputType: DROPDOWN
@@ -965,23 +965,23 @@
     - value: '0'
     - value: '1'
     columnWidth: 6
-    helpContent: "The exact_times field determines if frequency-based trips should be exactly scheduled based on the specified headway information. Valid values for this field are:"
+    helpContent: "El campo exact_times determina si los viajes basados en la frecuencia deben programarse exactamente en función de la información de avance especificada. Los valores válidos para este campo son:"
 
 
 - id: transfers
   name: transfers.txt
-  helpContent: Rules for making connections at transfer points between routes.
+  helpContent: Reglas para realizar conexiones en puntos de transferencia entre rutas.
   fields:
   - name: "from_stop_id"
     required: true
     inputType: GTFS_STOP
     columnWidth: 12
-    helpContent: "The from_stop_id field contains a stop ID that identifies a stop or station where a connection between routes begins. Stop IDs are referenced from the stops.txt file. If the stop ID refers to a station that contains multiple stops, this transfer rule applies to all stops in that station."
+    helpContent: "El campo from_stop_id contiene un ID de parada que identifica una parada o estación donde comienza una conexión entre rutas. Se hace referencia a los IDs de parada desde el archivo stops.txt. Si el ID de la parada hace referencia a una estación que contiene varias paradas, esta regla de transferencia se aplica a todas las paradas de esa estación."
   - name: "to_stop_id"
     required: true
     inputType: GTFS_STOP
     columnWidth: 12
-    helpContent: "The to_stop_id field contains a stop ID that identifies a stop or station where a connection between routes ends. Stop IDs are referenced from the stops.txt file. If the stop ID refers to a station that contains multiple stops, this transfer rule applies to all stops in that station."
+    helpContent: "El campo to_stop_id contiene un ID de parada que identifica una parada o estación donde termina una conexión entre rutas. Se hace referencia a los IDs de parada desde el archivo stops.txt. Si el ID de la parada hace referencia a una estación que contiene varias paradas, esta regla de transferencia se aplica a todas las paradas de esa estación."
   - name: "transfer_type"
     required: true
     inputType: DROPDOWN
@@ -991,18 +991,18 @@
     - value: '2'
     - value: '3'
     columnWidth: 6
-    helpContent: "The transfer_type field specifies the type of connection for the specified (from_stop_id, to_stop_id) pair. Valid values for this field are:"
+    helpContent: "El campo transfer_type especifica el tipo de conexión para el par especificado (from_stop_id, to_stop_id). Los valores válidos para este campo son:"
   - name: "min_transfer_time"
     required: false
     inputType: POSITIVE_INT
     columnWidth: 6
-    helpContent: "When a connection between routes requires an amount of time between arrival and departure (transfer_type=2), the min_transfer_time field defines the amount of time that must be available in an itinerary to permit a transfer between routes at these stops. The min_transfer_time must be sufficient to permit a typical rider to move between the two stops, including buffer time to allow for schedule variance on each route."
+    helpContent: "Cuando una conexión entre rutas requiere una cantidad de tiempo entre la llegada y la salida (transfer_type=2), el campo min_transfer_time define la cantidad de tiempo que debe estar disponible en un itinerario para permitir una transferencia entre rutas en estas paradas. El campo min_transfer_time debe ser suficiente para permitir que un pasajero típico se desplace entre las dos paradas, incluido el tiempo intermedio para permitir la variación del horario en cada ruta."
 
 
 - id: scheduleexception
   name: (none)
   datatools: true
-  helpContent: Conveyal-specific table for classifying schedule exceptions.
+  helpContent: Tabla específica de Conveyal para clasificar las excepciones al cronograma.
   fields:
   - name: name
     required: true

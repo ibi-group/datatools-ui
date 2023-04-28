@@ -340,6 +340,7 @@ export const mockFeedVersion = {
     feedVersionId: 'mock-feed-version-id',
     loadFailureReason: null,
     loadStatus: 'SUCCESS',
+    mobilityDataResult: {},
     routeCount: 10,
     startDate: '20180801',
     stopCount: 237,

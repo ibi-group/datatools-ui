@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
-FROM maven:3.8.6-openjdk-8
+FROM maven:3.8.7-openjdk-18
+
 WORKDIR /datatools
 
 ARG E2E_AUTH0_USERNAME
@@ -32,6 +33,7 @@ ARG AWS_SECRET_ACCESS_KEY
 
 # Grab latest dev build of Datatools Server
 RUN git clone https://github.com/ibi-group/datatools-server.git
+RUN microdnf install wget
 WORKDIR /datatools/datatools-server
 
 RUN mvn package -DskipTests

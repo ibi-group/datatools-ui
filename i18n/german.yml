@@ -1160,6 +1160,7 @@ components:
     useELB: Elastic Load Balancer (ELB) verwenden?
   ShowAllRoutesOnMapFilter:
     fetching: Abruf läuft...
+    noShapes: Für dieses Feed wurden noch keine Routenformen erstellt.
     showAllRoutesOnMap: Zeige alle Routen
     tooManyShapeRecords: große shapes.txt können Performance beeinträchtigen
   Sidebar:

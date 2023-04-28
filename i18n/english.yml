@@ -827,6 +827,9 @@ components:
       defaultDwellTime: Default dwell time
       defaultTravelTime: Default travel time
       firstStopTravelTime: Travel time for first stop must be zero
+      stopHeadsignPlaceholder: Outbound
+      stopHeadsignText: Stop headsign
+      stopHeadsignTitle: Headsign that overrides trip headsign between stops.
       timepoint: Timepoint?
       travelTimeHelp: Define the default time it takes to travel to this stop from the previous stop.
     PickupDropOffSelect:
@@ -1129,6 +1132,7 @@ components:
     noEC2Instances: No EC2 instances associated with server.
   ShowAllRoutesOnMapFilter:
     fetching: Fetching
+    noShapes: The feed does not have any route shapes created yet.
     showAllRoutesOnMap: Show all routes
     tooManyShapeRecords: large shapes.txt may impact performance
   Sidebar:
@@ -1261,6 +1265,15 @@ components:
     title: Timetable editor keyboard shortcuts
   TimezoneSelect:
     placeholder: Select timezone...
+  TripSeriesModal:
+    close: Close
+    createTripSeriesBody: Enter the start and end time for the trip series (24 hour time) and headway between trips. Click generate to create the series of trips. 
+    createTripSeriesQuestion: Create a series of trips
+    disabledTooltip: There is an issue with the input data
+    endTime: "End Time:"
+    generateTrips: Generate Trips
+    headway: "Headway:"
+    startTime: "Start Time:"
   UserAccount:
     account:
       title: Account

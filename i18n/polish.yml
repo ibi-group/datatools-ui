@@ -1137,6 +1137,7 @@ components:
     useELB: Use Elastic Load Balancer (ELB)?
   ShowAllRoutesOnMapFilter:
     fetching: Fetching
+    noShapes: Karma nie ma jeszcze utworzonych żadnych kształtów tras.
     showAllRoutesOnMap: Show all routes
     tooManyShapeRecords: large shapes.txt may impact performance
   Sidebar:

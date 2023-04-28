@@ -129,7 +129,7 @@
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.3.5",
     "execa": "^2.0.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-http-proxy": "^1.5.1",
     "extract-zip": "^1.6.7",
     "flow-bin": "0.84",

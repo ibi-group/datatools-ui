@@ -6,6 +6,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+ADD . /
+
 RUN yarn run build -- --minify
 
 FROM jitesoft/lighttpd:latest

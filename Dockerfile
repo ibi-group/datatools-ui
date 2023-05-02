@@ -8,5 +8,7 @@ RUN yarn run build -- --minify
 
 FROM jitesoft/lighttpd:latest
 RUN mkdir -p /var/www/html/dist
+RUN mkdir -p /var/www/html/dist/static
 COPY --from=build /index.html /var/www/html/
+COPY --from=build /static/ /var/www/html/dist/static/
 COPY --from=build /dist/ /var/www/html/dist/

@@ -640,11 +640,11 @@
       inputType: TIME
       columnWidth: 6
       helpContent: "The departure_time specifies the departure time from a specific stop for a specific trip on a route. The time is measured from "
-    - name: "start_pickup_dropoff_window"
+    - name: "start_pickup_drop_off_window"
       required: false
       inputType: TIME
       columnWidth: 6
-    - name: "end_pickup_dropoff_window"
+    - name: "end_pickup_drop_off_window"
       required: false
       inputType: TIME
       columnWidth: 6

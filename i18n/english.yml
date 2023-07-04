@@ -293,6 +293,8 @@ components:
     daysOfService: Days of service
     dropImage: Drop %activeComponent% image here, or click to select image to upload.
     optional: (optional)
+    realtimeBookingTypeErrorToast: ⓘ Input Error! You must clear all prior notice fields before changing booking_type to realtime!
+    realtimeBookingTypeErrorTooltip: Prior notice information must be cleared before setting type to realtime
     selectAgency: Select agency...
     selectDate: Please select a date
     selectOption: -- select an option --

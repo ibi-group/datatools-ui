@@ -341,6 +341,9 @@ components:
     next: Next
     of: of
     previous: Previous
+    uploadBody: "Select a GTFS feed to upload:"
+    uploadError: Uploaded file must be a valid zip file (.zip).
+    uploadTitle: Upload Feed
     version: Version
   FeedVersionTabs:
     agencyCount: Agency count
@@ -767,6 +770,8 @@ components:
     line: Line
     priority: Priority
     problemType: Problem Type
+  SelectFileModal:
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
   ServerSettings:
     deployment:
       otpServers:

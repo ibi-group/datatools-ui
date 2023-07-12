@@ -48,6 +48,13 @@ components:
       routeCount: 'Latest Version: Number of Routes'
     sortBy: Sort By
     url: 'Feed download URL'
+  BookingRuleValidation:
+    forbiddenForBookingType: Forbidden for booking_type %bookingType%
+    forbiddenForBookingTypeIfDefined: Forbidden for booking_type %bookingType% if %field% is defined.
+    forbiddenForBookingTypeOtherThan: Forbidden for booking_types other than %bookingType%
+    forbiddenIfFieldNotDefined: Forbidden if %field% is not defined
+    requiredForBookingType: Required for booking_type %bookingType%
+    requiredIfFieldIsDefined: Required if %field% is defined
   Brand:
     dataTools: Data Tools 
   Breadcrumbs:
@@ -691,6 +698,8 @@ components:
     stop:
       title: Edit stops
       label: Stops
+  GtfsServiceSelect: 
+    placeholder: Select existing service ID
   GtfsValidationExplorer:
     accessibilityValidation: Accessibility Explorer
     table:

@@ -1078,7 +1078,7 @@
       inputType: TIME
       helpContent: Earliest time on the earliest day before travel to make the booking request
       bulkEditEnabled: true
-      columnWidth: 5
+      columnWidth: 6
     # TODO: enable validation to match spec (only appear when appropriate)
     - name: prior_notice_start_day
       inputType: POSITIVE_NUM
@@ -1093,7 +1093,7 @@
       bulkEditEnabled: true
     # TODO: enable validation to match spec (only appear when appropriate)
     - name: prior_notice_service_id
-      inputType: GTFS_SERVICE
+      inputType: GTFS_SERVICE_DROPDOWN
       helpContent: Indicates the service days on which prior_notice_last_day or prior_notice_start_day are counted.
       columnWidth: 12
       bulkEditEnabled: true

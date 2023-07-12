@@ -48,6 +48,13 @@ components:
     url: Feed-Abruf-URL
     userLogs: Nutzer-Authentisierungs-Logs
     viewUserLogs: Nutzenden-Logs auf Auth0.com ansehen
+  BookingRuleValidation:
+    forbiddenForBookingType: Forbidden for booking_type %bookingType%
+    forbiddenForBookingTypeIfDefined: Forbidden for booking_type %bookingType% if %field% is defined.
+    forbiddenForBookingTypeOtherThan: Forbidden for booking_types other than %bookingType%
+    forbiddenIfFieldNotDefined: Forbidden if %field% is not defined
+    requiredForBookingType: Required for booking_type %bookingType%
+    requiredIfFieldIsDefined: Required if %field% is defined
   Brand:
     dataTools: Data Tools
   Breadcrumbs:
@@ -724,6 +731,8 @@ components:
     stop:
       label: Haltestellen
       title: Haltestellen bearbeiten
+  GtfsServiceSelect: 
+    placeholder: Select existing service ID
   GtfsValidationExplorer:
     accessibilityValidation: Erreichbarkeits-Explorer
     table:

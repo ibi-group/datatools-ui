@@ -1057,16 +1057,16 @@
           text: Up to prior day(s) booking
     # TODO: enable validation to match spec (only appear when appropriate)
     - name: prior_notice_duration_min
-      inputType: POSITIVE_NUM
+      inputType: HOUR_MINUTE_INPUT
       helpContent: Minimum number of minutes before travel to make the request
       bulkEditEnabled: true
-      columnWidth: 8
+      columnWidth: 6
     # TODO: enable validation to match spec (only appear when appropriate)
     - name: prior_notice_duration_max
-      inputType: POSITIVE_NUM
+      inputType: HOUR_MINUTE_INPUT
       helpContent: Maximum number of minutes before travel to make the request
       bulkEditEnabled: true
-      columnWidth: 8
+      columnWidth: 6
     # TODO: enable validation to match spec (only appear when appropriate)
     - name: prior_notice_last_time
       inputType: TIME

@@ -736,7 +736,9 @@ components:
     priority: Priority
     problemType: Problem Type
   SelectFileModal:
+    cancel: Cancel
     mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
+    ok: OK
   ServerSettings:
     deployment:
       otpServers:

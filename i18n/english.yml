@@ -832,8 +832,13 @@ components:
   PatternStopCard:
     PatternStopContents:
       defaultDwellTime: Default dwell time
+      defaultTimeInLocation: Default time in location
       defaultTravelTime: Default travel time
       firstStopTravelTime: Travel time for first stop must be zero
+      meanDurationFactor: Mean Duration Factor
+      meanDurationOffset: Mean Duration Offset
+      safeDurationFactor: Safe Duration Factor
+      safeDurationOffset: Safe Duration Offset
       stopHeadsignPlaceholder: Outbound
       stopHeadsignText: Stop headsign
       stopHeadsignTitle: Headsign that overrides trip headsign between stops.

@@ -48,6 +48,13 @@ components:
       routeCount: 'Latest Version: Number of Routes'
     sortBy: Sort By
     url: 'Feed download URL'
+  BookingRuleValidation:
+    forbiddenForBookingType: Forbidden for booking_type %bookingType%
+    forbiddenForBookingTypeIfDefined: Forbidden for booking_type %bookingType% if %field% is defined.
+    forbiddenForBookingTypeOtherThan: Forbidden for booking_types other than %bookingType%
+    forbiddenIfFieldNotDefined: Forbidden if %field% is not defined
+    requiredForBookingType: Required for booking_type %bookingType%
+    requiredIfFieldIsDefined: Required if %field% is defined
   Brand:
     dataTools: Data Tools 
   Breadcrumbs:
@@ -293,6 +300,8 @@ components:
     daysOfService: Days of service
     dropImage: Drop %activeComponent% image here, or click to select image to upload.
     optional: (optional)
+    realtimeBookingTypeErrorToast: ⓘ Input Error! You must clear all prior notice fields before changing booking_type to realtime!
+    realtimeBookingTypeErrorTooltip: Prior notice information must be cleared before setting type to realtime
     selectAgency: Select agency...
     selectDate: Please select a date
     selectOption: -- select an option --
@@ -689,6 +698,8 @@ components:
     stop:
       title: Edit stops
       label: Stops
+  GtfsServiceSelect: 
+    placeholder: Select existing service ID
   GtfsValidationExplorer:
     accessibilityValidation: Accessibility Explorer
     table:

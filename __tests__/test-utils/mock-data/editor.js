@@ -12,6 +12,7 @@ export const mockTripWithoutStopTimes = {
   shape_id: '19',
   stopTimes: [],
   tripHeadsign: 'Walla Walla',
+  stopHeadsign: 'North',
   tripId: 'test-trip-id-1',
   tripShortName: null,
   wheelchair_accessible: null

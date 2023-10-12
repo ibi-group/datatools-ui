@@ -1297,6 +1297,31 @@ components:
       permanent lösche möchten?
     deleteTrips: Lösche Trips
     deleteTripsQuestion: Trips löschen?
+  TimetableHeader:
+    addBlankTrip: Add blank trip
+    advancedSettings: Advanced settings
+    backToRoute: Back to route
+    calendarName: "%truncatedCalendarName% calendar"
+    cellNumber: "Cell %cellId%"
+    createTripSeries: Create trip series
+    deleteTrips: Delete trips
+    duplicateTrips: Duplicate trips
+    frequencyEditor: Frequency editor
+    hideDepartureTimes: " Hide departure times"
+    hideDepartureTimesTooltip: "Hiding departure times will keep arrival and departure times in sync. WARNING: do not use if arrivals and departures differ."
+    numValidationIssues: "%errorCount% validation issue(s) found!"
+    patternsOn: "%truncatedPatternName% on "
+    saveChanges: Save changes
+    selectCalendar: "[select calendar]"
+    selectPattern: "[select pattern]"
+    shiftClickToSubtract: Shift-click to subtract
+    showShortcuts: Show keyboard shortcuts
+    timetableEditor: Timetable editor
+    tripsFor: "trips for "
+    undoChanges: Undo changes
+    useSeconds: Use seconds in offset
+    useSecondsToolTip: Toggling the use of seconds allows more precision in the trip offset and trip series creation tools. 
+    validationIssues: Validation issues
   TimetableHelpModal:
     close: Schließen
     pressQuestionmark: Drücken Sie <kbd>?</kbd> um Tastatur-Shortcuts anzusehen

@@ -1140,6 +1140,8 @@ components:
       the following text (current URL and error details), and a detailed description
       of the steps you followed to <a href='mailto:%supportEmail%'>%supportEmail%</a>.
     view: View
+  RouteLayout: 
+    pageSizeNotice: ⚠️ Summary below shows a maximum of %pageSize% routes.
   SelectFileModal:
     cancel: Cancel
     ok: OK

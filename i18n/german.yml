@@ -1156,6 +1156,8 @@ components:
       und eine detailierte Beschreibung der Schritte, die Sie zuvor ausgeführt haben
       an <a href='mailto:%supportEmail%'>%supportEmail%</a>.
     view: Ansehen
+  RouteLayout: 
+    pageSizeNotice: ⚠️ Summary below shows a maximum of %pageSize% routes.
   SelectFileModal:
     cancel: Abbrechen
     ok: OK

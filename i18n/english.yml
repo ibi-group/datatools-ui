@@ -1152,6 +1152,8 @@ components:
     line: Line
     priority: Priority
     problemType: Problem Type
+  RouteLayout: 
+    pageSizeNotice: ⚠️ Summary below shows a maximum of %pageSize% routes.
   SelectFileModal:
     ok: OK
     cancel: Cancel

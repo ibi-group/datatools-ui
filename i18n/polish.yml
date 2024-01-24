@@ -131,6 +131,7 @@ components:
     close: Zamknij
     danger: Uwaga!
     deploy: Wdrożenie
+    deployExisting: Zuelezt Deployte Graph Deployen
     invalidBounds: Granice są nieprawidłowe!
     success: Sukces!
     to: do

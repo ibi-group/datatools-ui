@@ -127,6 +127,7 @@ components:
     close: Close
     danger: Danger!
     deploy: Deploy
+    deployExisting: Deploy Previously Built Graph
     invalidBounds: Bounds are invalid!
     to: to
     warning: Warning!

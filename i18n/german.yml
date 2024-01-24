@@ -128,6 +128,7 @@ components:
     close: Schließen
     danger: Gefahr!
     deploy: Deployen
+    deployExisting: Zuelezt Deployte Graph Deployen
     invalidBounds: Grenzen sind ungültig!
     success: Erfolg!
     to: zu

@@ -1,12 +1,36 @@
-img[alt=screenshot] { width: 100%; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-/*Ignore first heading in page in TOC list*/
-li.toctree-l3:first-child {
-    display: none;
+h1, h2, h3 {
+  color: #015f97;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .img-center {
-  width: 300px;
   margin-left: auto;
   margin-right: auto;
+  width: 300px;
 }
+
+/* Make all images responsive */
+img {
+  display: block;
+  margin: auto;
+}
+
+img[alt=screenshot] {
+  width: 100%;
+}
+
+/* Center all iframes */
+iframe {
+  display: block;
+  margin: 12px auto;
+}
+
+/* Ignore the first heading in the page in TOC list */
+li.toctree-l3:first-child {
+  display: none;
+}
+

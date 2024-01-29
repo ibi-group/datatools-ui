@@ -1,0 +1,170 @@
+[
+  {
+    "id": 812,
+    "stopId": "mni3",
+    "defaultTravelTime": 0,
+    "stopSequence": 0,
+    "shapeDistTraveled": 197242.5454472529
+  },
+  {
+    "id": 813,
+    "stopId": "20",
+    "defaultTravelTime": 720,
+    "stopSequence": 1,
+    "shapeDistTraveled": 192867.72434468954
+  },
+  {
+    "id": 814,
+    "stopId": "z745",
+    "defaultTravelTime": 180,
+    "stopSequence": 2,
+    "shapeDistTraveled": 195244.20635300872
+  },
+  {
+    "id": 815,
+    "stopId": "56",
+    "defaultTravelTime": 1800,
+    "stopSequence": 3,
+    "shapeDistTraveled": 33048.206330519366
+  },
+  {
+    "id": 816,
+    "stopId": "32",
+    "defaultTravelTime": 1440,
+    "stopSequence": 4,
+    "shapeDistTraveled": 60832.118540076735
+  },
+  {
+    "id": 817,
+    "stopId": "mesm",
+    "defaultTravelTime": 180,
+    "stopSequence": 5,
+    "shapeDistTraveled": 63146.79332096664
+  },
+  {
+    "id": 818,
+    "stopId": "48",
+    "defaultTravelTime": 360,
+    "stopSequence": 6,
+    "shapeDistTraveled": 94015.21260408717
+  },
+  {
+    "id": 819,
+    "stopId": "41",
+    "defaultTravelTime": 780,
+    "stopSequence": 7,
+    "shapeDistTraveled": 114286.01606753658
+  },
+  {
+    "id": 820,
+    "stopId": "42",
+    "defaultTravelTime": 360,
+    "stopSequence": 8,
+    "shapeDistTraveled": 116276.2886381317
+  },
+  {
+    "id": 821,
+    "stopId": "54",
+    "defaultTravelTime": 300,
+    "stopSequence": 9,
+    "shapeDistTraveled": 118373.73385166784
+  },
+  {
+    "id": 822,
+    "stopId": "106",
+    "defaultTravelTime": 780,
+    "stopSequence": 10,
+    "shapeDistTraveled": 132847.66707278747
+  },
+  {
+    "id": 823,
+    "stopId": "2",
+    "defaultTravelTime": 240,
+    "stopSequence": 11,
+    "shapeDistTraveled": 137118.58207316347
+  },
+  {
+    "id": 824,
+    "stopId": "43",
+    "defaultTravelTime": 360,
+    "stopSequence": 12,
+    "shapeDistTraveled": 142538.16195792932
+  },
+  {
+    "id": 825,
+    "stopId": "104",
+    "defaultTravelTime": 360,
+    "stopSequence": 13,
+    "shapeDistTraveled": 152361.6373537682
+  },
+  {
+    "id": 826,
+    "stopId": "o6vb",
+    "defaultTravelTime": 360,
+    "stopSequence": 14,
+    "shapeDistTraveled": 153703.28017251854
+  },
+  {
+    "id": 827,
+    "stopId": "110",
+    "defaultTravelTime": 600,
+    "stopSequence": 15,
+    "shapeDistTraveled": 159323.18716881506
+  },
+  {
+    "id": 829,
+    "stopId": "95",
+    "defaultTravelTime": 600,
+    "stopSequence": 17,
+    "shapeDistTraveled": 179100.23443395202
+  },
+  {
+    "id": 830,
+    "stopId": "24",
+    "defaultTravelTime": 300,
+    "stopSequence": 18,
+    "shapeDistTraveled": 189971.7871304524
+  },
+  {
+    "id": 831,
+    "stopId": "31",
+    "defaultTravelTime": 240,
+    "stopSequence": 19,
+    "shapeDistTraveled": 191943.80449697602
+  },
+  {
+    "id": 828,
+    "stopId": "87",
+    "defaultTravelTime": 0,
+    "stopSequence": 16,
+    "shapeDistTraveled": 175208.868318191
+  },
+  {
+    "id": 832,
+    "stopId": "20",
+    "defaultTravelTime": 180,
+    "stopSequence": 20,
+    "shapeDistTraveled": 157563.46609751563
+  },
+  {
+    "id": 833,
+    "stopId": "z745",
+    "defaultTravelTime": 420,
+    "stopSequence": 21,
+    "shapeDistTraveled": 158085.93401876837
+  },
+  {
+    "id": 834,
+    "stopId": "19",
+    "defaultTravelTime": 180,
+    "stopSequence": 22,
+    "shapeDistTraveled": 195766.8375667882
+  },
+  {
+    "id": 835,
+    "stopId": "mni3",
+    "defaultTravelTime": 60,
+    "stopSequence": 23,
+    "shapeDistTraveled": 159657.88186977178
+  }
+]

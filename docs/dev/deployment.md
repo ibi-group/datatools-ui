@@ -110,7 +110,7 @@ Auth0 is used for authentication in the application. If you don't need authentic
         - Application level
             - Allowed Callback URLs
             - Allowed Origins (CORS)
-    - keep all other default settings
+    - Keep all other default settings
 
 #### Creating your first user
 Create your first Auth0 user through Auth0 web console (Users > Create User). In
@@ -141,9 +141,9 @@ AUTH0_DOMAIN: your-auth0-domain.auth.com
 AUTH0_CLIENT_ID: your-auth0-client-id
 ```
 
-Update the following properties in `datatools-server` `env.yml` to reflect the secure Auth0 application settings.
+Update the following properties in `datatools-server` and `env.yml` to reflect the secure Auth0 application settings.
 
-**Note:** for older Auth0 accounts/tenants, it is possible to use the Auth0 secret token, which uses the HS256 algorithm, but newer Auth0 tenants will need to specify the absolute path of their `.pem` file in the `AUTH0_PUBLIC_KEY` property. This public key only needs to be downloaded one time for your Auth0 tenant at `https://[your_domain].auth0.com/pem`.
+**Note:** For older Auth0 accounts or tenants, it is possible to use the Auth0 secret token with the HS256 algorithm is possible. However, newer Auth0 tenants will need to specify the absolute path of their `.pem` file in the `AUTH0_PUBLIC_KEY` property. This public key only needs to be downloaded one time for your Auth0 tenant at `https://[your_domain].auth0.com/pem`.
 
 ```yaml
 AUTH0_SECRET: your-auth0-client-secret # used for pre-September 2017 Auth0 accounts
@@ -151,34 +151,39 @@ AUTH0_PUBLIC_KEY: /location/of/auth0-account.pem # used for post-September 2017 
 AUTH0_TOKEN: your-auth0-api-token
 ```
 
-**Note**: to generate the `api_token`, go to Documentation > Management API. After adding scopes, your token will appear in the input field.
+**Note**: To generate the `api_token`, go to Documentation > Management API. After adding scopes, your token will appear in the input field.
 
-![Auth0 token generator](../img/auth0-token-generator.png)
+<img src="https://datatools-builds.s3.amazonaws.com/docs/auth0/auth0-token-generator.png" style="box-shadow: 3px 3px 3px gray; border-radius: 10px;">
 
 To allow for the creation, deletion and editing of users you must generate a token for the following scopes:
 
 - **users**:
     - read, update, create and delete
 - **users_app_metadata**:
-    - read, update, create and delete`
+    - read, update, create and delete
 
-#### Auth0 Rule Configuration: making app_metadata and user_metadata visible via token (only required for "new" Auth0 accounts/tenants)
-If using OIDC-conformant clients/APIs (which appears to be mandatory for new Auth0 tenants), you must set up a custom Auth0 rule to add app_metadata and user_metadata to the user's token (Note: this is not the default for older, "legacy" Auth0 accounts). Go to Rules > Create Rule > empty rule and add the following code snippet. If you'd like the rule to only apply to certain clients, you can keep the conditional block that checks for `context.clientID` value. Otherwise, this conditional block is unnecessary.
+#### Auth0 Post-Login Action Configuration: making `app_metadata` and `user_metadata` visible via token
 
-```
-function (user, context, callback) {
-  if (context.clientID === 'YOUR_CLIENT_ID') {
-    var namespace = 'http://datatools/';
-    if (context.idToken && user.user_metadata) {
-      context.idToken[namespace + 'user_metadata'] = user.user_metadata;
-    }
-    if (context.idToken && user.app_metadata) {
-      context.idToken[namespace + 'app_metadata'] = user.app_metadata;
-    }
+If using OIDC-conformant clients/APIs (which appears to be mandatory for new Auth0 tenants), you must set up a custom Auth0 action to add `app_metadata` and `user_metadata` to the user's id token (Note: this is not the default for older, "legacy" Auth0 accounts).
+
+To set up the action, go to Actions > Flows > Login, then under Add action > Custom, click `Create Action`. Fill in the action name and pick a recommended runtime, and click `Create`. Modify the function `onExecutePostLogin` as follows, then click `Save Draft`:
+
+```js
+exports.onExecutePostLogin = async (event, api) => {
+  if (event.authorization) {
+    const namespace = 'http://datatools';
+    api.idToken.setCustomClaim(`${namespace}/user_metadata`, event.user.user_metadata);
+    api.idToken.setCustomClaim(`${namespace}/app_metadata`, event.user.app_metadata);
   }
-  callback(null, user, context);
-}
+};
 ```
+If you want the rule to apply only to specific clients, you can retain the conditional block that checks the `context.clientID` value. Otherwise, you can remove this conditional block if it's not needed.
+This rule will ensure that `app_metadata` and `user_metadata` are included in the user's token, as required for OIDC-conformant clients/APIs in new Auth0 tenants.
+
+You can test the action with mock token data using the Test tab. Once ready, click `Deploy`, then click `Back to Flow`.
+In the diagram, drag the action between the Start and Complete steps, then click `Apply`.
+You can test that the action is correctly executed by logging-in to datatools with an admin user
+and checking that the Admin functionality is available.
 
 ## Building and Running the Application
 
@@ -304,6 +309,7 @@ extensions:
 ```
 
 ### Integration with [TransitFeeds](http://transitfeeds.com/)
+**Note**: TransitFeeds is not regularly updated and is being replaced by the [MobilityData Database](https://database.mobilitydata.org/)
 
 Ensure that the `extensions:transitfeeds:enabled` flag is set to `true` in
 `config.yml`, and provide your API key:

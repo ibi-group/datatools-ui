@@ -1,4 +1,4 @@
-site_name: Transit Data Tools Docs
+site_name: TRANSIT-data-tools Docs
 site_url: http://conveyal-data-tools.readthedocs.io
 repo_url: https://github.com/conveyal/datatools-manager
 docs_dir: docs
@@ -13,22 +13,23 @@ nav:
   - 'Managing Projects & Feeds': 'user/managing-projects-feeds.md'
   - 'Managing Users': 'user/managing-users.md'
 - 'GTFS Editor':
-  - Introduction: 'user/editor/introduction.md'
+  - Getting Started: 'user/editor/getting-started.md'
   - Stops: 'user/editor/stops.md'
-  - Calendars: 'user/editor/calendars.md'
   - Routes: 'user/editor/routes.md'
   - Patterns: 'user/editor/patterns.md'
   - Schedules: 'user/editor/schedules.md'
   - Fares: 'user/editor/fares.md'
 - Deploying to OTP:
-  - Overview: user/otp-deployment.md
-  - Setting up AWS servers: user/setting-up-aws-servers.md
-  - Adding a deployment server: user/add-deployment-server.md
-  - Deploying GTFS feeds to OTP: user/deploying-feeds.md
+  - Overview: 'user/otp-deployment.md'
+  - Setting up AWS servers: 'user/setting-up-aws-servers.md'
+  - Adding a deployment server: 'user/add-deployment-server.md'
+  - Deploying GTFS feeds to OTP: 'user/deploying-feeds.md'
 - For Developers:
-  - Deployment: dev/deployment.md
-  - Development: dev/development.md
-  - Migration: dev/migration.md
+  - Deployment: 'dev/deployment.md'
+  - Development: 'dev/development.md'
+  - Migration: 'dev/migration.md'
+  - Localization: 'dev/localization.md'
+  - API Interaction: 'dev/api_interaction.md'
 - Appendices: 
   - GTFS Validation Warnings: 'user/appendix-gtfs-warnings.md'
 

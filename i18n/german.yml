@@ -7,6 +7,10 @@ components:
     errorWithStatus: Fehler (%status%) beim %method% Aufruf von %url%
     networkError: Netzwerk-Fehler (%status%)!\n\n(%method% Aufruf von %url%)
     noFile: Keine Datei zum Hochladen!
+  AddCustomFile: 
+    addCustomCsvData: Add the custom CSV data.
+    customFileName: Custom file name
+    saveCsvAndFileName: Save CSV and file name
   AdminPage:
     applicationLogs: Anwendungs-Logs
     backToDashboard: Zurück zum Dashboard
@@ -61,6 +65,9 @@ components:
     deployments: Deployments
     projects: Projekte
     root: Erkunden
+  CalendarSelect:
+    exceptionBasedCalendar: (Exception based calendar)
+    selectCalendar: " Select calendar..."
   ConfirmModal:
     cancel: Abbrechen
     ok: OK
@@ -83,6 +90,9 @@ components:
         placeholder: Name des Schnappschusses (erforderlich)
       publishNewVersion:
         label: Veröffentliche Schnappschuss als neue Feed-Version
+      publishProprietaryFiles: 
+        helpText: Proprietary files allow you to maintain certain Datatools features, such as pattern names, when re-importing a feed.
+        label: Publish new feed version with proprietary (extra) Datatools files.
     missingNameAlert: Gültiger Schnappschuss-Name erforderlich!
     ok: OK
     title: Neuen Schnappschuss erstellen
@@ -298,6 +308,7 @@ components:
     load: Zur Bearbeitung laden
     loadLatest: Aktuellsten zur Bearbeitung herunterladen
     name: Name
+    noOtherSnapshots: No other snapshots
     noSnapshotsExist: Für diese Feed-Quelle existieren noch keine Schnappschüsse.
       Schnappschüsse können im Editor erstellt werden. Wählen Sie "Feed bearbeiten"
       um den Bearbeitungsmodus zu starten.
@@ -341,6 +352,23 @@ components:
       auf eine Örtlickeit in der Karte
     editSchedules: Abfahrzeiten erstellen
     name: Name
+  ExceptionCalendarSelector: 
+    selectCalendar: Select calendar...
+    unnamedDefault: "[unnamed]"
+  ExceptionDate: 
+    addRange: Add range
+    dateRemoved: ⓘ Date has been removed. Date entered is already included in an existing range or single date!
+    selectDate: Select date
+  ExceptionDateRange: 
+    andOtherErrors: ...and %errors% other errors
+    deleteEndDate: Delete end date
+    deleteRange: Delete range
+  ExceptionValidationErrorsList: 
+    andOtherErrors: ...and %errors% other errors
+  ExportPatternsModal:
+    exportPatterns: Publish version with proprietary patterns?
+    no: No
+    yes: Yes
   FeedActionsDropdown:
     delete: Löschen
     deleteFeedSource: Feed-Quelle löschen?
@@ -502,6 +530,13 @@ components:
       tablePlaceholder: '[Tabelle auswählen]'
       version: Version
       versionPlaceholder: '[Version auswählen]'
+    AddCustomFileTransformation:
+      label: Add custom file in GTFS.
+      name: Add custom file transformation
+    PreserveCustomFieldsTransformation:
+      filePlaceholder: Choose the file/table with custom field
+      label: Preserve fields in %tablePlaceholder% from %filePlaceholder%
+      name: Preserve custom fields transformation
   FeedVersionNavigator:
     confirmDelete: Sind Sie sicher, dass sie diese Version endgültig löschen möchten?
     confirmLoad: Dies wird alle aktiven GTFS Editor Daten dieser Feed-Quelle mit den
@@ -825,6 +860,26 @@ components:
       fieldUndefined: Zu normalisierendes Feld muss angegeben werden.
       substitutionInvalid: Substitutions-Muster ungültig.
       substitutionUndefined: Substitution-Muster müssen angegeben werden.
+  NormalizeStopTimesModal:
+    close: Close
+    interpolateStopTimes: Interpolate stop times between timepoints?
+    normalizeStopTimes: Normalize stop times
+    normalizeStopTimesQuestion: Normalize stop times?
+    selectBeginningPatternStop: "Select beginning pattern stop:"
+    tooFewTimepoints: "You must have more than 1 timepoint to interpolate times"
+    usageExplanationOne: This feature is useful when the travel times for one or more
+      pattern stops change. Take for example a pattern
+      that has been re-routed along to travel a longer distance, has had a
+      stop added (or removed), or has had a layover introduced mid-trip.
+      Once you have adjusted the travel times to account for these changes,
+      you can normalize the stop times to bring them into alignment with the
+      updated travel times reflected in the pattern stops.
+    usageExplanationTwo: Interpolating stop times calculates the implicit speed between timepoints
+      based on the shape distance and the default travel times. This speed is
+      then applied to the shape distance traveled for each intermediate non-timepoint
+      stop to provide interpolated travel times. The default travel time for non-timepoint
+      stops will not be modified.
+    usageNotes: " Usage notes"
   NormalizeStopTimesTip:
     info: 'Tipp: Wenn Sie Reisezeiten ändern, erwägen Sie die Benutzung des "Stop
       times normalisieren"-Buttons oberhalb, um automatisch alle Stop Times auf die
@@ -873,6 +928,9 @@ components:
     edit-alert: GTFS-RT Alerts bearbeiten
     edit-gtfs: GTFS Feeds bearbeiten
     manage-feed: Feed-Konfiguration verwalten
+  PreserveCustomFields: 
+    addCsvWithCustomFields: "Add the CSV data with custom fields to preserve in the final output."
+    saveCsv: Save CSV
   ProjectAccessSettings:
     admin: Admin
     cannotFetchFeeds: Feeds nicht abrufbar
@@ -1044,6 +1102,9 @@ components:
       localPlacesIndex:
         title: Adress-Index
         webhookUrl: Webhook URL
+      sharedStops:
+        title: Shared Stops
+        placeholder: Shared stops config CSV
       location:
         boundingBox: Gebiets-Grenzen (W,S,E,N)
         boundingBoxPlaceHolder: min_lon, min_lat, max_lon, max_lat
@@ -1096,7 +1157,7 @@ components:
     mergeFeeds: Alle zusammeführen
     noProjectFound: Keine Projekte gefunden für
     note: 'Hinweis:'
-    publicViewed: Öffentliche Feed-Seite ist sichtbar
+    publicViewed: "Öffentliche Feed-Seite ist sichtbar "
     returnToProjects: Zurück zur Projektliste
     settings: Einstellungen
   ProjectsList:
@@ -1132,6 +1193,9 @@ components:
     viewDashboard: Dashboard ansehen
   RegionSearch:
     placeholder: Suche nach Regionen oder Unternehmen
+  ReplaceFileFromString:
+    addCsvData: "Add the CSV data to add to/replace in the incoming GTFS:"
+    saveCsv: Save CSV
   ResultTable:
     affectedIds: Betroffene ID(s)
     description: Beschreibung
@@ -1145,6 +1209,32 @@ components:
       und eine detailierte Beschreibung der Schritte, die Sie zuvor ausgeführt haben
       an <a href='mailto:%supportEmail%'>%supportEmail%</a>.
     view: Ansehen
+  RouteLayout:
+    errorOccurred: An error occurred while trying to fetch the data
+    jumpToRoute: Jump to a Route
+    route: "Route:"
+    RouteRow:
+      patterns: "%num% Patterns"
+      stops: "%num% Stops"
+      trips: "%num% Trips"
+  ScheduleExceptionForm:
+    addDate: " Add date"
+    customServiceID: Custom service ID
+    dates: Dates
+    exceptionBasedService: Exception Based Service
+    exceptionName: Exception name*
+    noDatesSpecified: No dates specified
+    noService: No Service
+    onTheseDates: On these dates*
+    ranges: Ranges
+    runFollowing: "Run the following schedule:"
+    selectCalendar: Select calendar to run*
+    selectCalendarToAdd: "Select calendars to add (optional):"
+    selectCalendarToRemove: "Select calendars to remove (optional):"
+    selectExemplar: -- Select exception type --
+    swapAddOrRemove: Swap, add, or remove
+    thanksgivingDay: Thanksgiving Day
+    unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Abbrechen
     ok: OK
@@ -1176,6 +1266,7 @@ components:
     useELB: Elastic Load Balancer (ELB) verwenden?
   ShowAllRoutesOnMapFilter:
     fetching: Abruf läuft...
+    noShapes: Für dieses Feed wurden noch keine Routenformen erstellt.
     showAllRoutesOnMap: Zeige alle Routen
     tooManyShapeRecords: große shapes.txt können Performance beeinträchtigen
   Sidebar:
@@ -1285,6 +1376,31 @@ components:
       permanent lösche möchten?
     deleteTrips: Lösche Trips
     deleteTripsQuestion: Trips löschen?
+  TimetableHeader:
+    addBlankTrip: Add blank trip
+    advancedSettings: Advanced settings
+    backToRoute: Back to route
+    calendarName: "%truncatedCalendarName% calendar"
+    cellNumber: "Cell %cellId%"
+    createTripSeries: Create trip series
+    deleteTrips: Delete trips
+    duplicateTrips: Duplicate trips
+    frequencyEditor: Frequency editor
+    hideDepartureTimes: " Hide departure times"
+    hideDepartureTimesTooltip: "Hiding departure times will keep arrival and departure times in sync. WARNING: do not use if arrivals and departures differ."
+    numValidationIssues: "%errorCount% validation issue(s) found!"
+    patternsOn: "%truncatedPatternName% on "
+    saveChanges: Save changes
+    selectCalendar: "[select calendar]"
+    selectPattern: "[select pattern]"
+    shiftClickToSubtract: Shift-click to subtract
+    showShortcuts: Show keyboard shortcuts
+    timetableEditor: Timetable editor
+    tripsFor: "trips for "
+    undoChanges: Undo changes
+    useSeconds: Use seconds in offset
+    useSecondsToolTip: Toggling the use of seconds allows more precision in the trip offset and trip series creation tools. 
+    validationIssues: Validation issues
   TimetableHelpModal:
     close: Schließen
     pressQuestionmark: Drücken Sie <kbd>?</kbd> um Tastatur-Shortcuts anzusehen
@@ -1320,6 +1436,17 @@ components:
     title: Abfahrtszeiten-Editor Tastatur-Shortcuts
   TimezoneSelect:
     placeholder: Zeitzone auswählen...
+  TransformationsViewer:
+    columnsAdded: "Custom columns added: %columns%"
+    noTransformationApplied: No transformations applied.
+    rowsAdded: "Rows added: %rows%"
+    rowsDeleted: "Rows deleted: %rows%"
+    rowsUpdated: "Rows updated: %rows%"
+    tableModified: Table Modified 
+    tableAdded: Table Added
+    tableReplaced: Table Replaced
+    tableDeleted: TableDeleted
+    transformationsTitle: Transformations
   UserAccount:
     account:
       title: Konto
@@ -1350,6 +1477,9 @@ components:
     logout: Abmelden
     myAccount: Mein Konto
   UserHomePage:
+    authDisabledInfo: >-
+      You are running %appTitle% without user authentication enabled.
+      Features such as user management, account management and feed activity watching are unavailable.
     createFirst: Erstelle mein erstes Projekt
     help:
       content: Ein Projekt dient dazu, GTFS-Feeds zu gruppieren. Zum Beispiel können
@@ -1409,6 +1539,26 @@ components:
       custom: Benutzerdefiniert
       noAccess: Kein Zugriff
     save: Speichern
+  Validation:
+    agencyRequired: Field must be populated for feeds with more than one agency.
+    conflictingServiceId: Service ID already exists in a standard calendar!
+    customServiceId: Custom service ID
+    dateServiceIdCombinationDuplicate: Date (%exceptionDate%) and Service ID (%serviceId%) combination cannot appear more than once for all exceptions.
+    idMustBeUnique: Identifier must be unique.
+    idRequired: Identifier is required if more than one agency exists.
+    invalidEmail: Field must contain valid email address.
+    invalidLatitude: Field must be valid latitude.
+    invalidLongitude: Field must be valid longitude.
+    invalidRouteType: Field must be a valid route type.
+    invalidUrl: Field must contain valid URL.
+    latLonRequired: Latitude and Longitude are required for your current location type.
+    mustBePositiveInteger: Field must be a positive integer.
+    mustBePositiveNumber: Field must be a positive number.
+    mustBeValidNumber: Field must be a valid number.
+    nameAlreadyUsed: "%name% is already used in another exception."
+    serviceRequired: Calendar must have service for at least one day.
+    stopNameRequired: Stop name is required for stop, station, and entrance location types.
+    requiredFieldEmpty: Required field must not be empty.
   VersionButtonToolbar:
     confirmDelete: Sind Sie sicher, dass sie diese Version endgültig löschen möchten?
     confirmLoad: Dies wird alle aktiven GTFS Editor Daten dieser Feed-Quelle mit den
@@ -1445,3 +1595,57 @@ components:
   WrapComponentInAuthStrategy:
     adminTestFailed: Sie haben versucht, eine eingeschränkt sichtbare Seite aufzurufen,
       verfügen jedoch nicht über die erforderlichen Rechte.
+  CustomCSVForm:
+    numLines: "%numLines% lines."
+    csvInvalid: CSV ungültig!
+    uploading: Uploading...
+  FeedTransformationErrors:
+    csvMissingName: Custom CSV must have a name.
+    csvNameContainsTxt: Custom CSV name cannot contain .txt
+    undefinedCSVData: CSV data must be defined.
+    undefinedTable: Table must be defined
+  PatternStopCard:
+    PatternStopContents:
+      defaultDwellTime: Default dwell time
+      defaultTravelTime: Default travel time
+      firstStopTravelTime: Travel time for first stop must be zero
+      stopHeadsignPlaceholder: Outbound
+      stopHeadsignText: Stop headsign
+      stopHeadsignTitle: Headsign that overrides trip headsign between stops.
+      timepoint: Timepoint?
+      travelTimeHelp: Define the default time it takes to travel to this stop from
+        the previous stop.
+    PickupDropOffSelect:
+      available: Available (0)
+      continuousDropOffTitle: Indicates whether a rider can alight from the transit
+        vehicle at any point along the vehicle's travel path.
+      continuousPickupTitle: Indicates whether a rider can board the transit vehicle
+        anywhere along the vehicle's travel path.
+      continuousServiceDefault: (Inherit from route)
+      dropOffTitle: Define the dropff method/availability at this stop.
+      mustCoordinate: Must coordinate with driver to arrange (3)
+      mustPhoneAgency: Must phone agency to arrange (2)
+      notAvailable: Not available (1)
+      pickupDropOffDefault: (Default - Available)
+      pickupTitle: Define the pickup method/availability at this stop.
+  TripSeriesModal:
+    alternateEvery: "Alternate every: "
+    automaticallyUpdateBlockIds: Automatically assign Block IDs for trips created in series?
+    automaticallyUpdateTripIds: Automatically update Trip IDs for trips created in series?
+    blockIdPrefixPlaceholder: Block ID prefix
+    blockIncrementPlaceholder: inc. by
+    close: Close
+    createTripSeriesBody: Enter the start and end time for the trip series (24 hour time) and headway between trips. Click generate to create the series of trips. 
+    createTripSeriesQuestion: Create a series of trips
+    disabledTooltip: There is an issue with the input data
+    endTime: "End Time:"
+    formatExplanation: "* Block IDs will be formatted as {prefix}-{alternating number}, e.g. 'WEEKDAY-1' then 'WEEKDAY-2', etc.'"
+    generateTrips: Generate Trips
+    headway: "Headway:"
+    incrementAmountPlaceholder: Increment amount
+    incrementBy: inc. by
+    incrementStartPlaceholder: Increment start (default 0)
+    prefixPlaceholder: Trip ID prefix (optional)
+    startTime: "Start Time:"
+    tripsStartingWith: "trip(s), starting with:"
+

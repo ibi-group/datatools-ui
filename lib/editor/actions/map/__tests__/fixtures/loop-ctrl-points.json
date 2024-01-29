@@ -1,0 +1,362 @@
+[
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.17946,
+          44.58992
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 0,
+    "stopId": "mni3"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.16837,
+          44.59813
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 1785.5086062938587,
+    "stopId": "20"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.16795,
+          44.59496
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 2308.139820073338,
+    "stopId": "z745"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.46049,
+          44.70518
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 33048.206330519366,
+    "stopId": "56"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.19932,
+          44.86404
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 60832.118540076735,
+    "stopId": "32"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.17551,
+          44.87522
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 63146.79332096664,
+    "stopId": "mesm"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.99228,
+          44.80147
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 94015.21260408717,
+    "stopId": "48"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.90885,
+          44.93669
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 114286.01606753658,
+    "stopId": "41"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.89142,
+          44.93086
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 116276.2886381317,
+    "stopId": "42"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.88625,
+          44.92019
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 118373.73385166784,
+    "stopId": "54"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.97786,
+          44.83535
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 132847.66707278747,
+    "stopId": "106"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.98327,
+          44.79718
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 137118.58207316347,
+    "stopId": "2"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.99367,
+          44.74951
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 142538.16195792932,
+    "stopId": "43"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.97398,
+          44.67418
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 152361.6373537682,
+    "stopId": "104"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.98569,
+          44.66865
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 153703.28017251854,
+    "stopId": "o6vb"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.02729,
+          44.66202
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 159323.18716881506,
+    "stopId": "110"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.13191,
+          44.60509
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 179100.23443395202,
+    "stopId": "95"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.15313,
+          44.59666
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 189971.7871304524,
+    "stopId": "24"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.15024,
+          44.60107
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 191943.80449697602,
+    "stopId": "31"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.98491,
+          44.68523
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 175208.868318191,
+    "stopId": "87"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.16837,
+          44.59813
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 192867.72434468954,
+    "stopId": "20"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.16795,
+          44.59496
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 195244.20635300872,
+    "stopId": "z745"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.17838,
+          44.58953
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 195766.8375667882,
+    "stopId": "19"
+  },
+  {
+    "point": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.17946,
+          44.58992
+        ]
+      }
+    },
+    "pointType": 2,
+    "shapeDistTraveled": 197242.5454472529,
+    "stopId": "mni3"
+  }
+]

@@ -3,7 +3,7 @@
 ## Adding translations for a new language
 To add support for a new language, you need to perform the following steps:
 
-1. Create a new language file in folder `i18`, e.g. by copying the `english.yml`.
+1. Create a new language file in folder `i18n`, e.g. by copying the `english.yml` file.
 2. In the newly created `<new language>.yml`, adapt the first two lines: `_id` should conform to the ISO 639 language code, `_name` to the localized language name.
 3. In `lib/common/util/config.js`, add the import of the new language file at the mark  `// Add additional language files here.` Mind to add an `// $FlowFixMe` hint before the new line to make the linter happy
 4. Translate all messages in the `<new language>.yml` file. Note, that names surrounded by percent characters (`%`) denote parameters and must not be translated.

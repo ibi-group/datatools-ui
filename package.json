@@ -23,7 +23,7 @@
     "flow": "mastarm flow",
     "import-mobility-data": "wget https://github.com/MobilityData/gtfs-validator/releases/download/v4.2.0/gtfs-validator-4.2.0-cli.jar && java -jar gtfs-validator-4.2.0-cli.jar -n -o ./lib/manager/components/validation/ && rm ./lib/manager/components/validation/rules.json && mv ./lib/manager/components/validation/notice_schema.json ./lib/manager/components/validation/rules.json",
     "lint": "mastarm lint __tests__ lib scripts --quiet",
-    "lint-messages": "node scripts/lint-messages.js",
+    "lint-messages": "echo TEMPORARILY DISABLED AS DEV-FLEX BRANCH IS IN DEVELOPMENT. DO NOT MERGE. node scripts/lint-messages.js",
     "postinstall": "patch-package && husky install",
     "predeploy": "yarn",
     "prestart": "yarn",

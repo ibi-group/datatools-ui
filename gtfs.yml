@@ -143,96 +143,97 @@
   name: stops.txt
   helpContent: Individual locations where vehicles pick up or drop off passengers.
   fields:
-    - name: "stop_id"
-      required: true
-      inputType: GTFS_ID
-      columnWidth: 6
-      helpContent: "The stop_id field contains an ID that uniquely identifies a stop or station. Multiple routes may use the same stop. The stop_id is dataset unique."
-    - name: "stop_code"
-      required: false
-      inputType: GTFS_ID
-      columnWidth: 6
-      helpContent: "The stop_code field contains short text or a number that uniquely identifies the stop for passengers. Stop codes are often used in phone-based transit information systems or printed on stop signage to make it easier for riders to get a stop schedule or real-time arrival information for a particular stop."
-    - name: "stop_name"
-      required: false
-      inputType: TEXT
-      bulkEditEnabled: true
-      columnWidth: 12
-      helpContent: "The stop_name field contains the name of a stop or station. Please use a name that people will understand in the local and tourist vernacular."
-    - name: "stop_desc"
-      required: false
-      inputType: TEXT
-      bulkEditEnabled: true
-      columnWidth: 12
-      helpContent: "The stop_desc field contains a description of a stop. Please provide useful, quality information. Do not simply duplicate the name of the stop."
-    - name: "stop_lat"
-      required: false
-      inputType: LATITUDE
-      columnWidth: 6
-      helpContent: "The stop_lat field contains the latitude of a stop or station. The field value must be a valid WGS 84 latitude."
-    - name: "stop_lon"
-      required: false
-      inputType: LONGITUDE
-      columnWidth: 6
-      helpContent: "The stop_lon field contains the longitude of a stop or station. The field value must be a valid WGS 84 longitude value from -180 to 180."
-    - name: "zone_id"
-      required: false
-      inputType: GTFS_ZONE
-      columnWidth: 12
-      bulkEditEnabled: true
-      helpContent: "The zone_id field defines the fare zone for a stop ID. Zone IDs are required if you want to provide fare information using fare_rules.txt. If this stop ID represents a station, the zone ID is ignored."
-    - name: "stop_url"
-      required: false
-      inputType: URL
-      columnWidth: 12
-      helpContent: "The stop_url field contains the URL of a web page about a particular stop. This should be different from the agency_url and the route_url fields."
-    - name: "location_type"
-      required: false
-      bulkEditEnabled: true
-      inputType: DROPDOWN
-      options:
-        - value: "0"
-          text: Stop (0)
-        - value: "1"
-          text: Station (1)
-        - value: "2"
-          text: Entrance/Exit (2)
-        - value: "3"
-          text: Generic Node (3)
-        - value: "4"
-          text: Boarding Area (4)
-      columnWidth: 7
-      helpContent: "The location_type field identifies whether this stop ID represents a stop or station. If no location type is specified, or the location_type is blank, stop IDs are treated as stops. Stations may have different properties from stops when they are represented on a map or used in trip planning."
-    - name: "platform_code"
-      required: false
-      inputType: TEXT
-      columnWidth: 5
-      helpContent: "Platform identifier for a platform stop (a stop belonging to a station). This should be just the platform identifier (eg. G or 3)."
-    - name: "parent_station"
-      required: false
-      inputType: GTFS_STOP
-      bulkEditEnabled: true
-      columnWidth: 12
-      helpContent: "For stops that are physically located inside stations, the parent_station field identifies the station associated with the stop. To use this field, stops.txt must also contain a row where this stop ID is assigned location type=1."
-    - name: "stop_timezone"
-      required: false
-      inputType: TIMEZONE
-      bulkEditEnabled: true
-      columnWidth: 12
-      helpContent: "The stop_timezone field contains the timezone in which this stop or station is located. If omitted, the stop should be assumed to be located in the timezone specified byagency_timezone in agency.txt."
-    - name: "wheelchair_boarding"
-      required: false
-      inputType: DROPDOWN
-      bulkEditEnabled: true
-      options:
-        - value: 0
-          text: No information (0)
-        - value: 1
-          text: At least some vehicles (1)
-        - value: 2
-          text: Not possible (2)
-      columnWidth: 12
-      helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
+  - name: "stop_id"
+    required: true
+    inputType: GTFS_ID
+    columnWidth: 6
+    helpContent: "The stop_id field contains an ID that uniquely identifies a stop or station. Multiple routes may use the same stop. The stop_id is dataset unique."
+  - name: "stop_code"
+    required: false
+    inputType: TEXT
+    columnWidth: 6
+    helpContent: "The stop_code field contains short text or a number that identifies the stop for passengers. Stop codes are often used in phone-based transit information systems or printed on stop signage to make it easier for riders to get a stop schedule or real-time arrival information for a particular stop."
+  - name: "stop_name"
+    required: false
+    inputType: TEXT
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "The stop_name field contains the name of a stop or station. Please use a name that people will understand in the local and tourist vernacular."
+  - name: "stop_desc"
+    required: false
+    inputType: TEXT
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "The stop_desc field contains a description of a stop. Please provide useful, quality information. Do not simply duplicate the name of the stop."
+  - name: "stop_lat"
+    required: false
+    inputType: LATITUDE
+    columnWidth: 6
+    helpContent: "The stop_lat field contains the latitude of a stop or station. The field value must be a valid WGS 84 latitude."
+  - name: "stop_lon"
+    required: false
+    inputType: LONGITUDE
+    columnWidth: 6
+    helpContent: "The stop_lon field contains the longitude of a stop or station. The field value must be a valid WGS 84 longitude value from -180 to 180."
+  - name: "zone_id"
+    required: false
+    inputType: GTFS_ZONE
+    columnWidth: 12
+    bulkEditEnabled: true
+    helpContent: "The zone_id field defines the fare zone for a stop ID. Zone IDs are required if you want to provide fare information using fare_rules.txt. If this stop ID represents a station, the zone ID is ignored."
+  - name: "stop_url"
+    required: false
+    inputType: URL
+    columnWidth: 12
+    helpContent: "The stop_url field contains the URL of a web page about a particular stop. This should be different from the agency_url and the route_url fields."
+  - name: "location_type"
+    required: false
+    bulkEditEnabled: true
+    inputType: DROPDOWN
+    options:
+    - value: '0'
+      text: Stop (0)
+    - value: '1'
+      text: Station (1)
+    - value: '2'
+      text: Entrance/Exit (2)
+    - value: '3'
+      text: Generic Node (3)
+    - value: '4'
+      text: Boarding Area (4)
+    columnWidth: 7
+    helpContent: "The location_type field identifies whether this stop ID represents a stop or station. If no location type is specified, or the location_type is blank, stop IDs are treated as stops. Stations may have different properties from stops when they are represented on a map or used in trip planning."
+  - name: "platform_code"
+    required: false
+    inputType: TEXT
+    columnWidth: 5
+    helpContent: "Platform identifier for a platform stop (a stop belonging to a station). This should be just the platform identifier (eg. G or 3)."
+  - name: "parent_station"
+    required: false
+    inputType: GTFS_STOP
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "For stops that are physically located inside stations, the parent_station field identifies the station associated with the stop. To use this field, stops.txt must also contain a row where this stop ID is assigned location type=1."
+  - name: "stop_timezone"
+    required: false
+    inputType: TIMEZONE
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "The stop_timezone field contains the timezone in which this stop or station is located. If omitted, the stop should be assumed to be located in the timezone specified byagency_timezone in agency.txt."
+  - name: "wheelchair_boarding"
+    required: false
+    inputType: DROPDOWN
+    bulkEditEnabled: true
+    options:
+    - value: 0
+      text: No information (0)
+    - value: 1
+      text: At least some vehicles (1)
+    - value: 2
+      text: Not possible (2)
+    columnWidth: 12
+    helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
+
 
 - id: route
   name: routes.txt

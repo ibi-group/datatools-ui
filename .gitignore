@@ -8,6 +8,9 @@ tmp/
 .tags
 *.pid
 
+# Ignore mobility data jar for building rules
+*.jar
+
 # Optional npm cache directory
 .npm
 
@@ -27,6 +30,7 @@ env.yml
 env.yml-original
 .env
 !configurations/test/env.yml
+!docker/server/env.yml
 scripts/*client.json
 *.pem
 

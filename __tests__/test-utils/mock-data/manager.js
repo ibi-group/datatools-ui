@@ -71,6 +71,7 @@ export function makeMockDeployment (
     peliasCsvFiles: [],
     peliasResetDb: null,
     peliasUpdate: null,
+    peliasSynonymsBase64: null,
     pinnedfeedVersionIds: [],
     projectBounds: {east: 0, west: 0, north: 0, south: 0},
     projectId: project.id,
@@ -109,13 +110,14 @@ export const mockProject = {
   pinnedDeploymentId: null,
   peliasWebhookUrl: null,
   routerConfig: {
-    carDropoffTime: null,
-    numItineraries: null,
+    driveDistanceReluctance: null,
+    itineraryFilters: {nonTransitGeneralizedCostLimit: null},
     requestLogFile: null,
     stairsReluctance: null,
     updaters: null,
     walkSpeed: null
   },
+  sharedStopsConfig: null,
   useCustomOsmBounds: false,
   user: null
 }
@@ -128,7 +130,6 @@ export const mockFeedWithVersion = {
   externalProperties: {},
   id: 'mock-feed-with-version-id',
   isPublic: false,
-  lastFetched: 1543389038810,
   lastUpdated: 1543389038810,
   latestValidation: {
     agencies: null,
@@ -167,6 +168,38 @@ export const mockFeedWithVersion = {
   versionCount: 1
 }
 
+// a mock feed source summary
+export const mockFeedSourceSummaryWithVersion = {
+  deployable: false,
+  id: 'mock-feed-with-version-id',
+  isPublic: false,
+  lastUpdated: 1543389038810,
+  latestValidation: {
+    agencies: null,
+    agencyCount: 1,
+    avgDailyRevenueTime: 0,
+    bounds: {
+      north: 39.0486949672717,
+      south: 38.92884,
+      east: -76.481211,
+      west: -76.5673055566884
+    },
+    endDate: '20190801',
+    errorCount: 78,
+    feedVersionId: 'mock-feed-version-id',
+    loadFailureReason: null,
+    loadStatus: 'SUCCESS',
+    routeCount: 10,
+    startDate: '20180801',
+    stopCount: 237,
+    stopTimesCount: 11170,
+    tripCount: 415
+  },
+  labelIds: [],
+  name: 'test feed with a version',
+  projectId: mockProject.id
+}
+
 // a mock feed with no versions
 export const mockFeedWithoutVersion = {
   dateCreated: 1544831411569,
@@ -175,7 +208,6 @@ export const mockFeedWithoutVersion = {
   externalProperties: {},
   id: 'mock-feed-without-version-id',
   isPublic: false,
-  lastFetched: null,
   name: 'test feed with no version',
   labelIds: [],
   noteCount: 0,
@@ -340,6 +372,7 @@ export const mockFeedVersion = {
     feedVersionId: 'mock-feed-version-id',
     loadFailureReason: null,
     loadStatus: 'SUCCESS',
+    mobilityDataResult: {},
     routeCount: 10,
     startDate: '20180801',
     stopCount: 237,

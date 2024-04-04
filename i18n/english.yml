@@ -7,6 +7,10 @@ components:
     errorWithStatus: Error (%status%) making %method% request to %url%
     networkError: Network error (%status%)!\n\n(%method% request on %url%)
     noFile: No file to upload!
+  AddCustomFile: 
+    addCustomCsvData: Add the custom CSV data.
+    customFileName: Custom file name
+    saveCsvAndFileName: Save CSV and file name
   AdminPage:
     applicationLogs: Application logs
     backToDashboard: Back to dashboard
@@ -16,6 +20,7 @@ components:
     title: Administration
     userManagement: User Management
   ApplicationStatusView:
+    actions: Actions
     columns:
       id: ID
       name: Name
@@ -31,7 +36,6 @@ components:
     userLogs: User Authentication Logs
     serverJobs: Active Server Jobs
     viewUserLogs: View user logs on Auth0.com
-    actions: Actions
     name: Name
     feed:
       isPublic: Is Public
@@ -61,6 +65,9 @@ components:
     deployments: Deployments
     projects: Projects
     root: Explore
+  CalendarSelect:
+    exceptionBasedCalendar: (Exception based calendar)
+    selectCalendar: " Select calendar..."
   ConfirmModal:
     cancel: Cancel
     ok: OK
@@ -90,6 +97,9 @@ components:
         placeholder: Additional information (optional)
       publishNewVersion:
         label: Publish snapshot as new feed version
+      publishProprietaryFiles: 
+        helpText: Proprietary files allow you to maintain certain Datatools features, such as pattern names, when re-importing a feed.
+        label: Publish new feed version with proprietary (extra) Datatools files.
       confirmPublishWithUnapproved:
         label: Confirm publish with unapproved routes 
     unapprovedRoutesHeader: "The following routes are not approved"
@@ -97,6 +107,10 @@ components:
     missingNameAlert: Must give snapshot a valid name!
     ok: OK
     title: Create a new snapshot
+  CustomCSVForm:
+    numLines: "%numLines% lines."
+    csvInvalid: CSV invalid!
+    uploading: Uploading...
   DatatoolsNavbar:
     account: My Account
     alerts: Alerts
@@ -151,13 +165,16 @@ components:
     routerConfig:
       brandingUrlRoot: Branding URL Root
       carDropoffTime: Car Dropoff Time
+      driveDistanceReluctance: Drive Distance Reluctance
       numItineraries: '# of itineraries'
       requestLogFile: Request log file
       stairsReluctance: Stairs Reluctance
       title: Router Config
+      itineraryFilters:
+        nonTransitGeneralizedCostLimit: Non-Transit Generalized Cost Limit
       updaters:
         $index:
-          defaultAgencyId: Default agency ID
+          feedId: Feed ID
           frequencySec: Frequency (in seconds)
           sourceType: Source type
           type: Type
@@ -286,6 +303,7 @@ components:
     load: Load for Editing
     loadLatest: Load latest for editing
     name: Name
+    noOtherSnapshots: No other snapshots
     noSnapshotsExist: No snapshots currently exist for this feed. Snapshots can be created within the Editor. Click "Edit Feed" to enter editing mode.
     noVersions: (No Versions)
     noVersionsExist: No versions exist for this feed source.
@@ -325,6 +343,22 @@ components:
     createStop: Right-click a location on map to create a new stop
     editSchedules: Edit schedules
     name: Name
+  ExceptionCalendarSelector: 
+    selectCalendar: Select calendar...
+    unnamedDefault: "[unnamed]"
+  ExceptionDate: 
+    addRange: Add range
+    dateRemoved: ⓘ Date has been removed. Date entered is already included in an existing range or single date!
+    selectDate: Select date
+  ExceptionDateRange:
+    deleteEndDate: Delete end date
+    deleteRange: Delete range
+  ExceptionValidationErrorsList: 
+    andOtherErrors: ...and %errors% other errors
+  ExportPatternsModal: 
+    exportPatterns: Publish version with proprietary patterns?
+    no: No
+    yes: Yes
   FeedFetchFrequency:
     DAYS: days
     fetchFeedEvery: Fetch feed every
@@ -460,6 +494,9 @@ components:
     properties: properties
     warning: Warning!
   FeedTransformationDescriptions:
+    AddCustomFileTransformation: 
+      label: Add custom file in GTFS.
+      name: Add custom file transformation
     general:
       fileDefined: below text
       filePlaceholder: '[choose file]'
@@ -474,6 +511,10 @@ components:
       filePlaceholder: Choose file/table to normalize
       label: Normalize field
       name: Normalize field transformation
+    PreserveCustomFieldsTransformation:
+      filePlaceholder: Choose the file/table with custom field
+      label: Preserve fields in %tablePlaceholder% from %filePlaceholder%
+      name: Preserve custom fields transformation
     ReplaceFileFromStringTransformation:
       filePlaceholder: Choose the file/table to replace
       label: Replace %tablePlaceholder% from %filePlaceholder%
@@ -482,6 +523,11 @@ components:
       filePlaceholder: Choose the file/table to replace
       label: Replace %tablePlaceholder% from %versionPlaceholder%
       name: Replace file from version transformation
+  FeedTransformationErrors: 
+    csvNameContainsTxt: Custom CSV file name cannot end with ".txt".
+    csvMissingName: Custom CSV must have a name.
+    undefinedCSVData: CSV data must be defined.
+    undefinedTable: Table must be defined.
   FeedVersionNavigator:
     confirmDelete: Are you sure you want to delete this version? This cannot be undone.
     confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
@@ -543,13 +589,16 @@ components:
     routerConfig:
       brandingUrlRoot: Branding URL Root
       carDropoffTime: Car Dropoff Time
+      driveDistanceReluctance: Drive Distance Reluctance
       numItineraries: '# of itineraries'
       requestLogFile: Request log file
       stairsReluctance: Stairs Reluctance
       title: Router Config
+      itineraryFilters:
+        nonTransitGeneralizedCostLimit: Non-Transit Generalized Cost Limit
       updaters:
         $index:
-          defaultAgencyId: Default agency ID
+          feedId: Feed ID
           frequencySec: Frequency (in seconds)
           sourceType: Source type
           type: Type
@@ -629,13 +678,16 @@ components:
       routerConfig:
         brandingUrlRoot: Branding URL Root
         carDropoffTime: Car Dropoff Time
+        driveDistanceReluctance: Drive Distance Reluctance
         numItineraries: '# of itineraries'
         requestLogFile: Request log file
         stairsReluctance: Stairs Reluctance
         title: Router Config
+        itineraryFilters:
+          nonTransitGeneralizedCostLimit: Non-Transit Generalized Cost Limit
         updaters:
           $index:
-            defaultAgencyId: Default agency ID
+            feedId: Feed ID
             frequencySec: Frequency (in seconds)
             sourceType: Source type
             type: Type
@@ -789,6 +841,26 @@ components:
       fieldUndefined: Field to normalize must be defined.
       substitutionUndefined: Substitution patterns must be defined.
       substitutionInvalid: Some substitution patterns are invalid.
+  NormalizeStopTimesModal:
+    close: Close
+    interpolateStopTimes: Interpolate stop times between timepoints?
+    normalizeStopTimes: Normalize stop times
+    normalizeStopTimesQuestion: Normalize stop times?
+    selectBeginningPatternStop: "Select beginning pattern stop:"
+    tooFewTimepoints: "You must have more than 1 timepoint to interpolate times"
+    usageExplanationOne: This feature is useful when the travel times for one or more
+      pattern stops change. Take for example a pattern
+      that has been re-routed along to travel a longer distance, has had a
+      stop added (or removed), or has had a layover introduced mid-trip.
+      Once you have adjusted the travel times to account for these changes,
+      you can normalize the stop times to bring them into alignment with the
+      updated travel times reflected in the pattern stops.
+    usageExplanationTwo: Interpolating stop times calculates the implicit speed between timepoints
+      based on the shape distance and the default travel times. This speed is
+      then applied to the shape distance traveled for each intermediate non-timepoint
+      stop to provide interpolated travel times. The default travel time for non-timepoint
+      stops will not be modified.
+    usageNotes: " Usage notes"
   NormalizeStopTimesTip:
     info: "Tip: when changing travel times, consider using the 'Normalize stop times' button above to automatically update all stop times to the updated travel time."
   NoteForm:
@@ -861,6 +933,9 @@ components:
     edit-alert: Edit GTFS-RT Alerts
     edit-gtfs: Edit GTFS Feeds
     manage-feed: Manage Feed Configuration
+  PreserveCustomFields: 
+    addCsvWithCustomFields: "Add the CSV data with custom fields to preserve in the final output."
+    saveCsv: Save CSV
   ProjectAccessSettings:
     admin: Admin
     cannotFetchFeeds: Cannot fetch feeds
@@ -903,13 +978,16 @@ components:
       routerConfig:
         brandingUrlRoot: Branding URL Root
         carDropoffTime: Car Dropoff Time
+        driveDistanceReluctance: Drive Distance Reluctance
         numItineraries: '# of itineraries'
         requestLogFile: Request log file
         stairsReluctance: Stairs Reluctance
         title: Router Config
+        itineraryFilters:
+          nonTransitGeneralizedCostLimit: Non-Transit Generalized Cost Limit
         updaters:
           $index:
-            defaultAgencyId: Default agency ID
+            feedId: Feed ID
             frequencySec: Frequency (in seconds)
             sourceType: Source type
             type: Type
@@ -942,6 +1020,9 @@ components:
         defaultLocation: 'Default location (lat, lng)'
         defaultTimeZone: Default time zone
         title: Location
+      sharedStops:
+        title: Shared Stops
+        placeholder: Shared stops config CSV
       name: Project name
       title: General
       updates:
@@ -989,7 +1070,7 @@ components:
     mergeFeeds: Merge all
     noProjectFound: No project found for
     note: "Note:"
-    publicViewed: Public feeds page can be viewed
+    publicViewed: "Public feeds page can be viewed "
     returnToProjects: Return to list of projects
     settings: Settings
   ProjectFeedListToolbar:
@@ -1113,12 +1194,41 @@ components:
     viewDashboard: View dashboard
   RegionSearch:
     placeholder: Search for regions or agencies
+  ReplaceFileFromString:
+    addCsvData: "Add the CSV data to add to/replace in the incoming GTFS:"
+    saveCsv: Save CSV
   ResultTable:
     affectedIds: Affected ID(s)
     description: Description
     line: Line
     priority: Priority
     problemType: Problem Type
+  RouteLayout:
+    errorOccurred: An error occurred while trying to fetch the data
+    jumpToRoute: Jump to a Route
+    route: "Route:"
+    RouteRow:
+      patterns: "%num% Patterns"
+      stops: "%num% Stops"
+      trips: "%num% Trips"
+  ScheduleExceptionForm:
+    addDate: Add date
+    customServiceID: Custom service ID
+    dates: Dates
+    exceptionBasedService: Exception Based Service
+    exceptionName: Exception name*
+    noDatesSpecified: No dates specified
+    noService: No Service
+    onTheseDates: On these dates*
+    ranges: Ranges
+    runFollowing: "Run the following schedule:"
+    selectCalendar: Select calendar to run*
+    selectCalendarToAdd: "Select calendars to add (optional):"
+    selectCalendarToRemove: "Select calendars to remove (optional):"
+    selectExemplar: -- Select exception type --
+    swapAddOrRemove: Swap, add, or remove
+    thanksgivingDay: Thanksgiving Day
+    unnamedDefault: "[unnamed]"
   SelectFileModal:
     ok: OK
     cancel: Cancel
@@ -1144,6 +1254,7 @@ components:
     noEC2Instances: No EC2 instances associated with server.
   ShowAllRoutesOnMapFilter:
     fetching: Fetching
+    noShapes: The feed does not have any route shapes created yet.
     showAllRoutesOnMap: Show all routes
     tooManyShapeRecords: large shapes.txt may impact performance
   Sidebar:
@@ -1242,6 +1353,31 @@ components:
     deleteSelectedTrips: 'Are you sure you want to permanently delete %count% selected trips?'
     deleteTrips: Delete trips
     deleteTripsQuestion: Delete trips?
+  TimetableHeader:
+    addBlankTrip: Add blank trip
+    advancedSettings: Advanced settings
+    backToRoute: Back to route
+    calendarName: "%truncatedCalendarName% calendar"
+    cellNumber: "Cell %cellId%"
+    createTripSeries: Create trip series
+    deleteTrips: Delete trips
+    duplicateTrips: Duplicate trips
+    frequencyEditor: Frequency editor
+    hideDepartureTimes: " Hide departure times"
+    hideDepartureTimesTooltip: "Hiding departure times will keep arrival and departure times in sync. WARNING: do not use if arrivals and departures differ."
+    numValidationIssues: "%errorCount% validation issue(s) found!"
+    patternsOn: "%truncatedPatternName% on "
+    saveChanges: Save changes
+    selectCalendar: "[select calendar]"
+    selectPattern: "[select pattern]"
+    shiftClickToSubtract: Shift-click to subtract
+    showShortcuts: Show keyboard shortcuts
+    timetableEditor: Timetable editor
+    tripsFor: "trips for "
+    undoChanges: Undo changes
+    useSeconds: Use seconds in offset
+    useSecondsToolTip: Toggling the use of seconds allows more precision in the trip offset and trip series creation tools. 
+    validationIssues: Validation issues
   TimetableHelpModal:
     close: Close
     pressQuestionmark: Press <kbd>?</kbd> to view shortcuts
@@ -1276,15 +1412,37 @@ components:
     title: Timetable editor keyboard shortcuts
   TimezoneSelect:
     placeholder: Select timezone...
+  TransformationsViewer:
+    columnsAdded: "Custom columns added: %columns%"
+    noTransformationApplied: No transformations applied.
+    rowsAdded: "Rows added: %rows%"
+    rowsDeleted: "Rows deleted: %rows%"
+    rowsUpdated: "Rows updated: %rows%"
+    tableModified: Table Modified 
+    tableAdded: Table Added
+    tableReplaced: Table Replaced
+    tableDeleted: Table Deleted
+    transformationsTitle: Transformations
   TripSeriesModal:
+    alternateEvery: "Alternate every: "
+    automaticallyUpdateBlockIds: Automatically assign Block IDs for trips created in series?
+    automaticallyUpdateTripIds: Automatically update Trip IDs for trips created in series?
+    blockIdPrefixPlaceholder: Block ID prefix
+    blockIncrementPlaceholder: inc. by
     close: Close
     createTripSeriesBody: Enter the start and end time for the trip series (24 hour time) and headway between trips. Click generate to create the series of trips. 
     createTripSeriesQuestion: Create a series of trips
     disabledTooltip: There is an issue with the input data
     endTime: "End Time:"
+    formatExplanation: "* Block IDs will be formatted as {prefix}-{alternating number}, e.g. 'WEEKDAY-1' then 'WEEKDAY-2', etc.'"
     generateTrips: Generate Trips
     headway: "Headway:"
+    incrementAmountPlaceholder: Increment amount
+    incrementBy: inc. by
+    incrementStartPlaceholder: Increment start (default 0)
+    prefixPlaceholder: Trip ID prefix (optional)
     startTime: "Start Time:"
+    tripsStartingWith: "trip(s), starting with:"
   UserAccount:
     account:
       title: Account
@@ -1315,6 +1473,9 @@ components:
     myAccount: My account
     logout: Log out
   UserHomePage:
+    authDisabledInfo: >-
+      You are running %appTitle% without user authentication enabled.
+      Features such as user management, account management and feed activity watching are unavailable.
     createFirst: Create my first project
     help:
       content: 'A project is used to group GTFS feeds. For example, the feeds in a project may be in the same region or they may collectively define a planning scenario.'
@@ -1370,6 +1531,26 @@ components:
       custom: Custom
       noAccess: No Access
     save: Save
+  Validation:
+    agencyRequired: Field must be populated for feeds with more than one agency.
+    conflictingServiceId: Service ID already exists in a standard calendar!
+    customServiceId: Custom service ID
+    dateServiceIdCombinationDuplicate: Date (%exceptionDate%) and Service ID (%serviceId%) combination cannot appear more than once for all exceptions.
+    idMustBeUnique: Identifier must be unique.
+    idRequired: Identifier is required if more than one agency exists.
+    invalidEmail: Field must contain valid email address.
+    invalidLatitude: Field must be valid latitude.
+    invalidLongitude: Field must be valid longitude.
+    invalidRouteType: Field must be a valid route type.
+    invalidUrl: Field must contain valid URL.
+    latLonRequired: Latitude and Longitude are required for your current location type.
+    mustBePositiveInteger: Field must be a positive integer.
+    mustBePositiveNumber: Field must be a positive number.
+    mustBeValidNumber: Field must be a valid number.
+    nameAlreadyUsed: "%name% is already used in another exception,"
+    serviceRequired: Calendar must have service for at least one day.
+    stopNameRequired: Stop name is required for stop, station, and entrance location types.
+    requiredFieldEmpty: Required field must not be empty.
   VersionButtonToolbar:
     confirmDelete: Are you sure you want to delete this version? This cannot be undone.
     confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'

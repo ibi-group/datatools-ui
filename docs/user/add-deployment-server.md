@@ -1,29 +1,29 @@
-# Adding an OTP Deployment Server in Data Tools
+# Adding an OTP Deployment Server in TRANSIT-data-tools
 
 Assumptions:
 
-* [X] You are an admin for Data Tools.
+* [X] You are an admin for TRANSIT-data-tools.
 * [X] You have [set up OTP UI and backend servers on AWS](./setting-up-aws-servers.md).
 * [X] You have a private key file (usually ends in `.pem`) to connect to that AWS environment and EC2 servers via ssh.
 
-From `Administration > Deployment servers`, click on `+ Add Server`.
+From `Administration > Deployment servers`, click `+ Add Server`.
 
 ## General Server Properties
 
 | Property | Description |
 |----------|-------------|
 | Name     | A descriptive display name for the server.        |
-| Public URL | The URL where the public can access the Data Tools UI, e.g. `https://otp-mod-ui.ibi-transit.com`. It is typically the  CNAME of the CloudFront mirror of the AWS S3 bucket you created or picked for this deployment.         |
+| Public URL | The URL where the public can access the TRANSIT-data-tools UI, e.g. `https://otp-mod-ui.ibi-transit.com`. It is typically the  CNAME of the CloudFront mirror of the AWS S3 bucket you created or picked for this deployment.         |
 | Internal URLs (Optional) | The URL(s) based on the UI server IP address(es). |
-| S3 bucket name | The name of the AWS S3 bucket you created or picked for this deployment, where Data Tools will share files with the OTP servers. |
+| S3 bucket name | The name of the AWS S3 bucket you created or picked for this deployment, where TRANSIT-data-tools will share files with the OTP servers. |
 | Admin access only? | Check this option to only allow logins from Data Tool admins. |
 | Project specific? (Optional) | Select a project to only allow the GTFS feeds of that project (e.g. within a region) to be deployed to this server. Leave blank to remove the project restriction. |
-|AWS Role|The IAM role that the Data Tools application must assume in order to access AWS resources (e.g., writing to S3 buckets or starting EC2 machines). See [Delegate Third Party Access](../setting-up-aws-servers#delegate-third-party-account-access) for more info.|
+|AWS Role|The IAM role that the TRANSIT-data-tools application must assume in order to access AWS resources (e.g., writing to S3 buckets or starting EC2 machines). See [Delegate Third Party Access](../setting-up-aws-servers#delegate-third-party-account-access) for more info.|
 | Use elastic load balancer (ELB) | **We recommend using an elastic load balancer (ELB)**. Behind the scenes, a new server is initialized and added to the load balancer, and old servers are removed and destroyed without interruption to the user. <br><br>The load balancer also allows instantiating multiple OTP servers on large deployments. (You can start, add, or remove more than one OTP server to the load balancer.)
 
 ## Load Balancer Properties
 
-(Applies to Data Tools versions prior to October 2019.)
+(Applies to TRANSIT-data-tools versions prior to October 2019.)
 
 | Property | Description |
 |----------|-------------|

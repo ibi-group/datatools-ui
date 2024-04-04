@@ -1,5 +1,5 @@
 # Development
-These instructions should allow you to get Data Tools / Editor / Catalogue up and running within an integrated development environment, allowing you to work on the code and debug it. We all use IntelliJ so instructions will currently be only for that environment.
+These instructions should allow you to get TRANSIT-data-tools / Editor / Catalogue up and running within an integrated development environment, allowing you to work on the code and debug it. We all use IntelliJ so instructions will currently be only for that environment.
 ## Components
 The system is made up of two different projects:
 

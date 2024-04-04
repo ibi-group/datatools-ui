@@ -2779,6 +2779,10 @@ describe('end-to-end', () => {
 
       // wait for snapshots tab to load and publish snapshot
       await waitForAndClick('[data-test-id="publish-snapshot-button"]')
+
+      // wait for snapshot export modal and click "no" to proprietary file export
+      await waitForAndClick('[data-test-id="export-patterns-modal-no"]')
+
       // wait for version to get created
       await waitAndClearCompletedJobs()
 

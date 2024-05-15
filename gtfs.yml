@@ -1178,9 +1178,3 @@
     inputType: TEXT
     columnWidth: 12
     helpContent: "Name of the location group. Must be defined either once, or exhaustively for a single location_group_id."
-  # TODO: enable validation to match spec (only appear when appropriate)
-  - name: "location_id"
-    required: false
-    inputType: GTFS_STOP_OR_LOCATION_LIST
-    columnWidth: 12
-    helpContent: "Identifies a stop or location belonging to the location group."

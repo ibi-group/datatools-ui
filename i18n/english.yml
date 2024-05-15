@@ -497,6 +497,9 @@ components:
     AddCustomFileTransformation: 
       label: Add custom file in GTFS.
       name: Add custom file transformation
+    AppendToFileTransformation: 
+      label: Append lines to GTFS.
+      name: Append to file transformation
     general:
       fileDefined: below text
       filePlaceholder: '[choose file]'

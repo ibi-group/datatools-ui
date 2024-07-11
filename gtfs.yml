@@ -650,10 +650,20 @@
       inputType: TIME
       columnWidth: 6
     - name: "stop_id"
-      required: true
+      required: false
       inputType: GTFS_STOP
       columnWidth: 6
       helpContent: "The stop_id field contains an ID that uniquely identifies a stop. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
+    - name: "location_id"
+      required: false
+      inputType: GTFS_ID
+      columnWidth: 6
+      helpContent: "The location_id field contains an ID that uniquely identifies a location. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
+    - name: "location_group_id"
+      required: false
+      inputType: TEXT
+      columnWidth: 6
+      helpContent: "The location_group_id field contains an ID that uniquely identifies a location group. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
     - name: "stop_sequence"
       required: true
       inputType: POSITIVE_INT

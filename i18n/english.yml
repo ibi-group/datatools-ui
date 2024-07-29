@@ -1399,6 +1399,7 @@ components:
           - New trip
           - Clone selected trip(s)
           - Copy time value from adjacent cell (the cell immediately to the left)
+          - Copy time value from adjacent cell (the cell immediately to the right)
           - Copy value from cell directly above
     title: Timetable editor keyboard shortcuts
   TimezoneSelect:

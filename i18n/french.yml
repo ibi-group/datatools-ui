@@ -788,7 +788,7 @@ components:
     support: "Pour soumettre un rapport d'erreur, envoyez par mail une capture d'écran de 
     la fenêtre de votre navigateur, le texte suivant (URL actuelle et détails de l'erreur)
     et une description détaillée des étapes que vous avez suivies à
-    <a href='mailto:%supportEmail%'>%supportEmail%</a>".
+    <a href='mailto:%supportEmail%'>%supportEmail%</a>."
   JobMonitor:
     clearCompleted: Effacement terminée
     jobs:

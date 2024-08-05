@@ -278,7 +278,7 @@ components:
     terminate: Metter fin à l'instance
     view: Voir le déploiement
   EditableTextField:
-    invalidInput: Vous devez fournir une entrée valide.
+    invalidInput: 'Vous devez fournir une entrée valide.'
     none: (aucun)
   EditorFeedSourcePanel:
     active: Actif
@@ -1537,7 +1537,7 @@ components:
     invalidEmail: Le champ doit contenir une adresse mail valide.
     invalidLatitude: Le champ doit contenir une latitude valide.
     invalidLongitude: Le champ doit contenir une longitude valide.
-    invalidRouteType: Le champ doit être un type de route valide.
+    invalidRouteType: 'Le champ doit être un type de route valide.'
     invalidUrl: Le champ doit être une URL valide.
     latLonRequired: La latitude et la longitude sont requises pour votre type d'emplacement actuel.
     mustBePositiveInteger: Le champ doit être un nombre entier positif.

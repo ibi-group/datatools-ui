@@ -296,7 +296,7 @@ components:
       body:
         - Les instantanés sont des points de sauvegarde auxquels vous pouvez toujours revenir lorsque vous éditez un flux GTFS.
         - 'Un instantané peut représenter un travail en cours, un scénario de planification future ou même différents modèles de service (par exemple, les horaires d été).'
-      title:  Que sont les instantanés ?
+      title: Que sont les instantanés ?
     load: Charger pour éditer
     loadLatest: Charger la dernier vérsion pour l'éditer
     name: Nom
@@ -545,7 +545,7 @@ components:
     upload: Charger
     uploadFeed: Charger le flux
     version: Version
-    zipWarning:  Le fichier téléchargé doit être un fichier zip valide (.zip).
+    zipWarning: Le fichier téléchargé doit être un fichier zip valide (.zip).
   FeedVersionTabs:
     agencyCount: Nombre d'agences
     daysActive: Jours d'acticvité
@@ -1502,7 +1502,7 @@ components:
     appAdmin: Administrateur de l'application
     cancel: Annuler
     delete: Supprimer
-    deleteConfirm:  Êtes-vous sûr de vouloir supprimer définitivement cet utilisateur ?
+    deleteConfirm: Êtes-vous sûr de vouloir supprimer définitivement cet utilisateur ?
     edit: Editer
     missingProject: inconnu
     noProjectsFound: Pas de projet
@@ -1554,7 +1554,7 @@ components:
     download: Télécharger
     feed: Flux
     load: Charger
-    noVersionsExist:  Aucune version n'existe pour cette source de flux.
+    noVersionsExist: Aucune version n'existe pour cette source de flux.
     status: Statut
     timestamp: Horodatage du fichier
     version: version

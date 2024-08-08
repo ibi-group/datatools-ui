@@ -1,5 +1,5 @@
 _id: fr
-_name: French
+_name: Français
 components:
   Actions:
     error: Erreur lors de la requête %method% vers %url%
@@ -8,14 +8,15 @@ components:
     networkError: Erreur de réseau (%status%)!\n\n(requête %method% sur %url%)
     noFile: Aucun fichier à télécharger !
   AddCustomFile:
-    addCustomCsvData: Ajouter les données CSV personnalisées.
+    addCustomCsvData: Ajouter les données CSV personnalisées
     customFileName: Nom du fichier personnalisé
     saveCsvAndFileName: Sauvegarder le fichier CSV et le nom du fichier
   AdminPage:
     applicationLogs: Logs de l'application
     backToDashboard: Retour au tableau de bord
     deploymentServers: Serveurs de déploiement
-    noAccess: Vous n'avez pas les privilèges suffisants pour accéder à cet espace.
+    noAccess: Vous n'avez pas les privilèges suffisants pour accéder à cet 
+      espace.
     organizations: Organisations
     title: Administration
     userManagement: Gestion des utilisateurs
@@ -30,7 +31,7 @@ components:
       user: Utilisateur
     lastApiRequests: Dernières requêtes API de l'utilisateur
     lastUpdatedAt: dernière mise à jour à
-    noDataText: Pas de jobs actifs en cours.
+    noDataText: Pas de jobs actifs en cours
     refresh: Rafraîchir
     unauthenticated: (non authentifié)
     userLogs: Logs d'authentification de l'utilisateur
@@ -39,19 +40,20 @@ components:
     name: Nom
     feed:
       isPublic: Est public
-      lastFetched: Dernière fois que les données ont été récupérées à partir de l'URL du flux
+      lastFetched: Dernière fois que les données ont été récupérées à partir de 
+        l'URL
       lastUpdated: Dernière mise à jour
       filterByLabels: Filtrer les flux par étiquettes
     latestValidation:
-      endDate: 'Dernière version: Date de fin'
-      errorCount: 'Dernière version: Nombre de problèmes'
-      startDate: 'Dernière version: Date de début'
-      stopTimesCount: 'Dernière version: Nombre de temps d arrêt'
-      tripCount: 'Dernière version: Nombre de trajets'
-      stopCount: 'Dernière version: Nombre arrêts'
-      routeCount: 'Dernière version: Nombre itinéraires'
+      endDate: "Dernière version: Date de fin"
+      errorCount: "Dernière version: Nombre de problèmes"
+      startDate: "Dernière version: Date de début"
+      stopTimesCount: "Dernière version: Nombre de temps d arrêt"
+      tripCount: "Dernière version: Nombre de trajets"
+      stopCount: "Dernière version: Nombre arrêts"
+      routeCount: "Dernière version: Nombre itinéraires"
     sortBy: Trier par
-    url: 'URL de téléchargement du flux'
+    url: "URL de téléchargement du flux"
   Brand:
     dataTools: DataHub Editor
   Breadcrumbs:
@@ -78,33 +80,34 @@ components:
   CreateSnapshotModal:
     cancel: Annuler
     description: >-
-      Les instantanés sont des points de sauvegarde auxquels vous pouvez 
-      toujours revenir lorsque vous modifiez un flux GTFS. Pour publier
-      automatiquement un nouveau fichier GTFS (et le traiter comme une
-      nouvelle version du flux), créez un instantané avec l'option ci-dessous cochée.
+      Les instantanés sont des sauvegarde de vos modifications. Pour publier
+      automatiquement cet instantané et le traiter comme une nouvelle version
+      du flux, cochez l'option ci-dessous.
     fields:
       name:
         label: Nom
-        placeholder: Nom de l'instantané (obligatoire)
+        placeholder: Nom de l'instantané (requis)
       comment:
         label: Commentaire
-        placeholder: Informations supplémentaires (facultatif)
+        placeholder: Informations supplémentaires (opt.)
       publishNewVersion:
         label: Publier l'instantané en tant que nouvelle version du flux
       publishProprietaryFiles:
-        helpText: Les fichiers propriétaires permettent de conserver certaines fonctionnalités de DataHub Editor, telles que les noms de motifs, lors de la réimportation du flux.
-        label: Publier une nouvelle version du flux avec des fichiers propriétaires supplémentaires de DataHub Editor.
+        helpText: Les fichiers propriétaires permettent de conserver certaines 
+          fonctionnalités lors de la réimportation du flux.
+        label: Publier une nouvelle version du flux avec des fichiers 
+          propriétaires
       confirmPublishWithUnapproved:
-        label: Confirmer la publication avec des itinéraires non approuvés.
-    unapprovedRoutesHeader: "Les itinéraires suivants ne sont pas approuvés."
+        label: Confirmer la publication avec des itinéraires non approuvés
+    unapprovedRoutesHeader: "Les itinéraires suivants ne sont pas approuvés"
     unapprovedRoutesDesc: "Ces itinéraires ne seront pas inclus:"
-    missingNameAlert: Vous devez donner un nom valide à l'instantané!
+    missingNameAlert: Vous devez donner un nom valide à l'instantané
     ok: OK
     title: Créer un nouvel instantané
   CustomCSVForm:
-    numLines: "%numLines% lignes."
+    numLines: "%numLines% lignes"
     csvInvalid: CSV invalide !
-    uploading: Chargement...
+    uploading: Chargement
   DatatoolsNavbar:
     account: Mon compte
     alerts: Alertes
@@ -119,16 +122,16 @@ components:
   DeploymentConfirmModal:
     alert:
       alreadyDeployed: est déjà déployé sur ce serveur au même routeur. (Le déploiement évincerait le graphe actuel).
-      boundsTooLarge: Les limites sont beaucoup trop grandes pour être déployées avec succès sur OpenTripPlanner. Le déploiement est désactivé.
+      boundsTooLarge: Les limites sont trop grandes pour être déployées avec succès sur OpenTripPlanner. Déploiement désactivé.
       expiredFeeds: Les flux suivants ont expiré (tous les voyages programmés sont pour des dates passées)
-      missingBounds: Aucune limite n'a été définie pour l'ensemble des flux. Le déploiement est désactivé.
-      missingFeeds: Aucun flux n'est défini pour ce déploiement. Le déploiement est désactivé.
-      success: Le déploiement a été effectué avec succès.
+      missingBounds: Aucune limite n'a été définie pour l'ensemble des flux. Déploiement désactivé.
+      missingFeeds: Aucun flux n'est défini pour ce déploiement. Déploiement désactivé.
+      success: Le déploiement a été effectué avec succès
     cancel: Annuler
     close: Fermer
     danger: Danger !
     deploy: Déployer
-    invalidBounds: Les limites ne sont pas valides.
+    invalidBounds: Les limites ne sont pas valides
     to: à
     warning: Attention !
     success: Succès !
@@ -137,11 +140,11 @@ components:
     success: Succès !
     warning: Attention !
   DeploymentSettings:
-    boundsPlaceholder: 'min_lon, min_lat, max_lon, max_lat'
+    boundsPlaceholder: "min_lon, min_lat, max_lon, max_lat"
     buildConfig:
       elevationBucket:
-        accessKey: Clé d'accès
-        bucketName: Nom du Bucket S3
+        accessKey: Clé accès
+        bucketName: Nom Bucket S3
         secretKey: Clé secrète
       fares: Tarifs
       fetchElevationUS: Récupérer l'altitude
@@ -160,7 +163,7 @@ components:
       brandingUrlRoot: URL de la marque
       carDropoffTime: Temps de dépôt de la voiture
       driveDistanceReluctance: Réticence à l'égard de la distance de conduite
-      numItineraries: 'Nombre d itinéraires'
+      numItineraries: "Nombre d itinéraires"
       requestLogFile: Demander le fichier des logs
       stairsReluctance: Réticence aux escaliers
       title: Configuration du routeur
@@ -218,7 +221,7 @@ components:
       creationDate: Crée
       lastDeployed: Dernier déploiement
       deployedTo: Déployé vers
-      feedCount: 'Nombre de flux'
+      feedCount: "Nombre de flux"
       testDeployment: Test?
       name: Nom
     title: Déploiements
@@ -227,12 +230,12 @@ components:
       deployWithErrors:
         checklabel: Déployer même si certaines versions de flux ont des erreurs critiques
         help: >
-          Si cette option n'est pas cochée, le déploiement automatique 
+          Si cette option n'est pas cochée, le déploiement automatique
           s'arrêtera si l'une des versions du flux dans le déploiement
           a au moins une erreur critique
         title: Gestion des erreurs critiques
       help: >
-        Un déploiement sera automatiquement interrompu (en supposant qu'il 
+        Un déploiement sera automatiquement interrompu (en supposant qu'il
         n'y ait pas d'erreurs critiques) lorsque l'un des événements définis
         ci-dessus se produira.
       label: Evénements de déploiement automatique
@@ -244,8 +247,7 @@ components:
     config:
       body: >
         Les déploiements peuvent utiliser des configurations au niveau du projet
-        (par exemple, pour les fichiers de construction ou de configuration du
-        routeur) ou être configurés individuellement.
+        ou être configurés individuellement.
       editSettings: Modifier les paramètres de déploiement
       manageServers: Gérer les serveurs de déploiement
       title: Configuration des déploiements
@@ -260,31 +262,31 @@ components:
       creationDate: Créé
       lastDeployed: Dernier déploiement
       deployedTo: Déployé vers
-      feedCount: 'Nombre de flux'
+      feedCount: "Nombre de flux"
       testDeployment: Test ?
       name: Nom
     title: Déploiements
   EC2InstanceCard:
     aws: AWS
-    confirmTermination: 'Êtes-vous sûr de vouloir mettre fin à cette instance EC2 ? Cette action ne peut pas être annulée et supprimera cette instance de l équilibreur de charge.'
+    confirmTermination: "Terminate this EC2 instance ? Cannot be undone and remove instance from load balancer"
     log: log
-    notApplicable: 'N/A'
+    notApplicable: "N/A"
     noPublicIP: Pas d'IP publique
     status:
-      booting: 'Démarrage.'
-      terminated: Terminé.
-      terminatedAt: 'Terminé %moment%'
-      running: Exécuté en tant que serveur.
+      booting: "Démarrage"
+      terminated: Terminé
+      terminatedAt: "Terminé %moment%"
+      running: Exécuté en tant que serveur
     terminate: Metter fin à l'instance
     view: Voir le déploiement
   EditableTextField:
-    invalidInput: Vous devez fournir une entrée valide.
+    invalidInput: "Vous devez fournir une entrée valide"
     none: (aucun)
   EditorFeedSourcePanel:
     active: Actif
     availableSnapshots: Instantanés disponibles
     confirmDelete: Cette opération supprime définitivement l'instantané. Les données sauvegardées ici ne pourront pas être récupérées. Êtes-vous sûr de vouloir continuer ?
-    confirmLoad: 'Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané des données actuelles de l éditeur. Êtes-vous sûr de vouloir continuer ?'
+    confirmLoad: "Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané de l éditeur. Êtes-vous sûr de vouloir continuer ?"
     created: créé
     createFromScratch: Créer un fichier GTFS à partir de zéro
     date: Date
@@ -295,7 +297,7 @@ components:
     help:
       body:
         - Les instantanés sont des points de sauvegarde auxquels vous pouvez toujours revenir lorsque vous éditez un flux GTFS.
-        - 'Un instantané peut représenter un travail en cours, un scénario de planification future ou même différents modèles de service (par exemple, les horaires d été).'
+        - "Un instantané peut représenter un travail en cours, un scénario de planification future ou même différents modèles de service (par exemple, les horaires d été)."
       title: Que sont les instantanés ?
     load: Charger pour éditer
     loadLatest: Charger la dernier vérsion pour l'éditer
@@ -315,17 +317,17 @@ components:
     daysOfService: Jours de service
     dropImage: Déposer l'image %activeComponent% ici, ou cliquer pour sélectionner l'image à télécharger.
     optional: (optionnel)
-    selectAgency: Sélectionner une agence...
+    selectAgency: Sélectionner une agence
     selectDate: Veuillez sélectionner une date
     selectOption: -- sélectionner une option --
-    uploadAsset: 'Télécharger l image de marque de %activeComponent%'
+    uploadAsset: "Télécharger l image de marque de %activeComponent%"
   EditorSidebar:
     backToFeed: Retour au flux
   EntityDetailsHeader:
     attributes: Attributs
     feedInfo: Infos du flux
     noValidationIssues: Aucun problème de valaidation
-    requiredField: '* indique un champ obligatoire'
+    requiredField: "* indique un champ obligatoire"
     routeDetails: Détails de l'itinéraire
     rules: Règles
     saveChanges: Enregistrer les modifcations
@@ -339,11 +341,11 @@ components:
     editSchedules: Modifier les horaires
     name: Nom
   ExceptionCalendarSelector:
-    selectCalendar: Sélectionner un calendrier...
+    selectCalendar: Sélectionner un calendrier
     unnamedDefault: "[sans nom]"
   ExceptionDate:
     addRange: Ajouter une plage
-    dateRemoved: ⓘ La date a été supprimée. La date saisie est déjà inclue dans une plage existante ou une date unique !
+    dateRemoved: La date a été supprimée. La date saisie est déjà inclue dans une plage existante ou une date unique !
     selectDate: Sélectionner une date
   ExceptionDateRange:
     deleteEndDate: Supprimer la date de fin
@@ -362,11 +364,11 @@ components:
   FeedLabel:
     delete:
       title: Supprimer l'étiquette ?
-      body: Êtes-vous sûr de vouloir supprimer l'étiquette %name% ? Cette action supprimera l'étiquette de toutes les sources de flux auxquelles elle est associée.
+      body: Supprimer l'étiquette %name% ? Cette action supprimera l'étiquette de toutes les sources de flux auxquelles elle est associée.
   FeedInfo:
     autoFetch: Récupération automatique
     autoPublish: Publication automatique
-    dateFormat: DD.MM.YYYY
+    dateFormat: MM JJ, AAAA
     deployable: Déployable
     edit: Editer
     lastUpdatedDate: Dernière mise à jour %date%
@@ -381,21 +383,21 @@ components:
     noSnapshot: Pas d'instantanés créés
     restoreSnapshot:
       title: Restaurer %key% ?
-      body: 'Etes-vous sûr de vouloir restaurer cet instantané ?'
+      body: "Etes-vous sûr de vouloir restaurer cet instantané ?"
     revert: Revenir à  %snapshot%
-    takeSnapshot: Prendre un instantané 
+    takeSnapshot: Prendre un instantané
     toolbar:
       hide: Cacher la barre d'outils
       show: Afficher la barre d'outils
     uploadShapefile:
-      body: 'Sélectionner un fichier zip de tracés à afficher sur la carte. Ce fichier n est utilisé qu à titre d aide visuelle.'
-      error: Le fichier chargé doit être un fichier zip valide (.zip).
+      body: "Sélectionner un fichier zip de tracés à afficher sur la carte. Ce fichier n est utilisé qu à titre d aide visuelle."
+      error: Le fichier chargé doit être un fichier .zip valide.
       title: Charger le fichier de tracés d'itinéraires
     unnamed: Sans nom
   FeedSourceAttributes:
     lastUpdated: Mis à jour
   FeedSourcePanel:
-    chooseProject: '[choisir un projet]'
+    chooseProject: "[choisir un projet]"
     chooseProjectToView: Choisir un projet pour afficher les flux
     createOne: Créer un projet.
     filters:
@@ -404,7 +406,7 @@ components:
       PUBLIC: Public
       PRIVATE: Privé
     forFeed: Pour le flux
-    noFeedsYet: Pas encore de flux.
+    noFeedsYet: Pas encore de flux
     search: Recherche de flux
     unnamed: sans nom
   FeedSourceTable:
@@ -418,9 +420,9 @@ components:
     latestVersion: Dernière version
     status: Statut
   FeedSourceTableRow:
-    dateFormat: DD.MM.YYYY
-    expired: Expiré il y a %duration% 
-    lastUpdated: Dernière mise à jour il y à %lastVersionUpdate% 
+    dateFormat: MM JJ, AAAA
+    expired: Expiré il y a %duration%
+    lastUpdated: Dernière mise à jour il y à %lastVersionUpdate%
     none: Aucun
     noUpdates: Pas encore de mise à jour
     startingIn: Démarrage dans %duration%
@@ -441,12 +443,12 @@ components:
     delete: Supprimer
     deleteFeedSource: Supprimer la source de flux ?
     deploy: Déployer
-    deployFeed: Déployer la source de flux.
-    deployNoPermission: Vous n'avez pas la permission de déployer un flux.
+    deployFeed: Déployer la source de flux
+    deployNoPermission: Vous n'avez pas la permission de déployer un flux
     fetch: Récupérer
     menu: Menu
     notDeployable: La source de flux n'est pas déployable. Changement dans les paramètres de la source de flux.
-    noVersions: Aucune versio n'existe
+    noVersions: Aucune version n'existe
     openInEditor: Ouvrir dans l'éditeur
     upload: Télécharger
     uploadFeed: Télécharger le flux
@@ -479,7 +481,7 @@ components:
     update: Mettre à jour
     upload: Télécharger
     versions: Versions
-    viewPublic: Afficher la oage publique
+    viewPublic: Afficher la page publique
   FeedSourceSettings:
     autoPublish: Publication automatique
     feedTransformations: Transformations de flux
@@ -496,11 +498,11 @@ components:
       name: Ajouter à la transformation du fichier
     general:
       fileDefined: texte ci-dessous
-      filePlaceholder: '[choisir un fichier]'
-      tablePlaceholder: '[choisir une table]'
+      filePlaceholder: "[choisir un fichier]"
+      tablePlaceholder: "[choisir une table]"
       table: table
       version: version
-      versionPlaceholder: '[choisir une version]'
+      versionPlaceholder: "[choisir une version]"
     DeleteRecordsTransformation:
       label: Supprimer les enregistrement de %tablePlaceholder%
       name: Supprimer les enregistrement de transformation
@@ -527,7 +529,7 @@ components:
     undefinedTable: La table doit être définie.
   FeedVersionNavigator:
     confirmDelete: Êtes-vous sûr de vouloir supprimer cette version ? Cette opération ne peut être annulée.
-    confirmLoad: 'Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané des données actuelles de l éditeur. Êtes-vous sûr de vouloir continuer ?'
+    confirmLoad: "Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané de l éditeur. Êtes-vous sûr de vouloir continuer ?"
     delete: Supprimer
     deployFeed: Déployer le flux
     download: Télécharger
@@ -540,7 +542,7 @@ components:
     next: Suivant
     of: de
     previous: Précédent
-    selectFeed: 'Sélectionner un flux GTFS à charger:'
+    selectFeed: "Sélectionner un flux GTFS à charger:"
     selectVersion: Sélectionner une version pour afficher le résumé
     upload: Charger
     uploadFeed: Charger le flux
@@ -548,7 +550,7 @@ components:
     zipWarning: Le fichier téléchargé doit être un fichier zip valide (.zip).
   FeedVersionTabs:
     agencyCount: Nombre d'agences
-    daysActive: Jours d'acticvité
+    daysActive: Jours d'activité
     routeCount: Nombre d'itinéraires
     stopCount: Nombre d'arrêts
     stopTimesCount: Nombre de temps d'arrêt
@@ -556,7 +558,7 @@ components:
     validDates: Dates valides
   FeedVersionViewer:
     confirmDelete: Êtes-vous sûr de vouloir supprimer cette version ? Cette opération ne peut pas être annulée.
-    confirmLoad: 'Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané des données actuelles de l éditeur. Êtes-vous sûr de vouloir continuer ?'
+    confirmLoad: "Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané de l éditeur. Êtes-vous sûr de vouloir continuer ?"
     delete: Supprimer
     download: Télécharger
     feed: Flux
@@ -568,8 +570,8 @@ components:
   FormInput:
     buildConfig:
       elevationBucket:
-        accessKey: Clé d'accés
-        bucketName: Nom du Bucket S3
+        accessKey: Clé accés
+        bucketName: Nom Bucket S3
         secretKey: Clé secrète
       fares: Tarifs
       fetchElevationUS: Récupérer l'altitude
@@ -587,7 +589,7 @@ components:
       brandingUrlRoot: URL de la marque
       carDropoffTime: Temps de dépôt de la voiture
       driveDistanceReluctance: Réticence à l'égard de la distance de conduite
-      numItineraries: 'Nombre d itinéraires'
+      numItineraries: "Nombre d itinéraires"
       requestLogFile: Demander le fichier des logs
       stairsReluctance: Réticence aux escaliers
       title: Configuration du routeur
@@ -609,26 +611,26 @@ components:
         admin: Accès administrateur uniquement ?
         delete: Supprimer
         ec2Info:
-          amiId: ID AMI 
+          amiId: ID AMI
           buildAmiId: Graph build AMI ID
-          buildImageDescription: Nouvelle description de l'image
-          buildImageName: Nouveau nom de l'image
+          buildImageDescription: Nouvelle description image
+          buildImageName: Nouveau nom image
           buildInstanceType: Graph build instance type
-          instanceCount: Nombre d'instances
-          instanceType: Type d'instance
+          instanceCount: Nombre instances
+          instanceType: Type instance
           iamInstanceProfileArn: IAM Instance Profile ARN
-          keyName: Nom du fichier clé
+          keyName: Nom fichier clé
           recreateBuildImage: Recréer l'image de construction à partir de la construction du graphique ?
-          region: Nom de la région
-          securityGroupId: ID du groupe de sécurité
-          subnetId: ID du sous-réseu=au
-          targetGroupArn: ARN du groupe cible (équilibreur de charge)
+          region: Nom région
+          securityGroupId: ID groupe de sécurité
+          subnetId: ID sous-réseau
+          targetGroupArn: ARN groupe cible (équilibreur de charge)
         internalUrl: URL internes
         name: Nom
         namePlaceholder: Production
         publicUrl: URL publique
-        role: Rôle AWS 
-        s3Bucket: Nom du Bucket S3
+        role: Rôle AWS
+        s3Bucket: Nom Bucket S3
         serverPlaceholder: Nom du serveur
         title: Serveurs
   GeneralSettings:
@@ -647,8 +649,8 @@ components:
     deployment:
       buildConfig:
         elevationBucket:
-          accessKey: Clé d'accès
-          bucketName: Nom du Bucket S3
+          accessKey: Clé accès
+          bucketName: Nom Bucket S3
           secretKey: Clé secrète
         fares: Tarifs
         fetchElevationUS: Récupération de l'altitude
@@ -668,7 +670,7 @@ components:
           name: Nom
           namePlaceholder: Production
           publicUrl: URL publique
-          s3Bucket: Nom d'accès au Bucket S3
+          s3Bucket: Nom d'accès Bucket S3
         new: Ajouter un serveur
         serverPlaceholder: Nom du serveur
         title: Serveurs
@@ -676,7 +678,7 @@ components:
         brandingUrlRoot: URL de la marque
         carDropoffTime: Temps de dépôt de la voiture
         driveDistanceReluctance: Réticence à l'égard de la distance de conduite
-        numItineraries: 'Nombre d itinéraires'
+        numItineraries: "Nombre d itinéraires"
         requestLogFile: Demander le fichier des logs
         stairsReluctance: Réticence aux escaliers
         title: Configuration du routeur
@@ -685,7 +687,7 @@ components:
         updaters:
           $index:
             feedId: ID du flux
-            frequencySec: Fréquence (en secondes)
+            frequencySec: Fréquence (secondes)
             sourceType: Type de source
             type: Type
             url: URL
@@ -697,9 +699,9 @@ components:
     feedSourceName: Nom du flux de la source
     general:
       location:
-        boundingBox: 'Cadre de délimitation (O,S,E,N)'
+        boundingBox: "Cadre de délimitation (O,S,E,N)"
         defaultLanguage: Langue par défaut
-        defaultLocation: 'Location par défaut (lat, lng)'
+        defaultLocation: "Location par défaut (lat, lon)"
         defaultTimeZone: Fuseau horaire par défaut
         title: Location
       name: Nom du projet
@@ -711,13 +713,13 @@ components:
       title: Etiquettes
     make:
       private: Rendre privé
-      privateDesc: Rendre cette source de flux privée.
-      privateState: Cette source de flux est actuellement privée.
+      privateDesc: Rendre cette source de flux privée
+      privateState: Cette source de flux est actuellement privée
       public: Rendre public
-      publicDesc: Rendre cette source de flux publique.
-      publicState: Cette source de flux est actuellement publique.
+      publicDesc: Rendre cette source de flux publique
+      publicState: Cette source de flux est actuellement publique
     makeDeployable: Rendre la source de flux déployable
-    makeDeployableHint: Permet à cette source de flux d'être déployée dans une instance OpenTripPlanner (OTP) (définie dans les paramètres de l'organisation) dans le cadre d'une collection de sources de flux ou individuellement.
+    makeDeployableHint: Permet à cette source de flux d'être déployée dans une instance OTP
     rename: Renommer
     save: Enregistrer
     title: Paramètres
@@ -733,7 +735,7 @@ components:
       label: Tarifs
     feedinfo:
       title: Editer les informations du flux
-      label: Informations du flux  
+      label: Informations du flux
     route:
       title: Editer les itinéraires
       label: Itinéraires
@@ -762,19 +764,16 @@ components:
       stop_times: Problèmes liés aux temps d'arrêt
       stops: Problèmes liés aux arrêts
       trips: Problèmes liés aux trajets
-    noResults: Pas de résultats de validation à afficher.
+    noResults: Pas de résultats de validation
     tips:
-      DATE_NO_SERVICE: "Si le service de transport en commun ne fonctionne pas le
-        week-end, certains ou tous ces problèmes de validation peuvent être ignorés.
-        De même, les jours fériés pour lesquels il n'y a pas de service de transport
-        en commun peuvent apparaître dans cette liste."
-      FEED_TRAVEL_TIMES_ROUNDED: "Il s'agit d'une caractéristique commune aux flux
-        GTFS qui n'utilisent pas la précision à la seconde près pour les heures
-        d'arrivée et de départ. Toutefois, si cette précision est attendue, il peut
-        y avoir un problème lors de l'exportation du flux."
+      DATE_NO_SERVICE: "Si le service ne fonctionne pas le
+      week-end, certains problèmes de validation peuvent être ignorés.
+      De même, les jours fériés sans service peuvent apparaître dans cette liste."
+      FEED_TRAVEL_TIMES_ROUNDED: "Caractéristique commune aux flux GTFS qui
+      n'utilisent pas la précision à la seconde près. Toutefois, si cette
+      sprécision est attendue, il peut y avoir un problème lors de l'exportation du flux."
       MISSING_TABLE: "L'absence d'une table obligatoire est un problème majeur qui
-        doit être résolu avant que les utilisateur du GTFS ne puissent utiliser les 
-        flux de données pour la pour la planification de voyages ou d'autres applications."
+      doit être résolu avant que le flux de données puisse être utilisé."
     title: Problèmes de validation
   HomeProjectDropdown:
     new: Nouveau projet
@@ -784,32 +783,31 @@ components:
     ok: OK
   RetiredJob:
     view: Voir
-    bug: Il semblerait qu'une erreur soit survenue.
-    support: "Pour soumettre un rapport d'erreur, envoyez par mail une capture d'écran de 
-      la fenêtre de votre navigateur, le texte suivant (URL actuelle et détails de l'erreur)
-      et une description détaillée des étapes que vous avez suivies à
-      <a href='mailto:%supportEmail%'>%supportEmail%</a>."
+    bug: Une erreur est survenue
+    support: "Pour soumettre un rapport d'erreur, envoyez une capture d'écran,
+    les détails de l'erreur et une description détaillée des étapes que vous avez suivies à
+    <a href='mailto:%supportEmail%'>%supportEmail%</a>"
   JobMonitor:
     clearCompleted: Effacement terminée
     jobs:
       none: Pas de jobs actifs
       one: Un job actif
-      some: '%count% jobs actifs'
+      some: "%count% jobs actifs"
     jobsCompleted: Tous les jobs sont complétés
     serverJobs: Serveur des Jobs
     waiting: attente
   LabelPanel:
     labels: Etiquettes
     new: Ajouter une nouvelle étiquette
-    noLabels: Il n'y a pas d'étiquettes dans ce projet.
+    noLabels: Pas d'étiquettes dans ce projet
   LanguageSelect:
-    placeholder: Sélectionner une langue...
+    placeholder: Sélectionner une langue
   Login:
     title: Se connecter
   ManagerHeader:
     noUpdateYet: n/a
     noUrl: (aucun)
-    private: Cette source de flux et toutes ces versions sont privées.
+    private: Cette source de flux et toutes ces versions sont privées
   ManagerPage:
     alerts: Alertes
     changelog: Changelog
@@ -823,69 +821,68 @@ components:
     cancel: Annuler
   MergeFeedsResult:
     body:
-      failure: Fusion échouée avec %errorCount% erreurs.
-      success: La fusion a été réalisée avec succès. Une nouvelle version sera traitée/validée contenant le flux résultant.
+      failure: Fusion échouée (%errorCount% erreurs)
+      success: La fusion a été réalisée avec succès. Une nouvelle version sera traitée/validée contenant le flux résultant
     remappedIds: "ID remappés: %remappedIdCount%"
     skipped: "Enregistrement ignorés:"
     skippedTableRecords: "%table%: %skippedCount%"
     strategyUsed: "Stratégie utilisée: %strategy%"
     tripIdsToCheck: "ID de trajets à vérifier: %tripIdCount%"
-    DEFAULT: Les ID de trajets étaient uniques dans les flux sources. Le flux fusionné a été créé avec succès.
-    CHECK_STOP_TIMES: Certains ID de trajet ont été trouvés dans les deux fluxs. Le flux fusionnée a été créé avec succès.
+    DEFAULT: Les ID de trajets étaient uniques dans les flux sources. Flux fusionné créé avec succès
+    CHECK_STOP_TIMES: Certains ID de trajets ont été trouvés dans les deux fluxs. Flux fusionnée créé avec succès
     title:
-      failure: 'Attention: Erreurs rencontrées lors de la fusion de flux !'
-      success: 'La fusion des flux a été réalisée avec succès !'
+      failure: "Attention: Erreurs rencontrées lors de la fusion de flux !"
+      success: "Fusion des flux réalisée avec succès"
   NormalizeField:
     issues:
-      fieldUndefined: Le champ à normaliser doit être défini.
-      substitutionUndefined: Les motifs de substitution doivent être définis.
-      substitutionInvalid: Certains motifs de subsitutions ne sont pas valides.
+      fieldUndefined: Le champ à normaliser doit être défini
+      substitutionUndefined: Les motifs de substitution doivent être définis
+      substitutionInvalid: Certains motifs de subsitutions ne sont pas valides
   NormalizeStopTimesModal:
     close: Fermer
-    interpolateStopTimes: Interpoler les temps d'arrêt entre les points temporels ?
+    interpolateStopTimes: Interpoler les temps d'arrêt ?
     normalizeStopTimes: Normaliser les temps d'arrêt
     normalizeStopTimesQuestion: Normaliser les temps d'arrêt ?
     selectBeginningPatternStop: "Séectionner l'arrêt de début du motif:"
     tooFewTimepoints: "Vous devez disposer de plus d'un point temporel pour interpoler les temps."
     usageExplanationOne: Cette fonction est utile lorsque les temps de parcours d'un ou de plusieurs
       arrêts du modèle changent. Prenons l'exemple d'un trajet qui a été modifié pour parcourir une
-      plus grande distance, pour lequel un arrêt a été ajouté (ou supprimé) ou pour lequel une escale
-      a été introduite à mi-parcours. Une fois que vous avez ajusté les temps de parcours pour tenir
-      compte de ces changements, vous pouvez normaliser les temps d'arrêt pour les aligner sur les
-      temps de parcours mis à jour reflétés dans les arrêts du modèle.
+      plus grande distance, pour lequel un arrêt a été ajouté (ou supprimé).
+      Une fois que vous avez ajusté les temps de parcours pour tenir compte de ces changements,
+      vous pouvez normaliser les temps d'arrêt pour les aligner sur les temps de parcours
+      mis à jour.
     usageExplanationTwo: L'interpolation des temps d'arrêt calcule la vitesse implicite entre les
-      points temporels sur la base de la distance de forme et des temps de parcours par défaut.
-      Cette vitesse est ensuite appliquée à la distance de forme parcourue pour chaque arrêt
-      intermédiaire non ponctuel afin de fournir les temps de parcours interpolés. Le temps de
-      parcours par défaut pour les arrêts non ponctuels ne sera pas modifié.
+     points sur la base de la distance de forme et des temps de parcours par défaut.
+     Cette vitesse est ensuite appliquée à la distance de forme parcourue pour chaque arrêt
+     intermédiaire afin de fournir les temps de parcours interpolés. Le temps de
+     parcours par défaut pour les arrêts non ponctuels ne sera pas modifié.
     usageNotes: " Commentaires d'utilisation"
   NormalizeStopTimesTip:
     info: "Conseil: lorsque vous modifiez les temps de parcours,
-      pensez à utiliser le bouton 'Normaliser les temps d'arrêt' ci-dessus
-      pour automatiquement mettre à jour tous les temps d'arrêts en fonction
-      du temps de parcours modifié."
+    pensez à utiliser le bouton 'Normaliser les temps d'arrêt' ci-dessus
+    pour automatiquement mettre à jour tous les temps d'arrêts."
   NoteForm:
-    adminOnly: 'Administrateur seulement ?'
+    adminOnly: "Administrateur seulement ?"
     new: Poster
     postComment: Poster un nouveau commentaire
   NotesViewer:
-    adminOnly: 'Ce message n est visible que par les administrateurs.'
+    adminOnly: "Ce message n est visible que par les administrateurs"
     all: Tous les commentaires
     feedSource: Source du flux
     feedVersion: Version
-    none: Pas de commentaires.
+    none: Pas de commentaires
     refresh: Rafraîchir
     title: Commentaires
   OrganizationList:
     create: Créer une organisation
-    missingName: Vous devez fournir un nom d'organisation.
+    missingName: Vous devez fournir un nom d'organisation
     new: Créer une organisation
     search: Recherche par organisation
   OrganizationSettings:
     extensions: Extensions
     logoUrl:
       label: URL du logo
-      placeholder: 'http://example.com/logo_30x30.png'
+      placeholder: "http://ex.com/logo.png"
     name:
       label: Nom
       placeholder: Big City Transit
@@ -901,28 +898,28 @@ components:
       title: Niveau d'utilisation
   PageNotFound:
     homePage: page d'accueil
-    pageNotFound: Page non trouvée.
+    pageNotFound: Page non trouvée
   PatternStopCard:
     PatternStopContents:
       defaultDwellTime: Temps d'arrêt par défaut
       defaultTravelTime: Temps de trajet par défaut
-      firstStopTravelTime: Le temps de trajet au premier arrêt doit être égal à zéro.
+      firstStopTravelTime: Le temps de trajet au premier arrêt doit être égal à zéro
       stopHeadsignPlaceholder: Départ
       stopHeadsignText: Panneau de signalisation de l'arrêt
-      stopHeadsignTitle: Panneau de signalisation qui remplace la girouette du voyage entre les arrêts.
+      stopHeadsignTitle: Panneau de signalisation qui remplace la girouette du voyage entre les arrêts
       timepoint: Point temporel ?
-      travelTimeHelp: Définir le temps par défaut nécessaire pour se rendre à cet arrêt à partir de l'arrêt précédent.
+      travelTimeHelp: Définir le temps par défaut nécessaire pour se rendre à cet arrêt à partir de l'arrêt précédent
     PickupDropOffSelect:
       available: Disponible (0)
-      continuousDropOffTitle: Indique si un usager peut descendre du véhicule de transport en commun à n'importe quel endroit de son trajet.
-      continuousPickupTitle: Indique si un usager peut monter à bord du véhicule de transport en commun à n'importe quel endroit le long du trajet du véhicule.
+      continuousDropOffTitle: Indique si un usager peut descendre du véhicule à n'importe quel endroit de son trajet
+      continuousPickupTitle: Indique si un usager peut monter à bord du véhicule à n'importe quel endroit le long du trajet du véhicule.
       continuousServiceDefault: (Hérité de l'itinéraire)
-      dropOffTitle: Définit la méthode de dépôt/la disponibilité à cet arrêt.
+      dropOffTitle: Définit la méthode de dépôt à cet arrêt.
       mustCoordinate: Doit se coordonner avec le conducteur (3)
       mustPhoneAgency: Doit téléphoner à l'agence (2)
       notAvailable: Non disponible (1)
       pickupDropOffDefault: (Par défaut - Disponible)
-      pickupTitle: Définit la méthode de récupération/la disponibilité à cet arrêt.
+      pickupTitle: Définit la méthode de récupération/de dépôt à cet arrêt
   Permissions:
     approve-alert: Approuver les alertes GTFS-RT
     approve-gtfs: Approuver les flux GTFS
@@ -930,7 +927,7 @@ components:
     edit-gtfs: Modifier les flux GTFS
     manage-feed: Gérer la configuration des flux
   PreserveCustomFields:
-    addCsvWithCustomFields: "Ajoute les données CSV avec les champs personnalisés à conserver dans la sortie finale."
+    addCsvWithCustomFields: "Ajoute les données CSV avec les champs personnalisés à conserver dans la sortie finale"
     saveCsv: Enregistrer le CSV
   ProjectAccessSettings:
     admin: Administrateur
@@ -944,8 +941,8 @@ components:
     deployment:
       buildConfig:
         elevationBucket:
-          accessKey: Clé d'accès
-          bucketName: Nom du Bucket S3
+          accessKey: Clé accès
+          bucketName: Nom Bucket S3
           secretKey: Clé secrète
         fares: Tarifs
         fetchElevationUS: Récupération de l'altitude
@@ -956,7 +953,7 @@ components:
         bounds: Limites d'extraction personnalisées
         custom: Use Custom Extract Bounds
         gtfs: Utiliser les limites d'extraction personnalisées
-        title: Extrait OSM 
+        title: Extrait OSM
       otpServers:
         $index:
           admin: Accès administrateur uniquement ?
@@ -966,8 +963,8 @@ components:
           namePlaceholder: Production
           publicUrl: Public URL
           r5: Serveur R5 ?
-          s3Bucket: Nom du Bucjet S3
-          targetGroupArn: ARN du groupe cible
+          s3Bucket: Nom Bucket S3
+          targetGroupArn: ARN groupe cible
         new: Ajouter un serveur
         serverPlaceholder: Nom du serveur
         title: Serveurs
@@ -975,7 +972,7 @@ components:
         brandingUrlRoot: URL de la marque
         carDropoffTime: Temps de dépôt de la voiture
         driveDistanceReluctance: Réticence à la distance de conduite
-        numItineraries: 'Nombre d itinéraires'
+        numItineraries: "Nombre d itinéraires"
         requestLogFile: Demander le fichier des logs
         stairsReluctance: Réticence aux escaliers
         title: Configuration du routeur
@@ -984,7 +981,7 @@ components:
         updaters:
           $index:
             feedId: ID du flux
-            frequencySec: Fréquence (en secondes)
+            frequencySec: Fréquence (secondes)
             sourceType: Type de source
             type: Type
             url: URL
@@ -1002,19 +999,19 @@ components:
     title: Paramètres
   ProjectSettingsForm:
     cancel: Annuler
-    confirmDelete: Êtes-vous sûr de vouloir supprimer ce projet ? Cette action ne peut être annulée et toutes les sources de flux et leurs versions seront définitivement supprimées.
+    confirmDelete: Voulez-vous supprimer ce projet ? Action irréversible, et toutes les sources de flux seront définitivement supprimées.
     dangerZone: Zone de danger
     deleteProject: Supprimer le projet ?
     deleteProjectAction: Supprimer le projet
-    deleteThisProject: Supprimer ce projet.
-    deleteWarning: Une fois que vous avez supprimé un projet, celui-ci et toutes les sources de flux qu'il contient ne peuvent plus être récupérés.
+    deleteThisProject: Supprimer ce projet
+    deleteWarning: Une fois le projet supprimé, celui-ci et toutes ses sources de flux ne peuvent être récupérés
     fields:
       location:
-        boundingBox: 'Cadre de délimitation (O,S,E,N)'
-        boundingBoxPlaceHolder: 'min_lon, min_lat, max_lon, max_lat'
+        boundingBox: "Cadre de délimitation (O,S,E,N)"
+        boundingBoxPlaceHolder: "min_lon, min_lat, max_lon, max_lat"
         defaultLanguage: Langue par défaut
-        defaultLocation: 'Location par défaut (lat, lng)'
-        defaultTimeZone: Default time zone
+        defaultLocation: "Location par défaut (lat, lon)"
+        defaultTimeZone: Fuseau horaire par défaut
         title: Location
       sharedStops:
         title: Arrêts partagés
@@ -1026,7 +1023,7 @@ components:
         title: Mises à jour
       localPlacesIndex:
         title: Index des lieux locaux
-        webhookUrl: URL du webhook
+        webhookUrl: URL webhook
     noPermissions: Vous n'avez pas la permission de modifier les détails de cette source de flux.
     required: Requis.
     save: Enregistrer
@@ -1039,7 +1036,7 @@ components:
     numberOfFeeds: "Nombre de flux:"
     summary: résumé
     totalErrors: "Total des erreurs:"
-    totalService: "Service total :"
+    totalService: "Service total:"
   ProjectViewer:
     autoFetchDisabled: Récupération automatique désactivée
     deployments: Déploiements
@@ -1057,16 +1054,14 @@ components:
         validRange: Plage de validité
       title: Sources de flux
       update: Tout récupérer
-    feedSourceDesc: "Une source de flux définit l'emplacement ou la source en amont d'un flux GTFS.
-      Un GTFS peut être alimenté par récupération automatique, par édition directe ou par téléchargement
-      d'un fichier zip."
+    feedSourceDesc: "Une source de flux définit l'emplacement ou la source d'un flux GTFS"
     feedSourceTitle: Qu'est-ce qu'une source de flux ?
     here: ici
     makePublic: Publier les flux publics
     mergeFeeds: Tout fusionner
     noProjectFound: Pas de projet trouvé pour
     note: "Commentaire:"
-    publicViewed: "La page des flux publics peut être visualisée "
+    publicViewed: "La page des flux publics peut être visualisée"
     returnToProjects: Retourner à la liste des projets
     settings: Paramètres
   ProjectFeedListToolbar:
@@ -1077,9 +1072,9 @@ components:
       DEPLOYED: Déployé
       LATEST: Le plus récent
       PUBLISHED: Publié
-    deployedVersion: 'Version déployée:'
+    deployedVersion: "Version déployée:"
     deployments: Déploiements
-    downloadCsv: Télécharger un résumé au format CSV
+    downloadCsv: Télécharger un résumé CSV
     feeds:
       createFirst: Créer la premier source de flux !
       new: Nouveau
@@ -1090,7 +1085,7 @@ components:
         lastUpdated: Mis à jour
         name: Nom
         public: Public ?
-        retrievalMethod: M&thode de récupération
+        retrievalMethod: Méthode de récupération
         validRange: Plage de validité
       title: Sources de flux
       update: Tout récupérer
@@ -1106,29 +1101,29 @@ components:
     hasLatestVersion: A une dernière version ?
     hasPublishedVersion: A une version publiée ?
     isPublic: Est public
-    labelEndDate: '%labelPrefix% Date de fin'
-    labelNumberIssues: '%labelPrefix% Nombre d erreurs'
-    labelNumberRoutes: '%labelPrefix% Nombre d itinéraires'
-    labelNumberStops: '%labelPrefix% Nombre d arrêts'
-    labelNumberStopTimes: '%labelPrefix% Nombre de temps d arrêts'
-    labelNumberTrips: '%labelPrefix% Nombre de trajets'
-    labelStartDate: '%labelPrefix% Date de départ'
-    lastFetched: Dernière fois que les données ont été récupérées par l'URL du flux
+    labelEndDate: "%labelPrefix% Date fin"
+    labelNumberIssues: "%labelPrefix% Nombre erreurs"
+    labelNumberRoutes: "%labelPrefix% Nombre itinéraires"
+    labelNumberStops: "%labelPrefix% Nombre arrêts"
+    labelNumberStopTimes: "%labelPrefix% Nombre temps d arrêts"
+    labelNumberTrips: "%labelPrefix% Nombre trajets"
+    labelStartDate: "%labelPrefix% Date départ"
+    lastFetched: Dernière fois que les données ont été récupérées par l'URL
     lastUpdated: Dernière mise à jour
     latestValidation:
-      endDate: 'Dernière version: Date de fin'
-      errorCount: 'Dernière version: Nombre d erreurs'
-      routeCount: 'Dernière version: Nombre d itinérairess'
-      startDate: 'Dernière version: Date de départ'
-      stopTimesCount: 'Dernière version: Nombre de temps d arrêts'
-      stopCount: 'Dernière version: Nombre d arrêts'
-      tripCount: 'Dernière version: Nombre de trajets'
+      endDate: "Dernière version: Date fin"
+      errorCount: "Dernière version: Nombre erreurs"
+      routeCount: "Dernière version: Nombre itinérairess"
+      startDate: "Dernière version: Date départ"
+      stopTimesCount: "Dernière version: Nombre temps d arrêts"
+      stopCount: "Dernière version: Nombre d arrêts"
+      tripCount: "Dernière version: Nombre trajets"
     makePublic: Publier les flux publics
     mergeFeeds: Tout fusionner
     name: Nom
-    noteSorting: 'Note: le tri n est disponible que sur les données de la dernière version'
-    ofTheLabels: 'des étiquettes:'
-    publishedVersion: 'Versions publiées:'
+    noteSorting: "Note: le tri n est disponible que sur les données de la dernière version"
+    ofTheLabels: "des étiquettes:"
+    publishedVersion: "Versions publiées:"
     settings: Paramètres
     showFeedsWith: Afficher les flux avec
     sort:
@@ -1162,10 +1157,10 @@ components:
   ProjectsList:
     createFirst: Créer mon premier projet
     help:
-      content: 'Un projet est utilisé pour regrouper les flux GTFS. Par exemple, les flux d un projet peuvent se trouver dans la même région ou définir collectivement un scénario de planification.'
+      content: "Un projet est utilisé pour regrouper les flux GTFS"
       title: Qu'est-ce qu'un projet ?
     new: Nouveau projet
-    noProjects: Vous n'avez actuellement un nom de projet.
+    noProjects: Vous n'avez actuellement un nom de projet
     search: Recherche par nom de projet
     table:
       name: Nom du projet
@@ -1191,7 +1186,7 @@ components:
   RegionSearch:
     placeholder: Recherche par région ou agence
   ReplaceFileFromString:
-    addCsvData: "Ajouter les données CSV à ajouter/remplacer dans le fichier GTFS entrant :"
+    addCsvData: "Ajouter les données CSV à ajouter/remplacer dans le fichier GTFS entrant:"
     saveCsv: Enregister le CSV
   ResultTable:
     affectedIds: ID affecté(s)
@@ -1200,9 +1195,9 @@ components:
     priority: Priorité
     problemType: Type de problème
   RouteLayout:
-    errorOccurred: Une erreur s'est produite lors de la récupération des données.
+    errorOccurred: Une erreur s'est produite lors de la récupération des données
     jumpToRoute: Aller à un itinéraire
-    route: "Itinéraire :"
+    route: "Itinéraire:"
     RouteRow:
       patterns: "%num% motifs"
       stops: "%num% arrêts"
@@ -1217,55 +1212,55 @@ components:
     noService: Pas de service
     onTheseDates: A ces dates*
     ranges: Plages
-    runFollowing: "Exécuter le calendrier suivant :"
+    runFollowing: "Exécuter le calendrier suivant:"
     selectCalendar: Sélectionner le calendrier à exécuter*
-    selectCalendarToAdd: "Sélectionner les calendriers à ajouter (facultatif):"
-    selectCalendarToRemove: "Sélectionner les calendriers à supprimer (facultatif):"
+    selectCalendarToAdd: "Sélectionner les calendriers à ajouter (opt.):"
+    selectCalendarToRemove: "Sélectionner les calendriers à supprimer (opt.):"
     selectExemplar: -- Sélectionner le type d'exception --
     swapAddOrRemove: Echanger, ajouter ou supprimer
-    thanksgivingDay: Thanksgiving Day
+    thanksgivingDay: Thanksgiving
     unnamedDefault: "[sans nom]"
   SelectFileModal:
     ok: OK
     cancel: Supprimer
   ServerSettings:
-    awsSetup: Instructions pour la configuration des serveurs de déploiement OTP sur AWS
-    confirmDelete: Êtes-vous sûr de vouloir supprimer cet enregistrement de serveur ?
+    awsSetup: Instructions pour configuration des serveurs de déploiement OTP sur AWS
+    confirmDelete: Delete this server record ?
     deployment:
       otpServers:
-        new: Ajouter un serveur
+        new: Ajouter serveur
         refresh: Rafraîchir
-        serverPlaceholder: Nom du serveur
-        title: Gestion du serveur de déploiement
+        serverPlaceholder: Nom serveur
+        title: Gestion serveur de déploiement
     instructions: Instructions
     noServers: Pas de serveurs définis
     save: Enregistrer
     title: Paramètres
   ServerSpecialFields:
-    confirmTermination: 'Êtes-vous sûr de vouloir mettre fin à %count% instance(s)?\n\n ATTENTION: Cela mettra fin au service OTP  pour tous les déploiements lancés pour ce serveur.'
+    confirmTermination: "Terminate %count% instances? WARN: Will end OTP service for all deployments for this server"
     projectSpecific: Spécifique au projet ?
     projectSpecificPlaceholder: Attribuer à un projet ou laisser disponible pour n'importe quel projet
-    terminateEC2: Mettre fin aux instances EC2
-    useELB: Utiliser l'Elastic Load Balancer (ELB)?
-    noEC2Instances: Pas d'instances EC2 associées au serveur.
+    terminateEC2: Treminate EC2 instances
+    useELB: Utiliser l'ELB?
+    noEC2Instances: Pas instances EC2 associées au serveur
   ShowAllRoutesOnMapFilter:
     fetching: Récupération
-    noShapes: Ce flux n'a aucun tracés d'itinéraire encore créé.
+    noShapes: Ce flux n'a aucun tracés d'itinéraire encore créé
     showAllRoutesOnMap: Afficher tous les utilisateurs
     tooManyShapeRecords: un fichier shapes.txt volumineux peut avoir un impact sur les performances
   Sidebar:
     about: A propos de cette application
     account: Comptes
-    serverJobs: SJobs du serveur
-    serverVersion: 'Version du serveur :'
+    serverJobs: Jobs du serveur
+    serverVersion: "Version du serveur:"
     settings: Paramètres
-    uiDeployedAt: 'Interface utilisateur déployée à :'
-    uiVersion: 'Version de l interface utilisateur :'
+    uiDeployedAt: "Interface utilisateur déployée à:"
+    uiVersion: "Version de l interface utilisateur:"
     unknown: Inconnu
   SnapshotItem:
     active: Actif
     confirmDelete: Cette opération supprime définitivement cet instantané. Les données sauvegardées ici ne pourront pas être récupérées. Êtes-vous sûr de vouloir continuer ?
-    confirmLoad: 'Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané des données actuelles de l éditeur. Êtes-vous sûr de vouloir continuer ?'
+    confirmLoad: "Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané de l éditeur. Êtes-vous sûr de vouloir continuer ?"
     created: créé
     createFromScratch: Créer un fichier GTFS à partir de zéro
     date: Date
@@ -1276,7 +1271,7 @@ components:
     loadLatest: Charger la dernière version pour l'éditer
     name: Nom
     noVersions: (pas de versions)
-    noVersionsExist: Aucune version n'existe pour cette source de flux.
+    noVersionsExist: Aucune version n'existe pour cette source de flux
     of: de
     publish: Publier
     restore: Restaurer
@@ -1287,68 +1282,68 @@ components:
     star: Mettre en favori
     unstar: Enlever des favoris
   Status:
-    REQUESTING_PROJECTS: Chargement des projets...
-    REQUESTING_PROJECT: Chargement du projet...
-    SAVING_PROJECT: Enregistrement du projet...
-    REQUESTING_FEEDSOURCES: Chargement des flux...
-    REQUESTING_FEEDSOURCE: Chargement du flux...
-    SAVING_FEEDSOURCE: Enregistrement du flux...
-    REQUESTING_FEEDVERSIONS: Chargement des versions du flux...
-    DELETING_FEEDVERSION: Suppression de la version du flux...
-    UPLOADING_FEED: Téléchargement du flux...
-    REQUESTING_SYNC: Synchronisation des flux...
-    RUNNING_FETCH_FEED: Récupération du flux...
-    RUNNING_FETCH_FEED_FOR_PROJECT: Mise à jour des flux du projet...
-    REQUESTING_PUBLIC_FEEDS: Chargement des flux publics...
-    REQUESTING_VALIDATION_ISSUE_COUNT: Chargement du résultat de validation...
-    REQUESTING_NOTES: Chargement des commentaires...
-    REQUESTING_GTFSPLUS_CONTENT: Chargement des données GTFS+...
-    UPLOADING_GTFSPLUS_FEED: Enregistrement des données GTFS+...
-    PUBLISHING_GTFSPLUS_FEED: Publication du flux GTFS+...
-    VALIDATING_GTFSPLUS_FEED: Mise à jour de la valdation GTFS+...
-    REQUESTING_FEEDVERSION_ISOCHRONES: Calculating access shed...
-    REQUESTING_DEPLOYMENTS: Chargement des déploiements...
-    REQUESTING_DEPLOYMENT: Chargement du déploiement...
-    REQUESTING_USERS: Chargement des utilisateurs...
-    UPDATING_USER_DATA: Mise à jour de l'utilisateur...
-    SAVING_DEPLOYMENT: Enregistrement du déploiement...
-    REQUESTING_GTFSEDITOR_SNAPSHOTS: Chargement des instantanés...
-    SAVING_AGENCY: Enregistrement de l'agence...
-    SAVING_STOP: Enregistrement de l'arrêt...
-    SAVING_ROUTE: Enregistrement de l'itinéraire...
-    REQUESTING_AGENCIES: Enregistrement des agences...
-    REQUESTING_STOPS: Enregistrement des arrêts...
-    REQUESTING_ROUTES: Enregistrement des itinéraires...
-    REQUESTING_TRIPS_FOR_CALENDAR: Enregistrement des trajets...
-    CREATING_SNAPSHOT: Création d'un instantané...
-    DELETING_SNAPSHOT: Suppression d'un instantané...
-    DELETING_AGENCY: Suppression d'une agence...
-    DELETING_TRIPS_FOR_CALENDAR: Suppression des trajets...
-    RESTORING_SNAPSHOT: Restauration de l'instantané...
-    RENAMING_FEEDVERSION: Renommage de la version du flux...
-    LOADING_FEEDVERSION_FOR_EDITING: Chargement de la version dans l'utilisateur...
-    REQUESTING_ORGANIZATIONS: Chargement des organisations...
-    UPDATING_SERVER: Enregistrement du serveur...
-    FETCHING_ALL_JOBS: Récupération des jobs...
-    REQUEST_RTD_ALERTS: Chargements des alertes...
+    REQUESTING_PROJECTS: Chargement des projets
+    REQUESTING_PROJECT: Chargement du projet
+    SAVING_PROJECT: Enregistrement du projet
+    REQUESTING_FEEDSOURCES: Chargement des flux
+    REQUESTING_FEEDSOURCE: Chargement du flux
+    SAVING_FEEDSOURCE: Enregistrement du flux
+    REQUESTING_FEEDVERSIONS: Chargement des versions du flux
+    DELETING_FEEDVERSION: Suppression de la version du flux
+    UPLOADING_FEED: Téléchargement du flux
+    REQUESTING_SYNC: Synchronisation des flux
+    RUNNING_FETCH_FEED: Récupération du flux
+    RUNNING_FETCH_FEED_FOR_PROJECT: Mise à jour des flux du projet
+    REQUESTING_PUBLIC_FEEDS: Chargement des flux publics
+    REQUESTING_VALIDATION_ISSUE_COUNT: Chargement du résultat de validation
+    REQUESTING_NOTES: Chargement des commentaires
+    REQUESTING_GTFSPLUS_CONTENT: Chargement des données GTFS+
+    UPLOADING_GTFSPLUS_FEED: Enregistrement des données GTFS+
+    PUBLISHING_GTFSPLUS_FEED: Publication du flux GTFS+
+    VALIDATING_GTFSPLUS_FEED: Mise à jour de la valdation GTFS+
+    REQUESTING_FEEDVERSION_ISOCHRONES: Calculating access shed
+    REQUESTING_DEPLOYMENTS: Chargement des déploiements
+    REQUESTING_DEPLOYMENT: Chargement du déploiement
+    REQUESTING_USERS: Chargement des utilisateurs
+    UPDATING_USER_DATA: Mise à jour de l'utilisateur
+    SAVING_DEPLOYMENT: Enregistrement du déploiement
+    REQUESTING_GTFSEDITOR_SNAPSHOTS: Chargement des instantanés
+    SAVING_AGENCY: Enregistrement de l'agence
+    SAVING_STOP: Enregistrement de l'arrêt
+    SAVING_ROUTE: Enregistrement de l'itinéraire
+    REQUESTING_AGENCIES: Enregistrement des agences
+    REQUESTING_STOPS: Enregistrement des arrêts
+    REQUESTING_ROUTES: Enregistrement des itinéraires
+    REQUESTING_TRIPS_FOR_CALENDAR: Enregistrement des trajets
+    CREATING_SNAPSHOT: Création d'un instantané
+    DELETING_SNAPSHOT: Suppression d'un instantané
+    DELETING_AGENCY: Suppression d'une agence
+    DELETING_TRIPS_FOR_CALENDAR: Suppression des trajets
+    RESTORING_SNAPSHOT: Restauration de l'instantané
+    RENAMING_FEEDVERSION: Renommage de la version du flux
+    LOADING_FEEDVERSION_FOR_EDITING: Chargement de la version dans l'utilisateur
+    REQUESTING_ORGANIZATIONS: Chargement des organisations
+    UPDATING_SERVER: Enregistrement du serveur
+    FETCHING_ALL_JOBS: Récupération des jobs
+    REQUEST_RTD_ALERTS: Chargements des alertes
     CREATED_SNAPSHOT:
-      body: 'Nouvel instantané "%payload%" créé. Il sera accessible depuis l onglet "Editeur des instantanés" dans la page d accueil de la source du flux.'
+      body: Nouvel instantané "%payload%" créé. Il sera accessible depuis l onglet "Editeur des instantanés" dans la page d accueil de la source du flux.
       title: Instantané créé
   StatusModal:
     close: Fermer
-    login: Cennexion
+    login: Connexion
     reload: Recharger la page
     relock: Reverouiller le flux
     relockingFailed:
-      body: Le reverouillage du flux est autorisé uniquement si une autre session d'édition est en cours pour vous (et non pour un autre utilisateur). Vous pouvez réessayer plus tard ou contacter l'éditeur actuel pour lui demander de terminer sa session.
+      body: Le reverouillage du flux est autorisé uniquement si une autre session d'édition est en cours pour vous (et non pour un autre utilisateur). Réessayez plus tard ou contactez l'éditeur actuel pour lui demander de terminer sa session.
       title: La tentative de prise en charge de l'édition a échoué !
   TimetableEditor:
-    choosePattern: Choisir un motif de trajet.
+    choosePattern: Choisir un motif de trajet
     createNew: créer un nouveau
-    deleteSelectedTrip: 'Êtes-vous sur de vouloir définitvement supprimer %count% trajet sélectionné ?'
-    deleteSelectedTrips: 'Êtes-vous sur de vouloir définitvement supprimer %count% trajets sélectionnés ?'
+    deleteSelectedTrip: "Êtes-vous sur de vouloir supprimer %count% trajet sélectionné?"
+    deleteSelectedTrips: "Êtes-vous sur de vouloir supprimer %count% trajets sélectionnés?"
     deleteTrips: Suprimer les trajets
-    deleteTripsQuestion: Supprimer les trajets ?
+    deleteTripsQuestion: Supprimer les trajets?
   TimetableHeader:
     addBlankTrip: Ajouter un trajet vide
     advancedSettings: Paramètres avancés
@@ -1381,10 +1376,10 @@ components:
       offset:
         title: Temps de décalage
         desc:
-          - Décalage des temps d'arrêt des trajets sélectionnés par l'ajout d'un temps de décalage
-          - Décalage des temps d'arrêt des trajets sélectionnés par le retrait d'un temps de décalage
-          - Décalage du temps de la seule cellule active par l'ajout d'un temps de décalage
-          - Décalage du temps de la seule cellule active par le retrait d'un temps de décalage
+          - Décalage des temps d'arrêt des trajets sélectionnés par l'ajout d'un temps
+          - Décalage des temps d'arrêt des trajets sélectionnés par le retrait d'un temps
+          - Décalage du temps de la seule cellule active par l'ajout d'un temps
+          - Décalage du temps de la seule cellule active par le retrait d'un temps
           - Diminuer le temps de décalage d'une minute
           - Diminuer le temps de décalage de 10 minutes
           - Augmenter le temps de décalage d'une minute
@@ -1395,50 +1390,50 @@ components:
           - Précédent/prochain trajet
           - Précédente/prochaine colonne
           - Sélectionner un trajet
-          - Sélectionner tous les trajets
-          - Déselectionner tous les trajets
+          - Sélectionner tout
+          - Déselectionner tout
       modify:
         title: Modifier les trajets
         desc:
-          - Supprimer le(s) trajet(s) sélectionné(s)
+          - Supprimer les trajets sélectionnés
           - Nouveau trajet
-          - Cloner le(s) trajet(s) sélectionné(s)
-          - Copie de la valeur temporelle de la cellule adjacente (la cellule immédiatement à gauche)
+          - Cloner les trajets sélectionnés
+          - Copie de la valeur de la cellule adjacente (celle immédiatement à gauche)
           - Copier la valeur de la cellule directement au-dessus
     title: Raccourcis clavier de l'éditeur d'horaires
   TimezoneSelect:
-    placeholder: Sélectionner un fuseau horaire...
+    placeholder: Sélectionner un fuseau horaire
   TransformationsViewer:
     columnsAdded: "Colonnes personnalisées ajoutées: %columns%"
-    noTransformationApplied: Pas de transformations appliquées.
+    noTransformationApplied: Pas de transformations appliquées
     rowsAdded: "Lignes ajoutées: %rows%"
     rowsDeleted: "Lignes supprimées: %rows%"
     rowsUpdated: "Lignes mises à jour: %rows%"
-    tableModified: Table modifiée 
+    tableModified: Table modifiée
     tableAdded: Table ajoutée
     tableReplaced: Table remplacée
     tableDeleted: Table supprimée
     transformationsTitle: Transformations
   TripSeriesModal:
-    alternateEvery: "Alterner tous les: "
+    alternateEvery: "Alterner tous les:"
     automaticallyUpdateBlockIds: Attribuer automatiquement des ID de bloc aux trajets créés en série ?
     automaticallyUpdateTripIds: Mettre à jour automatiquement les ID de trajets pour les trajets créés en série ?
     blockIdPrefixPlaceholder: Préfixe de l'ID du bloc
     blockIncrementPlaceholder: incrémenter par
     close: Fermer
-    createTripSeriesBody: Saisissez l'heure de début et de fin de la série de trajets (24 heures) et l'intervalle entre les trajets. Cliquez sur générer pour créer la série de trajets. 
+    createTripSeriesBody: Saisissez l'heure de début et de fin de la série de trajets (24 heures) et l'intervalle entre les trajets. Cliquez sur générer pour créer la série de trajets.
     createTripSeriesQuestion: Créer une série de trajets
     disabledTooltip: Il y a un problème avec la donnée en entrée
-    endTime: "Heure de fin :"
-    formatExplanation: "* Les ID de blocs seront formatés selon le nom suivant: {préfixe}-{nombre alterné}, par exemple 'JOUR_DE_LA_SEMAINE-1' puis 'JOUR_DE_LA_SEMAINE-2', etc.'"
+    endTime: "Heure de fin:"
+    formatExplanation: "* Les ID de blocs seront formatés selon le nom suivant: {préfixe}-{nombre alterné}, par exemple 'JOUR-1', 'JOUR-2', etc.'"
     generateTrips: Générer les trajets
-    headway: "Avancée :"
+    headway: "Avancée:"
     incrementAmountPlaceholder: Nombre d'incrémentation
     incrementBy: incrémenté par
     incrementStartPlaceholder: Début de l'incrémentation (0 par défaut)
-    prefixPlaceholder: Préfixe de l'ID de trajet (facultatif)
-    startTime: "Heure de départ :"
-    tripsStartingWith: "trajet(s), commençant par:"
+    prefixPlaceholder: Préfixe de l'ID de trajet (opt.)
+    startTime: "Heure de départ:"
+    tripsStartingWith: "trajets, commençant par:"
   UserAccount:
     account:
       title: Compte
@@ -1471,15 +1466,15 @@ components:
   UserHomePage:
     authDisabledInfo: >-
       Vous êtes en train d'utiliser %appTitle% sans authentification de l'utilisateur.
-      Les fonctions telles que la gestion des utilisateurs, la gestion des comptes et la surveillance de l'activité des flux ne sont pas disponibles.
+      Les fonctions telles que la gestion des utilisateurs et la surveillance de l'activité des flux ne sont pas disponibles.
     createFirst: Créer mon premier projet
     help:
-      content: 'Un projet est utilisé pour regrouper les flux GTFS. Par exemple, les flux d un projet peuvent se trouver dans la même région ou définir collectivement un scénario de planification..'
+      content: "Un projet est utilisé pour regrouper les flux GTFS"
       title: Qu'est-ce qu'un projet ?
     new: Nouveau projet
-    noProjects: Vous n'avez actuellement aucun projet.
+    noProjects: Vous n'avez actuellement aucun projet
     recentActivity: Activité récente
-    recentActivityNone: Pas d'activité récente pour vos abonnements.
+    recentActivityNone: Pas d'activité récente pour vos abonnements
     table:
       name: Nom du projet
     title: Projets
@@ -1511,7 +1506,7 @@ components:
     unknownAccount: Inconnu
   UserSettings:
     admin:
-      description: Les administrateurs de l'application ont un accès complet à tous les projets.
+      description: Les administrateurs de l'application ont un accès complet à tous les projets
       title: Application Admininistrator
     application: Administrateur de l'application
     cancel: Annuler
@@ -1521,40 +1516,40 @@ components:
     org:
       admin: Administrateur de l'organisation
       billing: Administrateur de la facturation
-      description: Les administrateurs de l'organisation ont un accès complet aux projets au sein de l'organisation.
+      description: Les administrateurs de l'organisation ont un accès complet aux projets au sein de l'organisation
     project:
       admin: Administrateur
       custom: Personnaliser
       noAccess: Pas d'accès
     save: Enregistrer
   Validation:
-    agencyRequired: Le champ doit être rempli pour les flux comportant plus d'une agence.
+    agencyRequired: Le champ doit être rempli pour les flux comportant plus d'une agence
     conflictingServiceId: L'ID de service existe déjà dans un calendrier standard !
     customServiceId: ID de service personnalisé
-    dateServiceIdCombinationDuplicate: La combinaison de la date (%exceptionDate%) et de l'ID de service (%serviceId%) ne peut apparaître plus d'une fois pour toutes les exceptions.
-    idMustBeUnique: L'identifiant doit être unique.
-    idRequired: L'identifiant est requis s'il existe plus d'une agence.
-    invalidEmail: Le champ doit contenir une adresse mail valide.
-    invalidLatitude: Le champ doit contenir une latitude valide.
-    invalidLongitude: Le champ doit contenir une longitude valide.
-    invalidRouteType: Le champ doit être un type de route valide.
-    invalidUrl: Le champ doit être une URL valide.
-    latLonRequired: La latitude et la longitude sont requises pour votre type d'emplacement actuel.
-    mustBePositiveInteger: Le champ doit être un nombre entier positif.
-    mustBePositiveNumber: Le champ doit être un nombre positif.
-    mustBeValidNumber: Le champ doit être un nombre valide.
-    nameAlreadyUsed: "%name% est déjà utilisé dans une autre exception."
-    serviceRequired: Le calendrier doit être en service pendant au moins un jour.
-    stopNameRequired: Le nom de l'arrêt est requis pour les types d'emplacement arrêt, station et entrée.
-    requiredFieldEmpty: Le champ requis ne doit pas être vide.
+    dateServiceIdCombinationDuplicate: La combinaison de la date (%exceptionDate%) et de l'ID de service (%serviceId%) ne peut apparaître plus d'une fois pour toutes les exceptions
+    idMustBeUnique: L'identifiant doit être unique
+    idRequired: L'identifiant est requis s'il existe plus d'une agence
+    invalidEmail: Le champ doit contenir une adresse mail valide
+    invalidLatitude: Le champ doit contenir une latitude valide
+    invalidLongitude: Le champ doit contenir une longitude valide
+    invalidRouteType: "Le champ doit être un type de route valide"
+    invalidUrl: "Le champ doit être une URL valide"
+    latLonRequired: La latitude et la longitude sont requises pour votre type d'emplacement actuel
+    mustBePositiveInteger: Le champ doit être un nombre entier positif
+    mustBePositiveNumber: Le champ doit être un nombre positif
+    mustBeValidNumber: Le champ doit être un nombre valide
+    nameAlreadyUsed: "%name% est déjà utilisé dans une autre exception"
+    serviceRequired: Le calendrier doit être en service pendant au moins un jour
+    stopNameRequired: Le nom de l'arrêt est requis pour les types d'emplacement arrêt, station et entrée
+    requiredFieldEmpty: Le champ requis ne doit pas être vide
   VersionButtonToolbar:
     confirmDelete: Êtes-vous sûr de vouloir supprimer cette version ? Cette opération ne peut être annulée.
-    confirmLoad: 'Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané des données actuelles de l éditeur. Êtes-vous sûr de vouloir continuer ?'
+    confirmLoad: "Ceci remplacera toutes les données actives de l éditeur GTFS pour cette source de flux par les données de cette version. S il y a du travail non sauvegardé dans l éditeur que vous voulez conserver, vous devez d abord faire un instantané de l éditeur. Êtes-vous sûr de vouloir continuer ?"
     delete: Supprimer
     download: Télécharger
     feed: Flux
     load: Charger
-    noVersionsExist: Aucune version n'existe pour cette source de flux.
+    noVersionsExist: Aucune version n'existe pour cette source de flux
     status: Statut
     timestamp: Horodatage du fichier
     version: version

@@ -368,7 +368,7 @@ components:
   FeedInfo:
     autoFetch: Récupération automatique
     autoPublish: Publication automatique
-    dateFormat: MM JJ, AAAA
+    dateFormat: DD.MM.YYYY
     deployable: Déployable
     edit: Editer
     lastUpdatedDate: Dernière mise à jour %date%
@@ -420,7 +420,7 @@ components:
     latestVersion: Dernière version
     status: Statut
   FeedSourceTableRow:
-    dateFormat: MM JJ, AAAA
+    dateFormat: DD.MM.YYYY
     expired: Expiré il y a %duration%
     lastUpdated: Dernière mise à jour il y à %lastVersionUpdate%
     none: Aucun

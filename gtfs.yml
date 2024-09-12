@@ -966,6 +966,25 @@
   - name: "eligible_cap_id"
     required: false
 
+- id: fare_transfer_rules
+  name: fare_transfer_rules.txt
+  helpContent: Fare rules for transfers between legs of travel.
+  fields:
+  - name: "fare_transfer_type"
+    required: true
+  - name: "from_leg_group_id"
+    required: false
+  - name: "to_leg_group_id"
+    required: false
+  - name: "transfer_count"
+    required: false
+  - name: "duration_limit"
+    required: false
+  - name: "duration_limit_type"
+    required: false
+  - name: "fare_product_id"
+    required: false
+
 - id: frequencies
   name: frequencies.txt
   helpContent: Headway (time between trips) for routes with variable frequency of service.

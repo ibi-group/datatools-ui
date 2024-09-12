@@ -929,6 +929,42 @@
     columnWidth: 6
     helpContent: "The contains_id field associates the fare ID with a zone ID, referenced from thestops.txt file. The fare ID is then associated with itineraries that pass through every contains_id zone."
 
+- id: fare_leg_rules
+  name: fare_leg_rules.txt
+  helpContent: Fare rules for individual legs of travel. 
+  fields:
+  - name: "fare_product_id"
+    required: true
+  - name: "network_id"
+    required: false
+  - name: "leg_group_id"
+    required: false
+  - name: "fare_leg_name"
+    required: false
+  - name: "from_area_id"
+    required: false
+  - name: "contains_area_set_id"
+    required: false
+  - name: "contains_exactly_area_set_id"
+    required: false
+  - name: "to_area_id"
+    required: false
+  - name: "is_symmetrical"
+    required: false
+  - name: "from_timeframe_group_id"
+    required: false
+  - name: "to_timeframe_group_id"
+    required: false
+  - name: "timeframe_type"
+    required: false
+  - name: "min_distance"
+    required: false
+  - name: "max_distance"
+    required: false
+  - name: "distance_type"
+    required: false
+  - name: "eligible_cap_id"
+    required: false
 
 - id: frequencies
   name: frequencies.txt

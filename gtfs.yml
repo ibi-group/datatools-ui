@@ -549,6 +549,8 @@
     inputType: URL
     columnWidth: 12
     helpContent:
+  - name: network_id
+    required: false
 
 - id: trip
   name: trips.txt
@@ -1072,3 +1074,65 @@
     required: false
   - name: added_service
     required: false
+
+- id: areas
+  name: areas.txt
+  helpContent: Defines area identifiers.
+  fields:
+  - name: area_id
+    required: true
+  - name: area_name
+    required: false
+
+- id: stop_areas
+  name: stop_areas.txt
+  helpContent: Assigns stops from stops.txt to areas.
+  fields:
+  - name: stop_id
+    required: true
+  - name: area_id
+    required: true
+
+- id: area_sets
+  name: area_sets.txt
+  helpContent: Groups collections of areas into sets.
+  fields:
+  - name: area_set_id
+    required: true
+  - name: area_id
+    required: true
+
+- id: networks
+  name: network.txt
+  helpContent: Defines network identifiers that apply for fare leg rules. Forbidden if routes.network_id field exists.
+  fields:
+  - name: network_id
+    required: true
+  - name: network_name
+    required: false
+
+- id: route_networks
+  name: route_networks.txt
+  helpContent: Assigns routes from routes.txt to networks. Forbidden if routes.network_id field exists
+  fields:
+  - name: route_id
+    required: true
+  - name: network_id
+    required: true
+
+- id: timeframes
+  name: timeframes.txt
+  helpContent: Used to describe fares that can vary based on the time of day, the day of the week, or a particular day in the year.
+  fields:
+  - name: timeframe_group_id
+    required: true
+  - name: start_time
+    required: true
+    inputType: TIME
+  - name: end_time
+    required: true
+    inputType: TIME
+  - name: service_id
+    required: true
+
+

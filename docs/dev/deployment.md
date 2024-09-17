@@ -244,6 +244,8 @@ Enables the GTFS Editor module.
 - `MAPBOX_ACCESS_TOKEN`
 - `R5_URL` (optional parameter for r5 routing in editor pattern drawing)
 
+**Note:** If maps are gray, add the property `MAP_BASE_URL: http://tile.openstreetmap.org/{z}/{x}/{y}.png` into `env.yml`.
+
 ### R5 network validation
 
 While the application handles basic validation even without the `r5_network`

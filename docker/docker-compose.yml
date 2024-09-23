@@ -1,4 +1,3 @@
-version: "3.8"
 
 x-common-variables: &common-variables
   - BUGSNAG_KEY=${BUGSNAG_KEY}
@@ -42,15 +41,17 @@ services:
         target: /config
     ports:
       - "4000:4000"
-  # datatools-ui:
-  #   build:
-  #     context: ../
-  #     dockerfile: ./docker/ui/Dockerfile
-  #     args: *common-variables
-  #   restart: always
-  #   environment: *common-variables
-  #   ports:
-  #     - "9966:9966"
+
+  datatools-ui:
+    build:
+      context: ../
+      dockerfile: ./docker/ui/Dockerfile
+      args: *common-variables
+    restart: always
+    environment: *common-variables
+    ports:
+      - "9966:9966"
+
   mongo:
     image: mongo
     restart: always

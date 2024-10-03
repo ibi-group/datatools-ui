@@ -223,7 +223,7 @@ export const mockFeedWithoutVersion = {
   versionCount: 0
 }
 
-// a mock feedversion that has validation data
+// a mock feed version that has validation data
 export const mockFeedVersion = {
   dateCreated: 1543389038810,
   feedLoadResult: {
@@ -390,7 +390,7 @@ mockProjectWithDeploymentUnloaded.id = 'mock-project-with-deployments-id'
 mockProjectWithDeploymentUnloaded.name = 'mock-project-with-deployments'
 
 /**
- * A mock project with a feed soure and deployment that are already loaded
+ * A mock project with a feed source and deployment that are already loaded
  */
 export const mockProjectWithDeployment = clone(mockProject)
 mockProjectWithDeployment.id = 'mock-project-with-deployments-id'
@@ -405,7 +405,8 @@ mockProjectWithDeployment.deployments.push(mockDeployment)
 mockProjectWithDeployment.feedSources.push(mockFeedWithVersion)
 
 /***************************************************************************
- User helpers
+
+User helpers
  ***************************************************************************/
 
 /**

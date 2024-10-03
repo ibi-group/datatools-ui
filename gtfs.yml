@@ -117,7 +117,7 @@
     required: false
     inputType: TEXT
     columnWidth: 12
-    helpContent: "The agency_phone field contains a single voice telephone number for the specified agency. This field is a string value that presents the telephone number as typical for the agency's service area. It can and should contain punctuation marks to group the digits of the number. Dialable text (for example, TriMet's \"503-238-RIDE\") is permitted, but the field must not contain any other descriptive text."
+    helpContent: "The agency_phone field contains a single voice telephone number for the specified agency. This field is a string value that presents the telephone number as typical for the agency's service area. It can and should contain punctuation marks to group the digits of the number. Disable text (for example, TriMet's \"503-238-RIDE\") is permitted, but the field must not contain any other descriptive text."
   - name: "agency_fare_url"
     required: false
     inputType: URL
@@ -219,7 +219,7 @@
     inputType: TIMEZONE
     bulkEditEnabled: true
     columnWidth: 12
-    helpContent: "The stop_timezone field contains the timezone in which this stop or station is located. If omitted, the stop should be assumed to be located in the timezone specified byagency_timezone in agency.txt."
+    helpContent: "The stop_timezone field contains the timezone in which this stop or station is located. If omitted, the stop should be assumed to be located in the timezone specified by agency_timezone in agency.txt."
   - name: "wheelchair_boarding"
     required: false
     inputType: DROPDOWN
@@ -565,7 +565,7 @@
     required: true
     inputType: GTFS_SERVICE
     columnWidth: 6
-    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. This value is referenced from thecalendar.txt or calendar_dates.txt file."
+    helpContent: "The service_id contains an ID that uniquely identifies a set of dates when service is available for one or more routes. This value is referenced from the calendar.txt or calendar_dates.txt file."
   - name: "trip_id"
     required: true
     inputType: GTFS_ID
@@ -659,7 +659,7 @@
     inputType: TEXT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The stop_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to override the defaulttrip_headsign when the headsign changes between stops. If this headsign is associated with an entire trip, use trip_headsign instead."
+    helpContent: "The stop_headsign field contains the text that appears on a sign that identifies the trip's destination to passengers. Use this field to override the default trip_headsign when the headsign changes between stops. If this headsign is associated with an entire trip, use trip_headsign instead."
   - name: "pickup_type"
     required: false
     inputType: DROPDOWN
@@ -814,7 +814,7 @@
     - value: '1'
     - value: '2'
     columnWidth: 6
-    helpContent: "The exception_type indicates whether service is available on the date specified in thedate field."
+    helpContent: "The exception_type indicates whether service is available on the date specified in the date field."
 
 
 - id: fare_attributes
@@ -929,7 +929,7 @@
     required: false
     inputType: GTFS_ZONE
     columnWidth: 6
-    helpContent: "The contains_id field associates the fare ID with a zone ID, referenced from thestops.txt file. The fare ID is then associated with itineraries that pass through every contains_id zone."
+    helpContent: "The contains_id field associates the fare ID with a zone ID, referenced from the stops.txt file. The fare ID is then associated with itineraries that pass through every contains_id zone."
 
 - id: fare_leg_rules
   name: fare_leg_rules.txt
@@ -1013,7 +1013,7 @@
     inputType: POSITIVE_INT
     bulkEditEnabled: true
     columnWidth: 6
-    helpContent: "The headway_secs field indicates the time between departures from the same stop (headway) for this trip type, during the time interval specified by start_time andend_time. The headway value must be entered in seconds."
+    helpContent: "The headway_secs field indicates the time between departures from the same stop (headway) for this trip type, during the time interval specified by start_time and end_time. The headway value must be entered in seconds."
   - name: "exact_times"
     required: false
     inputType: DROPDOWN

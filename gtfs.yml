@@ -503,12 +503,31 @@
       text: Must coordinate with a driver to arrange continuous stopping drop-off (3)
     columnWidth: 12
     helpContent: Indicates whether a rider can alight from the transit vehicle at any point along the vehicle’s travel path.
+  - name: network_id
+    columnWidth: 12
+    helpContent: "The network_id field contains an ID that uniquely identifies a transit network."
+    inputType: TEXT
+  - name: wheelchair_accessible
+    required: false
+    displayName: Is route wheelchair accessible?
+    inputType: DROPDOWN
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: Indicates whether vehicles that operate on this route are wheelchair accessible.
+    options:
+      - value: 0
+        text: No information (0)
+      - value: 1
+        text: Yes (1)
+      - value: 2
+        text: No (2)
   - name: route_url
     required: false
     inputType: URL
     placeholder: https://agency.org/route/1234
     columnWidth: 12
     helpContent: The route_url field contains the URL of a web page about that particular route. This should be different from the agency_url.
+    required: false
   - name: route_color
     required: false
     inputType: COLOR
@@ -527,20 +546,6 @@
         text: Black
     columnWidth: 6
     helpContent: The route_text_color field can be used to specify a legible color to use for text drawn against a background of route_color. The color must be provided as a six-character hexadecimal number, for example, FFD700. If no color is specified, the default text color is black (000000).
-  - name: wheelchair_accessible
-    required: false
-    displayName: Is route wheelchair accessible?
-    inputType: DROPDOWN
-    bulkEditEnabled: true
-    columnWidth: 12
-    helpContent: Indicates whether vehicles that operate on this route are wheelchair accessible.
-    options:
-      - value: 0
-        text: No information (0)
-      - value: 1
-        text: Yes (1)
-      - value: 2
-        text: No (2)
   - name: route_branding_url
     required: false
     displayName: Route branding URL
@@ -549,8 +554,6 @@
     inputType: URL
     columnWidth: 12
     helpContent:
-  - name: network_id
-    required: false
 
 - id: trip
   name: trips.txt

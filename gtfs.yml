@@ -990,6 +990,15 @@
   - name: "fare_product_id"
     required: false
 
+- id: fare_leg_join_rules
+  name: fare_leg_join_rules.txt
+  helpContent: For a sub-journey of two consecutive legs with a transfer, if the transfer matches all matching predicates specified by a particular row in the file, then those two legs should be considered as a single effective fare leg for the purposes of matching against rules in fare_leg_rules.txt.
+  fields:
+  - name: "from_network_id"
+    required: false
+  - name: "to_network_id"
+    required: false
+
 - id: frequencies
   name: frequencies.txt
   helpContent: Headway (time between trips) for routes with variable frequency of service.

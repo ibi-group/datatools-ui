@@ -505,7 +505,7 @@
     helpContent: Indicates whether a rider can alight from the transit vehicle at any point along the vehicle’s travel path.
   - name: network_id
     columnWidth: 12
-    helpContent: "The network_id field contains an ID that uniquely identifies a transit network."
+    helpContent: "The network_id field contains an ID that uniquely identifies a transit network. Forbidden if the route_networks.txt file exists."
     inputType: TEXT
   - name: wheelchair_accessible
     required: false
@@ -999,6 +999,78 @@
   - name: "to_network_id"
     required: false
 
+- id: fare_media
+  name: fare_media.txt
+  helpContent: To describe the different fare media that can be employed to use fare products. Fare media are physical or virtual holders used for the representation and/or validation of a fare product.
+  fields:
+    - name: "fare_media_id"
+      required: true
+      inputType: GTFS_ID
+    - name: "fare_media_name"
+      required: false
+      inputType: TEXT
+    - name: "fare_media_type"
+      required: false
+      inputType: DROPDOWN
+      bulkEditEnabled: true
+      options:
+      - value: '0'
+        text: 'None (0)'
+      - value: '1'
+        text: 'Physical paper ticket (1)'
+      - value: '2'
+        text: 'Physical transit card (2)'
+      - value: '3'
+        text: 'cEMV (3)'
+      - value: '4'
+        text: 'Mobile app (4)'
+
+- id: fare_products
+  name: fare_products.txt
+  helpContent: Used to describe the range of fares available for purchase by riders or taken into account when computing the total fare for journeys with multiple legs, such as transfer costs.
+  fields:
+  - name: "fare_product_id"
+    required: true
+    inputType: GTFS_ID
+  - name: "fare_product_name"
+    required: false
+    inputType: TEXT
+  - name: "fare_media_id"
+    required: false
+    inputType: GTFS_ID
+  - name: "amount"
+    required: true
+    inputType: NUMBER
+  - name: "currency"
+    required: true
+    inputType: DROPDOWN
+    bulkEditEnabled: true
+    options:
+    - value: USD
+      text: US dollar (USD)
+    - value: AUD
+      text: Australian dollar (AUD)
+    - value: CAD
+      text: Canadian dollar (CAD)
+    - value: CHF
+      text: Swiss franc (CHF)
+    - value: CNH
+      text: Chinese renminbi (CNH)
+    - value: EUR
+      text: Euro (EUR)
+    - value: GBP
+      text: Pound sterling (GBP)
+    - value: JPY
+      text: Japanese yen (JPY)
+    - value: MXN
+      text: Mexican peso (MXN)
+    - value: NZD
+      text: New Zealand dollar (NZD)
+    - value: SEK
+      text: Swedish krona (SEK)
+    columnWidth: 12
+    helpContent: "The currency field defines the currency used to pay the fare. Please use the ISO 4217 alphabetical currency codes which can be found at the following URL:http://en.wikipedia.org/wiki/ISO_4217."
+
 - id: frequencies
   name: frequencies.txt
   helpContent: Headway (time between trips) for routes with variable frequency of service.
@@ -1146,5 +1218,4 @@
     inputType: TIME
   - name: service_id
     required: true
-
 

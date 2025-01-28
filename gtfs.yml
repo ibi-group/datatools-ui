@@ -1017,3 +1017,23 @@
     required: false
   - name: added_service
     required: false
+
+- id: fare_products
+  name: fare_products.txt
+  helpContent: Used to describe the range of fares available for purchase by riders or taken into account when computing the total fare for journeys with multiple legs, such as transfer costs.
+  fields:
+    - name: fare_product_id
+      required: true
+      inputType: GTFS_ID
+    - name: fare_product_name
+      required: false
+      inputType: TEXT
+    - name: fare_product_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference an actual fare media id. need custom type
+    - name: amount
+      inputType: NUMBER
+      required: true
+    - name: currency
+      required: true
+      inputType: TEXT # FARE-TODO: Dropdownx

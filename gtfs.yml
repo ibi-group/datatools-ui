@@ -1018,7 +1018,9 @@
   - name: added_service
     required: false
 
-- id: fare_products
+# Fares v2
+
+- id: fare_product
   name: fare_products.txt
   helpContent: Used to describe the range of fares available for purchase by riders or taken into account when computing the total fare for journeys with multiple legs, such as transfer costs.
   fields:
@@ -1028,7 +1030,7 @@
     - name: fare_product_name
       required: false
       inputType: TEXT
-    - name: fare_product_id
+    - name: fare_media_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference an actual fare media id. need custom type
     - name: amount
@@ -1037,3 +1039,54 @@
     - name: currency
       required: true
       inputType: TEXT # FARE-TODO: Dropdownx
+- id: fare_media
+  name: fare_media.txt
+  helpContent: To describe the different fare media that can be employed to use fare products. Fare media are physical or virtual holders used for the representation and/or validation of a fare product.
+  fields:
+  - name: fare_media_id
+    required: true
+    inputType: GTFS_ID
+  - name: fare_media_name
+    inputType: TEXT
+  - name: fare_media_type
+    required: true
+    inputType: DROPDOWN
+    # FARE-TODO: Some help content?
+    options:
+      - value: '0'
+      - value: '1'
+      - value: '2'
+      - value: '3'
+      - value: '4'
+- id: fare_transfer_rule
+  name: fare_transfer_rules.txt
+  helpContent: Fare rules for transfers between legs of travel defined in fare_leg_rules.txt.
+  fields:
+    - name: from_leg_group_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules
+    - name: to_leg_group_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules
+    - name: transfer_count
+      inputType: NUMBER # FARE-TODO: NON-ZERO INT
+    - name: duration_limit
+      inputType: POSITIVE_INT
+    - name: duration_limit_type
+      inputType: DROPDOWN
+      # FARE-TODO: Some help content?
+      options:
+        - value: '0'
+        - value: '1'
+        - value: '2'
+        - value: '3'
+    - name: fare_transfer_type
+      inputType: DROPDOWN
+      # FARE-TODO: Some help content?
+      options:
+        - value: '0'
+        - value: '1'
+        - value: '2'
+    - name: fare_product_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference fare_products

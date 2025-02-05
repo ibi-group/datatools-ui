@@ -1096,7 +1096,7 @@
   fields:
     - name: leg_group_id
       required: false
-      inputType: GTFS_ID # FARE-TODO: should this be text or id?
+      inputType: TEXT # FARE-TODO: should this be text or id?
     - name: network_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference networks.network_id or routes.network_id

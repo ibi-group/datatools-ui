@@ -1038,7 +1038,31 @@
       required: true
     - name: currency
       required: true
-      inputType: TEXT # FARE-TODO: Dropdownx
+      inputType: DROPDOWN
+      bulkEditEnabled: true
+      options:
+      - value: USD
+        text: US dollar (USD)
+      - value: AUD
+        text: Australian dollar (AUD)
+      - value: CAD
+        text: Canadian dollar (CAD)
+      - value: CHF
+        text: Swiss franc (CHF)
+      - value: CNH
+        text: Chinese renminbi (CNH)
+      - value: EUR
+        text: Euro (EUR)
+      - value: GBP
+        text: Pound sterling (GBP)
+      - value: JPY
+        text: Japanese yen (JPY)
+      - value: MXN
+        text: Mexican peso (MXN)
+      - value: NZD
+        text: New Zealand dollar (NZD)
+      - value: SEK
+        text: Swedish krona (SEK)
 - id: faremedia
   name: fare_media.txt
   helpContent: To describe the different fare media that can be employed to use fare products. Fare media are physical or virtual holders used for the representation and/or validation of a fare product.

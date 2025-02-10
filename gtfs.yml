@@ -1051,13 +1051,17 @@
   - name: fare_media_type
     required: true
     inputType: DROPDOWN
-    # FARE-TODO: Some help content?
     options:
       - value: '0'
+      - text: None (0)
       - value: '1'
+      - text: Physical paper ticket (1)
       - value: '2'
+      - text: Physical transit card (2)
       - value: '3'
+      - text: cEMV (3)
       - value: '4'
+      - text: Mobile app (4)
 - id: faretransferrule
   name: fare_transfer_rules.txt
   helpContent: Fare rules for transfers between legs of travel defined in fare_leg_rules.txt.

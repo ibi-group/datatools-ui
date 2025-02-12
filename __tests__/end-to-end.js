@@ -1070,7 +1070,7 @@ describe('end-to-end', () => {
         await createProject(testProjectToDeleteName)
 
         // go back to project list
-        await goto('http://localhost:9966/project', {waitUntil: 'networkidle0'})
+        await goto('https://datatools-ui-proxy/project', {waitUntil: 'networkidle0'})
 
         // get the created project id
         // go into the project page and verify that it looks ok-ish

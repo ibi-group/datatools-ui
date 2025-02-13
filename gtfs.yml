@@ -1032,7 +1032,7 @@
       inputType: TEXT
     - name: fare_media_id
       required: false
-      inputType: GTFS_FARE_MEDIA # FARE-TODO: Needs to reference an actual fare media id. need custom type
+      inputType: TEXT # FARE-TODO: Needs to reference an actual fare media id. need custom type
     - name: amount
       inputType: NUMBER
       required: true
@@ -1069,7 +1069,7 @@
   fields:
   - name: fare_media_id
     required: true
-    inputType: GTFS_FARE_MEDIA
+    inputType: GTFS_ID
   - name: fare_media_name
     inputType: TEXT
   - name: fare_media_type

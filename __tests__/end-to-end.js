@@ -769,6 +769,19 @@ async function getInnerHTMLFromSelector (selector: string) {
 }
 
 /**
+ * Gets the id of a given selector.
+ */
+async function getIdFromSelector (selector: string) {
+  log.info(`getting id for selector: ${selector}`)
+  const id = (await page.$eval(selector, el => {
+    const _el = (el: any)
+    // make flow happy cause flow-typed page.$eval doesn't get specifc enough
+    return _el.id
+  }): any)
+  return id
+}
+
+/**
  * Gets all the element handles found using the given selector.
  */
 async function getAllElements (selector: string) {
@@ -1184,6 +1197,146 @@ describe('end-to-end', () => {
 
       // verify that feed was fetched and processed
       await expectFeedVersionValidityDates('Apr 8, 2018', 'Jun 30, 2018')
+    }, defaultTestTimeout)
+
+    makeTestPostFeedSource('should be able to download and validate snapshot gtfs', async () => {
+      // go to main feed tab
+      await waitForAndClick('#feed-source-viewer-tabs-tab-')
+      await wait(5000, 'additional time for page to load')
+
+      // wait for main tab to show up with version validity info
+      await waitForSelector('[data-test-id="active-feed-version-validity-start"]')
+
+      // click load version button
+      await click('[data-test-id="load-feed-version-button"]')
+      await waitForAndClick('[data-test-id="modal-confirm-ok-button"]')
+
+      // wait for load to finish
+      await waitAndClearCompletedJobs()
+
+      // wait for page to be visible and go to snapshots tab
+      await waitForAndClick('#feed-source-viewer-tabs-tab-snapshots')
+      await wait(2000, 'for page to load?')
+
+      // wait for snapshots tab to load and create snapshot
+      await waitForAndClick('[data-test-id="snapshot-latest-changes-button"]')
+
+      // wait for snapshot export modal and click "no" to proprietary file export
+      await waitForAndClick('[data-test-id="confirm-snapshot-create-button"]')
+
+      // wait for version to get created
+      await waitAndClearCompletedJobs()
+
+      // the page has to reload to show the new snapshot
+      // TODO: Fix?
+      await page.reload({ waitUntil: 'networkidle0' })
+
+      // Download version
+      await waitForAndClick('[data-test-id="download-snapshot-button"]')
+      await wait(15000, 'for file to download')
+
+      const fileName = await getIdFromSelector('[data-test-id="download-snapshot-button"]')
+      // file should get saved to the current root directory, go looking for it
+      // verify that file exists
+      const downloadsDir = './'
+      // $FlowFixMe old version of flow doesn't know latest fs methods
+      const files = await fs.readdir(downloadsDir)
+      log.info(fileName)
+      log.info(files)
+
+      let feedVersionDownloadFile = ''
+      // assume that this file will be the first zip file download
+      for (const file of files) {
+        if (file.indexOf(fileName.replace(/:/g, '')) > -1) {
+          feedVersionDownloadFile = file
+          break
+        }
+      }
+      if (!feedVersionDownloadFile) {
+        throw new Error('Feed Version gtfs file not found in Downloads folder!')
+      }
+
+      const filePath = path.join(downloadsDir, feedVersionDownloadFile)
+
+      // go to main feed tab
+      await waitForAndClick('#feed-source-viewer-tabs-tab-')
+      await wait(5000, 'additional time for page to load')
+
+      // wait for main tab to show up with version validity info
+      await waitForSelector('[data-test-id="active-feed-version-validity-start"]')
+
+      const origDtErrorCount = await getInnerHTMLFromSelector('[data-test-id="dt-error-count-label"]')
+      const origMdErrorCount = await getInnerHTMLFromSelector('[data-test-id="md-error-count-label"]')
+
+      // Open dropdown
+      await waitForAndClick(
+        '#bg-nested-dropdown',
+        { visible: true }
+      )
+      // create new version by fetching
+      await waitForAndClick(
+        '[data-test-id="upload-feed-button"]',
+        { visible: true }
+      )
+
+      // upload file to form
+      const fileUploadForm = await page.$('input[type=file]')
+      await fileUploadForm.uploadFile(filePath)
+
+      //  click "OK to upload file
+      await waitForAndClick('[data-test-id="upload-gtfs-modal-ok"]')
+      // wait for version to get created
+      await waitAndClearCompletedJobs()
+
+      // delete file
+      // $FlowFixMe old version of flow doesn't know latest fs methods
+      await fs.remove(filePath)
+
+      // go to main feed tab
+      await click('#feed-source-viewer-tabs-tab-')
+
+      // wait for main tab to show up with version validity info
+      await waitForSelector('[data-test-id="active-feed-version-validity-start"]')
+
+      // verify that snapshot was made active version
+      await expectFeedVersionValidityDates('May 29, 2018', 'May 29, 2028')
+
+      // open validation results
+      await click('[data-test-id="validation-issues-link"]')
+      await waitForSelector('[data-test-id="dt-error-count-label"]')
+
+      const newDtErrorCount = await getInnerHTMLFromSelector('[data-test-id="dt-error-count-label"]')
+      const newMdErrorCount = await getInnerHTMLFromSelector('[data-test-id="md-error-count-label"]')
+
+      expect(newDtErrorCount).toEqual(origDtErrorCount)
+      expect(newMdErrorCount).toEqual(origMdErrorCount)
+
+      // todo: check rest of validation results for correct counts
+
+      // remove the added gtfs
+      /*
+      // go to main feed tab
+      await click('#feed-source-viewer-tabs-tab-')
+
+      // wait for main tab to show up with version validity info
+      await waitForSelector('[data-test-id="active-feed-version-validity-start"]')
+
+      // remove version and snapshot
+      await waitForAndClick('[data-test-id="delete-feed-version-button"]')
+      // confirm action in modal
+      await waitForAndClick('[data-test-id="modal-confirm-ok-button"]')
+      await wait(2000, 'for data to refresh')
+      await waitForSelector('#feed-source-viewer-tabs')
+
+      // wait for page to be visible and go to snapshots tab
+      await waitForAndClick('#feed-source-viewer-tabs-tab-snapshots')
+      await wait(2000, 'for page to load?')
+
+      // wait for snapshots tab to load and delete snapshot
+      await waitForAndClick('[data-test-id="delete-snapshot-button"]')
+      await waitForAndClick('[data-test-id="modal-confirm-ok-button"]')
+      await wait(2000, 'for page to load?')
+      */
     }, defaultTestTimeout)
 
     if (doNonEssentialSteps) {

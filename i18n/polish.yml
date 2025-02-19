@@ -381,6 +381,7 @@ components:
     autoPublish: Automatycznie publikuj
     dateFormat: MMM D, YYYY
     deployable: Rozmieszczany
+    flex: Flexible service
     edit: Edytować
     lastUpdatedDate: Last updated %date%
     noUpdates: No updates
@@ -632,6 +633,10 @@ components:
         title: Real-time updaters
       walkSpeed: Walk Speed
   GeneralSettings:
+    flex:
+      title: Flex Service
+      checkbox: Feed includes flex service
+      description: Enable this feed source to include flex service. Checking this checkbox will enable flex tools in the editor. Flex service describes operations that follow a schedule, but also include flexible features such as dial-a-ride service, route deviation, continuous stops, or point to zone service.
     autoFetch:
       checkbox: Auto fetch feed source
       hint: Set this feed source to fetch automatically. (Feed source URL must be
@@ -744,6 +749,8 @@ components:
     stop:
       label: Stops
       title: Edit stops
+  GtfsServiceSelect: 
+    placeholder: Select existing service ID
   GtfsValidationExplorer:
     accessibilityValidation: Accessibility Explorer
     table:

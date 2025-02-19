@@ -650,10 +650,20 @@
       inputType: TIME
       columnWidth: 6
     - name: "stop_id"
-      required: true
+      required: false
       inputType: GTFS_STOP
       columnWidth: 6
       helpContent: "The stop_id field contains an ID that uniquely identifies a stop. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
+    - name: "location_id"
+      required: false
+      inputType: GTFS_ID
+      columnWidth: 6
+      helpContent: "The location_id field contains an ID that uniquely identifies a location. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
+    - name: "location_group_id"
+      required: false
+      inputType: TEXT
+      columnWidth: 6
+      helpContent: "The location_group_id field contains an ID that uniquely identifies a location group. Multiple routes may use the same stop. The stop_id is referenced from the stops.txt file. If location_type is used in stops.txt, all stops referenced in stop_times.txt must have location_type of 0."
     - name: "stop_sequence"
       required: true
       inputType: POSITIVE_INT
@@ -1162,6 +1172,16 @@
     helpContent: "The stop_url field contains the URL of a web page about a particular location. This should be different from the agency_url and the route_url fields."
     
   # FIXME: helpContent is lifted from https://github.com/MobilityData/gtfs-flex/blob/master/spec/reference.md
+- id: locationgroupstop
+  flex: true
+  name: location_group_stops.txt
+  fields:
+  - name: "location_group_id"
+    required: true
+    inputType: TEXT
+  - name: "stop_id"
+    required: true
+    inputType: GTFS_ID
 - id: locationgroup
   flex: true
   name: location_groups.txt
@@ -1178,9 +1198,11 @@
     inputType: TEXT
     columnWidth: 12
     helpContent: "Name of the location group. Must be defined either once, or exhaustively for a single location_group_id."
-  # TODO: enable validation to match spec (only appear when appropriate)
-  - name: "location_id"
-    required: false
-    inputType: GTFS_STOP_OR_LOCATION_LIST
-    columnWidth: 12
-    helpContent: "Identifies a stop or location belonging to the location group."
+  extraFields:
+   - name: "stop_id"
+     required: false
+     inputType: GTFS_STOP_OR_LOCATION_LIST
+     columnWidth: 12
+     helpContent: "Identifies a stop or location belonging to the location group."
+     activeComponentOverride: "locationgroupstop"
+

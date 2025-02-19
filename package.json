@@ -40,6 +40,7 @@
     "@conveyal/woonerf": "^4.2.1",
     "@turf/along": "^5.1.5",
     "@turf/area": "^6.0.1",
+    "@turf/center-of-mass": "^7.0.0",
     "@turf/distance": "^5.1.5",
     "@turf/line-slice-along": "^4.6.0",
     "@turf/nearest-point-on-line": "^5.1.5",

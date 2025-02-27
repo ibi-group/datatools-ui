@@ -139,46 +139,6 @@ components:
     danger: Uwaga!
     success: Sukces!
     warning: Ostrzeżenie!
-  DeploymentSettings:
-    boundsPlaceholder: min_lon, min_lat, max_lon, max_lat
-    buildConfig:
-      elevationBucket:
-        accessKey: Access Key
-        bucketName: S3 Bucket Name
-        secretKey: Secret Key
-      fares: Taryfy
-      fetchElevationUS: Fetch Elevation
-      save: Zapisz
-      stationTransfers: Transfery na stacji
-      subwayAccessTime: Godziny otwarcia metra
-      title: Build Config
-    clear: Wyczyść
-    manageServers: Manage deployment servers
-    osm:
-      bounds: Custom Extract Bounds
-      custom: Use Custom Extract Bounds
-      gtfs: Use GTFS-Derived Extract Bounds
-      title: Wyciąg z OSM
-    routerConfig:
-      brandingUrlRoot: Branding URL Root
-      carDropoffTime: Car Dropoff Time
-      numItineraries: '# of itineraries'
-      requestLogFile: Request log file
-      stairsReluctance: Stairs Reluctance
-      title: Router Config
-      updaters:
-        $index:
-          defaultAgencyId: Domyślny ID przewoźnika
-          frequencySec: Częstotliwość (w sekundach)
-          sourceType: Rodzaj źródła
-          type: Typ
-          url: URL
-        new: Add updater
-        placeholder: Updater name
-        title: Real-time updaters
-      walkSpeed: Walk Speed
-    save: Zapisz
-    title: Wdrożenie
   DeploymentVersionsTable:
     dateRetrieved: Data pozyskania
     errorCount: Licznik błędów
@@ -1010,63 +970,6 @@ components:
       transitland: Sync from transit.land
     url: Feed download URL
     version: version
-  ProjectSettings:
-    deployment:
-      buildConfig:
-        elevationBucket:
-          accessKey: Access Key
-          bucketName: S3 Bucket Name
-          secretKey: Secret Key
-        fares: Fares
-        fetchElevationUS: Fetch Elevation
-        stationTransfers: Sta. Transfers
-        subwayAccessTime: Subway Access Time
-        title: Build Config
-      osm:
-        bounds: Custom Extract Bounds
-        custom: Use Custom Extract Bounds
-        gtfs: Use GTFS-Derived Extract Bounds
-        title: OSM Extract
-      otpServers:
-        $index:
-          admin: Admin access only?
-          delete: Remove
-          internalUrl: Internal URLs
-          name: Name
-          namePlaceholder: Production
-          publicUrl: Public URL
-          r5: R5 Server?
-          s3Bucket: S3 bucket name
-          targetGroupArn: Target Group ARN
-        new: Add server
-        serverPlaceholder: Server name
-        title: Servers
-      routerConfig:
-        brandingUrlRoot: Branding URL Root
-        carDropoffTime: Car Dropoff Time
-        numItineraries: '# of itineraries'
-        requestLogFile: Request log file
-        stairsReluctance: Stairs Reluctance
-        title: Router Config
-        updaters:
-          $index:
-            defaultAgencyId: Default agency ID
-            frequencySec: Frequency (in seconds)
-            sourceType: Source type
-            type: Type
-            url: URL
-          new: Add updater
-          placeholder: Updater name
-          title: Real-time updaters
-        walkSpeed: Walk Speed
-      title: Deployment
-    project:
-      cannotFetchFeeds: Cannot fetch feeds
-      feeds: Feeds
-      permissions: Permissions
-    rename: Rename
-    save: Save
-    title: Settings
   ProjectSettingsForm:
     cancel: Cancel
     confirmDelete: Are you sure you want to delete this project? This action cannot

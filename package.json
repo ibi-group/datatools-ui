@@ -21,7 +21,7 @@
     "cover-end-to-end": "cross-env COLLECT_COVERAGE=true npm run test-end-to-end",
     "deploy": "mastarm deploy --minify --env production",
     "flow": "mastarm flow",
-    "import-mobility-data": "wget https://github.com/MobilityData/gtfs-validator/releases/download/v4.2.0/gtfs-validator-4.2.0-cli.jar && java -jar gtfs-validator-4.2.0-cli.jar -n -o ./lib/manager/components/validation/ && rm ./lib/manager/components/validation/rules.json && mv ./lib/manager/components/validation/notice_schema.json ./lib/manager/components/validation/rules.json",
+    "import-mobility-data": "wget https://github.com/MobilityData/gtfs-validator/releases/download/v6.0.0/gtfs-validator-6.0.0-cli.jar && java -jar gtfs-validator-6.0.0-cli.jar -n -o ./lib/manager/components/validation/ && rm ./lib/manager/components/validation/rules.json && mv ./lib/manager/components/validation/notice_schema.json ./lib/manager/components/validation/rules.json",
     "lint": "mastarm lint __tests__ lib scripts --quiet",
     "lint-messages": "node scripts/lint-messages.js",
     "postinstall": "patch-package && husky install",

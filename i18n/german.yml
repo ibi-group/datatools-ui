@@ -143,46 +143,6 @@ components:
     danger: Gefahr!
     success: Erfolg!
     warning: Warnung!
-  DeploymentSettings:
-    boundsPlaceholder: min_lon, min_lat, max_lon, max_lat
-    buildConfig:
-      elevationBucket:
-        accessKey: Zugangs-Schlüssel
-        bucketName: S3 Bucket Name
-        secretKey: Secret Key
-      fares: Tarife
-      fetchElevationUS: Höhenmodell abrufen
-      save: Speichern
-      stationTransfers: Umstiege
-      subwayAccessTime: U-Bahn-Zugangszeiten
-      title: Build-Konfiguration
-    clear: Zurücksetzen
-    manageServers: Deployment-Server verwalten
-    osm:
-      bounds: Selbst-definierte Extrakt-Grenzen
-      custom: Benutze selbst-definierte Extrakt-Grenzen
-      gtfs: Grenzen aus GTFS ableiten
-      title: OSM-Extrakt
-    routerConfig:
-      brandingUrlRoot: Branding-URL Wurzel
-      carDropoffTime: PKW-Rückgabe-Zeit
-      numItineraries: '# of Reisevorschläge'
-      requestLogFile: Log-Datei anfordern
-      stairsReluctance: Treppen-Abneigung
-      title: Router Konfiguration
-      updaters:
-        $index:
-          defaultAgencyId: Standard-Betreiber ID
-          frequencySec: Frequenz (in Sekunden)
-          sourceType: Quellen-Typ
-          type: Typ
-          url: URL
-        new: Aktualisierer hinzufügen
-        placeholder: Aktualisierer-Name
-        title: Echtzeit-Aktualisierungs-Updater
-      walkSpeed: Geh-Geschwindigkeit
-    save: Speichern
-    title: Deployment
   DeploymentVersionsTable:
     dateRetrieved: Abrufdatum
     errorCount: Fehlerzahl
@@ -1030,63 +990,6 @@ components:
       transitland: Sync von transit.land
     url: Feed-Abruf URL
     version: Version
-  ProjectSettings:
-    deployment:
-      buildConfig:
-        elevationBucket:
-          accessKey: Zugriffs-Schlüssel (access)
-          bucketName: S3 Bucket Name
-          secretKey: Geheim-Schlüssel (secret)
-        fares: Tarife
-        fetchElevationUS: Rufe Geländemodell ab
-        stationTransfers: Umstiege
-        subwayAccessTime: U-Bahn-Zugangszeiten
-        title: Build Konfiguration
-      osm:
-        bounds: Benutzerdefinierte Extraktions-Grenzen
-        custom: Benutzerdefinierte Extraktions-Grenzen verwenden
-        gtfs: Benutzerdefinierte Extraktions-Grenzen verwenden
-        title: OSM Extrakt
-      otpServers:
-        $index:
-          admin: Nur Admin-Zugriff?
-          delete: Entfernen
-          internalUrl: Interne URLs
-          name: Name
-          namePlaceholder: Produktion
-          publicUrl: Öffentliche URL
-          r5: R5 Server?
-          s3Bucket: S3 Bucket Name
-          targetGroupArn: Zielgruppen ARN
-        new: Server hinzufügen
-        serverPlaceholder: Server-Name
-        title: Server
-      routerConfig:
-        brandingUrlRoot: Branding-URL Wurzel
-        carDropoffTime: PKW-Abstell-Zeit
-        numItineraries: '# Reisevorschläge'
-        requestLogFile: Log-Datei anfordern
-        stairsReluctance: Treppen-Vermeidung
-        title: Router Konfiguration
-        updaters:
-          $index:
-            defaultAgencyId: Default Betreiber-ID
-            frequencySec: Frequenz (in Sekunden)
-            sourceType: Quellen-Typ
-            type: Typ
-            url: URL
-          new: Updater hinzufügen
-          placeholder: Updater-Name
-          title: Real-time Updater
-        walkSpeed: Lauf-Geschwindigkeit
-      title: Deployment
-    project:
-      cannotFetchFeeds: Feeds können nicht abgerufen werden
-      feeds: Feeds
-      permissions: Berechtigungen
-    rename: Umbennenen
-    save: Speichern
-    title: Einstellungen
   ProjectSettingsForm:
     cancel: Abbrechen
     confirmDelete: Sind Sie sicher, dass Sie dieses Projekt löschen möchten? Diese

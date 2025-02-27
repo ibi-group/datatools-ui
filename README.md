@@ -11,7 +11,7 @@ A pre-configured datatools instance can be lauched via Docker by running
 ```bash
 cd docker
 cp ../configurations/default/env.yml.tmp ../configurations/default/env.yml
-docker-compose up
+docker compose up
 ```
 
 from the datatools-ui directory. Datatools will then be running on port `9966`.

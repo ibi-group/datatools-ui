@@ -74,9 +74,9 @@ jobs:
       - name: Run e2e tests
         if: inputs.e2e
         run: |
-          (echo "E2E Test Attempt 1" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
-          (echo "E2E Test Attempt 2" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
-          (echo "E2E Test Attempt 3" && docker-compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
+          (echo "E2E Test Attempt 1" && docker compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
+          (echo "E2E Test Attempt 2" && docker compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
+          (echo "E2E Test Attempt 3" && docker compose --env-file __tests__/e2e/.env -f __tests__/e2e/docker-compose.yml up --abort-on-container-exit) || \
           (echo "E2E Tests Failed" && exit 1)
       # At this point, the build is successful.
       - name: Semantic Release

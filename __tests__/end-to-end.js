@@ -2837,6 +2837,62 @@ describe('end-to-end', () => {
         )
       }, defaultTestTimeout, 'should create trip')
 
+      makeEditorEntityTest('should create trip data via series editor', async () => {
+        // open series editor
+        await click('[data-test-id="create-trip-series-button"]')
+
+        // wait for modal to appear
+        await waitForSelector(
+          '#hours'
+        )
+
+        // click hours field
+        await click('#hours:nth-child(1)')
+
+        // enter hours
+        await page.keyboard.type('13')
+
+        // tab to headway
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('Tab')
+
+        // enter minutes
+        await page.keyboard.type('5')
+
+        // tab to end time
+        await page.keyboard.press('Tab')
+
+        // enter hours
+        await page.keyboard.type('15')
+
+        // submit
+        await click('[data-test-id="generate-trips-button"]')
+
+        // wait for save to happen
+        await wait(2000, 'for save to happen')
+
+        // save
+        await click('[data-test-id="save-trip-button"]')
+
+        // wait for save to happen
+        await wait(2000, 'for save to happen')
+
+        // reload to make sure stuff was saved
+        await page.reload({ waitUntil: 'networkidle0' })
+
+        // wait for timetable  to appear
+        await waitForSelector(
+          '[data-test-id="timetable-area"]'
+        )
+
+        // verify data was generated correctly and retrieved from server
+        await expectSelectorToContainHtml(
+          '[data-test-id="timetable-area"]',
+          '13:05:00'
+        )
+      }, defaultTestTimeout, 'should create trip')
+
       makeEditorEntityTest('should delete trip data', async () => {
         // create a new trip that will get deleted
         await click('[data-test-id="duplicate-trip-button"]')

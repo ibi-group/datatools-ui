@@ -1313,8 +1313,6 @@ describe('end-to-end', () => {
 
       // todo: check rest of validation results for correct counts
 
-      // remove the added gtfs
-      /*
       // go to main feed tab
       await click('#feed-source-viewer-tabs-tab-')
 
@@ -1336,7 +1334,6 @@ describe('end-to-end', () => {
       await waitForAndClick('[data-test-id="delete-snapshot-button"]')
       await waitForAndClick('[data-test-id="modal-confirm-ok-button"]')
       await wait(2000, 'for page to load?')
-      */
     }, defaultTestTimeout)
 
     if (doNonEssentialSteps) {

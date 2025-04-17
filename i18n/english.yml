@@ -675,7 +675,7 @@ components:
     rename: Rename
     save: Save
     title: Settings
-    invalidFilename: Filename contains invalid characters (e.g., / \ : * ? " < > | space) or ends with .zip.
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? " < > | space) or ends with .zip."
     filenamePlaceholder: e.g., agency_bundle
   GtfsIcons:
     agency:

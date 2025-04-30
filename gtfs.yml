@@ -1033,7 +1033,7 @@
     # FARE-TODO: Add rider_category_id?
     - name: fare_media_id
       required: false
-      inputType: TEXT # FARE-TODO: Needs to reference an actual fare media id. need custom type
+      inputType: GTFS_FARE_MEDIA
     - name: amount
       inputType: NUMBER
       required: true
@@ -1118,7 +1118,7 @@
         - value: '2'
     - name: fare_product_id
       required: false
-      inputType: GTFS_FARE_PRODUCT # FARE-TODO: Needs to reference fare_products
+      inputType: GTFS_FARE_PRODUCT
 - id: farelegrule
   name: fare_leg_rules.txt
   # FARE-TODO: Some help content?

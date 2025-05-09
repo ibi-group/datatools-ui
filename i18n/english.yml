@@ -319,6 +319,7 @@ components:
   FeedInfo:
     autoFetch: Auto fetch
     autoPublish: Auto publish
+    bundleFilename: Bundle Filename
     dateFormat: MMM D, YYYY 
     deployable: Deployable
     edit: Edit
@@ -661,6 +662,8 @@ components:
         title: Updates
     labels:
       title: Labels
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
     make:
       private: Make private
       privateDesc: Make this feed source private.
@@ -673,6 +676,8 @@ components:
     rename: Rename
     save: Save
     title: Settings
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
   GtfsIcons:
     agency:
       title: Edit agencies
@@ -759,6 +764,7 @@ components:
     title: Log in
   ManagerHeader:
     noUpdateYet: n/a
+    bundleFilename: Bundle Filename
     noUrl: (none)
     private: This feed source and all its versions are private.
   ManagerPage:

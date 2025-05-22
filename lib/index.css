@@ -1,10 +1,9 @@
-
 @import url(node_modules/font-awesome/css/font-awesome.css);
 /**
  * Note: this css file must be imported so that marker icons URLs will work
  * properly with react-leaflet. See https://github.com/PaulLeCam/react-leaflet/issues/453
  */
-@import url(https://unpkg.com/leaflet@1.3.4/dist/leaflet.css);
+@import url(https://unpkg.com/leaflet@1.7.1/dist/leaflet.css);
 
 @import url(node_modules/bootstrap/dist/css/bootstrap.min.css);
 @import url(node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css);

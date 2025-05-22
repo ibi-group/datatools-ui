@@ -1,4 +1,4 @@
-# API Interaction Transcript
+# API Interaction
 The following is a set of instructions on API calls needed to upload and validate
 a feed, wait for the tasks' completion, and then browse its contents. All of the
 endpoints needed to load and process a GTFS file are REST-based. The endpoints

@@ -1,12 +1,80 @@
 _id: en-US
 _name: English
 components:
+  Actions:
+    error: Error making %method% request to %url%
+    errorGraphQL: Error fetching GTFS entities via GraphQL
+    errorWithStatus: Error (%status%) making %method% request to %url%
+    networkError: Network error (%status%)!\n\n(%method% request on %url%)
+    noFile: No file to upload!
+  AddCustomFile: 
+    addCustomCsvData: Add the custom CSV data.
+    customFileName: Custom file name
+    saveCsvAndFileName: Save CSV and file name
+  AdminPage:
+    applicationLogs: Application logs
+    backToDashboard: Back to dashboard
+    deploymentServers: Deployment servers
+    noAccess: You do not have sufficient user privileges to access this area.
+    organizations: Organizations
+    title: Administration
+    userManagement: User Management
+  ApplicationStatusView:
+    actions: Actions
+    columns:
+      id: ID
+      name: Name
+      path: Path
+      status: Status
+      time: Time
+      user: User
+    lastApiRequests: Last API requests by User
+    lastUpdatedAt: last updated at
+    noDataText: No active jobs in progress.
+    refresh: Refresh
+    unauthenticated: (unauthenticated)
+    userLogs: User Authentication Logs
+    serverJobs: Active Server Jobs
+    viewUserLogs: View user logs on Auth0.com
+    name: Name
+    feed:
+      isPublic: Is Public
+      lastFetched: Last Time Data Fetched from Feed URL
+      lastUpdated: Last Updated
+      filterByLabels: Filter feeds by labels
+    latestValidation:
+      endDate: 'Latest Version: End Date'
+      errorCount: 'Latest Version: Number of Issues'
+      startDate: 'Latest Version: Start Date'
+      stopTimesCount: 'Latest Version: Number of Stop Times'
+      tripCount: 'Latest Version: Number of Trips'
+      stopCount: 'Latest Version: Number of Stops'
+      routeCount: 'Latest Version: Number of Routes'
+    sortBy: Sort By
+    url: 'Feed download URL'
+  Brand:
+    dataTools: Data Tools 
   Breadcrumbs:
     deployments: Deployments
     projects: Projects
     root: Explore
+  CalendarSelect:
+    exceptionBasedCalendar: (Exception based calendar)
+    selectCalendar: " Select calendar..."
+  ConfirmModal:
+    cancel: Cancel
+    ok: OK
+  CreateProject:
+    new: Create New Project
   CreateUser:
     new: Create User
+    title: Create User
+    email: 
+      label: Email Address
+      placeholder: Enter email
+    password:
+      label: Password
+      placeholder: Enter password for new user
   CreateSnapshotModal:
     cancel: Cancel
     description: >-
@@ -22,6 +90,9 @@ components:
         placeholder: Additional information (optional)
       publishNewVersion:
         label: Publish snapshot as new feed version
+      publishProprietaryFiles: 
+        helpText: Proprietary files allow you to maintain certain Datatools features, such as pattern names, when re-importing a feed.
+        label: Publish new feed version with proprietary (extra) Datatools files.
       confirmPublishWithUnapproved:
         label: Confirm publish with unapproved routes 
     unapprovedRoutesHeader: "The following routes are not approved"
@@ -29,6 +100,10 @@ components:
     missingNameAlert: Must give snapshot a valid name!
     ok: OK
     title: Create a new snapshot
+  CustomCSVForm:
+    numLines: "%numLines% lines."
+    csvInvalid: CSV invalid!
+    uploading: Uploading...
   DatatoolsNavbar:
     account: My Account
     alerts: Alerts
@@ -60,46 +135,6 @@ components:
     danger: Danger!
     success: Success!
     warning: Warning!
-  DeploymentSettings:
-    boundsPlaceholder: 'min_lon, min_lat, max_lon, max_lat'
-    buildConfig:
-      elevationBucket:
-        accessKey: Access Key
-        bucketName: S3 Bucket Name
-        secretKey: Secret Key
-      fares: Fares
-      fetchElevationUS: Fetch Elevation
-      save: Save
-      stationTransfers: Sta. Transfers
-      subwayAccessTime: Subway Access Time
-      title: Build Config
-    clear: Clear
-    manageServers: Manage deployment servers
-    osm:
-      bounds: Custom Extract Bounds
-      custom: Use Custom Extract Bounds
-      gtfs: Use GTFS-Derived Extract Bounds
-      title: OSM Extract
-    routerConfig:
-      brandingUrlRoot: Branding URL Root
-      carDropoffTime: Car Dropoff Time
-      numItineraries: '# of itineraries'
-      requestLogFile: Request log file
-      stairsReluctance: Stairs Reluctance
-      title: Router Config
-      updaters:
-        $index:
-          defaultAgencyId: Default agency ID
-          frequencySec: Frequency (in seconds)
-          sourceType: Source type
-          type: Type
-          url: URL
-        new: Add updater
-        title: Real-time updaters
-        placeholder: Updater name
-      walkSpeed: Walk Speed
-    save: Save
-    title: Deployment
   DeploymentVersionsTable:
     dateRetrieved: Date Retrieved
     errorCount: Error Count
@@ -182,8 +217,25 @@ components:
       testDeployment: Test?
       name: Name
     title: Deployments
+  EC2InstanceCard:
+    aws: AWS
+    confirmTermination: 'Are you sure you want to terminate this EC2 instance? This action cannot be undone and will remove this instance from the load balancer.'
+    log: log
+    notApplicable: 'N/A'
+    noPublicIP: No public IP
+    status:
+      booting: 'Booting up.'
+      terminated: Terminated.
+      terminatedAt: 'Terminated %moment%'
+      running: Running as server.
+    terminate: Terminate instance
+    view: View deployment
+  EditableTextField:
+    invalidInput: Must provide a valid input.
+    none: (none)
   EditorFeedSourcePanel:
     active: Active
+    availableSnapshots: Available snapshots
     confirmDelete: This will permanently delete this snapshot. Any data saved here cannot be recovered. Are you sure you want to continue?
     confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
     created: created
@@ -191,6 +243,7 @@ components:
     date: Date
     delete: Delete
     download: Download
+    editFeed: Edit feed
     feed: Feed
     help:
       body:
@@ -200,6 +253,7 @@ components:
     load: Load for Editing
     loadLatest: Load latest for editing
     name: Name
+    noOtherSnapshots: No other snapshots
     noSnapshotsExist: No snapshots currently exist for this feed. Snapshots can be created within the Editor. Click "Edit Feed" to enter editing mode.
     noVersions: (No Versions)
     noVersionsExist: No versions exist for this feed source.
@@ -207,35 +261,123 @@ components:
     publish: Publish
     restore: Restore
     snapshot: snapshot
+    snapshotLatest: Take snapshot of latest changes
     title: Snapshots
     version: Version
+  EditorInput:
+    daysOfService: Days of service
+    dropImage: Drop %activeComponent% image here, or click to select image to upload.
+    optional: (optional)
+    selectAgency: Select agency...
+    selectDate: Please select a date
+    selectOption: -- select an option --
+    uploadAsset: 'Upload %activeComponent% branding asset'
+  EditorSidebar:
+    backToFeed: Back to Feed
+  EntityDetailsHeader:
+    attributes: Attributes
+    feedInfo: Feed Info
+    noValidationIssues: No validation issues
+    requiredField: '* denotes required field'
+    routeDetails: Route details
+    rules: Rules
+    saveChanges: Save changes
+    tripPatterns: Trip patterns
+    undoChanges: Undo changes
+    validationIssues: validation issue(s)
+    zoomTo: Zoom to
+  EntityList:
+    createFirst: Create first
+    createStop: Right-click a location on map to create a new stop
+    editSchedules: Edit schedules
+    name: Name
+  ExceptionCalendarSelector: 
+    selectCalendar: Select calendar...
+    unnamedDefault: "[unnamed]"
+  ExceptionDate: 
+    addRange: Add range
+    dateRemoved: ⓘ Date has been removed. Date entered is already included in an existing range or single date!
+    selectDate: Select date
+  ExceptionDateRange:
+    deleteEndDate: Delete end date
+    deleteRange: Delete range
+  ExceptionValidationErrorsList: 
+    andOtherErrors: ...and %errors% other errors
+  ExportPatternsModal: 
+    exportPatterns: Publish version with proprietary patterns?
+    no: No
+    yes: Yes
   FeedFetchFrequency:
     DAYS: days
     fetchFeedEvery: Fetch feed every
     HOURS: hours
     MINUTES: minutes
+  FeedLabel:
+    delete: 
+      title: Delete Label?
+      body: Are you sure you want to delete the label %name%? This action will remove the label from all feed sources it's assigned to.
   FeedInfo:
     autoFetch: Auto fetch
     autoPublish: Auto publish
+    bundleFilename: Bundle Filename
+    dateFormat: MMM D, YYYY 
     deployable: Deployable
     edit: Edit
+    lastUpdatedDate: Last updated %date%
+    noUpdates: No updates
     private: Private
     public: Public
   FeedInfoPanel:
+    add: Add %id%
+    backToProject: Back to project
+    backToFeedSource: Back to feed source
+    editingFeed: Editing %feed%
+    noSnapshot: No snapshots created
+    restoreSnapshot:
+      title: Restore %key%?
+      body: 'Are you sure you want to restore this snapshot?'
+    revert: Revert to %snapshot%
+    takeSnapshot: Take snapshot
+    toolbar:
+      hide: Hide toolbar
+      show: Show toolbar
     uploadShapefile:
       body: 'Select a zipped shapefile to display on map. Note: this is only for use as a visual aid.'
       error: Uploaded file must be a valid zip file (.zip).
       title: Upload route shapefile
+    unnamed: Unnamed
   FeedSourceAttributes:
     lastUpdated: Updated
   FeedSourcePanel:
+    chooseProject: '[choose project]'
+    chooseProjectToView: Choose a project to view feeds
+    createOne: Create one.
+    filters:
+      ALL: All
+      STARRED: Starred
+      PUBLIC: Public
+      PRIVATE: Private
+    forFeed: For feed
+    noFeedsYet: No feeds yet.
     search: Search feeds
+    unnamed: unnamed
   FeedSourceTable:
     comparisonColumn:
       DEPLOYED: Deployed Version
       PUBLISHED: Published Version
     createFirst: Create first feed source!
+    datesValid: Dates Valid
+    feedInfo: Feed Info
+    issues: Issues
+    latestVersion: Latest Version
+    status: Status
   FeedSourceTableRow:
+    dateFormat: MMM D, YYYY 
+    expired: Expired %duration% ago
+    lastUpdated: Last updated %lastVersionUpdate% ago
+    none: None
+    noUpdates: No updates yet
+    startingIn: Starting in %duration%
     status:
       active: Active
       all: All
@@ -248,6 +390,21 @@ components:
       no-version: No version
       same-as-deployed: Same as Deployed
       same-as-published: Same as Published
+    validFor: Valid for another %duration%
+  FeedActionsDropdown:
+    delete: Delete
+    deleteFeedSource: Delete Feed Source?
+    deploy: Deploy
+    deployFeed: Deploy feed source.
+    deployNoPermission: You do not have permission to deploy feed
+    fetch: Fetch
+    menu: Menu
+    notDeployable: Feed source is not deployable. Change in feed source settings.
+    noVersions: No versions exist. Create new version to deploy feed
+    openInEditor: Open in Editor
+    upload: Upload
+    uploadFeed: Upload Feed
+    view: View public page
   FeedSourceViewer:
     deploy: Deploy
     edit: Edit GTFS
@@ -277,7 +434,20 @@ components:
     upload: Upload
     versions: Versions
     viewPublic: View public page
+  FeedSourceSettings:
+    autoPublish: Auto-publish
+    feedTransformations: Feed Transformations
+    general: General
+    noPermission: You do not have permission to edit details for this feed source.
+    properties: properties
+    warning: Warning!
   FeedTransformationDescriptions:
+    AddCustomFileTransformation: 
+      label: Add custom file in GTFS.
+      name: Add custom file transformation
+    AppendToFileTransformation: 
+      label: Append lines to GTFS.
+      name: Append to file transformation
     general:
       fileDefined: below text
       filePlaceholder: '[choose file]'
@@ -292,6 +462,10 @@ components:
       filePlaceholder: Choose file/table to normalize
       label: Normalize field
       name: Normalize field transformation
+    PreserveCustomFieldsTransformation:
+      filePlaceholder: Choose the file/table with custom field
+      label: Preserve fields in %tablePlaceholder% from %filePlaceholder%
+      name: Preserve custom fields transformation
     ReplaceFileFromStringTransformation:
       filePlaceholder: Choose the file/table to replace
       label: Replace %tablePlaceholder% from %filePlaceholder%
@@ -300,20 +474,31 @@ components:
       filePlaceholder: Choose the file/table to replace
       label: Replace %tablePlaceholder% from %versionPlaceholder%
       name: Replace file from version transformation
+  FeedTransformationErrors: 
+    csvNameContainsTxt: Custom CSV file name cannot end with ".txt".
+    csvMissingName: Custom CSV must have a name.
+    undefinedCSVData: CSV data must be defined.
+    undefinedTable: Table must be defined.
   FeedVersionNavigator:
     confirmDelete: Are you sure you want to delete this version? This cannot be undone.
     confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
     delete: Delete
+    deployFeed: Deploy feed
     download: Download
+    editFeed: Edit feed
     feed: Feed
+    fetch: Fetch
+    fromSnapshot: From snapshot
     load: Load for Editing
+    newVersion: Create new version
     next: Next
     of: of
     previous: Previous
-    uploadBody: "Select a GTFS feed to upload:"
-    uploadError: Uploaded file must be a valid zip file (.zip).
-    uploadTitle: Upload Feed
+    selectFeed: 'Select a GTFS feed to upload:'
+    uploadFeed: Upload Feed
+    upload: Upload
     version: Version
+    zipWarning: Uploaded file must be a valid zip file (.zip).
   FeedVersionTabs:
     agencyCount: Agency count
     daysActive: Days active
@@ -350,17 +535,19 @@ components:
         custom: Use Custom Extract Bounds
         gtfs: Use GTFS-Derived Extract Bounds
         title: OSM Extract
-      title: Deployment
     routerConfig:
       brandingUrlRoot: Branding URL Root
       carDropoffTime: Car Dropoff Time
+      driveDistanceReluctance: Drive Distance Reluctance
       numItineraries: '# of itineraries'
       requestLogFile: Request log file
       stairsReluctance: Stairs Reluctance
       title: Router Config
+      itineraryFilters:
+        nonTransitGeneralizedCostLimit: Non-Transit Generalized Cost Limit
       updaters:
         $index:
-          defaultAgencyId: Default agency ID
+          feedId: Feed ID
           frequencySec: Frequency (in seconds)
           sourceType: Source type
           type: Type
@@ -397,7 +584,17 @@ components:
         serverPlaceholder: Server name
         title: Servers
   GeneralSettings:
+    autoFetch: 
+      title: Automatic Fetch
+      url: Feed source fetch URL
+      urlButton: Change URL
+      checkbox: Auto fetch feed source
+      hint: Set this feed source to fetch automatically. (Feed source URL must be specified and project auto fetch must be enabled.)
     confirmDelete: Are you sure you want to delete this project? This action cannot be undone and all feed sources and their versions will be permanently deleted.
+    dangerZone: Danger Zone
+    deleteFeedSource: Delete feed source
+    deleteFeedSourceDesc: Delete this feed source.
+    deleteFeedSourceHint: Once you delete a feed source, it cannot be recovered.
     deleteProject: Delete Project?
     deployment:
       buildConfig:
@@ -430,13 +627,16 @@ components:
       routerConfig:
         brandingUrlRoot: Branding URL Root
         carDropoffTime: Car Dropoff Time
+        driveDistanceReluctance: Drive Distance Reluctance
         numItineraries: '# of itineraries'
         requestLogFile: Request log file
         stairsReluctance: Stairs Reluctance
         title: Router Config
+        itineraryFilters:
+          nonTransitGeneralizedCostLimit: Non-Transit Generalized Cost Limit
         updaters:
           $index:
-            defaultAgencyId: Default agency ID
+            feedId: Feed ID
             frequencySec: Frequency (in seconds)
             sourceType: Source type
             type: Type
@@ -446,6 +646,7 @@ components:
           placeholder: Updater name
         walkSpeed: Walk Speed
       title: Deployment
+    feedSourceName: Feed source name
     general:
       location:
         boundingBox: 'Bounding box (W,S,E,N)'
@@ -458,9 +659,46 @@ components:
       updates:
         autoFetchFeeds: Auto fetch feed sources?
         title: Updates
+    labels:
+      title: Labels
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
+    make:
+      private: Make private
+      privateDesc: Make this feed source private.
+      privateState: This feed source is currently private.
+      public: Make public
+      publicDesc: Make this feed source public.
+      publicState: This feed source is currently public.
+    makeDeployable: Make feed source deployable
+    makeDeployableHint: Enable this feed source to be deployed to an OpenTripPlanner (OTP) instance (defined in organization settings) as part of a collection of feed sources or individually.
     rename: Rename
     save: Save
     title: Settings
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
+  GtfsIcons:
+    agency:
+      title: Edit agencies
+      label: Agencies
+    calendar:
+      title: Edit calendar
+      label: Calendar
+    fare:
+      title: Edit fares
+      label: Fares
+    feedinfo:
+      title: Edit feed info
+      label: Feed Info  
+    route:
+      title: Edit routes
+      label: Routes
+    scheduleExceptions:
+      title: Edit schedule exceptions
+      label: Schedule Exceptions
+    stop:
+      title: Edit stops
+      label: Stops
   GtfsValidationExplorer:
     accessibilityValidation: Accessibility Explorer
     table:
@@ -493,10 +731,52 @@ components:
       resolved before most GTFS consumers can make use of the data for trip
       planning or in other applications."
     title: Validation issues
+  HomeProjectDropdown:
+    new: New Project
+    select: Select project
+    view: View %name%
+  InfoModal:
+    ok: OK
+  RetiredJob:
+    view: View
+    bug: Oh no! Looks like an error has occurred.
+    support: "To submit an error report email a screenshot of your browser
+      window, the following text (current URL and error details),
+      and a detailed description of the steps you followed
+      to <a href='mailto:%supportEmail%'>%supportEmail%</a>."
+  JobMonitor:
+    clearCompleted: Clear completed
+    jobs:
+      none: No active jobs
+      one: One active job
+      some: '%count% active jobs'
+    jobsCompleted: All jobs completed
+    serverJobs: Server Jobs
+    waiting: waiting
+  LabelPanel:
+    labels: Labels
+    new: Add a new label
+    noLabels: There are no labels in this project.
   LanguageSelect:
     placeholder: Select language...
   Login:
     title: Log in
+  ManagerHeader:
+    noUpdateYet: n/a
+    bundleFilename: Bundle Filename
+    noUrl: (none)
+    private: This feed source and all its versions are private.
+  ManagerPage:
+    alerts: Alerts
+    changelog: Changelog
+    contact: Contact
+    copyright: Copyright
+    datatools: Data Tools
+    guide: Guide
+    home: Home
+  MapModal:
+    ok: OK
+    cancel: Cancel
   MergeFeedsResult:
     body:
       failure: Merge failed with %errorCount% errors.
@@ -511,7 +791,31 @@ components:
     title:
       failure: 'Warning: Errors encountered during feed merge!'
       success: 'Feed merge was successful!'
-
+  NormalizeField:
+    issues:
+      fieldUndefined: Field to normalize must be defined.
+      substitutionUndefined: Substitution patterns must be defined.
+      substitutionInvalid: Some substitution patterns are invalid.
+  NormalizeStopTimesModal:
+    close: Close
+    interpolateStopTimes: Interpolate stop times between timepoints?
+    normalizeStopTimes: Normalize stop times
+    normalizeStopTimesQuestion: Normalize stop times?
+    selectBeginningPatternStop: "Select beginning pattern stop:"
+    tooFewTimepoints: "You must have more than 1 timepoint to interpolate times"
+    usageExplanationOne: This feature is useful when the travel times for one or more
+      pattern stops change. Take for example a pattern
+      that has been re-routed along to travel a longer distance, has had a
+      stop added (or removed), or has had a layover introduced mid-trip.
+      Once you have adjusted the travel times to account for these changes,
+      you can normalize the stop times to bring them into alignment with the
+      updated travel times reflected in the pattern stops.
+    usageExplanationTwo: Interpolating stop times calculates the implicit speed between timepoints
+      based on the shape distance and the default travel times. This speed is
+      then applied to the shape distance traveled for each intermediate non-timepoint
+      stop to provide interpolated travel times. The default travel time for non-timepoint
+      stops will not be modified.
+    usageNotes: " Usage notes"
   NormalizeStopTimesTip:
     info: "Tip: when changing travel times, consider
     using the 'Normalize stop times' button above to automatically update
@@ -529,6 +833,8 @@ components:
     refresh: Refresh
     title: Comments
   OrganizationList:
+    create: Create Organization
+    missingName: Must provide organization name.
     new: Create org
     search: Search orgs
   OrganizationSettings:
@@ -579,6 +885,9 @@ components:
     edit-alert: Edit GTFS-RT Alerts
     edit-gtfs: Edit GTFS Feeds
     manage-feed: Manage Feed Configuration
+  PreserveCustomFields: 
+    addCsvWithCustomFields: "Add the CSV data with custom fields to preserve in the final output."
+    saveCsv: Save CSV
   ProjectAccessSettings:
     admin: Admin
     cannotFetchFeeds: Cannot fetch feeds
@@ -587,67 +896,14 @@ components:
     noAccess: No Access
     permissions: Permissions
     title: Project Settings for
-  ProjectSettings:
-    deployment:
-      buildConfig:
-        elevationBucket:
-          accessKey: Access Key
-          bucketName: S3 Bucket Name
-          secretKey: Secret Key
-        fares: Fares
-        fetchElevationUS: Fetch Elevation
-        stationTransfers: Sta. Transfers
-        subwayAccessTime: Subway Access Time
-        title: Build Config
-      osm:
-        bounds: Custom Extract Bounds
-        custom: Use Custom Extract Bounds
-        gtfs: Use GTFS-Derived Extract Bounds
-        title: OSM Extract
-      otpServers:
-        $index:
-          admin: Admin access only?
-          delete: Remove
-          internalUrl: Internal URLs
-          name: Name
-          namePlaceholder: Production
-          publicUrl: Public URL
-          r5: R5 Server?
-          s3Bucket: S3 bucket name
-          targetGroupArn: Target Group ARN
-        new: Add server
-        serverPlaceholder: Server name
-        title: Servers
-      routerConfig:
-        brandingUrlRoot: Branding URL Root
-        carDropoffTime: Car Dropoff Time
-        numItineraries: '# of itineraries'
-        requestLogFile: Request log file
-        stairsReluctance: Stairs Reluctance
-        title: Router Config
-        updaters:
-          $index:
-            defaultAgencyId: Default agency ID
-            frequencySec: Frequency (in seconds)
-            sourceType: Source type
-            type: Type
-            url: URL
-          new: Add updater
-          title: Real-time updaters
-          placeholder: Updater name
-        walkSpeed: Walk Speed
-      title: Deployment
-    project:
-      cannotFetchFeeds: Cannot fetch feeds
-      feeds: Feeds
-      permissions: Permissions
-    rename: Rename
-    save: Save
-    title: Settings
   ProjectSettingsForm:
     cancel: Cancel
     confirmDelete: Are you sure you want to delete this project? This action cannot be undone and all feed sources and their versions will be permanently deleted.
+    dangerZone: Danger zone
     deleteProject: Delete Project?
+    deleteProjectAction: Delete Project
+    deleteThisProject: Delete this project.
+    deleteWarning: Once you delete an project, the project and all feed sources it contains cannot be recovered.
     fields:
       location:
         boundingBox: 'Bounding box (W,S,E,N)'
@@ -656,14 +912,32 @@ components:
         defaultLocation: 'Default location (lat, lng)'
         defaultTimeZone: Default time zone
         title: Location
+      sharedStops:
+        title: Shared Stops
+        placeholder: Shared stops config CSV
       name: Project name
       title: General
       updates:
         autoFetchFeeds: Auto fetch feed sources?
         title: Updates
+      localPlacesIndex:
+        title: Local Places Index
+        webhookUrl: Webhook URL
+    noPermissions: You do not have permission to edit details for this feed source.
+    required: Required.
     save: Save
+    selectBounds: Select project bounds
+    selectBoundsHint: Pretend this is a map
     title: Settings
+    warning: Warning!
+  ProjectSummaryPanel:
+    hoursPerWeekday: hours per weekday
+    numberOfFeeds: "Number of feeds:"
+    summary: summary
+    totalErrors: "Total errors:"
+    totalService: "Total service:"
   ProjectViewer:
+    autoFetchDisabled: Auto fetch disabled
     deployments: Deployments
     feeds:
       createFirst: Create first feed source!
@@ -679,14 +953,27 @@ components:
         validRange: Valid Range
       title: Feed Sources
       update: Fetch all
+    feedSourceDesc: "A feed source defines the location or upstream source of a GTFS feed.
+          GTFS can be populated via automatic fetch, directly editing or uploading
+          a zip file."
+    feedSourceTitle: What is a feed source?
+    here: here
     makePublic: Publish public feeds
     mergeFeeds: Merge all
+    noProjectFound: No project found for
+    note: "Note:"
+    publicViewed: "Public feeds page can be viewed "
+    returnToProjects: Return to list of projects
     settings: Settings
   ProjectFeedListToolbar:
+    actions: Actions
+    all: all
+    any: any
     comparison:
       DEPLOYED: Deployed
       LATEST: Latest
       PUBLISHED: Published
+    deployedVersion: 'Deployed Version:'
     deployments: Deployments
     downloadCsv: Download Summary as CSV
     feeds:
@@ -709,34 +996,65 @@ components:
       expired: Expired
       expiring: Expiring
       future: Future
+    filterByLabels: Filter feeds by labels
+    filterFeedSources: Filter feed sources on
+    hasDeployedVersion: Has Deployed Version?
+    hasLatestVersion: Has a latest version?
+    hasPublishedVersion: Has Published Version?
+    isPublic: Is Public
+    labelEndDate: '%labelPrefix% End Date'
+    labelNumberIssues: '%labelPrefix% Number of Issues'
+    labelNumberRoutes: '%labelPrefix% Number of Routes'
+    labelNumberStops: '%labelPrefix% Number of Stops'
+    labelNumberStopTimes: '%labelPrefix% Number of StopsTimes'
+    labelNumberTrips: '%labelPrefix% Number of Trips'
+    labelStartDate: '%labelPrefix% Start Date'
+    lastFetched: Last Time Data Fetched from Feed URL
+    lastUpdated: Last Updated
+    latestValidation:
+      endDate: 'Latest Version: End Date'
+      errorCount: 'Latest Version: Number of Issues'
+      routeCount: 'Latest Version: Number of Routes'
+      startDate: 'Latest Version: Start Date'
+      stopTimesCount: 'Latest Version: Number of Stop Times'
+      stopCount: 'Latest Version: Number of Stops'
+      tripCount: 'Latest Version: Number of Trips'
     makePublic: Publish public feeds
     mergeFeeds: Merge all
+    name: Name
+    noteSorting: 'Note: sorting only available on latest version data'
+    ofTheLabels: 'of the labels:'
+    publishedVersion: 'Published Version:'
     settings: Settings
+    showFeedsWith: Show feeds with
     sort:
-      alphabetically:
-        title: Alphabetically
+      alphabetically: 
         asc: A-Z
         desc: Z-A
+        title: Alphabetically
       endDate:
-        title: Expiration Date
         asc: Earliest-Latest
         desc: Latest-Earliest
+        title: Expiration Date
       lastUpdated:
-        title: Last Update
         asc: Stale-Recent
         desc: Recent-Stale
+        title: Last Update
       numErrors:
-        title: Number of Issues
         asc: Least-Most
         desc: Most-Least
+        title: Number of Issues
       startDate:
-        title: Start Date
         asc: Earliest-Latest
         desc: Latest-Earliest
+        title: Start Date
+    sortBy: Sort By
     sync:
-      transitland: Sync from transit.land
       transitfeeds: Sync from transitfeeds
+      transitland: Sync from transit.land
       mtc: Sync from MTC
+    url: Feed download URL
+    version: version
   ProjectsList:
     createFirst: Create my first project
     help:
@@ -758,32 +1076,88 @@ components:
     stateProvince: State or Province
   PublicFeedsViewer:
     title: Catalogue
+  PublicLandingPage:
+    appLogo: App logo
+    copyright: Copyright
+    existingUsers: Existing users
+    here: here
+    learnMore: Learn more about Data Tools
+    signInHere: sign in here
+    viewDashboard: View dashboard
   RegionSearch:
     placeholder: Search for regions or agencies
+  ReplaceFileFromString:
+    addCsvData: "Add the CSV data to add to/replace in the incoming GTFS:"
+    saveCsv: Save CSV
   ResultTable:
     affectedIds: Affected ID(s)
     description: Description
     line: Line
     priority: Priority
     problemType: Problem Type
+  RouteLayout:
+    errorOccurred: An error occurred while trying to fetch the data
+    jumpToRoute: Jump to a Route
+    route: "Route:"
+    RouteRow:
+      patterns: "%num% Patterns"
+      stops: "%num% Stops"
+      trips: "%num% Trips"
+  ScheduleExceptionForm:
+    addDate: Add date
+    customServiceID: Custom service ID
+    dates: Dates
+    exceptionBasedService: Exception Based Service
+    exceptionName: Exception name*
+    noDatesSpecified: No dates specified
+    noService: No Service
+    onTheseDates: On these dates*
+    ranges: Ranges
+    runFollowing: "Run the following schedule:"
+    selectCalendar: Select calendar to run*
+    selectCalendarToAdd: "Select calendars to add (optional):"
+    selectCalendarToRemove: "Select calendars to remove (optional):"
+    selectExemplar: -- Select exception type --
+    swapAddOrRemove: Swap, add, or remove
+    thanksgivingDay: Thanksgiving Day
+    unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Cancel
     mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
     ok: OK
   ServerSettings:
+    awsSetup: Instructions for setting up OTP deployment servers on AWS
+    confirmDelete: Are you sure you want to delete this server record?
     deployment:
       otpServers:
         new: Add server
         refresh: Refresh
         serverPlaceholder: Server name
         title: Deployment Server Management
+    instructions: Instructions
+    noServers: No servers defined
     save: Save
     title: Settings
+  ServerSpecialFields:
+    confirmTermination: 'Are you sure you want to terminate %count% instance(s)?\n\n WARNING: This will kill OTP service for any deployments launched for this server.'
+    projectSpecific: Project specific?
+    projectSpecificPlaceholder: Assign to a project or leave open for any project
+    terminateEC2: Terminate EC2 Instances
+    useELB: Use Elastic Load Balancer (ELB)?
+    noEC2Instances: No EC2 instances associated with server.
   ShowAllRoutesOnMapFilter:
     fetching: Fetching
+    noShapes: The feed does not have any route shapes created yet.
     showAllRoutesOnMap: Show all routes
     tooManyShapeRecords: large shapes.txt may impact performance
   Sidebar:
+    about: About this app
+    account: Account
+    serverJobs: Server jobs
+    serverVersion: 'Server version:'
+    settings: Settings
+    uiDeployedAt: 'UI deployed at:'
+    uiVersion: 'UI Version:'
     unknown: Unknown
   SnapshotItem:
     active: Active
@@ -809,8 +1183,97 @@ components:
   StarButton:
     star: Star
     unstar: Unstar
+  Status:
+    REQUESTING_PROJECTS: Loading projects...
+    REQUESTING_PROJECT: Loading project...
+    SAVING_PROJECT: Saving project...
+    REQUESTING_FEEDSOURCES: Loading feeds...
+    REQUESTING_FEEDSOURCE: Loading feed...
+    SAVING_FEEDSOURCE: Saving feed...
+    REQUESTING_FEEDVERSIONS: Loading feed versions...
+    DELETING_FEEDVERSION: Deleting feed version...
+    UPLOADING_FEED: Uploading feed...
+    REQUESTING_SYNC: Syncing feeds...
+    RUNNING_FETCH_FEED: Fetching feed...
+    RUNNING_FETCH_FEED_FOR_PROJECT: Updating feeds for project...
+    REQUESTING_PUBLIC_FEEDS: Loading public feeds...
+    REQUESTING_VALIDATION_ISSUE_COUNT: Loading validation result...
+    REQUESTING_NOTES: Loading comments...
+    REQUESTING_GTFSPLUS_CONTENT: Loading GTFS+ data...
+    UPLOADING_GTFSPLUS_FEED: Saving GTFS+ data...
+    PUBLISHING_GTFSPLUS_FEED: Publishing GTFS+ feed...
+    VALIDATING_GTFSPLUS_FEED: Updating GTFS+ validation...
+    REQUESTING_FEEDVERSION_ISOCHRONES: Calculating access shed...
+    REQUESTING_DEPLOYMENTS: Loading deployments...
+    REQUESTING_DEPLOYMENT: Loading deployment...
+    REQUESTING_USERS: Loading users...
+    UPDATING_USER_DATA: Updating user...
+    SAVING_DEPLOYMENT: Saving deployment...
+    REQUESTING_GTFSEDITOR_SNAPSHOTS: Loading snapshots...
+    SAVING_AGENCY: Saving agency...
+    SAVING_STOP: Saving stop...
+    SAVING_ROUTE: Saving route...
+    REQUESTING_AGENCIES: Loading agencies...
+    REQUESTING_STOPS: Loading stops...
+    REQUESTING_ROUTES: Loading routes...
+    REQUESTING_TRIPS_FOR_CALENDAR: Loading trips...
+    CREATING_SNAPSHOT: Creating snapshot...
+    DELETING_SNAPSHOT: Deleting snapshot...
+    DELETING_AGENCY: Deleting agency...
+    DELETING_TRIPS_FOR_CALENDAR: Deleting trips...
+    RESTORING_SNAPSHOT: Restoring snapshot...
+    RENAMING_FEEDVERSION: Renaming feed version...
+    LOADING_FEEDVERSION_FOR_EDITING: Loading version into editor...
+    REQUESTING_ORGANIZATIONS: Loading organizations...
+    UPDATING_SERVER: Saving server...
+    FETCHING_ALL_JOBS: Fetching jobs...
+    REQUEST_RTD_ALERTS: Loading alerts...
+    CREATED_SNAPSHOT:
+      body: 'New snapshot "%payload%" created. It will be accessible from the "Editor Snapshots" tab in the main Feed Source page.'
+      title: Snapshot Created
+  StatusModal:
+    close: Close
+    login: Log in
+    reload: Reload page
+    relock: Re-lock feed
+    relockingFailed:
+      body: Re-locking feed is only permitted if another editing session is in progress for you (not another user). You can try again later or contact the current editor to request that they wrap up their session.
+      title: Attempt to take over editing failed!
+  TimetableEditor:
+    choosePattern: Choose a trip pattern.
+    createNew: create a new one
+    deleteSelectedTrip: 'Are you sure you want to permanently delete %count% selected trip?'
+    deleteSelectedTrips: 'Are you sure you want to permanently delete %count% selected trips?'
+    deleteTrips: Delete trips
+    deleteTripsQuestion: Delete trips?
+  TimetableHeader:
+    addBlankTrip: Add blank trip
+    advancedSettings: Advanced settings
+    backToRoute: Back to route
+    calendarName: "%truncatedCalendarName% calendar"
+    cellNumber: "Cell %cellId%"
+    createTripSeries: Create trip series
+    deleteTrips: Delete trips
+    duplicateTrips: Duplicate trips
+    frequencyEditor: Frequency editor
+    hideDepartureTimes: " Hide departure times"
+    hideDepartureTimesTooltip: "Hiding departure times will keep arrival and departure times in sync. WARNING: do not use if arrivals and departures differ."
+    numValidationIssues: "%errorCount% validation issue(s) found!"
+    patternsOn: "%truncatedPatternName% on "
+    saveChanges: Save changes
+    selectCalendar: "[select calendar]"
+    selectPattern: "[select pattern]"
+    shiftClickToSubtract: Shift-click to subtract
+    showShortcuts: Show keyboard shortcuts
+    timetableEditor: Timetable editor
+    tripsFor: "trips for "
+    undoChanges: Undo changes
+    useSeconds: Use seconds in offset
+    useSecondsToolTip: Toggling the use of seconds allows more precision in the trip offset and trip series creation tools. 
+    validationIssues: Validation issues
   TimetableHelpModal:
-    title: Timetable editor keyboard shortcuts
+    close: Close
+    pressQuestionmark: Press <kbd>?</kbd> to view shortcuts
     shortcuts:
       offset:
         title: Offsetting times
@@ -838,9 +1301,42 @@ components:
           - New trip
           - Clone selected trip(s)
           - Copy time value from adjacent cell (the cell immediately to the left)
+          - Copy time value from adjacent cell (the cell immediately to the right)
           - Copy value from cell directly above
+    title: Timetable editor keyboard shortcuts
   TimezoneSelect:
     placeholder: Select timezone...
+  TransformationsViewer:
+    columnsAdded: "Custom columns added: %columns%"
+    noTransformationApplied: No transformations applied.
+    rowsAdded: "Rows added: %rows%"
+    rowsDeleted: "Rows deleted: %rows%"
+    rowsUpdated: "Rows updated: %rows%"
+    tableModified: Table Modified 
+    tableAdded: Table Added
+    tableReplaced: Table Replaced
+    tableDeleted: Table Deleted
+    transformationsTitle: Transformations
+  TripSeriesModal:
+    alternateEvery: "Alternate every: "
+    automaticallyUpdateBlockIds: Automatically assign Block IDs for trips created in series?
+    automaticallyUpdateTripIds: Automatically update Trip IDs for trips created in series?
+    blockIdPrefixPlaceholder: Block ID prefix
+    blockIncrementPlaceholder: inc. by
+    close: Close
+    createTripSeriesBody: Enter the start and end time for the trip series (24 hour time) and headway between trips. Click generate to create the series of trips. 
+    createTripSeriesQuestion: Create a series of trips
+    disabledTooltip: There is an issue with the input data
+    endTime: "End Time:"
+    formatExplanation: "* Block IDs will be formatted as {prefix}-{alternating number}, e.g. 'WEEKDAY-1' then 'WEEKDAY-2', etc.'"
+    generateTrips: Generate Trips
+    headway: "Headway:"
+    incrementAmountPlaceholder: Increment amount
+    incrementBy: inc. by
+    incrementStartPlaceholder: Increment start (default 0)
+    prefixPlaceholder: Trip ID prefix (optional)
+    startTime: "Start Time:"
+    tripsStartingWith: "trip(s), starting with:"
   UserAccount:
     account:
       title: Account
@@ -859,22 +1355,43 @@ components:
       profileInformation: Profile information
       title: Profile
     title: My settings
-  AdminPage:
-    noAccess: You do not have sufficient user privileges to access this area.
-    title: Administration
+  UserAccountInfoPanel:
+    hello: Hello,
+    profile: Profile
+    roles:
+      applicationAdmin: Application admin
+      organizationAdmin: Organization admin
+      standardUser: Standard user
+  UserButtons:
+    admin: Admin
+    myAccount: My account
+    logout: Log out
   UserHomePage:
+    authDisabledInfo: >-
+      You are running %appTitle% without user authentication enabled.
+      Features such as user management, account management and feed activity watching are unavailable.
     createFirst: Create my first project
     help:
       content: 'A project is used to group GTFS feeds. For example, the feeds in a project may be in the same region or they may collectively define a planning scenario.'
       title: What's a project?
     new: New Project
     noProjects: You currently do not have any projects.
+    recentActivity: Recent Activity
+    recentActivityNone: No Recent Activity for your subscriptions.
     table:
       name: Project Name
     title: Projects
+    userDocs: User Docs
+    welcomeTo: Welcome to
   UserList:
     filterByOrg: Filter by org.
+    headings:
+      accountType: Account Type
+      lastLogin: Last Login
+      projects: Projects
+      user: User
     of: of
+    noResults: (No results to show)
     perPage: Users per page
     search: Search by username
     showing: Showing Users
@@ -889,6 +1406,7 @@ components:
     noProjectsFound: No projects
     orgAdmin: Org admin
     save: Save
+    unknownAccount: Unknown
   UserSettings:
     admin:
       description: Application administrators have full access to all projects.
@@ -897,6 +1415,7 @@ components:
     cancel: Cancel
     delete: Delete
     edit: Edit
+    noProjects: No projects available
     org:
       admin: Organization administrator
       billing: Billing admin
@@ -906,6 +1425,26 @@ components:
       custom: Custom
       noAccess: No Access
     save: Save
+  Validation:
+    agencyRequired: Field must be populated for feeds with more than one agency.
+    conflictingServiceId: Service ID already exists in a standard calendar!
+    customServiceId: Custom service ID
+    dateServiceIdCombinationDuplicate: Date (%exceptionDate%) and Service ID (%serviceId%) combination cannot appear more than once for all exceptions.
+    idMustBeUnique: Identifier must be unique.
+    idRequired: Identifier is required if more than one agency exists.
+    invalidEmail: Field must contain valid email address.
+    invalidLatitude: Field must be valid latitude.
+    invalidLongitude: Field must be valid longitude.
+    invalidRouteType: Field must be a valid route type.
+    invalidUrl: Field must contain valid URL.
+    latLonRequired: Latitude and Longitude are required for your current location type.
+    mustBePositiveInteger: Field must be a positive integer.
+    mustBePositiveNumber: Field must be a positive number.
+    mustBeValidNumber: Field must be a valid number.
+    nameAlreadyUsed: "%name% is already used in another exception,"
+    serviceRequired: Calendar must have service for at least one day.
+    stopNameRequired: Stop name is required for stop, station, and entrance location types.
+    requiredFieldEmpty: Required field must not be empty.
   VersionButtonToolbar:
     confirmDelete: Are you sure you want to delete this version? This cannot be undone.
     confirmLoad: 'This will override all active GTFS Editor data for this Feed Source with the data from this version. If there is unsaved work in the Editor you want to keep, you must snapshot the current Editor data first. Are you sure you want to continue?'
@@ -917,9 +1456,19 @@ components:
     status: Status
     timestamp: File Timestamp
     version: version
+  VersionComparisonDropdown:
+    compareToVersion: Comparing to version %version%
+    compareVersions: Compare versions
+    exit: Exit compare mode
+    loadAnother: Load another version to enable comparison
+    selectVersion: Select a version to compare with
+  VersionSelectorDropdown:
+    noVersions: No versions available
   WatchButton:
     emailVerificationConfirm: In order to receive email notification, you must first verify your email address. Would you like to resend the email verification message for your account?
     unwatch: Unwatch
     verificationSendError: There was an error sending the email verification!
     verificationSent: Please check your inbox and confirm your email address by clicking the verify link. You will then need to refresh this page after a moment or two and re-click the Watch button to subscribe to notifications.
     watch: Watch
+  WrapComponentInAuthStrategy:
+    adminTestFailed: You have attempted to view a restricted page without proper credentials

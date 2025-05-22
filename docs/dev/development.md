@@ -1,5 +1,5 @@
 # Development
-These instructions should allow you to get Data Tools / Editor / Catalogue up and running within an integrated development environment, allowing you to work on the code and debug it. We all use IntelliJ so instructions will currently be only for that environment.
+These instructions should allow you to get TRANSIT-data-tools / Editor / Catalogue up and running within an integrated development environment, allowing you to work on the code and debug it. We all use IntelliJ so instructions will currently be only for that environment.
 ## Components
 The system is made up of two different projects:
 
@@ -44,3 +44,9 @@ To specify your own configuration that overrides the defaults:
 ```
 yarn start -- --config /path/to/config
 ```
+
+## E2E tests
+
+The e2e tests have been Dockerized, which allows them to be run easily anywhere `docker compose` works. To run them on localhost, first create a `.env` file in the `__tests__/e2e`. `docker compose` will alert you as to which variables must be present.
+
+To run the tests, run `docker compose -f docker compose.yml up --abort-on-container-exit` in the `__tests__/e2e/` directory.

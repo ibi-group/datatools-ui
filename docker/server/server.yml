@@ -1,0 +1,67 @@
+application:
+  title: Data Tools
+  logo: https://d2tyb7byn1fef9.cloudfront.net/ibi_group-128x128.png
+  logo_large: https://d2tyb7byn1fef9.cloudfront.net/ibi_group_black-512x512.png
+  client_assets_url: https://example.com
+  shortcut_icon_url: https://d2tyb7byn1fef9.cloudfront.net/ibi-logo-original%402x.png
+  public_url: http://localhost:9966
+  notifications_enabled: false
+  docs_url: http://conveyal-data-tools.readthedocs.org
+  support_email: support@ibigroup.com
+  port: 4000
+  data:
+    gtfs: /tmp
+    use_s3_storage: false
+    s3_region: us-east-1
+    gtfs_s3_bucket: bucket-name
+modules:
+  enterprise:
+    enabled: false
+  editor:
+    enabled: true
+  deployment:
+    enabled: true
+    ec2:
+      enabled: false
+      default_ami: ami-your-ami-id
+      tag_key: a-tag-key-to-add-to-all-instances
+      tag_value: a-tag-value-to-add-to-all-instances
+    # Note: using a cloudfront URL for these download URLs will greatly
+    # increase download/deploy speed.
+    otp_download_url: https://optional-otp-repo.com
+  user_admin:
+    enabled: false
+  gtfsapi:
+    enabled: true
+    load_on_fetch: false
+    # use_extension: mtc
+    # update_frequency: 30 # in seconds
+  manager:
+    normalizeFieldTransformation:
+      # Enter capitalization exceptions (e.g. acronyms), in the desired case, and separated by commas.
+      defaultCapitalizationExceptions:
+        - ACE
+        - BART
+      # Enter substitutions (e.g. substitute '@' with 'at'), one dashed entry for each substitution, with:
+      # - pattern: the regex string pattern that will be replaced,
+      # - replacement: the replacement string for that pattern,
+      # - normalizeSpace: if true, the resulting field value will include one space before and after the replacement string.
+      #       Note: if the replacement must be blank, then normalizeSpace should be set to false
+      #       and whitespace management should be handled in pattern instead.
+      # Substitutions are executed in order they appear in the list.
+      defaultSubstitutions:
+        - description: "Replace '@' with 'at', and normalize space."
+          pattern: "@"
+          replacement: at
+          normalizeSpace: true
+        - description: "Replace '+' (\\+ in regex) and '&' with 'and', and normalize space."
+          pattern: "[\\+&]"
+          replacement: and
+          normalizeSpace: true
+extensions:
+  transitland:
+    enabled: true
+    api: https://transit.land/api/v1/feeds
+  transitfeeds:
+    enabled: true
+    api: http://api.transitfeeds.com/v1/getFeeds

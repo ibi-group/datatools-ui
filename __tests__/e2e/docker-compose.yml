@@ -1,0 +1,88 @@
+version: '3.8'
+
+x-common-variables: &common-variables
+    - BUGSNAG_KEY=${BUGSNAG_KEY}
+    - E2E_AUTH0_USERNAME=${E2E_AUTH0_USERNAME:?err}
+    - E2E_AUTH0_PASSWORD=${E2E_AUTH0_PASSWORD:?err}
+    - S3_BUCKET=${S3_BUCKET:?err}
+    - LOGS_S3_BUCKET=${LOGS_S3_BUCKET}
+    - MS_TEAMS_WEBHOOK_URL=${MS_TEAMS_WEBHOOK_URL}
+    - MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN}
+    - GITHUB_SHA=${GITHUB_SHA}
+    - GITHUB_REF_SLUG=${GITHUB_REF_SLUG}
+    - TRANSITFEEDS_KEY=${TRANSITFEEDS_KEY}
+    - GITHUB_REPOSITORY=${GITHUB_REPOSITORY}
+    - GITHUB_WORKSPACE=${GITHUB_WORKSPACE}
+    - GITHUB_RUN_ID=${GITHUB_RUN_ID}
+    - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID:?err}
+    - AUTH0_PUBLIC_KEY=${AUTH0_PUBLIC_KEY:?err}
+    - AUTH0_CONNECTION_NAME=${AUTH0_CONNECTION_NAME:?err}
+    - AUTH0_DOMAIN=${AUTH0_DOMAIN:?err}
+    - AUTH0_API_CLIENT=${AUTH0_API_CLIENT:?err}
+    - AUTH0_API_SECRET=${AUTH0_API_SECRET:?err}
+    - OSM_VEX=${OSM_VEX}
+    - SPARKPOST_KEY=${SPARKPOST_KEY}
+    - SPARKPOST_EMAIL=${SPARKPOST_EMAIL}
+    - GTFS_DATABASE_URL=jdbc:postgresql://postgres/dmtest
+    - GTFS_DATABASE_USER=root
+    - GTFS_DATABASE_PASSWORD=e2e
+    - MONGO_DB_NAME=data_manager
+    - MONGO_HOST=mongo:27017
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:?err}
+    - AWS_REGION=${AWS_REGION:?err}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:?err}
+
+services:
+  datatools-e2e-tests:
+    build:
+      context: ../../
+      args: *common-variables
+      dockerfile: ./__tests__/e2e/Dockerfile
+
+    command: /bin/sh -c "./wait-for-command.sh -t 15 -c 'nc -z datatools-ui 9966' && sleep 25 && yarn test-end-to-end"
+    shm_size: '2gb'
+    cap_add:
+      - ALL
+    depends_on:
+      - "datatools-server" 
+      - "datatools-ui"
+      - "datatools-ui-proxy"
+      - "mongo"
+      - "postgres"
+    environment: *common-variables
+
+  mongo:
+    image: mongo
+    restart: always
+  datatools-server:
+    build:
+      context: ../../
+      dockerfile: ./__tests__/e2e/server/Dockerfile
+      args: *common-variables
+    restart: always
+    environment: *common-variables
+    ports:
+    - "4000:4000"
+  datatools-ui-proxy:
+    build:
+      context: ../../
+      dockerfile: ./__tests__/e2e/ui-proxy/Dockerfile
+    ports:
+    - "443:443"
+  datatools-ui:
+    build:
+      context: ../../
+      dockerfile: ./__tests__/e2e/ui/Dockerfile
+      args: *common-variables
+    restart: always
+    environment: *common-variables
+    ports:
+    - "9966:9966"
+  postgres:
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: root
+      POSTGRES_PASS: e2e
+      POSTGRES_DB: dmtest
+    image: postgres
+    restart: always 

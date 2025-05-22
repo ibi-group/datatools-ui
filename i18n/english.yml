@@ -495,6 +495,7 @@ components:
     of: of
     previous: Previous
     selectFeed: 'Select a GTFS feed to upload:'
+    selectVersion: Select a version to view summary
     uploadFeed: Upload Feed
     upload: Upload
     version: Version

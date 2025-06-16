@@ -328,6 +328,7 @@ components:
   FeedInfo:
     autoFetch: Auto fetch
     autoPublish: Auto publish
+    bundleFilename: Bundle Filename
     dateFormat: MMM D, YYYY 
     deployable: Deployable
     flex: Flexible service
@@ -675,6 +676,8 @@ components:
       description: Enable this feed source to include flex service. Checking this checkbox will enable flex tools in the editor. Flex service describes operations that follow a schedule, but also include flexible features such as dial-a-ride service, route deviation, continuous stops, or point to zone service.
     labels:
       title: Labels
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
     make:
       private: Make private
       privateDesc: Make this feed source private.
@@ -687,6 +690,8 @@ components:
     rename: Rename
     save: Save
     title: Settings
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
   GtfsIcons:
     agency:
       title: Edit agencies
@@ -768,6 +773,7 @@ components:
     title: Log in
   ManagerHeader:
     noUpdateYet: n/a
+    bundleFilename: Bundle Filename
     noUrl: (none)
     private: This feed source and all its versions are private.
   ManagerPage:

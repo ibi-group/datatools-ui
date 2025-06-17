@@ -1573,11 +1573,6 @@ describe('end-to-end', () => {
         await waitForSelector('[data-test-id="route-route_id-input-container"]')
 
         // fill out form
-        // set status to approved
-        await page.select(
-          '[data-test-id="route-status-input-container"] select',
-          '2'
-        )
 
         // set public to yes
         await page.select(
@@ -1639,6 +1634,13 @@ describe('end-to-end', () => {
           'example.branding.test'
         )
 
+        // Set status to approved so the route is exported to a snapshot.
+        // Do this last, otherwise the approved status will change back to in-progress.
+        await page.select(
+          '[data-test-id="route-status-input-container"] select',
+          '2'
+        )
+
         // save
         await click('[data-test-id="save-entity-button"]')
         await wait(2000, 'for save to happen')
@@ -1663,6 +1665,13 @@ describe('end-to-end', () => {
         await appendText(
           '[data-test-id="route-route_long_name-input-container"] input',
           ' updated'
+        )
+
+        // Set status to approved so the route is exported to a snapshot.
+        // Do this last, otherwise the approved status will change back to in-progress.
+        await page.select(
+          '[data-test-id="route-status-input-container"] select',
+          '2'
         )
 
         // save
@@ -2639,9 +2648,6 @@ describe('end-to-end', () => {
 
         // wait for dialog to appear
         await waitForSelector('[data-test-id="snapshot-dialog-name"]')
-
-        // confirm that we want to publish with unapproved routes
-        await click('[data-test-id="confirmPublishWithUnapproved"]')
 
         // enter name
         await type('[data-test-id="snapshot-dialog-name"]', 'test-snapshot')

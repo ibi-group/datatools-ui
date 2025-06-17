@@ -141,13 +141,19 @@ While editing a pattern shape, there are a few behaviors you should be aware of:
 - **Cancel:** Cancel edits and leave editing mode
 
 ### Edit settings
-- **Snap to streets:** Snaps segments between handles and stops to streets. If unchecked, segments will form straight lines between handles and stops (e.g., for drawing shapes for rail lines).
+
+- **Snap mode selector** - Use the dropdown selector to choose how pattern segments between handles and stops are aligned. The available snapping modes are:
+  - **Snap to streets** - snaps segments between handles and stops to streets. Can toggle the 'Avoid highways in routing' checkbox as needed.
+  - **Snap to rail** - snaps segments between handles and stops to rail.
+  - **None** - segments will form straight lines between handles and stops.
 - **Hide stop handles:** Keeps shape segments snapped to stops. If unchecked, stop handles will become draggable. In most cases, this setting should remain checked.
 - **Hide inactive segments:** Toggles whether to show segments that are not currently being edited. 
-- **Show stops** Toggles whether stops are visible because sometimes stop markers can get in the way when trying to draw shapes.
+- **Show stops** - Toggles whether stops are visible because sometimes stop markers can get in the way when trying to draw shapes.
 - **Show tooltips:** Toggles whether to show tips when hovering over a segment, e.g. "Click to edit segment" or "Click to add control point". 
 
-<img src="https://datatools-builds.s3.amazonaws.com/docs/patterns/pattern-shape-panel.png" style="box-shadow: 3px 3px 3px gray; border-radius: 10px;">
+<div class="img-center">
+![pattern shape editing options](../../img/pattern-shape-panel.png)
+</div>
 
 ### Editing modes
 

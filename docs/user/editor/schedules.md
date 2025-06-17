@@ -3,9 +3,7 @@
 ## Keyboard shortcuts
 There are a number of keyboard shortcuts for jumping between and modifying trips. To view these, click the `?` in the top righthand corner of the timetable editor. You can also view these at any time while editing trips by typing `?`. The shortcuts are shown below:
 
-<div class="img-center">
-  ![timetable keyboard shortcuts](../../img/timetable-shortcuts.png)
-</div>
+![timetable keyboard shortcuts](../../img/timetable-shortcuts.png)
 
 ## Selecting schedules
 The schedule editor allows users to create trips/frequencies for any route, pattern, and calendar combination.  The selectors at the top of the page allow users to navigate between calendars for a given pattern or switch between patterns for a route or even routes within the feed.
@@ -23,9 +21,8 @@ Each selection has a set of statistics associated with it to give you a sense of
 ![schedule selector](../../img/timetable-selector.png)
 
 ## Schedule toolbar
-<div class="img-center">
-  ![schedule toolbar](../../img/schedule-toolbar.png)
-</div>
+
+![schedule toolbar](../../img/schedule-toolbar.png)
 
 - **Add trip** - add blank trip (first timepoint is `00:00:00`)
 - **Duplicate trip(s)** - duplicate the last trip in the spreadsheet or whichever rows are selected
@@ -36,9 +33,8 @@ Each selection has a set of statistics associated with it to give you a sense of
 
 ## Selecting trips
 To select trips to offset, duplicate or delete, click the row number on the lefthand side of the row. To toggle selection of all trips, click the box in the upper lefthand corner.
-<div class="img-center">
-  ![select trips](../../img/select-trips.png)
-</div>
+
+![select trips](../../img/select-trips.png)
 
 ## Recognized time entry formats
 When entering times manually into the schedule editor they will automatically be converted to a standardized format `13:00:00`. The following time formats are automatically recognized and converted:

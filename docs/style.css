@@ -5,7 +5,7 @@ img[alt=screenshot] { width: 100%; }
     display: none;
 }
 
-.img-center, img:not(img[alt=screenshot]) {
+img:not(img[alt=screenshot]) {
   width: 300px;
   margin-left: auto;
   margin-right: auto;

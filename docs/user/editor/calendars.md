@@ -18,9 +18,8 @@ Choose a calendar from the list to begin editing. To create a new calendar, clic
 ## Editing schedule exceptions
 
 Schedule exceptions allow users to define days where special services should replace the regularly operating calendars. To create a schedule exception, click the `Exceptions` tab and then click `+ New exception` (replaces the "New calendar" button).
-<div class="img-center">
-  ![schedule exception](../../img/schedule-exception.png)
-</div>
+
+![schedule exception](../../img/schedule-exception.png)
 
 ## Exception details
 

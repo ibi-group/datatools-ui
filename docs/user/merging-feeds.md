@@ -4,9 +4,8 @@
 For a given feed source/agency, it is possible to merge two feed versions that represent different service periods during the calendar year, e.g., a feed that contains summer service and a feed that contains fall service. This feature provides a convenient way for agencies to publish a feed version that spans a longer service period without interrupting downstream services (e.g., trip planners) that rely on that data day in and day out.
 
 To begin a feed merge, navigate to one of the feed versions to be merged (it does not matter whether this is the current or future version). Next, click the 'Merge with version' dropdown button and select the version with which to merge.
-<div class="img-center">
-  ![merge feed versions](../img/merge-feeds-button.png)
-</div>
+
+![merge feed versions](../img/merge-feeds-button.png)
 
 ### Merge rules
 We call "active" and "future" GTFS feeds the feeds with the earliest and latest start dates, respectively.
@@ -78,9 +77,8 @@ There are a set of rules that govern the requirements for input feed versions an
 
 ### Merge Feed Versions Result
 Once the merge feeds task has been completed, a notification window will appear describing the results of the merge process. If the feeds did not meet the rules for input datasets, the merge will fail and you will see a message describing the reason for failure and any offending records (e.g., duplicate `trip_ids` shared between the feeds). Otherwise, you will see a success message, with a list of any IDs that were modified for the output feeds (note: the input feeds will never be modified). Upon success, a new Feed Version will be created as the latest version for the feed source.
-<div class="img-center">
-  ![merge feed versions result](../img/merge-feeds-result.png)
-</div>
+
+![merge feed versions result](../img/merge-feeds-result.png)
 
 ## Merging a Project's Feed Versions
 Another feed merge type supported by the application is to merge the latest version for all feed sources in a project. This process only supports a basic "dumb" merge, where all unique identifiers from the input feeds will be feed-scoped. In other words, a `stop_id` value of `12345` in an AC Transit input feed, will appear as `AC_12345` in the output feed (this prefix may differ in practice). Also, the regional merge currently makes no attempt to merge stop entities from different feeds based on location.

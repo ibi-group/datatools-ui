@@ -1,5 +1,5 @@
 site_name: TRANSIT-data-tools Docs
-site_url: http://mtc-datatools.readthedocs.io
+site_url: !ENV [SITE_URL, 'http://conveyal-data-tools.readthedocs.io']
 repo_url: https://github.com/conveyal/datatools-manager
 docs_dir: docs
 site_dir: target/mkdocs

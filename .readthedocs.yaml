@@ -10,10 +10,10 @@ build:
   tools:
     python: "3.11"
 
-# Install mkdocs macros plugin
+# Install mkdocs macros and other plugins
 python:
   install:
-    - requirements:
-        mkdocs-macros-plugin: 1.3.7
+    - requirements: docs/requirements.txt
+
 mkdocs:
   configuration: mkdocs.yml

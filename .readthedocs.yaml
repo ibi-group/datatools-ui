@@ -10,5 +10,11 @@ build:
   tools:
     python: "3.11"
 
+# Install mkdocs macros plugin
+python:
+  install:
+    - method: pip
+      path: mkdocs-macros-plugin
+
 mkdocs:
   configuration: mkdocs.yml

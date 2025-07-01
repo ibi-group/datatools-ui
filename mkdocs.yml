@@ -6,6 +6,16 @@ site_dir: target/mkdocs
 theme: readthedocs
 extra_css: [style.css]
 
+plugins:
+- search
+- macros:
+    on_error_fail: true
+    on_undefined: strict
+
+extra:
+  product_name: MTC Transit Data Manager (TDM)
+  support_email: transitdata@511.org
+
 nav:
 - Home: 'index.md'
 - Data Manager:

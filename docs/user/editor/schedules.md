@@ -8,9 +8,7 @@ The schedule editor allows for the creation of trips/frequencies for any combina
 ## Keyboard shortcuts
 There are a number of keyboard shortcuts for jumping between and modifying trips. To view these, click the `?` in the top righthand corner of the timetable editor. You can also view these at any time while editing trips by typing `?`. The shortcuts are shown below:
 
-<div class="img-center">
-  ![timetable keyboard shortcuts](../../img/timetable-shortcuts.png)
-</div>
+![timetable keyboard shortcuts](../../img/timetable-shortcuts.png)
 
 ## Selecting schedules
 The schedule editor allows users to create trips/frequencies for any route, pattern, and calendar combination.  The selectors at the top of the page allow users to navigate between calendars for a given pattern or switch between patterns for a route or even routes within the feed.
@@ -110,12 +108,15 @@ Once a route, pattern and calendar is selected, a timetable with the following t
 - **Trip Headsign** - headsign for the trip
 - **Arrival/Departure Times** - arrival and departure times (departures shown in grey text) for each stop along the pattern
 
-<img src="https://datatools-builds.s3.amazonaws.com/docs/schedules/edit-timetables.png" style="box-shadow: 3px 3px 3px gray; border-radius: 10px; width: 700px;">
+![Timetable editor](https://datatools-builds.s3.amazonaws.com/docs/schedules/edit-timetables.png)
 
 To select trips to offset, duplicate or delete, click the row number on the lefthand side of the row. To toggle selection of all trips, click the box in the upper lefthand corner.
-<img src="https://datatools-builds.s3.amazonaws.com/docs/schedules/select-trips.png" style="box-shadow: 3px 3px 3px gray; border-radius: 10px; width: 500px;">
+
+![Timetable multi-row selection](https://datatools-builds.s3.amazonaws.com/docs/schedules/select-trips.png)
 
 After trips are selected, navigate to the schedule toolbar at the top right of the screen.
+
+## Schedule toolbar
 
 - **Add trip** - add blank trip (first timepoint is `00:00:00`)
 - **Duplicate trip(s)** - duplicate the last trip in the spreadsheet or whichever rows are selected
@@ -124,7 +125,8 @@ After trips are selected, navigate to the schedule toolbar at the top right of t
 - **Save** - save all changes
 - **Offset trip(s)** - specify an offset (`HH:MM`) to offset the last trip in the spreadsheet or whichever rows are selected
 
-<img src="https://datatools-builds.s3.amazonaws.com/docs/schedules/schedule-toolbar.png" style="box-shadow: 3px 3px 3px gray; border-radius: 10px; width: 300px;">
+
+![Schedule toolbar](https://datatools-builds.s3.amazonaws.com/docs/schedules/schedule-toolbar.png)
 
 ** Note: When entering times manually into the schedule editor they will automatically be converted to a standardized format `13:00:00`** 
 

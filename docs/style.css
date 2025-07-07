@@ -1,12 +1,17 @@
 img[alt=screenshot] { width: 100%; }
 
 /*Ignore first heading in page in TOC list*/
-li.toctree-l4:first-child {
+.toctree-l4:first-child {
     display: none;
 }
 
-.img-center {
-  width: 300px;
+img:not(img[alt=screenshot]) {
+  min-width: 300px;
   margin-left: auto;
   margin-right: auto;
+  max-width: 90%;
+}
+
+.section p:has(img:not(img[alt="screenshot"])) {
+  text-align: center;
 }

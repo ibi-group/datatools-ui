@@ -39,23 +39,20 @@ For more information on creating schedules for a pattern, [see the Trips section
 ## Stop sequence
 ### Adding stops
 To begin constructing a pattern, click `+ Add stop`. You can then search for stops to add by name in the dropdown that appears or zoom into the map and add stops by clicking on them and clicking `+ Add stop`.
-<div class="img-center">
+
 ![add stop from dropdown](../../img/pattern-add-stop.png)
-</div>
 
 As you add stops, the pattern shape will update according to the street network. Keep selecting and adding stops in the sequence the route passes through them until the route is complete.
 
 ### Inserting stops mid-sequence
 If you realize you have missed a stop from the sequence it can be added in after the fact. When adding via the dropdown, stops can only be added to the end of the sequence; however, if you're adding via the map, you can choose where exactly to insert the stop.
-<div class="img-center">
+
 ![insert stop from map](../../img/pattern-insert-stop.png)
-</div>
 
 ### Pattern stop toolbar
 The pattern stop toolbar can be found by clicking the pattern stop in the map view.
-<div class="img-center">
+
 ![pattern stop toolbar](../../img/pattern-stop-toolbar.png)
-</div>
 
 - **Save** - saves any edits to the travel and dwell times.
 - **Edit** - allows user to begin editing the stop's details (clicking the browser **Back** button will bring you back to editing the pattern). **Note**: be sure you have saved any pattern information before jumping to edit a stop.
@@ -64,9 +61,8 @@ The pattern stop toolbar can be found by clicking the pattern stop in the map vi
 
 ### Changing the order of stops
 If a stop is in the wrong order, you can click and drag the stop from the list view into the correct sequence. The sequence displayed on the stop being dragged will only update after being dropped into place.
-<div class="img-center">
+
 ![drag and drop pattern stop](../../img/pattern-stop-order.png)
-</div>
 
 **Note**: if inserting stops mid-sequence or changing the order of stops, the pattern shape will not update automatically. You must edit the pattern manually or click the `Create` button to regenerate the pattern shape from the stops.
 
@@ -82,14 +78,12 @@ Sometimes, however, leaving travel times blank is unintentional and these values
 
 ### Normalize stop times
 Whenever a pattern stop is added, inserted, or removed from a pattern, a warning will appear in the upper right hand corner of the screen. This message will prompt you to to adjust the default travel time for the pattern stops based on whichever action you took. For example, if stop #3 was removed, the travel time between stops #2 and #4 (now #3) may need to be increased to account for the change in distance traveled.
-<div class="img-center">
+
 ![pattern stop warning](../../img/pattern-stop-warning.png)
-</div>
 
 Once you have adjusted the stop timings, another warning will appear prompting you to click `Normalize stop times`. This button gives you a way to apply the change in pattern stop timings to any and all of the pre-existing trips for the pattern. It prevents you from needing to adjust these trips manually. After clicking `Normalize stop times`, you will be shown the following prompt asking you to define which stops you would like to normalize (the default is for all stops/stop times to be normalized). Once you confirm, you will receive a message confirming how many stop times were updated.
-<div class="img-center">
+
 ![normalize pattern stops](../../img/normalize-stop-times.png)
-</div>
 
 ### Calculate timings
 The average speed for the route can be used to calculate all the time gaps between stops in one go. Once the stops have been added and the pattern alignment is drawn simply click **Calc. Times** and the time between stops will automatically fill in.
@@ -131,14 +125,13 @@ Once editing a pattern shape, there are a few behaviors you should be aware of:
 ### Edit settings
 
 - **Snap mode selector** - Use the dropdown selector to choose how pattern segments between handles and stops are aligned. The available snapping modes are:
-  - **Snap to streets** - snaps segments between handles and stops to streets. Can toggle the 'Avoid highways in routing' checkbox as needed.
-  - **Snap to rail** - snaps segments between handles and stops to rail.
-  - **None** - segments will form straight lines between handles and stops.
+    - **Snap to streets** - snaps segments between handles and stops to streets. Can toggle the 'Avoid highways in routing' checkbox as needed.
+    - **Snap to rail** - snaps segments between handles and stops to rail.
+    - **None** - segments will form straight lines between handles and stops.
 - **Snap to stops** - keeps shape segments snapped to stops. If unchecked, stop handles will become draggable. In most cases, this setting should remain checked.
 - **Show stops** - toggles whether stops are visible because sometimes stop markers can get in the way when trying to draw shapes.
-<div class="img-center">
+
 ![pattern shape editing options](../../img/pattern-shape-panel.png)
-</div>
 
 ### Editing modes
 

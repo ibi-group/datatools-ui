@@ -1147,3 +1147,13 @@
     - name: rule_priority
       required: false
       inputType: POSITIVE_INT
+- id: area
+  name: areas.txt
+  helpContent: Areas that can be used to define fare zones.
+  fields:
+    - name: area_id
+      required: true
+      inputType: GTFS_ID
+    - name: area_name
+      required: false
+      inputType: TEXT

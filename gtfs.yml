@@ -1157,3 +1157,13 @@
     - name: area_name
       required: false
       inputType: TEXT
+- id: stoparea
+  name: stop_areas.txt
+  helpContent: Areas that can be used to define fare zones for stops.
+  fields:
+    - name: area_id
+      required: true
+      inputType: GTFS_AREA
+    - name: stop_id
+      required: true
+      inputType: GTFS_STOP

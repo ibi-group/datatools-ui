@@ -233,12 +233,12 @@
       text: Not possible (2)
     columnWidth: 12
     helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
-  - name: "stop_area_id"
-    required: false
-    inputType: GTFS_STOP_AREA
-    bulkEditEnabled: true
-    columnWidth: 12
-    helpContent: "The area_id field defines the area that this stop belongs to. This is used to group stops together in a logical way, such as all stops in a particular neighborhood or district. If this stop is not part of an area, leave this field blank."
+  # - name: "stop_area_id"
+  #   required: false
+  #   inputType: GTFS_STOP_AREA
+  #   bulkEditEnabled: true
+  #   columnWidth: 12
+  #   helpContent: "The area_id field defines the area that this stop belongs to. This is used to group stops together in a logical way, such as all stops in a particular neighborhood or district. If this stop is not part of an area, leave this field blank."
 
 - id: route
   name: routes.txt

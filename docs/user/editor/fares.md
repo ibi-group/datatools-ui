@@ -33,13 +33,13 @@ To edit fare rules, you must first create and save a fare with attributes. After
 2. **From/to zone** - applies to any itinerary that travels from the origin zone to the destination zone
 3. **Contains zone** - applies to any itinerary that passes through *each* `contains` zone
 
-<img src="https://datatools-builds.s3.amazonaws.com/docs/fares/edit-fare-rules.png" style="box-shadow: 3px 3px 3px gray; border-radius: 10px; width: 600px">
+![Fare rule editor](https://datatools-builds.s3.amazonaws.com/docs/fares/edit-fare-rules.png)
 
 ### Creating fare zones
 
 To create a fare zone, you must first select a stop that you would like to include in the zone by clicking the location pin icon on the sidebar and selecting one of the stop names. Next, click in the `zone_id` dropdown and begin typing the new `zone_id`. Click `Create new zone: [zone_id]` and then save the stop. Repeat for as many zones as needed.
 
-<img src="https://datatools-builds.s3.amazonaws.com/docs/fares/add-fare-zone.png" style="box-shadow: 3px 3px 3px gray; border-radius: 10px;">
+![Add fare zone](https://datatools-builds.s3.amazonaws.com/docs/fares/add-fare-zone.png)
 
 ### Tutorial Video: Editing/Creating Fares
 <iframe 

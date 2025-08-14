@@ -30,9 +30,8 @@ and you must correct the issues and publish the feed manually instead.
 
 ## Feed Publication Blocking Issues
 There are a number of validation issues for both standard GTFS files and GTFS+ files that will disable the `Publish to MTC` button. When there is a blocking issue, a message will appear below the publish button giving a general description of why you cannot publish the feed. Generally, you will need to review the standard GTFS validation issues or the GTFS+ issues (you can view these by selecting the appropriate tab in the vertical nav bar on the lefthand side of the screen) and fix the issues with either the in-app editors or by re-importing a valid version. Once all of the blocking issues are resolved, the publish button will be enabled, allowing you to publish the new dataset.
-<div class="img-center">
+
 ![issues are blocking feed publication](../img/publish-blocking-issue.png)
-</div>
 
 ### List of blocking issues
 The following issues will prevent a feed version from being published. They must be fixed either in the in-app editors or externally fixed and re-uploaded before the feed version can be published.

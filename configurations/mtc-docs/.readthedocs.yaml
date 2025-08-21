@@ -11,9 +11,10 @@ build:
     python: "3.13"
 
 # Install mkdocs macros and other plugins
+# Per readthedocs: paths are relative to the root of the project.
 python:
   install:
-    - requirements: ../../docs/requirements.txt
+    - requirements: docs/requirements.txt
 
 mkdocs:
-  configuration: mkdocs-mtc.yml
+  configuration: configurations/mtc-docs/mkdocs-mtc.yml

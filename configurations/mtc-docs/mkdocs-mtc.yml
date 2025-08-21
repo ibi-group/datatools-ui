@@ -1,16 +1,5 @@
+INHERIT: ../../mkdocs.yml
 site_name: Transit Data Manager Documentation
-site_url: !ENV [SITE_URL, 'http://conveyal-data-tools.readthedocs.io']
-repo_url: https://github.com/ibi-group/datatools-ui
-docs_dir: docs
-site_dir: target/mkdocs
-theme: readthedocs
-extra_css: [style.css]
-
-plugins:
-- search
-- macros:
-    on_error_fail: true
-    on_undefined: strict
 
 extra:
   product_name: MTC Transit Data Manager (TDM)

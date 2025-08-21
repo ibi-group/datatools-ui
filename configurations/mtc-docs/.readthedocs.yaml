@@ -13,7 +13,7 @@ build:
 # Install mkdocs macros and other plugins
 python:
   install:
-    - requirements: docs/requirements.txt
+    - requirements: ../../docs/requirements.txt
 
 mkdocs:
   configuration: mkdocs-mtc.yml

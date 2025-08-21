@@ -1,4 +1,4 @@
-site_name: TRANSIT-data-tools Documentation
+site_name: TRANSIT-data-tools Docs
 site_url: !ENV [SITE_URL, 'http://conveyal-data-tools.readthedocs.io']
 repo_url: https://github.com/ibi-group/datatools-ui
 docs_dir: docs

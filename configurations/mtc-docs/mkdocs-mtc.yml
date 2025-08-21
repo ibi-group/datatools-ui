@@ -1,5 +1,5 @@
 INHERIT: ../../mkdocs.yml
-site_name: Transit Data Manager Documentation
+site_name: Transit Data Manager Docs
 docs_dir: ../../docs
 
 extra:

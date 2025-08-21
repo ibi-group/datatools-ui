@@ -13,8 +13,8 @@ plugins:
     on_undefined: strict
 
 extra:
-  product_name: MTC Transit Data Manager (TDM)
-  support_email: transitdata@511.org
+  product_name: !ENV [PRODUCT_NAME, 'Transit Data Manager']
+  support_email: !ENV [SUPPORT_EMAIL, 'undefined@example.com']
 
 nav:
 - Home: 'index.md'

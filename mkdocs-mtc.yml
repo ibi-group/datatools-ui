@@ -1,4 +1,4 @@
-site_name: TRANSIT-data-tools Documentation
+site_name: Transit Data Manager Documentation
 site_url: !ENV [SITE_URL, 'http://conveyal-data-tools.readthedocs.io']
 repo_url: https://github.com/ibi-group/datatools-ui
 docs_dir: docs
@@ -13,16 +13,21 @@ plugins:
     on_undefined: strict
 
 extra:
-  product_name: Arcadis TRANSIT-data-tools
-  support_email: otpdtsupport@arcadis.com
+  product_name: MTC Transit Data Manager (TDM)
+  support_email: transitdata@511.org
 
 nav:
 - Home: 'index.md'
 - Data Manager:
   - 'Introduction': 'user/introduction.md'
   - 'Managing Projects & Feeds': 'user/managing-projects-feeds.md'
+  - 'Publishing Feeds': 'user/publishing-feeds.md'
+  - 'Merging Feeds': 'user/merging-feeds.md'
   - 'Feed Version Summary': 'user/feed-version-summary.md'
   - 'Managing Users': 'user/managing-users.md'
+  - 'Service Alerts Manager': 'user/service-alerts.md'
+  - 'Searching for Routes and Stops': 'user/searching-routes-stops.md'
+  - 'GTFS+ Editor': 'user/gtfs-plus-editor.md'
 - 'GTFS Editor':
   - Getting Started: 'user/editor/getting-started.md'
   - Stops: 'user/editor/stops.md'
@@ -30,16 +35,5 @@ nav:
   - Patterns: 'user/editor/patterns.md'
   - Schedules: 'user/editor/schedules.md'
   - Fares: 'user/editor/fares.md'
-- Deploying to OTP:
-  - Overview: 'user/otp-deployment.md'
-  - Setting up AWS servers: 'user/setting-up-aws-servers.md'
-  - Adding a deployment server: 'user/add-deployment-server.md'
-  - Deploying GTFS feeds to OTP: 'user/deploying-feeds.md'
-- For Developers:
-  - Deployment: 'dev/deployment.md'
-  - Development: 'dev/development.md'
-  - Migration: 'dev/migration.md'
-  - Localization: 'dev/localization.md'
-  - API Interaction: 'dev/api_interaction.md'
 - Appendices:
   - GTFS Validation Warnings: 'user/appendix-gtfs-warnings.md'

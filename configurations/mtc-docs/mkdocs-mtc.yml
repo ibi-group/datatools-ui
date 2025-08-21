@@ -1,5 +1,6 @@
 INHERIT: ../../mkdocs.yml
 site_name: Transit Data Manager Documentation
+docs_dir: ../../docs
 
 extra:
   product_name: MTC Transit Data Manager (TDM)

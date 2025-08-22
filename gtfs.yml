@@ -1162,3 +1162,13 @@
     - name: area_name
       required: false
       inputType: TEXT
+- id: network
+  name: networks.txt
+  helpContent: Networks that can be used to group routes and fare legs.
+  fields:
+    - name: network_id
+      required: true
+      inputType: GTFS_ID
+    - name: network_name
+      required: false
+      inputType: TEXT

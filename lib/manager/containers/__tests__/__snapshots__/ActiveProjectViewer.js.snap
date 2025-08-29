@@ -172,7 +172,9 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
         title="mock-project"
       >
         <div>
-          <Title />
+          <Title
+            subTitle="mock-project"
+          />
           <Connect(StatusMessage)>
             <StatusMessage
               dispatch={[Function]}

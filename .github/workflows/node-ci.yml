@@ -16,10 +16,11 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: Install mkdocs
+      - name: Install mkdocs and plugins
         run: |
           pip install Jinja2==3.0.3 mkdocs
           mkdocs --version
+          pip install mkdocs-macros-plugin
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:

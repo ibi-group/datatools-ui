@@ -36,3 +36,7 @@ scripts/*client.json
 
 # Vs code settings
 .vscode/
+
+# My Entries
+notes.txt
+Temp/

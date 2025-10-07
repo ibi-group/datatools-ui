@@ -554,6 +554,12 @@
     inputType: URL
     columnWidth: 12
     helpContent:
+  - name: route_network_ids
+    required: false
+    inputType: TEXT
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "The network_id field defines the network that this route belongs to. This is used to group routes together in a logical way, such as all routes in a particular region or operated by a particular brand. If this route is not part of a network, leave this field blank."
 
 - id: trip
   name: trips.txt

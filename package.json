@@ -28,7 +28,7 @@
     "predeploy": "yarn",
     "prestart": "yarn",
     "semantic-release": "semantic-release --prepare false --publish @semantic-release/github --verify-conditions @semantic-release/github",
-    "start": "mastarm build --env dev --serve --proxy http://localhost:4000/api",
+    "start": "vite",
     "test": "npm run lint && npm run lint-messages && yarn run flow && npm run test-client",
     "test-client": "TZ=America/Los_Angeles mastarm test -e test -c configurations/test --test-path-ignore-patterns \"__tests__/end-to-end __tests__/test-utils\"",
     "test-end-to-end": "mastarm test --run-in-band --test-path-ignore-patterns \"lib __tests__/test-utils\" --test-environment ./__tests__/test-utils/e2e-environment.js --jest-cli-args=\"--json --outputFile e2e-test-results/results.json\""
@@ -122,13 +122,18 @@
     "validator": "13.7.0"
   },
   "devDependencies": {
+    "@babel/preset-flow": "^7.27.1",
+    "@modyfi/vite-plugin-yaml": "^1.1.1",
+    "@vitejs/plugin-react": "^5.0.4",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "aggregate-error": "^3.0.0",
     "archiver": "^3.1.1",
     "auto-promised": "^0.0.3",
+    "babel-plugin-syntax-hermes-parser": "^0.32.1",
     "cross-env": "^5.2.0",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.3.5",
+    "esbuild-plugin-yaml": "^0.0.1",
     "execa": "^2.0.4",
     "express": "^4.16.4",
     "express-http-proxy": "^1.5.1",
@@ -150,7 +155,10 @@
     "request": "^2.88.0",
     "semantic-release": "^17.2.3",
     "simple-node-logger": "^0.93.37",
-    "slack": "^11.0.1"
+    "slack": "^11.0.1",
+    "vite": "^7.1.9",
+    "vite-plugin-babel": "^1.3.2",
+    "vite-plugin-node-polyfills": "^0.24.0"
   },
   "resolutions": {
     "react-overlays": "0.9.3"

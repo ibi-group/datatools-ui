@@ -1,6 +1,6 @@
 import { defineConfig, transformWithEsbuild } from 'vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
-// import { yamlPlugin } from 'esbuild-plugin-yaml'
+import { yamlPlugin } from 'esbuild-plugin-yaml'
 import babel from 'vite-plugin-babel'
 import fs from 'fs-extra'
 import react from '@vitejs/plugin-react'
@@ -40,7 +40,6 @@ export default defineConfig({
     // Flatten the output for mastarm deploy (mastarm doesn't support uploading subfolders).
     assetsDir: ''
   },
-  /*
   optimizeDeps: {
     esbuildOptions: {
       // Point JS files to the JSX loader (needed in addition to the JS-JSX conversion plugin below)
@@ -51,7 +50,6 @@ export default defineConfig({
       plugins: [yamlPlugin()]
     }
   },
-  */
   plugins: [
     babel({
       // Taken from https://thinkdrastic.net/journal/2024/01/02/using-flow-types-with-vite-the-hermes-way/

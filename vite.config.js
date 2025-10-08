@@ -1,5 +1,6 @@
 import { defineConfig, transformWithEsbuild } from 'vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { safeLoad } from 'js-yaml'
 import { yamlPlugin } from 'esbuild-plugin-yaml'
 import babel from 'vite-plugin-babel'
 import fs from 'fs-extra'
@@ -7,39 +8,38 @@ import react from '@vitejs/plugin-react'
 import ViteYaml from '@modyfi/vite-plugin-yaml'
 
 /**
- * Helper function to copy a file based on an env variable.
- * Copy occurs upon startup and each time the file is modified for hot reloading.
+ * Reads and rename top-level entries from a YAML file to begin with process.env
+ * for replacement throughout the repo by esbuild.
  * @param {string} envVar The name of the environment variable that contains the custom file.
- * @param {string|(arg: string) => string} getDestFile The destination file or a function that computes it based on the extracted custom file.
- * @param {string} defaultFile Optional file to fall back on if no custom file is extracted from the environment variable.
  */
-function customFile (envVar, getDestFile, defaultFile) {
-  const fileName = (process.env && process.env[envVar]) || defaultFile
+function getProcessEnvEntries (envVar) {
+  const fileName = (process.env && process.env[envVar])
   if (fileName) {
-    const destFile =
-      typeof getDestFile === 'function' ? getDestFile(fileName) : getDestFile
-    fs.copySync(fileName, destFile)
-    // In development mode only, copy the original custom file to tmp whenever it is changed for hot reloading.
-    if (process.env.NODE_ENV === 'development') {
-      fs.watch(fileName, { recursive: true }, (eventType) => {
-        if (eventType === 'change') {
-          fs.copySync(fileName, destFile)
-        }
-      })
-    }
+    const yaml = safeLoad(fs.readFileSync(fileName))
+
+    // Prefix all entries so that all process.env.* in the code
+    // get replaced by esbuild.
+    // Everything has to be stringified (they are constants).
+    const prefixedYaml = {}
+    Object.entries(yaml).forEach(([k, v]) => {
+      prefixedYaml[`process.env.${k}`] = JSON.stringify(v)
+    })
+
+    return prefixedYaml
   }
+
+  return {}
 }
 
-// Empty tmp folder before copying stuff there.
-fs.emptyDirSync('./tmp')
-// The YML file is copied with a fixed name, that name is being used for import.
-customFile('YAML_CONFIG', './tmp/config.yml')
+const config = getProcessEnvEntries('YAML_CONFIG')
 
 export default defineConfig({
   build: {
     // Flatten the output for mastarm deploy (mastarm doesn't support uploading subfolders).
     assetsDir: ''
   },
+  // Makes esbuild replace config vars (or declare them as globals).
+  define: config,
   optimizeDeps: {
     esbuildOptions: {
       // Point JS files to the JSX loader (needed in addition to the JS-JSX conversion plugin below)

@@ -370,6 +370,7 @@ components:
     feedInfo: Feed Info
     issues: Issues
     latestVersion: Latest Version
+    publishState: Publish State
     status: Status
   FeedSourceTableRow:
     dateFormat: MMM D, YYYY 

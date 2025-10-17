@@ -20,10 +20,10 @@ jobs:
         run: |
           pip install Jinja2==3.0.3 mkdocs
           mkdocs --version
-      - name: Use Node.js 14.x
+      - name: Use Node.js 22.x
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 22.x
       - name: Install npm/yarn packages using cache
         uses: bahmutov/npm-install@v1
       - name: Lint code
@@ -35,7 +35,7 @@ jobs:
       - name: Run tests
         run: yarn test-client
       - name: Build with minification
-        run: yarn run build -- --minify
+        run: yarn build
       - name: Build docs
         run: mkdocs build
       - name: Whether e2e should run

@@ -36,7 +36,12 @@ const config = getProcessEnvEntries('YAML_CONFIG')
 export default defineConfig({
   build: {
     // Flatten the output for mastarm deploy (mastarm doesn't support uploading subfolders).
-    assetsDir: ''
+    assetsDir: '',
+    rollupOptions: {
+      // treeshake = true results in build process to hang.
+      // Thank you https://stackoverflow.com/a/79401432!!
+      treeshake: false
+    }
   },
   // Makes esbuild replace config vars (or declare them as globals).
   define: config,

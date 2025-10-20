@@ -3,6 +3,9 @@
   "version": "0.0.0-development",
   "description": "Core application for the IBI Group transit data tools suite",
   "jest": {
+    "moduleNameMapper": {
+      "config-resources": "<rootDir>__tests__/test-utils/mock-data/config-resources.js"
+    },
     "setupFilesAfterEnv": [
       "<rootDir>/__tests__/test-utils/setup-test-framework.js"
     ]

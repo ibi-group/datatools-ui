@@ -8,8 +8,7 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/__tests__/test-utils/setup-test-framework.js"
-    ],
-    "transform": {}
+    ]
   },
   "repository": {
     "type": "git",

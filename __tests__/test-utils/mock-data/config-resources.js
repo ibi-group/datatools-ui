@@ -41,8 +41,15 @@ languages.forEach(lang => {
   })
 })
 
+if (!process.env.SETTINGS) {
+  throw new Error('SETTINGS environment variable not set')
+}
+
+const extraSettings = JSON.parse(process.env.SETTINGS)
+
 export default {
   english,
+  extraSettings,
   german,
   gtfs,
   gtfsplus,

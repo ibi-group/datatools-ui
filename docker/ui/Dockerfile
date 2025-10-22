@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:22
 WORKDIR /datatools-build
 
 ARG BUGSNAG_KEY
@@ -13,4 +13,5 @@ COPY configurations/default /datatools-config/
 # Copy the tmp file to the env.yml if no env.yml is present
 RUN cp -R -u -p /datatools-config/env.yml.tmp /datatools-config/env.yml
 
-CMD yarn run mastarm build --env dev --serve --proxy http://datatools-server:4000/api # 
+CMD env YAML_CONFIG=/datatools-config/env.yml yarn build
+CMD yarn e2e-preview --port 9966

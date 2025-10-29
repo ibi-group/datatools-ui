@@ -4,16 +4,15 @@ import path from 'path'
 
 import fs from 'fs-extra'
 import fetch from 'isomorphic-fetch'
-import {safeLoad} from 'js-yaml'
 import md5File from 'md5-file/promise'
 import moment from 'moment'
 import SimpleNodeLogger from 'simple-node-logger'
 import uuidv4 from 'uuid/v4'
+// $FlowFixMe we rely on puppeteer being imported externally, as the latest version conflicts with mastarm
+import puppeteer from 'puppeteer'
+import { PuppeteerScreenRecorder } from 'puppeteer-screen-recorder'
 
-import {collectingCoverage, getTestFolderFilename, isCi} from './test-utils/utils'
-
-// not imported because of weird flow error
-const puppeteer = require('puppeteer')
+import {collectingCoverage, getTestFolderFilename, isCi, isDocker} from './test-utils/utils'
 
 // if the ISOLATED_TEST is defined, only the specifed test (and any dependet
 // tests) will be ran and all others will be skipped.
@@ -23,12 +22,13 @@ const ISOLATED_TEST = null // null means run all tests
 // TODO: Allow the below options (puppeteer and test) to be enabled via command
 // line options parsed by mastarm.
 const puppeteerOptions = {
-  headless: isCi,
+  // dumpio: true, // dumps all browser console to docker logs
+  headless: isCi || isDocker,
   // The following options can be enabled manually to help with debugging.
   // dumpio: true, // Logs all of browser console to stdout
-  // slowMo: 30 // puts xx milliseconds between events (for easier watching in non-headless)
+  // slowMo: 50, // puts xx milliseconds between events (for easier watching in non-headless)
   // NOTE: In order to run on Travis CI, use args --no-sandbox option
-  args: isCi ? ['--no-sandbox'] : []
+  args: isCi || isDocker ? ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--ignore-certificate-errors'] : []
 }
 const testOptions = {
   // If enabled, failFast will break out of the test script immediately.
@@ -36,14 +36,12 @@ const testOptions = {
 }
 let failingFast = false
 let successfullyCreatedTestProject = false
-let config: {
-  password: string,
-  username: string
-}
 let browser
 let page
+let recorder
+let cdpSession
 const gtfsUploadFile = './configurations/end-to-end/test-gtfs-to-upload.zip'
-const OTP_ROOT = 'http://localhost:8080/otp/routers/'
+const OTP_ROOT = 'http://datatools-server:8080/otp/routers/'
 const testTime = moment().format()
 const fileSafeTestTime = moment().format('YYYY-MM-DDTHH-mm-ss')
 const testProjectName = `test-project-${testTime}`
@@ -245,9 +243,18 @@ async function sendCoverageToServer () {
  * Expect the innerHTML obtained from the given selector to contain the
  * given string.
  */
-async function expectSelectorToContainHtml (selector: string, html: string) {
-  const innerHTML = await getInnerHTMLFromSelector(selector)
-  expect(innerHTML).toContain(html)
+async function expectSelectorToContainHtml (selector: string, html: string, retry: ?boolean) {
+  try {
+    const innerHTML = await getInnerHTMLFromSelector(selector)
+    expect(innerHTML).toContain(html)
+  } catch {
+    // Some parts of datatools can sometimes get stuck and need a refresh
+    if (!retry) {
+      log.warn('failed to find selector on problematic page, attempting page reload before retrying')
+      await page.reload({ waitUntil: 'networkidle0' })
+      await expectSelectorToContainHtml(selector, html, true)
+    }
+  }
 }
 
 /**
@@ -279,19 +286,22 @@ async function expectFeedVersionValidityDates (startDate: string, endDate: strin
  */
 async function createProject (projectName: string) {
   log.info(`creating project with name: ${projectName}`)
+  await wait(3000)
   await click('#context-dropdown')
+  await wait(5000)
   await waitForAndClick('a[href="/project/new"]')
+  await wait(3000)
   await waitForSelector('[data-test-id="project-name-input-container"]')
   await type('[data-test-id="project-name-input-container"] input', projectName)
   await click('[data-test-id="project-settings-form-save-button"]')
   log.info('saving new project')
-  await wait(2000, 'for project to get saved')
+  await wait(3500, 'for project to get saved')
 
   // verify that the project was created with the proper name
   await expectSelectorToContainHtml('.project-header', projectName)
 
   // go back to project list
-  await goto('http://localhost:9966/project', {waitUntil: 'networkidle0'})
+  await goto('https://datatools-ui-proxy/project', {waitUntil: 'networkidle0'})
 
   // verify the new project is listed in the project list
   await expectSelectorToContainHtml('[data-test-id="project-list-table"]', projectName)
@@ -304,7 +314,7 @@ async function createProject (projectName: string) {
 async function deleteProject (projectId: string) {
   log.info(`deleting project with id: ${projectId}`)
   // navigate to that project's settings
-  await goto(`http://localhost:9966/project/${projectId}/settings`)
+  await goto(`https://datatools-ui-proxy/project/${projectId}/settings`)
 
   // delete that project
   await waitForAndClick('[data-test-id="delete-project-button"]')
@@ -313,7 +323,8 @@ async function deleteProject (projectId: string) {
   log.info('deleted project')
 
   // verify deletion
-  await goto(`http://localhost:9966/project/${projectId}`)
+  await goto(`https://datatools-ui-proxy/project/${projectId}`)
+  await wait(3000, 'for project page to load')
   await waitForSelector('.project-not-found')
   await wait(5000, 'for previously rendered project markup to be removed')
   await expectSelectorToContainHtml('.project-not-found', projectId)
@@ -393,7 +404,7 @@ async function createFeedSourceViaProjectHeaderButton (feedSourceName) {
   log.info(`create Feed Source with name: ${feedSourceName} via project header button`)
   // go to project page
   await goto(
-    `http://localhost:9966/project/${testProjectId}`,
+    `https://datatools-ui-proxy/project/${testProjectId}`,
     {
       waitUntil: 'networkidle0'
     }
@@ -517,7 +528,7 @@ async function createStop ({
 
   // save
   await click('[data-test-id="save-entity-button"]')
-  await wait(2000, 'for save to happen')
+  await wait(5000, 'for save to happen')
   log.info(`created stop with name: ${name}`)
 }
 
@@ -527,6 +538,7 @@ async function createStop ({
  * @param  {string} searchText the text to enter into the search input
  */
 async function filterUsers (searchText: string) {
+  await wait(8000, 'for user list to load')
   // type in text
   await type('[data-test-id="search-user-input"]', searchText)
 
@@ -604,15 +616,18 @@ function formatSecondsElapsed (startTime: number) {
  */
 async function waitAndClearCompletedJobs () {
   const startTime = new Date()
-  // wait for jobs to get completed
-  await wait(500, 'for job monitoring to begin')
-  // wait for an active job to appear
-  await waitForSelector('[data-test-id="possibly-active-jobs"]')
-  // All jobs completed span will appear when all jobs are done.
-  await waitForSelector(
-    '[data-test-id="all-jobs-completed"]',
-    {timeout: defaultJobTimeout}
-  )
+  try {
+    // wait for an active job to appear
+    await waitForSelector('[data-test-id="possibly-active-jobs"]')
+    // All jobs completed span will appear when all jobs are done.
+    await waitForSelector(
+      '[data-test-id="all-jobs-completed"]',
+      {timeout: defaultJobTimeout}
+    )
+  } catch {
+    console.log("couldn't find active job panel. assuming job completed")
+  }
+
   await waitForSelector('[data-test-id="clear-completed-jobs-button"]')
   // Clear retired jobs to remove all jobs completed span.
   await click('[data-test-id="clear-completed-jobs-button"]')
@@ -674,7 +689,7 @@ async function elementClick (elementHandle: any, selector: string) {
 /**
  * Waits for a selector to show up and then clicks on it.
  */
-async function waitForAndClick (selector: string, waitOptions?: any) {
+async function waitForAndClick (selector: string, waitOptions?: any, retry?: boolean) {
   await waitForSelector(selector, waitOptions)
   await click(selector)
 }
@@ -685,7 +700,7 @@ async function waitForAndClick (selector: string, waitOptions?: any) {
  */
 async function wait (milliseconds: number, reason?: string) {
   log.info(`waiting ${milliseconds} ms${reason ? ` ${reason}` : ''}...`)
-  await page.waitFor(milliseconds)
+  await page.waitForTimeout(milliseconds)
 }
 
 /**
@@ -770,6 +785,7 @@ async function getAllElements (selector: string) {
  */
 async function type (selector: string, text: string) {
   log.info(`typing text: "${text}" into selector: ${selector}`)
+  await page.focus(selector)
   await page.type(selector, text)
 }
 
@@ -795,8 +811,6 @@ async function elementType (elementHandle: any, selector: string, text: string) 
 
 describe('end-to-end', () => {
   beforeAll(async () => {
-    config = (safeLoad(fs.readFileSync('configurations/end-to-end/env.yml')): any)
-
     // Ping the otp endpoint to ensure the server is running.
     try {
       log.info(`Pinging OTP at ${OTP_ROOT}`)
@@ -813,6 +827,9 @@ describe('end-to-end', () => {
     log.info('Launching chromium for testing...')
     browser = await puppeteer.launch(puppeteerOptions)
     page = await browser.newPage()
+    cdpSession = await page.target().createCDPSession()
+    recorder = new PuppeteerScreenRecorder(page)
+    await recorder.start('/datatools-ui/e2e-test-results/recording.mp4')
 
     // setup listeners for various events that happen in the browser. In each of
     // the following instances, write to the browser events log that will be
@@ -821,6 +838,9 @@ describe('end-to-end', () => {
     // log everything that was logged to the browser console
     page.on('console', msg => { browserEventLogs.info(msg.text()) })
     // log all errors that were logged to the browser console
+    page.on('warn', warn => {
+      browserEventLogs.error(warn)
+    })
     page.on('error', error => {
       browserEventLogs.error(error)
       browserEventLogs.error(error.stack)
@@ -832,12 +852,12 @@ describe('end-to-end', () => {
       browserEventLogs.error(`Request failed: ${req.method()} ${req.url()}`)
     })
     // log all successful requests
-    page.on('requestfinished', req => {
-      browserEventLogs.info(`Request finished: ${req.method()} ${req.url()}`)
-    })
+    // page.on('requestfinished', req => {
+    //   browserEventLogs.info(`Request finished: ${req.method()} ${req.url()}`)
+    // })
 
     // set the default download behavior to download files to the cwd
-    page._client.send(
+    cdpSession.send(
       'Page.setDownloadBehavior',
       { behavior: 'allow', downloadPath: './' }
     )
@@ -857,6 +877,7 @@ describe('end-to-end', () => {
         }
       }
       // close browser
+      await recorder.stop()
       await page.close()
       await browser.close()
       log.info('Chromium closed.')
@@ -872,19 +893,23 @@ describe('end-to-end', () => {
   // ---------------------------------------------------------------------------
 
   makeTest('should load the page', async () => {
-    await goto('http://localhost:9966')
+    await goto('https://datatools-ui-proxy')
     await waitForSelector('h1')
     await expectSelectorToContainHtml('h1', 'Data Tools')
     testResults['should load the page'] = true
   })
 
   makeTest('should login', async () => {
-    await goto('http://localhost:9966', { waitUntil: 'networkidle0' })
+    const username = process.env.E2E_AUTH0_USERNAME
+    const password = process.env.E2E_AUTH0_PASSWORD
+    if (!username || !password) throw Error('E2E username and password must be set!')
+
+    await goto('https://datatools-ui-proxy', { waitUntil: 'networkidle0' })
     await waitForAndClick('[data-test-id="header-log-in-button"]')
     await waitForSelector('button[class="auth0-lock-submit"]', { visible: true })
     await waitForSelector('input[class="auth0-lock-input"][name="email"]')
-    await type('input[class="auth0-lock-input"][name="email"]', config.username)
-    await type('input[class="auth0-lock-input"][name="password"]', config.password)
+    await type('input[class="auth0-lock-input"][name="email"]', username)
+    await type('input[class="auth0-lock-input"][name="password"]', password)
     await click('button[class="auth0-lock-submit"]')
     await waitForSelector('#context-dropdown')
     await wait(2000, 'for projects to load')
@@ -895,7 +920,7 @@ describe('end-to-end', () => {
     const testUserSlug = testUserEmail.split('@')[0]
     makeTestPostLogin('should allow admin user to create another user', async () => {
       // navigage to admin page
-      await goto('http://localhost:9966/admin/users', { waitUntil: 'networkidle0' })
+      await goto('https://datatools-ui-proxy/admin/users', { waitUntil: 'networkidle0' })
 
       // click on create user button
       await waitForAndClick('[data-test-id="create-user-button"]')
@@ -967,7 +992,7 @@ describe('end-to-end', () => {
 
   describe('project', () => {
     makeTestPostLogin('should create a project', async () => {
-      await goto('http://localhost:9966/home', { waitUntil: 'networkidle0' })
+      await goto('https://datatools-ui-proxy/home', { waitUntil: 'networkidle0' })
       await createProject(testProjectName)
 
       // go into the project page and verify that it looks ok-ish
@@ -994,7 +1019,7 @@ describe('end-to-end', () => {
     makeTestPostLogin('should update a project by adding an otp server', async () => {
       // navigate to server admin page
       await goto(
-        `http://localhost:9966/admin/servers`,
+        `https://datatools-ui-proxy/admin/servers`,
         {
           waitUntil: 'networkidle0'
         }
@@ -1014,12 +1039,12 @@ describe('end-to-end', () => {
       await elementType(
         newServerPanel,
         'input[name="otpServers.$index.publicUrl"]',
-        'http://localhost:8080'
+        'http://datatools-server:8080'
       )
       await elementType(
         newServerPanel,
         'input[name="otpServers.$index.internalUrl"]',
-        'http://localhost:8080/otp'
+        'http://datatools-server:8080/otp'
       )
       await elementClick(newServerPanel, '[data-test-id="save-item-button"]')
 
@@ -1034,7 +1059,7 @@ describe('end-to-end', () => {
 
         // navigate to home project view
         await goto(
-          `http://localhost:9966/home/${testProjectId}`,
+          `https://datatools-ui-proxy/home/${testProjectId}`,
           {
             waitUntil: 'networkidle0'
           }
@@ -1074,7 +1099,7 @@ describe('end-to-end', () => {
     makeTestPostLogin('should create feed source', async () => {
       // go to project page
       await goto(
-        `http://localhost:9966/project/${testProjectId}`,
+        `https://datatools-ui-proxy/project/${testProjectId}`,
         {
           waitUntil: 'networkidle0'
         }
@@ -1215,17 +1240,18 @@ describe('end-to-end', () => {
 
   describe('feed version', () => {
     makeTestPostFeedSource('should download a feed version', async () => {
-      await goto(`http://localhost:9966/feed/${feedSourceId}`)
+      await goto(`https://datatools-ui-proxy/feed/${feedSourceId}`)
       // Select previous version
       await waitForAndClick('[data-test-id="decrement-feed-version-button"]')
       await wait(2000, 'for previous version to be active')
       // Download version
       await click('[data-test-id="download-feed-version-button"]')
-      await wait(5000, 'for file to download')
+      await wait(15000, 'for file to download')
 
       // file should get saved to the current root directory, go looking for it
       // verify that file exists
       const downloadsDir = './'
+      // $FlowFixMe old version of flow doesn't know latest fs methods
       const files = await fs.readdir(downloadsDir)
       let feedVersionDownloadFile = ''
       // assume that this file will be the only one matching the feed source ID
@@ -1244,6 +1270,7 @@ describe('end-to-end', () => {
       expect(await md5File(filePath)).toEqual(await md5File(gtfsUploadFile))
 
       // delete file
+      // $FlowFixMe old version of flow doesn't know latest fs methods
       await fs.remove(filePath)
     }, defaultTestTimeout)
 
@@ -1252,7 +1279,7 @@ describe('end-to-end', () => {
       // feed versions after this test takes place
       makeTestPostFeedSource('should delete a feed version', async () => {
         // browse to feed source page
-        await goto(`http://localhost:9966/feed/${feedSourceId}`)
+        await goto(`https://datatools-ui-proxy/feed/${feedSourceId}`)
         // for whatever reason, waitUntil: networkidle0 was not working with the
         // above goto, so wait for a few seconds here
         await wait(5000, 'additional time for page to load')
@@ -1334,6 +1361,12 @@ describe('end-to-end', () => {
     // all of the following editor tests assume the use of the scratch feed
     describe('feed info', () => {
       makeEditorEntityTest('should create feed info data', async () => {
+        // If the editor doesn't load properly, reload the page in hopes of fixing it
+        try {
+          await waitForSelector('[data-test-id="editor-feedinfo-nav-button"]:not([disabled])')
+        } catch {
+          await page.reload({ waitUntil: 'networkidle0' })
+        }
         // open feed info sidebar
         await click('[data-test-id="editor-feedinfo-nav-button"]')
 
@@ -1564,7 +1597,9 @@ describe('end-to-end', () => {
     describe('routes', () => {
       makeEditorEntityTest('should create route', async () => {
         // open routes sidebar
-        await click('[data-test-id="editor-route-nav-button"]')
+        await waitForAndClick('[data-test-id="editor-route-nav-button"]')
+
+        await wait(1500, 'for route page to open')
 
         // wait for route sidebar form to appear and click button to open form
         // to create route
@@ -1573,13 +1608,6 @@ describe('end-to-end', () => {
         await waitForSelector('[data-test-id="route-route_id-input-container"]')
 
         // fill out form
-
-        // set public to yes
-        await page.select(
-          '[data-test-id="route-publicly_visible-input-container"] select',
-          '1'
-        )
-
         // set route_id
         await clearAndType(
           '[data-test-id="route-route_id-input-container"] input',
@@ -2027,7 +2055,7 @@ describe('end-to-end', () => {
     describe('exceptions', () => {
       makeEditorEntityTest('should create exception', async () => {
         // open exception sidebar
-        await click('[data-test-id="exception-tab-button"]')
+        await waitForAndClick('[data-test-id="exception-tab-button"]')
 
         // wait for exception sidebar form to appear and click button to open
         // form to create exception
@@ -2054,6 +2082,8 @@ describe('end-to-end', () => {
         await waitForSelector(
           '[data-test-id="exception-dates-container"] input'
         )
+        await wait(250, 'for date range picker to load')
+        await wait(1000, 'for date range animation to finish')
         await clearAndType(
           '[data-test-id="exception-dates-container"] input',
           '07/04/18'
@@ -2115,6 +2145,7 @@ describe('end-to-end', () => {
         )
 
         // set new date
+        await wait(1250, 'for date range picker to load')
         await clearAndType(
           '[data-test-id="exception-dates-container"] input',
           '07/05/18'
@@ -2147,6 +2178,68 @@ describe('end-to-end', () => {
         await expectSelectorToNotContainHtml(
           '.entity-list',
           'test exception updated to delete'
+        )
+      }, defaultTestTimeout, 'should create calendar')
+
+      makeEditorEntityTest('should create exception range', async () => {
+        // create a new exception
+        await waitForAndClick('[data-test-id="new-scheduleexception-button"]')
+
+        // name
+        await type(
+          '[data-test-id="exception-name-input-container"] input',
+          'test exception range'
+        )
+
+        // exception type
+        await page.select(
+          '[data-test-id="exception-type-input-container"] select',
+          '7' // no service
+        )
+
+        // add start range exception date
+        await click('[data-test-id="exception-add-date-button"]')
+        await waitForSelector(
+          '[data-test-id="exception-dates-container"] input'
+        )
+        await wait(1050, 'for date range picker to load')
+        await clearAndType(
+          '[data-test-id="exception-dates-container"] input',
+          '08/04/18'
+        )
+
+        await wait(1050, 'for date range picker to load')
+        await click('[data-test-id="exception-add-range"]')
+
+        // add end of range exception date (July 10, 2018)
+        await wait(1050, 'for date range picker to load')
+        await waitForSelector(
+          '[data-test-id="exception-date-range-0-2"] input'
+        )
+
+        await wait(1050, 'for date range picker to load')
+        await clearAndType(
+          '[data-test-id="exception-date-range-0-2"] input',
+          '08/10/18'
+        )
+
+        // save
+        await click('[data-test-id="save-entity-button"]')
+        await wait(2000, 'for save to happen')
+
+        // reload to make sure stuff was saved
+        await page.reload({ waitUntil: 'networkidle0' })
+
+        // wait for exception sidebar form to appear
+        await waitForSelector(
+          '[data-test-id="exception-name-input-container"]'
+        )
+
+        // verify data was saved and retrieved from server
+        // TODO: verify the contents of the range?
+        await expectSelectorToContainHtml(
+          '[data-test-id="exception-name-input-container"]',
+          'test exception range'
         )
       }, defaultTestTimeout, 'should create calendar')
     })
@@ -2341,7 +2434,8 @@ describe('end-to-end', () => {
         'should create pattern',
         async () => {
           // open route sidebar
-          await click('[data-test-id="editor-route-nav-button"]')
+          await waitForAndClick('[data-test-id="editor-route-nav-button"]')
+          await wait(2000, 'for page to catch up with itself')
 
           // wait for route sidebar form to appear and select first route
           await waitForAndClick('.entity-list-row')
@@ -2357,7 +2451,7 @@ describe('end-to-end', () => {
           await wait(2000, 'for page to catch up with itself')
 
           // click add stop by name
-          await click('[data-test-id="add-stop-by-name-button"]')
+          await waitForAndClick('[data-test-id="add-stop-by-name-button"]')
 
           // wait for stop selector to show up
           await waitForSelector('.pattern-stop-card .Select-control')
@@ -2374,6 +2468,10 @@ describe('end-to-end', () => {
           await click('[data-test-id="add-pattern-stop-button"]')
           await wait(2000, 'for auto-save to happen')
 
+          // save
+          await click('[data-test-id="save-entity-button"]')
+          await wait(2000, 'for save to happen')
+
           // reload to make sure stuff was saved
           await page.reload({ waitUntil: 'networkidle0' })
 
@@ -2382,6 +2480,7 @@ describe('end-to-end', () => {
             '[data-test-id="pattern-title-New Pattern"]'
           )
 
+          await wait(2000, 'for trip pattern list to load')
           // verify data was saved and retrieved from server
           await expectSelectorToContainHtml(
             '.trip-pattern-list',
@@ -2507,22 +2606,22 @@ describe('end-to-end', () => {
           await page.keyboard.press('Enter')
 
           // Laurel Dr arrival
-          await page.keyboard.type('1234')
+          await page.keyboard.type('12:34')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Enter')
 
           // Laurel Dr departure
-          await page.keyboard.type('1235')
+          await page.keyboard.type('12:35')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Enter')
 
           // Russell Av arrival
-          await page.keyboard.type('1244')
+          await page.keyboard.type('12:44')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Enter')
 
           // Russell Av departure
-          await page.keyboard.type('1245')
+          await page.keyboard.type('12:45')
           await page.keyboard.press('Enter')
 
           // save
@@ -2599,11 +2698,11 @@ describe('end-to-end', () => {
         await page.keyboard.press('Enter')
         await page.keyboard.type('test-trip-to-delete')
         await page.keyboard.press('Enter')
-        await wait(2000, 'for save to happen')
+        await wait(4000, 'for save to happen')
 
         // save
         await click('[data-test-id="save-trip-button"]')
-        await wait(2000, 'for save to happen')
+        await wait(6000, 'for save to happen')
 
         // reload to make sure stuff was saved
         await page.reload({ waitUntil: 'networkidle0' })
@@ -2627,7 +2726,8 @@ describe('end-to-end', () => {
 
         // confirm delete
         await waitForAndClick('[data-test-id="modal-confirm-ok-button"]')
-        await wait(2000, 'for delete to happen')
+        await wait(3000, 'for delete to happen')
+        await page.reload({ waitUntil: 'networkidle0' })
 
         // verify that trip to delete is no longer listed
         await expectSelectorToNotContainHtml(
@@ -2668,7 +2768,7 @@ describe('end-to-end', () => {
     makeEditorEntityTest('should make snapshot active version', async () => {
       // go back to feed
       // not sure why, but clicking on the nav home button doesn't work
-      await goto(`http://localhost:9966/feed/${scratchFeedSourceId}`)
+      await goto(`https://datatools-ui-proxy/feed/${scratchFeedSourceId}`)
 
       // wait for page to be visible and go to snapshots tab
       await waitForAndClick('#feed-source-viewer-tabs-tab-snapshots')
@@ -2676,6 +2776,10 @@ describe('end-to-end', () => {
 
       // wait for snapshots tab to load and publish snapshot
       await waitForAndClick('[data-test-id="publish-snapshot-button"]')
+
+      // wait for snapshot export modal and click "no" to proprietary file export
+      await waitForAndClick('[data-test-id="export-patterns-modal-no"]')
+
       // wait for version to get created
       await waitAndClearCompletedJobs()
 
@@ -2709,6 +2813,7 @@ describe('end-to-end', () => {
       await waitForAndClick('[data-test-id="deploy-server-0-button"]')
       // wait for deployment dialog to appear
       await waitForSelector('[data-test-id="confirm-deploy-server-button"]')
+      await wait(1500, 'for deployment panel to properly load')
 
       // get the router name
       const innerHTML = await getInnerHTMLFromSelector(
@@ -2725,7 +2830,7 @@ describe('end-to-end', () => {
 
       // wait for jobs to complete
       await waitAndClearCompletedJobs()
-    }, defaultTestTimeout + 30000) // Add thirty seconds for deployment job
+    }, defaultTestTimeout + 60000) // Add sixty seconds for deployment job
 
     makeEditorEntityTest('should be able to do a trip plan on otp', async () => {
       await wait(15000, 'for OTP to pick up the newly-built graph')

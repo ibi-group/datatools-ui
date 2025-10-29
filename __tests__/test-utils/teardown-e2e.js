@@ -22,7 +22,7 @@ const logsZipfile = 'logs.zip'
 const repo = process.env.GITHUB_WORKSPACE
   ? process.env.GITHUB_WORKSPACE.split(path.sep).pop()
   : ''
-const buildNum = process.env.GITHUB_RUN_ID
+const buildNum = process.env.GITHUB_RUN_ID || 'localhost'
 const uploadedLogsFilename = `${repo}-build-${buildNum}-e2e-logs.zip`
 const {LOGS_S3_BUCKET} = process.env
 
@@ -155,9 +155,14 @@ async function uploadToMicrosoftTeams () {
 
   console.log('posting message to MS Teams')
 
-  const testResults = require(
-    path.resolve(`./${getTestFolderFilename('results.json')}`)
-  )
+  let testResults = {success: false, numPassedTests: 0, numTotalTests: 0}
+  try {
+    testResults = require(
+      path.resolve('/datatools-ui/e2e-test-results/results.json')
+    )
+  } catch {
+    console.warn("Couldn't read results.json!")
+  }
   const actions = [{
     '@type': 'OpenUri',
     name: `View GitHub Action Build #${buildNum}`,
@@ -183,7 +188,7 @@ async function uploadToMicrosoftTeams () {
   }
 
   let fetchResponse
-  const commit = process.env.GITHUB_SHA
+  const commit = process.env.GITHUB_SHA || 'localhost'
   const baseRepoUrl = `https://github.com/ibi-group/datatools-${isUiRepo ? 'ui' : 'server'}`
   const commitUrl = `${baseRepoUrl}/commit/${commit}`
   try {
@@ -196,7 +201,7 @@ async function uploadToMicrosoftTeams () {
           '@type': 'MessageCard',
           themeColor: '0072C6',
           title: `${repo} e2e test ${testResults.success ? 'passed. ✅' : 'failed. ❌'}`,
-          text: `📁 **branch:** ${process.env.GITHUB_REF_SLUG}\n
+          text: `📁 **branch:** ${process.env.GITHUB_REF_SLUG || 'branch not detected'}\n
 📄 **commit:** [${commit.slice(0, 6)}](${commitUrl})\n
 📊 **result:** ${testResults.numPassedTests} / ${testResults.numTotalTests} tests passed\n
 `,
@@ -247,10 +252,10 @@ async function uploadToSlack () {
  * slack or MS Teams channel (if defined)
  */
 function uploadLogs () {
-  if (!(slackConfigured || msTeamsConfigured)) {
-    console.warn('Log upload environment variables undefined, not uploading logs anywhere!')
-    return
-  }
+  // if (!(slackConfigured || msTeamsConfigured)) {
+  //   console.warn('Log upload environment variables undefined, not uploading logs anywhere!')
+  //   return
+  // }
 
   const output = fs.createWriteStream(logsZipfile)
   const archive = archiver('zip')
@@ -273,6 +278,7 @@ function uploadLogs () {
       })
       .catch(err => {
         if (err) {
+          console.log(err)
           return makeUploadFailureHandler(
             'An error occurred while uploading the logs'
           )(err)

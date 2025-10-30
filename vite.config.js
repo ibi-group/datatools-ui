@@ -4,8 +4,11 @@ import { safeLoad } from 'js-yaml'
 import { yamlPlugin } from 'esbuild-plugin-yaml'
 import babel from 'vite-plugin-babel'
 import fs from 'fs-extra'
+import getCommit from 'this-commit'
 import react from '@vitejs/plugin-react'
 import ViteYaml from '@modyfi/vite-plugin-yaml'
+
+import pkg from './package.json'
 
 /**
  * Reads and rename top-level entries from a YAML file to begin with process.env
@@ -15,7 +18,13 @@ import ViteYaml from '@modyfi/vite-plugin-yaml'
 function getProcessEnvEntries (envVar) {
   const fileName = (process.env && process.env[envVar])
   if (fileName) {
-    const yaml = safeLoad(fs.readFileSync(fileName))
+    const yaml = {
+      ...safeLoad(fs.readFileSync(fileName)),
+      // Add UI commit, repo, and build date (copied from js-transform.js from mastarm).
+      BUILD_TIMESTAMP: (new Date()).getTime(),
+      COMMIT_SHA: getCommit(),
+      REPO_URL: pkg.repository && pkg.repository.url && pkg.repository.url.replace('.git', '')
+    }
 
     // Prefix all entries so that all process.env.* in the code
     // get replaced by esbuild.

@@ -1,5 +1,7 @@
 # syntax=docker/dockerfile:1
-FROM public.ecr.aws/s2a5w2n9/puppeteer:latest
+
+# This version of puppeteer seems to use Node 22.
+FROM ghcr.io/puppeteer/puppeteer:27.24.0
 WORKDIR /datatools-ui
 
 USER root

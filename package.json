@@ -127,6 +127,7 @@
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.27.1",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@modyfi/vite-plugin-yaml": "^1.1.1",
     "@vitejs/plugin-react": "^5.0.4",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",

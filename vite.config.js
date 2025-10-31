@@ -1,4 +1,5 @@
 import { defineConfig, transformWithEsbuild } from 'vite'
+import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import { safeLoad } from 'js-yaml'
 import { yamlPlugin } from 'esbuild-plugin-yaml'
@@ -61,7 +62,16 @@ export default defineConfig({
       loader: {
         '.js': 'jsx'
       },
-      plugins: [yamlPlugin()]
+      plugins: [
+        // This is needed for the CustomCSVForm component during development.
+        // CustomCSVForm depends on fast-csv that calls process.nextTick().
+        // Handling process.nextTick() in Vite is discussed at
+        // https://github.com/mqttjs/MQTT.js/issues/1639#issuecomment-1659996292.
+        NodeGlobalsPolyfillPlugin({
+          process: true
+        }),
+        yamlPlugin()
+      ]
     }
   },
   plugins: [

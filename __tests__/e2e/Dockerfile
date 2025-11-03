@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ghcr.io/ibi-group/datatools-ui:puppeteer-image
+FROM ghcr.io/ibi-group/datatools-ui:puppeteer-alp3.22pup13.5
 WORKDIR /datatools-ui
 
 USER root

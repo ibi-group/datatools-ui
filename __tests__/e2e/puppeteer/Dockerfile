@@ -1,9 +1,9 @@
 FROM alpine:3.22
 
-# alpine 3.22 already ships with Node 22 and Chromium 141,
+# alpine 3.22 already ships with Node 22 and Chromium 141/142,
 # so the install commands for these components is redundant.
 RUN apk add --no-cache \
-    chromium=~141 \
+    chromium \
     nss \
     freetype \
     harfbuzz \

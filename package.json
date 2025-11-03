@@ -18,7 +18,7 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "build-dev": "mastarm build --env dev",
+    "build-e2e": "env YAML_CONFIG=configurations/default/env.yml vite build",
     "cover-client": "npm run test-client -- --coverage --coverage-paths \"lib/**/*.js\"",
     "cover-flow": "flow-coverage-report -t html -t text -i 'lib/**/*.js' -o coverage-flow",
     "cover-end-to-end": "cross-env COLLECT_COVERAGE=true npm run test-end-to-end",

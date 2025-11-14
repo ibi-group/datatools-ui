@@ -107,6 +107,16 @@ export default defineConfig({
     }),
     react()
   ],
+  preview: {
+    // Allow any url, including other docker containers, to call preview
+    // despite https://github.com/vitejs/vite/security/advisories/GHSA-vg6x-rcgg-rjx6
+    allowedHosts: true,
+    port: 9966,
+    proxy: {
+      '/api': 'http://localhost:4000'
+    },
+    strictPort: true
+  },
   server: {
     port: 9966,
     proxy: {

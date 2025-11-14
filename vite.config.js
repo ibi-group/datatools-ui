@@ -107,13 +107,14 @@ export default defineConfig({
     }),
     react()
   ],
+  // Settings below only apply to e2e tests. Change them to make vite preview work locally.
   preview: {
     // Allow any url, including other docker containers, to call preview
     // despite https://github.com/vitejs/vite/security/advisories/GHSA-vg6x-rcgg-rjx6
     allowedHosts: true,
     port: 9966,
     proxy: {
-      '/api': 'http://localhost:4000'
+      '/api': 'http://127.0.0.1:4000'
     },
     strictPort: true
   },

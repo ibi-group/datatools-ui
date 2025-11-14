@@ -1,7 +1,7 @@
 FROM alpine:3.22
 
 # alpine 3.22 already ships with Node 22 and Chromium 141/142,
-# so the install commands for these components is redundant.
+# so the install commands for these components are redundant.
 RUN apk add --no-cache \
     chromium \
     nss \

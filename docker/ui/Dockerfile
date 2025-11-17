@@ -13,6 +13,5 @@ COPY configurations/default /datatools-config/
 # Copy the tmp file to the env.yml if no env.yml is present
 RUN cp -R -u -p /datatools-config/env.yml.tmp /datatools-config/env.yml
 
-RUN env YAML_CONFIG=/datatools-build/configurations/default/env.yml yarn build
-COPY . /datatools-build/
+RUN env YAML_CONFIG=/datatools-config/env.yml yarn build
 CMD yarn e2e-preview --port 9966 --host

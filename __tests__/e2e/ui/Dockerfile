@@ -11,5 +11,6 @@ RUN yarn
 COPY . /datatools-build/ 
 COPY configurations/default /datatools-config/
 
-RUN env YAML_CONFIG=/datatools-config/env.yml yarn build
+RUN env YAML_CONFIG=configurations/default/env.yml yarn build
+COPY . /datatools-build/ 
 CMD yarn e2e-preview --port 9966 --host

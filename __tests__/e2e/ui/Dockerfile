@@ -8,9 +8,9 @@ ARG BUGSNAG_KEY
 RUN cd /datatools-build
 COPY package.json yarn.lock patches /datatools-build/
 RUN yarn
-COPY . /datatools-build/ 
+COPY . /datatools-build/
 COPY configurations/default /datatools-config/
 
-RUN env YAML_CONFIG=/datatools-config/configurations/default/env.yml yarn build
-COPY . /datatools-build/ 
+RUN env YAML_CONFIG=/datatools-build/configurations/default/env.yml yarn build
+COPY . /datatools-build/
 CMD yarn e2e-preview --port 9966 --host

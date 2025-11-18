@@ -76,6 +76,7 @@ jobs:
           echo AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }} >> configurations/default/env.yml
           echo GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }} >> configurations/default/env.yml
           echo MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }} >> configurations/default/env.yml
+          echo MS_TEAMS_WEBHOOK_URL: ${{ secrets.MS_TEAMS_WEBHOOK_URL }} >> configurations/default/env.yml
 
       - name: Run e2e tests
         if: inputs.e2e

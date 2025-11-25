@@ -372,7 +372,6 @@ components:
     latestVersion: Latest Version
     publishState: 
       title: Publish State
-      sameAsPublished: Same as Published
     status: Status
   FeedSourceTableRow:
     dateFormat: MMM D, YYYY 
@@ -384,6 +383,7 @@ components:
     status:
       active: Active
       all: All
+      canPublish: Can publish
       expired: Expired
       expiring-within-20-days: Expiring within 20 days
       expiring-within-5-days: Expiring within 5 days
@@ -391,6 +391,9 @@ components:
       feedNotPublished: Feed not published
       future: Future
       no-version: No version
+      published: Published
+      publishDisabled: Publish disabled
+      publishingInProgress: Publishing in progress
       same-as-deployed: Same as Deployed
       same-as-published: Same as Published
     validFor: Valid for another %duration%

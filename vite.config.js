@@ -48,8 +48,14 @@ export default defineConfig({
     // Flatten the output for mastarm deploy (mastarm doesn't support uploading subfolders).
     assetsDir: '',
     rollupOptions: {
-      // treeshake = true results in build process to hang.
-      // Thank you https://stackoverflow.com/a/79401432!!
+      // Specifying output file names is a bit arcane, the link below helped:
+      // https://stackoverflow.com/questions/74228325/how-to-set-a-custom-output-name-for-script-with-vite-build
+      output: {
+        assetFileNames: '[name][extname]',
+        entryFileNames: 'index.js'
+      },
+      // Setting treeshake = true causes the build process to hang.
+      // Thank you https://stackoverflow.com/a/79401432
       treeshake: false
     }
   },

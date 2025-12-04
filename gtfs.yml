@@ -1191,7 +1191,7 @@
     - name: timeframe_group_id
       required: true
       inputType: GTFS_ID
-    - name: start_time
+    - name: start_time # FARE-TODO: this and end_time are conditionally required, must have both or neither
       required: false
       inputType: TIME
     - name: end_time

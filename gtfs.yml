@@ -1184,3 +1184,19 @@
     - name: network_name
       required: false
       inputType: TEXT
+- id: timeframe
+  name: timeframes.txt
+  helpContent: Timeframes are the time windows that enclose the periods of different fares. e.g":" A timeframe enclosing weekday morning rush hour for peak fares, a timeframe enclosing weekend evening for discounted fares, etc.
+  fields:
+    - name: timeframe_group_id
+      required: true
+      inputType: GTFS_ID
+    - name: start_time
+      required: false
+      inputType: TIME
+    - name: end_time
+      required: false
+      inputType: TIME
+    - name: service_id
+      required: true
+      inputType: GTFS_SERVICE

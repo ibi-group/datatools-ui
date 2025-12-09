@@ -15,10 +15,10 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ "dev", master, "mtc-deploy" ]
+    branches: [ "dev", master ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "dev", "mtc-deploy" ]
+    branches: [ "dev" ]
   schedule:
     - cron: '24 19 * * 6'
 

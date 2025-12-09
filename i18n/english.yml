@@ -392,8 +392,8 @@ components:
       future: Future
       no-version: No version
       published: Published
-      publishDisabled: Publish disabled
-      publishingInProgress: Publishing in progress
+      publishDisabled: Publish blocked
+      publishingInProgress: In progress
       same-as-deployed: Same as Deployed
       same-as-published: Same as Published
     validFor: Valid for another %duration%

@@ -1,0 +1,29 @@
+INHERIT: ../../mkdocs.yml
+site_name: Transit Data Manager Docs
+docs_dir: ../../docs
+
+extra:
+  product_name: MTC Transit Data Manager (TDM)
+  support_email: transitdata@511.org
+
+nav:
+- Home: 'index.md'
+- Data Manager:
+  - 'Introduction': 'user/introduction.md'
+  - 'Managing Projects & Feeds': 'user/managing-projects-feeds.md'
+  - 'Publishing Feeds': 'user/publishing-feeds.md'
+  - 'Merging Feeds': 'user/merging-feeds.md'
+  - 'Feed Version Summary': 'user/feed-version-summary.md'
+  - 'Managing Users': 'user/managing-users.md'
+  - 'Service Alerts Manager': 'user/service-alerts.md'
+  - 'Searching for Routes and Stops': 'user/searching-routes-stops.md'
+  - 'GTFS+ Editor': 'user/gtfs-plus-editor.md'
+- 'GTFS Editor':
+  - Getting Started: 'user/editor/getting-started.md'
+  - Stops: 'user/editor/stops.md'
+  - Routes: 'user/editor/routes.md'
+  - Patterns: 'user/editor/patterns.md'
+  - Schedules: 'user/editor/schedules.md'
+  - Fares: 'user/editor/fares.md'
+- Appendices:
+  - GTFS Validation Warnings: 'user/appendix-gtfs-warnings.md'

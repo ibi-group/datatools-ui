@@ -496,8 +496,8 @@ components:
     previous: Previous
     selectFeed: 'Select a GTFS feed to upload:'
     selectVersion: Select a version to view summary
-    upload: Upload
     uploadFeed: Upload Feed
+    upload: Upload
     version: Version
     zipWarning: Uploaded file must be a valid zip file (.zip).
   FeedVersionTabs:
@@ -1123,8 +1123,9 @@ components:
     thanksgivingDay: Thanksgiving Day
     unnamedDefault: "[unnamed]"
   SelectFileModal:
-    ok: OK
     cancel: Cancel
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
+    ok: OK
   ServerSettings:
     awsSetup: Instructions for setting up OTP deployment servers on AWS
     confirmDelete: Are you sure you want to delete this server record?

@@ -49,4 +49,4 @@ env YAML_CONFIG=/path/to/config yarn start
 
 The e2e tests have been Dockerized, which allows them to be run easily anywhere `docker compose` works. To run them on localhost, first create a `.env` file in the `__tests__/e2e`. `docker compose` will alert you as to which variables must be present.
 
-To run the tests, run `docker compose -f docker compose.yml up --abort-on-container-exit` in the `__tests__/e2e/` directory.
+To run the tests, run `docker compose -f docker-compose.yml up --abort-on-container-exit` in the `__tests__/e2e/` directory.

@@ -1,16 +1,27 @@
 site_name: TRANSIT-data-tools Docs
-site_url: http://conveyal-data-tools.readthedocs.io
-repo_url: https://github.com/conveyal/datatools-manager
+site_url: !ENV [SITE_URL, 'http://conveyal-data-tools.readthedocs.io']
+repo_url: https://github.com/ibi-group/datatools-ui
 docs_dir: docs
 site_dir: target/mkdocs
 theme: readthedocs
 extra_css: [style.css]
+
+plugins:
+- search
+- macros:
+    on_error_fail: true
+    on_undefined: strict
+
+extra:
+  product_name: Arcadis TRANSIT-data-tools
+  support_email: otpdtsupport@arcadis.com
 
 nav:
 - Home: 'index.md'
 - Data Manager:
   - 'Introduction': 'user/introduction.md'
   - 'Managing Projects & Feeds': 'user/managing-projects-feeds.md'
+  - 'Feed Version Summary': 'user/feed-version-summary.md'
   - 'Managing Users': 'user/managing-users.md'
 - 'GTFS Editor':
   - Getting Started: 'user/editor/getting-started.md'
@@ -30,6 +41,5 @@ nav:
   - Migration: 'dev/migration.md'
   - Localization: 'dev/localization.md'
   - API Interaction: 'dev/api_interaction.md'
-- Appendices: 
+- Appendices:
   - GTFS Validation Warnings: 'user/appendix-gtfs-warnings.md'
-

@@ -342,6 +342,7 @@ components:
   FeedInfo:
     autoFetch: Automatischer Abruf
     autoPublish: Automatische Veröffentlichung
+    bundleFilename: Bundle Filename
     dateFormat: DD.MM.YYYY
     deployable: Deploybar
     edit: Bearbeiten
@@ -676,6 +677,10 @@ components:
         title: Aktualisierungen
     labels:
       title: Ettiketten
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
     make:
       private: Privat setzen
       privateDesc: Setzt diese Feed-Quelle auf Privat.
@@ -769,6 +774,7 @@ components:
     title: Anmelden
   ManagerHeader:
     noUpdateYet: keine
+    bundleFilename: Bundle Filename
     noUrl: (keine URL)
     private: Diese Feed-Quelle und all ihre Versionen sind privat.
   ManagerPage:
@@ -1124,6 +1130,7 @@ components:
     unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Abbrechen
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
     ok: OK
   ServerSettings:
     awsSetup: Anleitungen um OTP Deployment Server auf AWS aufzusetzen

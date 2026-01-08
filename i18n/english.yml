@@ -319,6 +319,7 @@ components:
   FeedInfo:
     autoFetch: Auto fetch
     autoPublish: Auto publish
+    bundleFilename: Bundle Filename
     dateFormat: MMM D, YYYY 
     deployable: Deployable
     edit: Edit
@@ -495,8 +496,8 @@ components:
     previous: Previous
     selectFeed: 'Select a GTFS feed to upload:'
     selectVersion: Select a version to view summary
-    upload: Upload
     uploadFeed: Upload Feed
+    upload: Upload
     version: Version
     zipWarning: Uploaded file must be a valid zip file (.zip).
   FeedVersionTabs:
@@ -661,6 +662,8 @@ components:
         title: Updates
     labels:
       title: Labels
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
     make:
       private: Make private
       privateDesc: Make this feed source private.
@@ -673,6 +676,8 @@ components:
     rename: Rename
     save: Save
     title: Settings
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
   GtfsIcons:
     agency:
       title: Edit agencies
@@ -759,6 +764,7 @@ components:
     title: Log in
   ManagerHeader:
     noUpdateYet: n/a
+    bundleFilename: Bundle Filename
     noUrl: (none)
     private: This feed source and all its versions are private.
   ManagerPage:
@@ -1117,8 +1123,9 @@ components:
     thanksgivingDay: Thanksgiving Day
     unnamedDefault: "[unnamed]"
   SelectFileModal:
-    ok: OK
     cancel: Cancel
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
+    ok: OK
   ServerSettings:
     awsSetup: Instructions for setting up OTP deployment servers on AWS
     confirmDelete: Are you sure you want to delete this server record?

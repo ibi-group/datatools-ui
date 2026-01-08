@@ -339,6 +339,7 @@ components:
   FeedInfo:
     autoFetch: Automatyczne pobieranie
     autoPublish: Automatycznie publikuj
+    bundleFilename: Bundle Filename
     dateFormat: MMM D, YYYY
     deployable: Rozmieszczany
     edit: Edytować
@@ -599,6 +600,8 @@ components:
       title: Automatic Fetch
       url: Feed source fetch URL
       urlButton: Change URL
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
     confirmDelete: Are you sure you want to delete this project? This action cannot
       be undone and all feed sources and their versions will be permanently deleted.
     dangerZone: Danger Zone
@@ -668,6 +671,8 @@ components:
         title: Updates
     labels:
       title: Labels
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
     make:
       private: Make private
       privateDesc: Make this feed source private.
@@ -760,6 +765,7 @@ components:
     title: Log in
   ManagerHeader:
     noUpdateYet: n/a
+    bundleFilename: Bundle Filename
     noUrl: (none)
     private: This feed source and all its versions are private.
   ManagerPage:
@@ -827,7 +833,9 @@ components:
     all: All Comments
     feedSource: Feed Source
     feedVersion: Version
+    new: Post
     none: No comments.
+    postComment: Post a New Comment
     refresh: Refresh
     title: Comments
   OrganizationList:
@@ -1110,6 +1118,7 @@ components:
     unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Cancel
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
     ok: OK
   ServerSettings:
     awsSetup: Instructions for setting up OTP deployment servers on AWS
@@ -1506,4 +1515,3 @@ components:
     prefixPlaceholder: Trip ID prefix (optional)
     startTime: "Start Time:"
     tripsStartingWith: "trip(s), starting with:"
-

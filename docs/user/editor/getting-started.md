@@ -1,6 +1,6 @@
 # Getting Started
 
-## Getting started
+## Overview
 
 The GTFS Editor (or Editor) allows users to edit GTFS feeds imported from the Data Manager (see [Loading Feed Versions into Editor](../../user/managing-projects-feeds/#loading-feed-versions-into-editor)) or create GTFS completely from scratch. The following prompt will appear when you first enter the editor (by clicking 'Edit feed').
 

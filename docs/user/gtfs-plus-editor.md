@@ -70,7 +70,7 @@ Note that a given route cannot be added twice to `route_attributes.txt`.
 
 To modify existing route attributes, pick the desired attribute and value in the corresponding row (see screenshot).
 
-![empty route attributes editor](../img/gtfsplus-editor-route-attr.png)
+![route attributes editor](../img/gtfsplus-editor-route-attr.png)
 
 If there are more than 25 routes in route_attributes, use the pagination feature to find the route you need to edit.
 
@@ -85,7 +85,7 @@ Any invalid fields (e.g. required fields left blank) will be denoted with a warn
 To exit the GTFS+ editor, click the feed (agency) name in the navigation path at the top of the editor page
 (see screenshot below). You will be taken back to the GTFS+ summary page.
 
-![empty route attributes editor](../img/gtfsplus-editor-nav.png)
+![GTFS+ editor navigation bar](../img/gtfsplus-editor-nav.png)
 
 #### Publishing a new feed version
 

@@ -1079,6 +1079,11 @@ components:
     learnMore: Learn more about Data Tools
     signInHere: sign in here
     viewDashboard: View dashboard
+  PublishStatus:
+    canPublish: Can publish
+    published: Published
+    publishDisabled: Publish blocked
+    publishingInProgress: In progress
   RegionSearch:
     placeholder: Search for regions or agencies
   ReplaceFileFromString:

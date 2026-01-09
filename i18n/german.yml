@@ -1090,6 +1090,11 @@ components:
     learnMore: Erfahre mehr über Daten-Werkzeuge
     signInHere: hier anmelden
     viewDashboard: Dashboard ansehen
+  PublishStatus:
+    canPublish: Can publish
+    published: Published
+    publishDisabled: Publish blocked
+    publishingInProgress: In progress
   RegionSearch:
     placeholder: Suche nach Regionen oder Unternehmen
   ReplaceFileFromString:

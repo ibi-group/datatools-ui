@@ -1081,6 +1081,7 @@ components:
     viewDashboard: View dashboard
   PublishStatus:
     canPublish: Can publish
+    no-version: No version
     published: Published
     publishDisabled: Publish blocked
     publishingInProgress: In progress

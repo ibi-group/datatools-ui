@@ -2424,6 +2424,58 @@ describe('end-to-end', () => {
       }, defaultTestTimeout, 'should create fare')
     })
 
+    describe('fares v2', () => {
+      makeEditorEntityTest('should create fare media', async () => {
+        // open fares v2 sidebar
+        await click('[data-test-id="editor-fareproduct-nav-button"]')
+
+        // click dropdown to select fare_media
+        await page.select(
+          '[data-test-id="virtualized-entity-select-fareproduct] select',
+          'faremedia'
+        )
+
+        // wait for fare media sidebar form to appear and click create button
+        await waitForAndClick('[data-test-id="create-first-faremedia-button"]')
+
+        // fare_media_id
+        await type(
+          '[data-test-id="faremedia-fare_media_id-input-container"] input',
+          '1'
+        )
+
+        // name
+        await type(
+          '[data-test-id="faremedia-fare_media_name-input-container"] input',
+          'Test Fare Media'
+        )
+
+        // type
+        await page.select(
+          '[data-test-id="faremedia-fare_media_type-input-container"] select',
+          '1' // physical paper ticket
+        )
+
+        // save
+        await click('[data-test-id="save-entity-button"]')
+        await wait(2000, 'for save to happen')
+
+        // reload to make sure stuff was saved
+        await page.reload({ waitUntil: 'networkidle0' })
+
+        // wait for fare media sidebar form to appear
+        await waitForSelector(
+          '[data-test-id="faremedia-fare_media_id-input-container"]'
+        )
+
+        // verify data was saved and retrieved from server
+        await expectSelectorToContainHtml(
+          '[data-test-id="faremedia-fare_media_id-input-container"]',
+          '1'
+        )
+      }, defaultTestTimeout)
+    })
+
     // ---------------------------------------------------------------------------
     // Pattern tests
     // ---------------------------------------------------------------------------

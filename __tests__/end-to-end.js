@@ -2424,6 +2424,7 @@ describe('end-to-end', () => {
       }, defaultTestTimeout, 'should create fare')
     })
 
+    // fares v2 tests
     describe('fares v2', () => {
       makeEditorEntityTest('should create fare media', async () => {
         // open fares v2 sidebar

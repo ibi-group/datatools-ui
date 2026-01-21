@@ -11,16 +11,19 @@ jobs:
     #   * PRs to master
     #   * PRs to dev that are not draft
     #   * PRs to dev on branches created by dependabot
-    if: "${{
-      github.event_name == 'pull_request' && (
-        github.event.action == 'review_requested' ||
-        github.base_ref == 'master' ||
-        (github.base_ref == 'dev' && (
-          github.event.pull_request.draft == false ||
-          startsWith(github.head_ref, 'dependabot/')
-        ))
-      )
-      }}"
+        # DO NOT MERGE THIS INTO DEV 
+    # REMOVE COMMENTS BEFORE MERGING TO DEV!!!!!!!!!!!
+    # TODO
+    # if: "${{
+    #   github.event_name == 'pull_request' && (
+    #     github.event.action == 'review_requested' ||
+    #     github.base_ref == 'master' ||
+    #     (github.base_ref == 'dev' && (
+    #       github.event.pull_request.draft == false ||
+    #       startsWith(github.head_ref, 'dependabot/')
+    #     ))
+    #   )
+    #   }}"
     uses: ./.github/workflows/node-ci.yml
     with:
       e2e: true

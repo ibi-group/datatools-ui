@@ -2,6 +2,11 @@
 
 [![Join the chat at https://matrix.to/#/#transit-data-tools:gitter.im](https://badges.gitter.im/repo.png)](https://matrix.to/#/#transit-data-tools:gitter.im)
 
+
+> [!NOTE]  
+> We are working on revamping our feed and deployment manager. We are looking for input from the open soruce community. If you have questions, concerns, ideas, or would like to be part of the process, please join in the gitter.
+
+
 The core application for IBI Group's TRANSIT-Data-Tools suite. This application provides GTFS editing, management, validation, and deployment to OpenTripPlanner.
 
 ## Quick Start

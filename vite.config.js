@@ -107,7 +107,9 @@ export default defineConfig({
       }
     },
 
-    ViteYaml(),
+    ViteYaml({
+      onWarning: warning => warning.message.startsWith('deficient indentation') ? null : console.log(warning)
+    }),
     // Support very old libraries such as blob-stream and its dependencies
     nodePolyfills({
       protocolImports: true

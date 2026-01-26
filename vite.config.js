@@ -89,7 +89,8 @@ export default defineConfig({
         plugins: ['babel-plugin-syntax-hermes-parser'],
         parserOpts: { flow: 'detect' },
         presets: ['@babel/preset-flow']
-      }
+      },
+      loader: 'jsx'
     }),
     {
       name: 'treat-js-files-as-jsx',

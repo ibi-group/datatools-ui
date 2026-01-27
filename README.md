@@ -4,7 +4,7 @@
 
 
 > [!NOTE]  
-> We are working on revamping our feed and deployment manager. We are looking for input from the open soruce community. If you have questions, concerns, ideas, or would like to be part of the process, please join in the gitter.
+> We are working on revamping our project, feed, and deployment manager. We are looking for input from the open source community. If you have questions, concerns, ideas, or would like to be part of the process, please join in the gitter.
 
 
 The core application for IBI Group's TRANSIT-Data-Tools suite. This application provides GTFS editing, management, validation, and deployment to OpenTripPlanner.

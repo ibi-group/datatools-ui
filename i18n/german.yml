@@ -1146,6 +1146,7 @@ components:
     unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Abbrechen
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
     ok: OK
   ServerSettings:
     awsSetup: Anleitungen um OTP Deployment Server auf AWS aufzusetzen

@@ -42,6 +42,22 @@ Once all the required fields and any of the desired optional fields are filled i
 
 **Note:** as with all newly created items (except patterns), the new route will not be saved until the save icon (💾) is clicked.
 
+### Status
+
+There are three options for **Status**:
+
+- **In-Progress** - showing a route has not been completely entered.
+- **Pending Approval** - a route has all the information entered and is awaiting a senior person to sign it off
+- **Approved** - all the above stages have been completed.
+
+Upon editing a route, the status will automatically be set to **In Progress**. The status will need to
+be manually updated to **Approved** before it will be included in the exported feed.
+
+### Publicly visible
+
+Leave this box unchecked if you are entering a route that is not to be included in a GTFS output, or is in-progress.
+
+Routes in the Pending Approval or In Progress phase will not be publicly visible. 
 
 ## Trip Patterns
 

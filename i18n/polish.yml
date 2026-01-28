@@ -840,7 +840,9 @@ components:
     all: All Comments
     feedSource: Feed Source
     feedVersion: Version
+    new: Post
     none: No comments.
+    postComment: Post a New Comment
     refresh: Refresh
     title: Comments
   OrganizationList:
@@ -1123,6 +1125,7 @@ components:
     unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Cancel
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
     ok: OK
   ServerSettings:
     awsSetup: Instructions for setting up OTP deployment servers on AWS
@@ -1519,4 +1522,3 @@ components:
     prefixPlaceholder: Trip ID prefix (optional)
     startTime: "Start Time:"
     tripsStartingWith: "trip(s), starting with:"
-

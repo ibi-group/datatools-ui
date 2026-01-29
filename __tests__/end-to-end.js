@@ -1145,7 +1145,7 @@ describe('end-to-end', () => {
     // this test also sets the feed source as deployable
     makeTestPostFeedSource('should process fetched gtfs', async () => {
       // navigate to feed source settings
-      await click('#feed-source-viewer-tabs-tab-settings')
+      await click('[id="feed-source-viewer-tabs-tab-settings"]')
 
       // make feed source deployable
       await waitForAndClick(
@@ -1161,7 +1161,7 @@ describe('end-to-end', () => {
       await wait(2000, 'for feed source to update')
 
       // go back to feed source GTFS tab
-      await click('#feed-source-viewer-tabs-tab-')
+      await click('[id="feed-source-viewer-tabs-tab-gtfs"]')
       // Open dropdown
       await waitForAndClick(
         '#bg-nested-dropdown',

@@ -380,6 +380,8 @@ components:
     feedInfo: Feed Info
     issues: Issues
     latestVersion: Latest Version
+    publishState: 
+      title: Publish State
     status: Status
   FeedSourceTableRow:
     dateFormat: MMM D, YYYY 
@@ -506,8 +508,8 @@ components:
     previous: Previous
     selectFeed: 'Select a GTFS feed to upload:'
     selectVersion: Select a version to view summary
-    upload: Upload
     uploadFeed: Upload Feed
+    upload: Upload
     version: Version
     zipWarning: Uploaded file must be a valid zip file (.zip).
   FeedVersionTabs:
@@ -1097,6 +1099,12 @@ components:
     learnMore: Learn more about Data Tools
     signInHere: sign in here
     viewDashboard: View dashboard
+  PublishStatus:
+      canPublish: Can publish
+      no-version: No version
+      published: Published
+      publishDisabled: Publish blocked
+      publishingInProgress: In progress
   RegionSearch:
     placeholder: Search for regions or agencies
   ReplaceFileFromString:
@@ -1135,8 +1143,9 @@ components:
     thanksgivingDay: Thanksgiving Day
     unnamedDefault: "[unnamed]"
   SelectFileModal:
-    ok: OK
     cancel: Cancel
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
+    ok: OK
   ServerSettings:
     awsSetup: Instructions for setting up OTP deployment servers on AWS
     confirmDelete: Are you sure you want to delete this server record?

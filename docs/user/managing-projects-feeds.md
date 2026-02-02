@@ -76,15 +76,52 @@ TRANSIT-data-tools now supports **Feed Transformations**, which can automaticall
 
 5. **Add Custom File:** Includes custom files in the GTFS data.
 
+3. **Normalize Field Transformation** - values in fields can be processed in bulk and normalized, so that features such as spacing or abbreviation spelling are applied consistently throughout the feed.
+
 ### Configuring Feed Transformations
 
 Follow the steps below to configure Feed Transformations for an existing Feed Source:
 
 1. Select a Feed Source and click `Settings > Feed Transformations`.
-2. From here, click `Add transformation` to begin creating a new set of rules for incoming GTFS feeds. Your first ruleset will automatically apply to GTFS that is fetched automatically and manually uploaded, but this can be changed for each ruleset to apply to any of the retrieval methods listed in [Creating Feed Versions](#creating-feed-versions).
-3. Click `Add step to transformation` to click a transformation type and fill in the required fields for each type. Multiple transformations can be specified and each will be applied to the incoming GTFS file in the order in which they are defined.
+2. From here, click `Add transformation` to begin creating a new set of rules for incoming GTFS feeds. Your first ruleset will automatically apply to GTFS that is fetched automatically *and* manually uploaded, but this can be changed for each ruleset to apply to any of the retrieval methods listed in [Creating Feed Versions](#creating-feed-versions).
+3. Click `Add step to transformation` to select a transformation type and fill in the required fields for each type. Multiple transformations can be specified and each will be applied to the incoming GTFS file in the order in which they are defined. The Transformations Editor will highlight any missing or invalid setting.
 
 ![create-project](https://datatools-builds.s3.amazonaws.com/docs/intro/configure-feed-transformations.png)
+
+The configuration parameters for each transformation are described in the next sections.
+
+### Replace File From Version Transformation
+
+1. Select the file or table to replace.
+2. Select the feed version from which the desired data for the selected table will come from (see screenshot below).
+
+![Replace file from version transformation screenshot](../img/transform-table-from-version.png)
+
+### Replace File From String Transformation
+
+1. Select the file or table to replace.
+2. Enter or paste the desired CSV data for the table to replace (see screenshot below).
+3. Click `Save CSV` for the entered CSV to take effect.
+
+![Replace file from CSV transformation screenshot](../img/transform-table-from-csv.png)
+
+### Normalize Field Transformation
+
+The Normalize Field Transformation is configured as follows (also see screenshot following the steps):
+
+1. Select the file or table to replace.
+2. Select the field of the selected table to normalize.
+3. If checked, `Enforce Title Case` will convert all words to Title Case regardless of how they appear in the original feed file.
+   This is useful in stop or route names.
+4. You can enter or remove `Capitalization Exceptions`, especially for acronyms (all-caps) or prepositions (lower-case). The exceptions will appear in the processed feed as entered. Some exceptions may already be pre-defined by your administrator.
+5. You can enter substitutions that will replace a search term with a replacement term. There is one substitution per row in the substitutions table. Click the "pencil" or "trash" button to modify or delete the corresponding row, respectively. Click "Add" to add a new substitution.
+    * The search term is defined using a [regular expression](https://en.wikipedia.org/wiki/Regular_expression). Use the "potion" button to test the search term (a separate website will open to let you test how the search term behaves with various content).
+    * The replacement term is normal text that will replace instances of the search term.
+    * If checked, "Normalize space" will add or shrink the space surrounding the text to substitute to one space.
+    For example, if "@" were replaced with "and", then "12th@&nbsp;&nbsp;&nbsp;West" would become "12th and West".
+    * You can enter an optional description of what the substitution performs.
+
+![Normalize field tranformation screenshot](../img/transform-normalize-field.png)
 
 ### Viewing the Feed Transformation Summary
 
@@ -94,14 +131,19 @@ After configuring all the Feed Transformations, you can import a new GTFS file u
 
 A more in depth summary is available under the Transformation Results tab on the left sidebar. This panel will show you the modifications made to each file in the feed, along with how many rows were added, deleted, or modified. 
 
+![screenshot](../img/feed-transformation-results.png)
+
 ## Viewing and Managing Feed Versions
 
 The Feed Version navigator allows you to browse through all available versions of a given feed using the `←` and `→` buttons (or view a list of all versions). You can also use this interface to:
 
-- Download a Feed Version to your local machine as a GTFS data file.
-- Load a version into the Editor.
-- Delete a Feed Version from the Data Manager. (Note: Deleting a Feed Version cannot be undone.)
+- Download a Feed Version to your local machine as a GTFS data file,
+- Export the route patterns or stops as a shapefile (.shp),
+- Merge two Feed Versions into a single version (MTC only),
+- Publish a Feed Version externally (MTC only),
+- Load a version into the Editor, and
+- Delete a Feed Version from the Data Manager. (Note: deleting a Feed Version cannot be undone.)
 
 ![create-project](https://datatools-builds.s3.amazonaws.com/docs/intro/feed-profile.png)
 
-To the left of the navigator is a list of views available for the currently active version. These views include basic feed statistics, the detailed feed validation report, and any user comments specific to this feed.
+To the left of the navigator is a list of views available for the currently active version. These views include basic feed statistics, the detailed feed validation report, and any user comments specific to this feed. See [Feed Version Summary](./feed-version-summary) for more.

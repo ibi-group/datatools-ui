@@ -325,6 +325,18 @@ td.feed-source-info {
   background-color: #853be5;
 }
 
+.status-unpublished {
+  background-color: #337ab7;
+}
+
+.status-publish-disabled {
+  background-color: #c9302c;
+}
+
+.status-publishing {
+  background-color: #d08600;
+}
+
 .feed-status-subtext {
   font-size: 12px;
   margin-top: 8px;

@@ -12,7 +12,7 @@ jobs:
     #   * PRs to dev that are not draft
     #   * PRs to dev on branches created by dependabot
         # DO NOT MERGE THIS INTO DEV 
-    # REMOVE COMMENTS BEFORE MERGING TO DEV!!!!!!!!!!!
+    # REMOVE COMMENTS BEFORE MERGING TO DEV!!!!!!!!!!!!
     # TODO
     # if: "${{
     #   github.event_name == 'pull_request' && (

@@ -1200,3 +1200,40 @@
     - name: service_id
       required: true
       inputType: GTFS_SERVICE
+- id: ridercategory
+  name: rider_categories.txt
+  helpContent: Categories of riders that can be used to define fare products.
+  fields:
+    - name: rider_category_id
+      required: true
+      inputType: GTFS_ID
+    - name: rider_category_name
+      required: true
+      inputType: TEXT
+    - name: is_default_fare_category
+      required: true
+      inputType: DROPDOWN
+      options:
+        - value: '0'
+          text: No (0)
+        - value: '1'
+          text: Yes (1)
+    - name: eligibility_url
+      required: false
+      inputType: URL
+- id: farelegjoinrule
+  name: fare_leg_join_rules.txt
+  helpContent: Rules for joining fare legs when calculating total fare for a journey with multiple legs.
+  fields:
+    - name: from_network_id
+      required: true
+      inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+    - name: to_network_id
+      required: true
+      inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+    - name: from_stop_id
+      required: false
+      inputType: GTFS_STOP
+    - name: to_stop_id
+      required: false
+      inputType: GTFS_STOP

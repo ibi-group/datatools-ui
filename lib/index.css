@@ -1,21 +1,21 @@
-@import url(node_modules/font-awesome/css/font-awesome.css);
+@import url(/node_modules/font-awesome/css/font-awesome.css);
 /**
  * Note: this css file must be imported so that marker icons URLs will work
  * properly with react-leaflet. See https://github.com/PaulLeCam/react-leaflet/issues/453
  */
 @import url(https://unpkg.com/leaflet@1.7.1/dist/leaflet.css);
 
-@import url(node_modules/bootstrap/dist/css/bootstrap.min.css);
-@import url(node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css);
-@import url(node_modules/react-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css);
+@import url(/node_modules/bootstrap/dist/css/bootstrap.min.css);
+@import url(/node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css);
+@import url(/node_modules/react-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css);
 
-@import url(node_modules/react-select/dist/react-select.css);
+@import url(/node_modules/react-select/dist/react-select.css);
 
-@import url(node_modules/react-virtualized/styles.css);
-@import url(node_modules/react-virtualized-select/styles.css);
-@import url(node_modules/rc-slider/assets/index.css);
-@import url(node_modules/react-toggle/style.css);
-@import url(node_modules/react-toastify/dist/ReactToastify.min.css);
-@import url(node_modules/react-dropdown-tree-select/dist/styles.css);
+@import url(/node_modules/react-virtualized/styles.css);
+@import url(/node_modules/react-virtualized-select/styles.css);
+@import url(/node_modules/rc-slider/assets/index.css);
+@import url(/node_modules/react-toggle/style.css);
+@import url(/node_modules/react-toastify/dist/ReactToastify.min.css);
+@import url(/node_modules/react-dropdown-tree-select/dist/styles.css);
 
-@import url(lib/style.css);
+@import url(/lib/style.css);

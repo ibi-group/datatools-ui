@@ -1047,7 +1047,6 @@
     - name: fare_product_name
       required: false
       inputType: TEXT
-    # FARE-TODO: Add rider_category
     - name: fare_media_id
       required: false
       inputType: GTFS_FARE_MEDIA
@@ -1141,11 +1140,11 @@
       inputType: GTFS_FARE_PRODUCT
 - id: farelegrule
   name: fare_leg_rules.txt
-  # FARE-TODO: Some help content?
+  helpContent: Fare rules for individual legs of travel.
   fields:
     - name: leg_group_id
       required: false
-      inputType: TEXT # FARE-TODO: should this be text or id?
+      inputType: GTFS_ID
     - name: network_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference networks.network_id or routes.network_id
@@ -1163,7 +1162,7 @@
       inputType: TEXT # FARE-TODO: Needs to reference timeframes.timeframe_group_id
     - name: fare_product_id
       required: true
-      inputType: TEXT # FARE-TODO: Needs to reference fare_products.fare_product_id
+      inputType: GTFS_FARE_PRODUCT
     - name: rule_priority
       required: false
       inputType: POSITIVE_INT

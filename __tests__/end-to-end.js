@@ -1206,7 +1206,7 @@ describe('end-to-end', () => {
       await wait(2000, 'for feed source to update')
 
       // go back to feed source GTFS tab
-      await click('#feed-source-viewer-tabs-tab-gtfs')
+      await click('#feed-source-viewer-tabs-tab-')
       // Open dropdown
       await waitForAndClick(
         '#bg-nested-dropdown',

@@ -407,6 +407,8 @@ components:
     feedInfo: Feed Info
     issues: Fehler
     latestVersion: Aktuellste Version
+    publishState:
+      title: Publish State
     status: Status
   FeedSourceTableRow:
     dateFormat: DD.MM.YYYY
@@ -419,6 +421,7 @@ components:
     status:
       active: Aktiv
       all: Alle
+      canPublish: Can publish
       expired: Veraltet
       expiring-within-5-days: Veraltet in 5 Tagen
       expiring-within-20-days: Veraltet in 20 Tagen
@@ -426,6 +429,9 @@ components:
       feedNotPublished: Feed nicht veröffentlicht
       future: Zukunft
       no-version: Keine Version
+      published: Published
+      publishDisabled: Publish blocked
+      publishingInProgress: In progress
       same-as-deployed: Entspricht deploytem
       same-as-published: Entspricht veröffentlichtem
     validFor: Gültig für weitere %duration%
@@ -1084,6 +1090,12 @@ components:
     learnMore: Erfahre mehr über Daten-Werkzeuge
     signInHere: hier anmelden
     viewDashboard: Dashboard ansehen
+  PublishStatus:
+    canPublish: Can publish
+    no-version: No version
+    published: Published
+    publishDisabled: Publish blocked
+    publishingInProgress: In progress
   RegionSearch:
     placeholder: Suche nach Regionen oder Unternehmen
   ReplaceFileFromString:

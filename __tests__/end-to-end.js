@@ -2966,8 +2966,21 @@ describe('end-to-end', () => {
     makeTestPostFeedSource('should create deployment', async () => {
       // trigger creation of feed source-based deployment.
       await waitForAndClick('[data-test-id="deploy-feed-version-button"]')
-      // wait for deploy dropdown button to appear and open dropdown
-      await waitForSelector('#deploy-server-dropdown')
+
+      // wait for deploy dropdown button to appear and open dropdown (allow a few retries)
+      for (let i = 0; i < 3; i++) {
+        try {
+          await wait(2000, 'for deployment page to load')
+          await waitForSelector('#deploy-server-dropdown')
+          break
+        } catch {
+          // Reload page in case a race condition causes deployment summaries fetching
+          // to complete after fetching one deployment, causing the fetched deployment to be overwritten.
+          // FIXME: Fix the race condition (probably difficult).
+          await page.reload({ waitUntil: 'networkidle0' })
+        }
+      }
+
       await wait(2000, 'for dropdown to fully render')
       await click('#deploy-server-dropdown')
       // wait for dropdown to open and click to deploy to server

@@ -291,7 +291,7 @@ async function startClientServer () {
         async (results) => {
           console.log('building client dist files')
 
-          const args = ['run', 'build-dev', '--prefix', datatoolsUiDir]
+          const args = ['run', 'build-e2e', '--prefix', datatoolsUiDir]
 
           // if running in the ui environment, build with instrumented code
           if (isUiRepo) {

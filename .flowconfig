@@ -11,9 +11,11 @@
 .*/node_modules/reqwest/.*
 .*/node_modules/module-deps/test/invalid_pkg/package.json
 .*/node_modules/immutable/dist/immutable.js.flow
+.*/node_modules/hermes-.*/.*
 
 [include]
 
 [libs]
 
 [options]
+esproposal.optional_chaining=enable

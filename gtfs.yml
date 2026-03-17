@@ -1120,19 +1120,26 @@
       inputType: POSITIVE_INT
     - name: duration_limit_type
       inputType: DROPDOWN
-      # FARE-TODO: Some help content?
       options:
         - value: '0'
+          text: 'Dep -> Arr (0)'
         - value: '1'
+          text: 'Dep -> Dep (1)'
         - value: '2'
+          text: 'Arr -> Dep (2)'
         - value: '3'
+          text: 'Arr -> Arr (3)'
     - name: fare_transfer_type
+      required: true
       inputType: DROPDOWN
-      # FARE-TODO: Some help content?
+      helpContent: "Cost processing method of transferring between legs in a journey"
       options:
         - value: '0'
+          text: 'From + Transfer (A + AB) (0)'
         - value: '1'
+          text: 'From + Transfer + To (A + AB + B) (1)'
         - value: '2'
+          text: 'Transfer only (AB) (2)'
     - name: fare_product_id
       required: false
       inputType: GTFS_FARE_PRODUCT
@@ -1160,7 +1167,7 @@
       inputType: TEXT # FARE-TODO: Needs to reference timeframes.timeframe_group_id
     - name: fare_product_id
       required: true
-      inputType: TEXT # FARE-TODO: Needs to reference fare_products.fare_product_id
+      inputType: GTFS_FARE_PRODUCT 
     - name: rule_priority
       required: false
       inputType: POSITIVE_INT

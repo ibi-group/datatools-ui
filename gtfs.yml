@@ -1113,31 +1113,44 @@
     - name: from_leg_group_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules
+      helpContent: "Identifies a group of pre-transfer fare leg rules."
     - name: to_leg_group_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules
+      helpContent: "Identifies a group of post-transfer fare leg rules."
     - name: transfer_count
       inputType: NUMBER # FARE-TODO: NON-ZERO INT
+      helpContent: "Defines how many consecutive transfers the transfer rule may be applied to."
     - name: duration_limit
       inputType: POSITIVE_INT
+      helpContent: "Duration limit in seconds for a transfer. If there is no duration limit then leave empty."
     - name: duration_limit_type
+      helpContent: "Defines the relative start and end of duration_limit."
       inputType: DROPDOWN
-      # FARE-TODO: Some help content?
       options:
         - value: '0'
+          text: 'Dep -> Arr (0)'
         - value: '1'
+          text: 'Dep -> Dep (1)'
         - value: '2'
+          text: 'Arr -> Dep (2)'
         - value: '3'
+          text: 'Arr -> Arr (3)'
     - name: fare_transfer_type
+      required: true
       inputType: DROPDOWN
-      # FARE-TODO: Some help content?
+      helpContent: "Cost processing method of transferring between legs in a journey"
       options:
         - value: '0'
+          text: 'From + Transfer (A + AB) (0)'
         - value: '1'
+          text: 'From + Transfer + To (A + AB + B) (1)'
         - value: '2'
+          text: 'Transfer only (AB) (2)'
     - name: fare_product_id
       required: false
       inputType: GTFS_FARE_PRODUCT
+      helpContent: "The fare product required to transfer between two fare legs. If empty, the cost of the transfer rule is 0."
 - id: farelegrule
   name: fare_leg_rules.txt
   helpContent: Fare rules for individual legs of travel.
@@ -1162,7 +1175,7 @@
       inputType: TEXT # FARE-TODO: Needs to reference timeframes.timeframe_group_id
     - name: fare_product_id
       required: true
-      inputType: GTFS_FARE_PRODUCT
+      inputType: GTFS_FARE_PRODUCT 
     - name: rule_priority
       required: false
       inputType: POSITIVE_INT

@@ -803,6 +803,51 @@ async function elementType (elementHandle: any, selector: string, text: string) 
   await selectedElement.type(text)
 }
 
+/**
+ * A helper function to create a new fare media by filling out the fare media
+ * form and saving it. This function assumes that the fare media sidebar form is
+ * open and ready to be filled out.
+ */
+async function createNewFareMedia () {
+  await waitForAndClick('[data-test-id="create-first-faremedia-button"]')
+
+  // fare_media_id
+  await type(
+    '[data-test-id="faremedia-fare_media_id-input-container"] input',
+    '1'
+  )
+
+  // name
+  await type(
+    '[data-test-id="faremedia-fare_media_name-input-container"] input',
+    'Test Fare Media'
+  )
+
+  // type
+  await page.select(
+    '[data-test-id="faremedia-fare_media_type-input-container"] select',
+    '1' // physical paper ticket
+  )
+
+  // save
+  await click('[data-test-id="save-entity-button"]')
+  await wait(2000, 'for save to happen')
+
+  // reload to make sure stuff was saved
+  await page.reload({ waitUntil: 'networkidle0' })
+
+  // wait for fare media sidebar form to appear
+  await waitForSelector(
+    '[data-test-id="faremedia-fare_media_id-input-container"]'
+  )
+
+  // verify data was saved and retrieved from server
+  await expectSelectorToContainHtml(
+    '[data-test-id="faremedia-fare_media_id-input-container"]',
+    '1'
+  )
+}
+
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // Start of test suite
@@ -2424,36 +2469,28 @@ describe('end-to-end', () => {
       }, defaultTestTimeout, 'should create fare')
     })
 
+    // fares v2 tests
     describe('fares v2', () => {
       makeEditorEntityTest('should create fare media', async () => {
         // open fares v2 sidebar
         await click('[data-test-id="editor-fareproduct-nav-button"]')
 
         // click dropdown to select fare_media
-        await page.select(
-          '[data-test-id="virtualized-entity-select-fareproduct] select',
-          'faremedia'
+        await reactSelectOption(
+          '[data-test-id="virtualized-entity-select-fareproduct"]',
+          'faremedia',
+          1,
+          true
         )
 
         // wait for fare media sidebar form to appear and click create button
-        await waitForAndClick('[data-test-id="create-first-faremedia-button"]')
-
-        // fare_media_id
-        await type(
-          '[data-test-id="faremedia-fare_media_id-input-container"] input',
-          '1'
-        )
-
-        // name
-        await type(
+        await createNewFareMedia()
+      }, defaultTestTimeout)
+      makeEditorEntityTest('should update fare media data', async () => {
+        // update fare media name by appending to end
+        await appendText(
           '[data-test-id="faremedia-fare_media_name-input-container"] input',
-          'Test Fare Media'
-        )
-
-        // type
-        await page.select(
-          '[data-test-id="faremedia-fare_media_type-input-container"] select',
-          '1' // physical paper ticket
+          ' updated'
         )
 
         // save
@@ -2465,15 +2502,87 @@ describe('end-to-end', () => {
 
         // wait for fare media sidebar form to appear
         await waitForSelector(
-          '[data-test-id="faremedia-fare_media_id-input-container"]'
+          '[data-test-id="faremedia-fare_media_name-input-container"] input'
         )
 
         // verify data was saved and retrieved from server
         await expectSelectorToContainHtml(
-          '[data-test-id="faremedia-fare_media_id-input-container"]',
-          '1'
+          '[data-test-id="faremedia-fare_media_name-input-container"]',
+          'Test Fare Media updated'
         )
-      }, defaultTestTimeout)
+      }, defaultTestTimeout, 'should create fare media')
+      makeEditorEntityTest('should delete fare media', async () => {
+        // delete the fare media
+        await click('[data-test-id="delete-faremedia-button"]')
+        await waitForAndClick('[data-test-id="modal-confirm-ok-button"]')
+        await wait(2000, 'for delete to happen')
+
+        // verify that fare media to delete is no longer listed
+        await expectSelectorToContainHtml(
+          '[data-test-id="create-first-faremedia-button"]',
+          'Create first media'
+        )
+      }, defaultTestTimeout, 'should create fare media')
+      makeEditorEntityTest('should create fare product with fare media', async () => {
+        await createNewFareMedia()
+
+        // click dropdown to select fare_product
+        await reactSelectOption(
+          '[data-test-id="virtualized-entity-select-faremedia"]',
+          'fareproduct',
+          1,
+          true
+        )
+
+        // wait for fare product sidebar form to appear and click create button
+        await waitForAndClick('[data-test-id="create-first-fareproduct-button"]')
+
+        // fill out fare product form
+        await type(
+          '[data-test-id="fareproduct-fare_product_id-input-container"] input',
+          'test-fare-product-id'
+        )
+        await type(
+          '[data-test-id="fareproduct-fare_product_name-input-container"] input',
+          'Test Fare Product'
+        )
+        // select the previously created fare media
+        await reactSelectOption(
+          '[data-test-id="fareproduct-fare_media_id-input-container"]',
+          'Test Fare Media (1)',
+          1
+        )
+
+        // amount
+        await type(
+          '[data-test-id="fareproduct-amount-input-container"] input',
+          '2.50'
+        )
+
+        // currency
+        await page.select(
+          '[data-test-id="fareproduct-currency-input-container"] select',
+          'USD'
+        )
+
+        // save
+        await click('[data-test-id="save-entity-button"]')
+        await wait(2000, 'for save to happen')
+
+        // reload to make sure stuff was saved
+        await page.reload({ waitUntil: 'networkidle0' })
+
+        // wait for fare product sidebar form to appear
+        await waitForSelector(
+          '[data-test-id="fareproduct-fare_product_id-input-container"]'
+        )
+
+        // verify data was saved and retrieved from server
+        await expectSelectorToContainHtml(
+          '[data-test-id="fareproduct-fare_product_id-input-container"]',
+          'test-fare-product-id'
+        )
+      }, defaultTestTimeout, 'should create fare media')
     })
 
     // ---------------------------------------------------------------------------

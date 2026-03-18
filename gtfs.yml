@@ -1047,10 +1047,12 @@
     - name: fare_product_name
       required: false
       inputType: TEXT
-    # FARE-TODO: Add rider_category_id?
     - name: fare_media_id
       required: false
       inputType: GTFS_FARE_MEDIA
+    - name: rider_category_id
+      required: false
+      inputType: GTFS_RIDER_CATEGORY
     - name: amount
       inputType: NUMBER
       required: true
@@ -1151,11 +1153,11 @@
       helpContent: "The fare product required to transfer between two fare legs. If empty, the cost of the transfer rule is 0."
 - id: farelegrule
   name: fare_leg_rules.txt
-  # FARE-TODO: Some help content?
+  helpContent: Fare rules for individual legs of travel.
   fields:
     - name: leg_group_id
       required: false
-      inputType: TEXT # FARE-TODO: should this be text or id?
+      inputType: GTFS_ID
     - name: network_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference networks.network_id or routes.network_id

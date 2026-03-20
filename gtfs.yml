@@ -1112,11 +1112,11 @@
   fields:
     - name: from_leg_group_id
       required: false
-      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules
+      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules?
       helpContent: "Identifies a group of pre-transfer fare leg rules."
     - name: to_leg_group_id
       required: false
-      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules
+      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules?
       helpContent: "Identifies a group of post-transfer fare leg rules."
     - name: transfer_count
       inputType: NUMBER # FARE-TODO: NON-ZERO INT

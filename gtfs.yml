@@ -1044,18 +1044,23 @@
     - name: fare_product_id
       required: true
       inputType: GTFS_ID
+      columnWidth: 12
     - name: fare_product_name
       required: false
       inputType: TEXT
+      columnWidth: 12
     - name: fare_media_id
       required: false
       inputType: GTFS_FARE_MEDIA
+      columnWidth: 12
     - name: rider_category_id
       required: false
       inputType: GTFS_RIDER_CATEGORY
+      columnWidth: 12
     - name: amount
       inputType: NUMBER
       required: true
+      columnWidth: 12
     - name: currency
       required: true
       inputType: DROPDOWN
@@ -1090,8 +1095,10 @@
   - name: fare_media_id
     required: true
     inputType: GTFS_ID
+    columnWidth: 12
   - name: fare_media_name
     inputType: TEXT
+    columnWidth: 12
   - name: fare_media_type
     required: true
     inputType: DROPDOWN
@@ -1114,16 +1121,20 @@
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules?
       helpContent: "Identifies a group of pre-transfer fare leg rules."
+      columnWidth: 12
     - name: to_leg_group_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules?
       helpContent: "Identifies a group of post-transfer fare leg rules."
+      columnWidth: 12
     - name: transfer_count
       inputType: NUMBER # FARE-TODO: NON-ZERO INT
       helpContent: "Defines how many consecutive transfers the transfer rule may be applied to."
+      columnWidth: 12
     - name: duration_limit
       inputType: POSITIVE_INT
       helpContent: "Duration limit in seconds for a transfer. If there is no duration limit then leave empty."
+      columnWidth: 12
     - name: duration_limit_type
       helpContent: "Defines the relative start and end of duration_limit."
       inputType: DROPDOWN
@@ -1151,6 +1162,7 @@
       required: false
       inputType: GTFS_FARE_PRODUCT
       helpContent: "The fare product required to transfer between two fare legs. If empty, the cost of the transfer rule is 0."
+      columnWidth: 12
 - id: farelegrule
   name: fare_leg_rules.txt
   helpContent: Fare rules for individual legs of travel.
@@ -1158,27 +1170,35 @@
     - name: leg_group_id
       required: false
       inputType: GTFS_ID
+      columnWidth: 12
     - name: network_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference networks.network_id or routes.network_id
+      columnWidth: 12
     - name: from_area_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference areas.area_id
+      columnWidth: 12
     - name: to_area_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference areas.area_id
+      columnWidth: 12
     - name: from_timeframe_group_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference timeframes.timeframe_group_id
+      columnWidth: 12
     - name: to_timeframe_group_id
       required: false
       inputType: TEXT # FARE-TODO: Needs to reference timeframes.timeframe_group_id
+      columnWidth: 12
     - name: fare_product_id
       required: true
       inputType: GTFS_FARE_PRODUCT 
+      columnWidth: 12
     - name: rule_priority
       required: false
       inputType: POSITIVE_INT
+      columnWidth: 12
 - id: area
   name: areas.txt
   helpContent: Areas that can be used to define fare zones.
@@ -1186,9 +1206,11 @@
     - name: area_id
       required: true
       inputType: GTFS_ID
+      columnWidth: 12
     - name: area_name
       required: false
       inputType: TEXT
+      columnWidth: 12
 - id: network
   name: networks.txt
   helpContent: Networks that can be used to group routes and fare legs.
@@ -1196,9 +1218,11 @@
     - name: network_id
       required: true
       inputType: GTFS_ID
+      columnWidth: 12
     - name: network_name
       required: false
       inputType: TEXT
+      columnWidth: 12
 - id: timeframe
   name: timeframes.txt
   helpContent: Timeframes are the time windows that enclose the periods of different fares. e.g":" A timeframe enclosing weekday morning rush hour for peak fares, a timeframe enclosing weekend evening for discounted fares, etc.
@@ -1206,15 +1230,19 @@
     - name: timeframe_group_id
       required: true
       inputType: GTFS_ID
+      columnWidth: 12
     - name: start_time # FARE-TODO: this and end_time are conditionally required, must have both or neither
       required: false
       inputType: TIME
+      columnWidth: 12
     - name: end_time
       required: false
       inputType: TIME
+      columnWidth: 12
     - name: service_id
       required: true
       inputType: GTFS_SERVICE
+      columnWidth: 12
 - id: ridercategory
   name: rider_categories.txt
   helpContent: Categories of riders that can be used to define fare products.
@@ -1222,9 +1250,11 @@
     - name: rider_category_id
       required: true
       inputType: GTFS_ID
+      columnWidth: 12
     - name: rider_category_name
       required: true
       inputType: TEXT
+      columnWidth: 12
     - name: is_default_fare_category
       required: true
       inputType: DROPDOWN
@@ -1236,6 +1266,7 @@
     - name: eligibility_url
       required: false
       inputType: URL
+      columnWidth: 12
 - id: farelegjoinrule
   name: fare_leg_join_rules.txt
   helpContent: Rules for joining fare legs when calculating total fare for a journey with multiple legs.
@@ -1243,12 +1274,16 @@
     - name: from_network_id
       required: true
       inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+      columnWidth: 12
     - name: to_network_id
       required: true
       inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+      columnWidth: 12
     - name: from_stop_id
       required: false
       inputType: GTFS_STOP
+      columnWidth: 12
     - name: to_stop_id
       required: false
       inputType: GTFS_STOP
+      columnWidth: 12

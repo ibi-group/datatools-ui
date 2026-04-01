@@ -30,23 +30,23 @@ After running this configuration, the Java application should be running at [htt
 
 ## Front end
 
-We use Conveyal's front-end JS tool-belt [`mastarm`](https://github.com/conveyal/mastarm) to build, run, and lint while developing.
+We use [Vite](https://vite.dev) to build and run while developing.
 To kick off a development server at [http://localhost:9966](http://localhost:9966):
 
 ```
 yarn start
 ```
 
-This will use `mastarm` to run a `browserify` server at the above port, along with a proxy for the back-end API, which is assumed to be running on `http://localhost:4000`.
+This will cause Vite to build and launch a development server at the above port, along with a proxy for the back-end API, which is assumed to be running on `http://localhost:4000`.
 
 To specify your own configuration that overrides the defaults:
 
 ```
-yarn start -- --config /path/to/config
+env YAML_CONFIG=/path/to/config yarn start 
 ```
 
 ## E2E tests
 
 The e2e tests have been Dockerized, which allows them to be run easily anywhere `docker compose` works. To run them on localhost, first create a `.env` file in the `__tests__/e2e`. `docker compose` will alert you as to which variables must be present.
 
-To run the tests, run `docker compose -f docker compose.yml up --abort-on-container-exit` in the `__tests__/e2e/` directory.
+To run the tests, run `docker compose -f docker-compose.yml up --abort-on-container-exit` in the `__tests__/e2e/` directory.

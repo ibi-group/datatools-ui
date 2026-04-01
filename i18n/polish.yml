@@ -403,6 +403,8 @@ components:
     feedInfo: Feed Info
     issues: Issues
     latestVersion: Latest Version
+    publishState:
+      title: Publish State
     status: Status
   FeedSourceTableRow:
     dateFormat: MMM D, YYYY
@@ -414,6 +416,7 @@ components:
     status:
       active: Aktywny
       all: Wszystkie
+      canPublish: Can publish
       expired: Wygasłe
       expiring-within-5-days: Wygasające w ciągu 5 dni
       expiring-within-20-days: Wygasające w ciągu 20 dni
@@ -421,6 +424,9 @@ components:
       feedNotPublished: Kanały nieopublikowane
       future: W przyszłości
       no-version: Brak wersji
+      published: Published
+      publishDisabled: Publish blocked
+      publishingInProgress: In progress
       same-as-deployed: Taki sam jak wdrożony
       same-as-published: Taki sam jak opublikowany
     validFor: Valid for another %duration%
@@ -833,7 +839,9 @@ components:
     all: All Comments
     feedSource: Feed Source
     feedVersion: Version
+    new: Post
     none: No comments.
+    postComment: Post a New Comment
     refresh: Refresh
     title: Comments
   OrganizationList:
@@ -1071,6 +1079,12 @@ components:
     learnMore: Learn more about Data Tools
     signInHere: sign in here
     viewDashboard: View dashboard
+  PublishStatus:
+    canPublish: Can publish
+    no-version: No version
+    published: Published
+    publishDisabled: Publish blocked
+    publishingInProgress: In progress
   RegionSearch:
     placeholder: Search for regions or agencies
   ReplaceFileFromString:
@@ -1116,6 +1130,7 @@ components:
     unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Cancel
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
     ok: OK
   ServerSettings:
     awsSetup: Instructions for setting up OTP deployment servers on AWS
@@ -1512,4 +1527,3 @@ components:
     prefixPlaceholder: Trip ID prefix (optional)
     startTime: "Start Time:"
     tripsStartingWith: "trip(s), starting with:"
-

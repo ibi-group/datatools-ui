@@ -1,6 +1,10 @@
 # Mastarm/deployment configuration properties. Note: application configuration
 # is now taken entirely from server application (there are still some
 # UI-specific env variables are in this repository's env.yml).
+
+# To support Vite-built JS files, the CloudFront distribution below must have the following behaviors:
+# - Allowed HTTP methods: GET, HEAD, OPTIONS
+# - Response headers policy: CORS-With-Preflight
 cloudfront: DEPLOY-DISTRIBUTION
 entries:
   - 'lib/main.js:dist/index.js'

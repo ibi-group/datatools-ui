@@ -1,0 +1,137 @@
+import { defineConfig, transformWithEsbuild } from 'vite'
+import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { safeLoad } from 'js-yaml'
+import { yamlPlugin } from 'esbuild-plugin-yaml'
+import babel from 'vite-plugin-babel'
+import fs from 'fs-extra'
+import getCommit from 'this-commit'
+import react from '@vitejs/plugin-react'
+import ViteYaml from '@modyfi/vite-plugin-yaml'
+
+import pkg from './package.json'
+
+/**
+ * Reads and rename top-level entries from a YAML file to begin with process.env
+ * for replacement throughout the repo by esbuild.
+ * @param {string} envVar The name of the environment variable that contains the custom file.
+ */
+function getProcessEnvEntries (envVar) {
+  const fileName = (process.env && process.env[envVar])
+  if (fileName) {
+    const yaml = {
+      ...safeLoad(fs.readFileSync(fileName)),
+      // Add UI commit, repo, and build date (copied from js-transform.js from mastarm).
+      BUILD_TIMESTAMP: (new Date()).getTime(),
+      COMMIT_SHA: getCommit(),
+      REPO_URL: pkg.repository && pkg.repository.url && pkg.repository.url.replace('.git', '')
+    }
+
+    // Prefix all entries so that all process.env.* in the code
+    // get replaced by esbuild.
+    // Everything has to be stringified (they are constants).
+    const prefixedYaml = {}
+    Object.entries(yaml).forEach(([k, v]) => {
+      prefixedYaml[`process.env.${k}`] = JSON.stringify(v)
+    })
+
+    return prefixedYaml
+  }
+
+  return {}
+}
+
+const config = getProcessEnvEntries('YAML_CONFIG')
+
+export default defineConfig({
+  build: {
+    // Flatten the output for mastarm deploy (mastarm doesn't support uploading subfolders).
+    assetsDir: '',
+    rollupOptions: {
+      // Specifying output file names is a bit arcane, the link below helped:
+      // https://stackoverflow.com/questions/74228325/how-to-set-a-custom-output-name-for-script-with-vite-build
+      output: {
+        assetFileNames: '[name][extname]',
+        entryFileNames: 'index.js'
+      },
+      // Setting treeshake = true causes the build process to hang.
+      // Thank you https://stackoverflow.com/a/79401432
+      treeshake: false
+    }
+  },
+  // Makes esbuild replace config vars (or declare them as globals).
+  define: config,
+  optimizeDeps: {
+    esbuildOptions: {
+      // Point JS files to the JSX loader (needed in addition to the JS-JSX conversion plugin below)
+      // From https://stackoverflow.com/questions/74620427/how-to-configure-vite-to-allow-jsx-syntax-in-js-files
+      loader: {
+        '.js': 'jsx'
+      },
+      plugins: [
+        // This is needed for the CustomCSVForm component during development.
+        // CustomCSVForm depends on fast-csv that calls process.nextTick().
+        // Handling process.nextTick() in Vite is discussed at
+        // https://github.com/mqttjs/MQTT.js/issues/1639#issuecomment-1659996292.
+        NodeGlobalsPolyfillPlugin({
+          process: true
+        }),
+        yamlPlugin()
+      ]
+    }
+  },
+  plugins: [
+    babel({
+      // Taken from https://thinkdrastic.net/journal/2024/01/02/using-flow-types-with-vite-the-hermes-way/
+      babelConfig: {
+        babelrc: false,
+        configFile: false,
+        plugins: ['babel-plugin-syntax-hermes-parser'],
+        parserOpts: { flow: 'detect' },
+        presets: ['@babel/preset-flow']
+      },
+      loader: 'jsx'
+    }),
+    {
+      name: 'treat-js-files-as-jsx',
+      async transform (code, id) {
+        if (!id.match(/(lib|tmp)\/.*\.js$/)) return null
+
+        // Use the exposed transform from Vite, instead of directly transforming with esbuild.
+        // This is needed in addition to the esbuild js loader option above.
+        // See https://stackoverflow.com/questions/74620427/how-to-configure-vite-to-allow-jsx-syntax-in-js-files
+        return transformWithEsbuild(code, id, {
+          jsx: 'automatic',
+          loader: 'jsx'
+        })
+      }
+    },
+
+    ViteYaml({
+      onWarning: warning => warning.message.startsWith('deficient indentation') ? null : console.log(warning)
+    }),
+    // Support very old libraries such as blob-stream and its dependencies
+    nodePolyfills({
+      protocolImports: true
+    }),
+    react()
+  ],
+  preview: {
+    // Allow any url, including other docker containers, to call preview
+    // despite https://github.com/vitejs/vite/security/advisories/GHSA-vg6x-rcgg-rjx6
+    allowedHosts: true,
+    port: 9966,
+    proxy: {
+      // Only applies to e2e tests running in docker. Change this to make vite preview work locally.
+      '/api': 'http://datatools-server:4000'
+    },
+    strictPort: true
+  },
+  server: {
+    port: 9966,
+    proxy: {
+      '/api': 'http://localhost:4000'
+    },
+    strictPort: true
+  }
+})

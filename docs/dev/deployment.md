@@ -6,7 +6,7 @@ The application consists of two repositories: a [Spark-powered Java backend](htt
 and a [Javascript frontend written with React and Redux](https://github.com/ibi-group/datatools-ui).
 To install and deploy the application, you will need Java 8 and Maven for the
 [datatools-server](https://github.com/ibi-group/datatools-server)
-and Node (>= v10 required, >= v14 recommended), npm, yarn and
+and Node (>= v20 required, >= v22 recommended), npm, yarn and
 [mastarm](https://github.com/conveyal/mastarm) for the
 [datatools-ui](https://github.com/ibi-group/datatools-ui).
 
@@ -42,10 +42,10 @@ The default
 [settings.yml](https://github.com/ibi-group/datatools-ui/blob/dev/configurations/default/settings.yml) for
 `datatools-ui` should work out of the box, but you may want to specify
 alternative settings files outside of these repositories.
-These can be specified as a directory during `datatools-ui` build with mastarm:
+These can be specified as a directory during `datatools-ui` build:
 
 ```bash
-$ mastarm build --config /path/to/configurations/dir
+$ env YAML_CONFIG /path/to/configurations/dir yarn build
 ```
 
 AND as individual file args for `datatools-server`:
@@ -194,8 +194,7 @@ $ cd datatools-ui
 $ yarn
 ```
 
-Build and deploy `datatools-ui` to s3 using npm script
-(which calls [mastarm](https://github.com/conveyal/mastarm)):
+Build and deploy `datatools-ui` to s3 using npm script:
 
 ```bash
 $ npm run deploy -- s3://$S3_BUCKET_NAME/dist

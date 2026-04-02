@@ -22,8 +22,12 @@ configurations/*
 !configurations/default
 !configurations/test
 !configurations/end-to-end
+!configurations/mtc-docs
 dist
 assets
+
+# Mkdocs local build
+target/
 
 # Secret config files
 env.yml

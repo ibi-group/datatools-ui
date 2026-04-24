@@ -690,6 +690,9 @@ components:
     fare:
       title: Edit fares
       label: Fares
+    faresv2:
+      title: Edit fares v2
+      label: Fares v2
     feedinfo:
       title: Edit feed info
       label: Feed Info  

@@ -804,7 +804,7 @@ components:
       substitutionInvalid: Some substitution patterns are invalid.
   NormalizeStopTimesModal:
     close: Close
-    interpolateStopTimes: Interpolate stop times between timepoints?
+    interpolateStopTimes: Assume timepoint travel times are since last timepoint? (Interpolate non-timepoint stops)
     normalizeStopTimes: Normalize stop times
     normalizeStopTimesQuestion: Normalize stop times?
     selectBeginningPatternStop: "Select beginning pattern stop:"
@@ -820,7 +820,7 @@ components:
       based on the shape distance and the default travel times. This speed is
       then applied to the shape distance traveled for each intermediate non-timepoint
       stop to provide interpolated travel times. The default travel time for non-timepoint
-      stops will not be modified.
+      stops will not be modified. This feature assumes that the timepoint travel times refer to the time since the last timepoint!
     usageNotes: " Usage notes"
   NormalizeStopTimesTip:
     info: "Tip: when changing travel times, consider

@@ -690,6 +690,9 @@ components:
     fare:
       title: Edit fares
       label: Fares
+    faresv2:
+      title: Edit fares v2
+      label: Fares v2
     feedinfo:
       title: Edit feed info
       label: Feed Info  
@@ -1440,6 +1443,7 @@ components:
     customServiceId: Custom service ID
     dateServiceIdCombinationDuplicate: Date (%exceptionDate%) and Service ID (%serviceId%) combination cannot appear more than once for all exceptions.
     idMustBeUnique: Identifier must be unique.
+    fareProductIdCombinationDuplicate: Records with the same fare_product_id must differ by fare_media_id or rider_category_id.
     idRequired: Identifier is required if more than one agency exists.
     invalidEmail: Field must contain valid email address.
     invalidLatitude: Field must be valid latitude.

@@ -233,7 +233,12 @@
       text: Not possible (2)
     columnWidth: 12
     helpContent: "The wheelchair_boarding field identifies whether wheelchair boardings are possible from the specified stop or station. The field can have the following values:"
-
+  - name: "stop_area_ids"
+    required: false
+    inputType: GTFS_STOP_AREA
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "The area_id field defines the area that this stop belongs to. This is used to group stops together in a logical way, such as all stops in a particular neighborhood or district. If this stop is not part of an area, leave this field blank."
 
 - id: route
   name: routes.txt
@@ -549,6 +554,18 @@
     inputType: URL
     columnWidth: 12
     helpContent:
+  - name: network_id
+    required: false
+    inputType: GTFS_NETWORK
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "The network_id field defines the network that this route belongs to. This is used to group routes together in a logical way, such as all routes in a particular region or operated by a particular brand. If this route is not part of a network, leave this field blank."
+  - name: route_network_ids
+    required: false
+    inputType: GTFS_ROUTE_NETWORK
+    bulkEditEnabled: true
+    columnWidth: 12
+    helpContent: "The network_id field defines the network that this route belongs to. This is used to group routes together in a logical way, such as all routes in a particular region or operated by a particular brand. If this route is not part of a network, leave this field blank."
 
 - id: trip
   name: trips.txt
@@ -1017,3 +1034,256 @@
     required: false
   - name: added_service
     required: false
+
+# Fares v2
+
+- id: fareproduct
+  name: fare_products.txt
+  helpContent: Used to describe the range of fares available for purchase by riders or taken into account when computing the total fare for journeys with multiple legs, such as transfer costs.
+  fields:
+    - name: fare_product_id
+      required: true
+      inputType: GTFS_ID
+      columnWidth: 12
+    - name: fare_product_name
+      required: false
+      inputType: TEXT
+      columnWidth: 12
+    - name: fare_media_id
+      required: false
+      inputType: GTFS_FARE_MEDIA
+      columnWidth: 12
+    - name: rider_category_id
+      required: false
+      inputType: GTFS_RIDER_CATEGORY
+      columnWidth: 12
+    - name: amount
+      inputType: NUMBER
+      required: true
+      columnWidth: 12
+    - name: currency
+      required: true
+      inputType: DROPDOWN
+      bulkEditEnabled: true
+      options:
+      - value: USD
+        text: US dollar (USD)
+      - value: AUD
+        text: Australian dollar (AUD)
+      - value: CAD
+        text: Canadian dollar (CAD)
+      - value: CHF
+        text: Swiss franc (CHF)
+      - value: CNH
+        text: Chinese renminbi (CNH)
+      - value: EUR
+        text: Euro (EUR)
+      - value: GBP
+        text: Pound sterling (GBP)
+      - value: JPY
+        text: Japanese yen (JPY)
+      - value: MXN
+        text: Mexican peso (MXN)
+      - value: NZD
+        text: New Zealand dollar (NZD)
+      - value: SEK
+        text: Swedish krona (SEK)
+- id: faremedia
+  name: fare_media.txt
+  helpContent: To describe the different fare media that can be employed to use fare products. Fare media are physical or virtual holders used for the representation and/or validation of a fare product.
+  fields:
+  - name: fare_media_id
+    required: true
+    inputType: GTFS_ID
+    columnWidth: 12
+  - name: fare_media_name
+    inputType: TEXT
+    columnWidth: 12
+  - name: fare_media_type
+    required: true
+    inputType: DROPDOWN
+    options:
+      - value: '0'
+        text: None (0)
+      - value: '1'
+        text: Physical paper ticket (1)
+      - value: '2'
+        text: Physical transit card (2)
+      - value: '3'
+        text: cEMV (3)
+      - value: '4'
+        text: Mobile app (4)
+- id: faretransferrule
+  name: fare_transfer_rules.txt
+  helpContent: Fare rules for transfers between legs of travel defined in fare_leg_rules.txt.
+  fields:
+    - name: from_leg_group_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules?
+      helpContent: "Identifies a group of pre-transfer fare leg rules."
+      columnWidth: 12
+    - name: to_leg_group_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference fare_leg_rules?
+      helpContent: "Identifies a group of post-transfer fare leg rules."
+      columnWidth: 12
+    - name: transfer_count
+      inputType: NUMBER # FARE-TODO: NON-ZERO INT
+      helpContent: "Defines how many consecutive transfers the transfer rule may be applied to."
+      columnWidth: 12
+    - name: duration_limit
+      inputType: POSITIVE_INT
+      helpContent: "Duration limit in seconds for a transfer. If there is no duration limit then leave empty."
+      columnWidth: 12
+    - name: duration_limit_type
+      helpContent: "Defines the relative start and end of duration_limit."
+      inputType: DROPDOWN
+      options:
+        - value: '0'
+          text: 'Dep -> Arr (0)'
+        - value: '1'
+          text: 'Dep -> Dep (1)'
+        - value: '2'
+          text: 'Arr -> Dep (2)'
+        - value: '3'
+          text: 'Arr -> Arr (3)'
+    - name: fare_transfer_type
+      required: true
+      inputType: DROPDOWN
+      helpContent: "Cost processing method of transferring between legs in a journey"
+      options:
+        - value: '0'
+          text: 'From + Transfer (A + AB) (0)'
+        - value: '1'
+          text: 'From + Transfer + To (A + AB + B) (1)'
+        - value: '2'
+          text: 'Transfer only (AB) (2)'
+    - name: fare_product_id
+      required: false
+      inputType: GTFS_FARE_PRODUCT
+      helpContent: "The fare product required to transfer between two fare legs. If empty, the cost of the transfer rule is 0."
+      columnWidth: 12
+- id: farelegrule
+  name: fare_leg_rules.txt
+  helpContent: Fare rules for individual legs of travel.
+  fields:
+    - name: leg_group_id
+      required: false
+      inputType: GTFS_ID
+      columnWidth: 12
+    - name: network_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference networks.network_id or routes.network_id
+      columnWidth: 12
+    - name: from_area_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference areas.area_id
+      columnWidth: 12
+    - name: to_area_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference areas.area_id
+      columnWidth: 12
+    - name: from_timeframe_group_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference timeframes.timeframe_group_id
+      columnWidth: 12
+    - name: to_timeframe_group_id
+      required: false
+      inputType: TEXT # FARE-TODO: Needs to reference timeframes.timeframe_group_id
+      columnWidth: 12
+    - name: fare_product_id
+      required: true
+      inputType: GTFS_FARE_PRODUCT 
+      columnWidth: 12
+    - name: rule_priority
+      required: false
+      inputType: POSITIVE_INT
+      columnWidth: 12
+- id: area
+  name: areas.txt
+  helpContent: Areas that can be used to define fare zones.
+  fields:
+    - name: area_id
+      required: true
+      inputType: GTFS_ID
+      columnWidth: 12
+    - name: area_name
+      required: false
+      inputType: TEXT
+      columnWidth: 12
+- id: network
+  name: networks.txt
+  helpContent: Networks that can be used to group routes and fare legs.
+  fields:
+    - name: network_id
+      required: true
+      inputType: GTFS_ID
+      columnWidth: 12
+    - name: network_name
+      required: false
+      inputType: TEXT
+      columnWidth: 12
+- id: timeframe
+  name: timeframes.txt
+  helpContent: Timeframes are the time windows that enclose the periods of different fares. e.g":" A timeframe enclosing weekday morning rush hour for peak fares, a timeframe enclosing weekend evening for discounted fares, etc.
+  fields:
+    - name: timeframe_group_id
+      required: true
+      inputType: GTFS_ID
+      columnWidth: 12
+    - name: start_time # FARE-TODO: this and end_time are conditionally required, must have both or neither
+      required: false
+      inputType: TIME
+      columnWidth: 12
+    - name: end_time
+      required: false
+      inputType: TIME
+      columnWidth: 12
+    - name: service_id
+      required: true
+      inputType: GTFS_SERVICE
+      columnWidth: 12
+- id: ridercategory
+  name: rider_categories.txt
+  helpContent: Categories of riders that can be used to define fare products.
+  fields:
+    - name: rider_category_id
+      required: true
+      inputType: GTFS_ID
+      columnWidth: 12
+    - name: rider_category_name
+      required: true
+      inputType: TEXT
+      columnWidth: 12
+    - name: is_default_fare_category
+      required: true
+      inputType: DROPDOWN
+      options:
+        - value: '0'
+          text: No (0)
+        - value: '1'
+          text: Yes (1)
+    - name: eligibility_url
+      required: false
+      inputType: URL
+      columnWidth: 12
+- id: farelegjoinrule
+  name: fare_leg_join_rules.txt
+  helpContent: Rules for joining fare legs when calculating total fare for a journey with multiple legs.
+  fields:
+    - name: from_network_id
+      required: true
+      inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+      columnWidth: 12
+    - name: to_network_id
+      required: true
+      inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+      columnWidth: 12
+    - name: from_stop_id
+      required: false
+      inputType: GTFS_STOP
+      columnWidth: 12
+    - name: to_stop_id
+      required: false
+      inputType: GTFS_STOP
+      columnWidth: 12

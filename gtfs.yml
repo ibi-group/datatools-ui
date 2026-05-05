@@ -1169,7 +1169,7 @@
   fields:
     - name: leg_group_id
       required: false
-      inputType: GTFS_ID
+      inputType: TEXT
       columnWidth: 12
     - name: network_id
       required: false

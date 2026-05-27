@@ -823,6 +823,7 @@ components:
     normalizeStopTimesQuestion: Normalize stop times?
     selectBeginningPatternStop: "Select beginning pattern stop:"
     tooFewTimepoints: "You must have more than 1 timepoint to interpolate times"
+    updateBlankOnly: Only update blank stop times
     usageExplanationOne: This feature is useful when the travel times for one or more
       pattern stops change. Take for example a pattern
       that has been re-routed along to travel a longer distance, has had a

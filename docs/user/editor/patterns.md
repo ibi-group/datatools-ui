@@ -84,6 +84,13 @@ Once you have adjusted the stop timings, another warning will appear prompting y
 
 ![normalize pattern stops](../../img/normalize-stop-times.png)
 
+#### Interpolation
+Datatools features two interpolation modes. 
+
+"Interpolate stop times between timepoints" ignores all non-timepoint pattern info. The timepoint timings are assumed to be in realation *to the previous timepoint*. 
+
+"Only update blank stop times" only updates blank stop times. Datatools will use shape data and non-blank stop times to calculate likely stoptimes. Stop times with values will be ignored.
+
 ### Calculate timings
 The average speed for the route can be used to calculate all the time gaps between stops in one go. A few parameters can be specified before calculating times:
 
@@ -100,6 +107,8 @@ Specific timings for each pattern stop can be set by either clicking on the stop
 
 - **Travel time:** the time it took to get from the previous station (should be 00:00 on the first stop of the sequence)
 - **Dwell time:** the time the vehicle rests at the stop
+
+###### When using timepoint interpolation, these timings are assumed to be in relation to the previous timepoint. Otherwise, they are assumed to be in relation to the previous stop.
 
 ### Tutorial Video: Editing/Creating Patterns
 The following video demonstrates how to create patterns as outlined above, in a step by step manner. 

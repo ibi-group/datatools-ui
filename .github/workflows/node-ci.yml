@@ -22,12 +22,14 @@ jobs:
           mkdocs --version
           pip install mkdocs-macros-plugin
           pip install requests
-      - name: Use Node.js 22.x
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v1
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: Install npm/yarn packages using cache
         uses: bahmutov/npm-install@v1
+      - name: Install husky
+        run: yarn add-husky
       - name: Lint code
         run: yarn lint
       - name: Lint messages

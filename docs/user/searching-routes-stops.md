@@ -8,7 +8,7 @@ Both the Service Alerts Manager and eTID Configuration Manager contain the Route
 
 The Route/Stop Search Panel allows searching within only the agencies for which a user has permission to create alerts or eTID configurations. If a user has permission for multiple agencies, the Search Panel allows for filtering out agencies in order to further refine the search results and more quickly locate a route or stop.
 
-![Agency filter](/img/agency-filter.png "Alerts Viewer")
+![Agency filter](../img/agency-filter.png "Alerts Viewer")
 
 The image above shows the Route/Stop Search Panel on the righthand side of the screen. Users can filter agencies with the following actions:
 
@@ -33,7 +33,7 @@ When searching via the map interface, the user must zoom into the map in order t
 
 **Note**: many routes have more than one shape or geometry, also known as a trip pattern. For display on the map, a single trip pattern is chosen. So there may be cases where the route shown on the map differs slightly from the expected shape.
 
-![Search for routes/stops by name or on the map](/img/gtfs-map-search-alert.png "Search for routes/stops by name or on the map")  
+![Search for routes/stops by name or on the map](../img/gtfs-map-search-alert.png "Search for routes/stops by name or on the map")  
 
 ### Searching for Stops
 
@@ -41,4 +41,4 @@ Users can search for stops by **name** and **ID** using the text search. The sea
 
 When searching via the map interface, the user must zoom into the map in order to view stops for a given area. Stops can be selected by clicking on the marker corresponding to the stop location.
 
-![Search for routes/stops by name or on the map](/img/gtfs-map-search-config.png "Search for routes/stops by name or on the map")  
+![Search for routes/stops by name or on the map](../img/gtfs-map-search-config.png "Search for routes/stops by name or on the map")  

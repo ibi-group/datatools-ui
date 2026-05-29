@@ -4184,7 +4184,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                          
                                                         Public feeds page can be viewed 
                                                         <a
-                                                          href="https://s3.amazonaws.com/bucket-name/public/index.html"
+                                                          href="https://bucket-name.s3.amazonaws.com/public/index.html"
                                                           target="_blank"
                                                         >
                                                           here

@@ -34,6 +34,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
       createFeedSource={[Function]}
       deleteProject={[Function]}
       deployPublic={[Function]}
+      fetchDeployment={[Function]}
       fetchProjectDeployments={[Function]}
       isFetching={false}
       location={

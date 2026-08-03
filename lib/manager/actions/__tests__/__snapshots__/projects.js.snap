@@ -20,19 +20,7 @@ Object {
       },
       "dateCreated": 1526305321824,
       "defaultTimeZone": null,
-      "deployments": Array [
-        Object {
-          "dateCreated": 1553292345720,
-          "deployedTo": null,
-          "feedVersions": Array [
-            undefined,
-          ],
-          "id": "mock-deployment-id-1",
-          "lastDeployed": null,
-          "name": "mock-deployment",
-          "projectId": "mock-project-with-deployments-id",
-        },
-      ],
+      "deployments": Array [],
       "feedSources": Array [
         Object {
           "deployable": false,
@@ -89,7 +77,7 @@ Object {
     },
   ],
   "filter": Object {
-    "feedSourceTableComparisonColumn": "DEPLOYED",
+    "feedSourceTableComparisonColumn": null,
     "feedSourceTableFilterCountStrategy": "LATEST",
     "filter": null,
     "labels": Array [],

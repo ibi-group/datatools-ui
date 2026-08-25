@@ -459,6 +459,61 @@ textarea:focus {
   outline: none;
 }
 
+/* Fares v2 file selector */
+.fares-v2-file-selector {
+  background: #fff;
+  border-right: 1px solid #ddd;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 5px 0;
+}
+
+.fares-v2-file-selector-heading {
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 8px 10px 6px;
+  text-transform: uppercase;
+}
+
+.fares-v2-file-selector-row {
+  background: #fff;
+  border: 0;
+  border-left: 4px solid transparent;
+  box-sizing: border-box;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 8px 10px 8px 6px;
+  text-align: left;
+  width: 100%;
+}
+
+.fares-v2-file-selector-row:hover,
+.fares-v2-file-selector-row:focus {
+  background: #f5f8fb;
+  outline: none;
+}
+
+.fares-v2-file-selector-row:focus {
+  box-shadow: inset 0 0 0 2px rgba(40, 137, 202, 0.35);
+}
+
+.fares-v2-file-selector-row.active {
+  background: #e8f1fb;
+  border-left-color: #2889ca;
+  font-weight: 600;
+}
+
 /* Route List */
 .route-list .list-group-item:first-child {
   border-top-left-radius: 4px !important;

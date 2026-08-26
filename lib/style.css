@@ -498,6 +498,48 @@ textarea:focus {
   width: 100%;
 }
 
+.fares-v2-file-selector-row-content {
+  display: block;
+  min-width: 0;
+}
+
+.fares-v2-file-selector-row-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fares-v2-file-selector-row-status {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+.fares-v2-file-selector-row-status.empty,
+.fares-v2-file-selector-row-status.loading,
+.fares-v2-file-selector-row-status.unknown {
+  color: #888;
+}
+
+.fares-v2-file-selector-row-status.invalid {
+  color: #a94442;
+}
+
+.fares-v2-file-selector-row-status.valid {
+  color: #398439;
+}
+
+.fares-v2-file-selector-row-meta {
+  color: #777;
+  display: block;
+  font-size: 11px;
+  margin-top: 1px;
+}
+
 .fares-v2-file-selector-row:hover,
 .fares-v2-file-selector-row:focus {
   background: #f5f8fb;

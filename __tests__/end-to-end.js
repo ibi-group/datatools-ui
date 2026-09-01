@@ -2475,13 +2475,8 @@ describe('end-to-end', () => {
         // open fares v2 sidebar
         await click('[data-test-id="editor-fareproduct-nav-button"]')
 
-        // click dropdown to select fare_media
-        await reactSelectOption(
-          '[data-test-id="virtualized-entity-select-fareproduct"]',
-          'faremedia',
-          1,
-          true
-        )
+        // select fare_media from the Fares v2 file selector
+        await click('[data-test-id="fares-v2-file-faremedia-button"]')
 
         // wait for fare media sidebar form to appear and click create button
         await createNewFareMedia()
@@ -2526,13 +2521,8 @@ describe('end-to-end', () => {
       makeEditorEntityTest('should create fare product with fare media', async () => {
         await createNewFareMedia()
 
-        // click dropdown to select fare_product
-        await reactSelectOption(
-          '[data-test-id="virtualized-entity-select-faremedia"]',
-          'fareproduct',
-          1,
-          true
-        )
+        // select fare_product from the Fares v2 file selector
+        await click('[data-test-id="fares-v2-file-fareproduct-button"]')
 
         // wait for fare product sidebar form to appear and click create button
         await waitForAndClick('[data-test-id="create-first-fareproduct-button"]')

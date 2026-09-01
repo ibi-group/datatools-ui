@@ -506,6 +506,15 @@ textarea:focus {
   width: 102%;
 }
 
+/* EDITOR FLEX LOCATION STYLES */
+.location-polygon-instructions {
+  background-color: rgba(245, 185, 19, 0.589);
+  border-radius: 6px;
+  margin: 3px;
+  padding: 8px;
+  width: 90%;
+}
+
 /* EDITOR TRIP PATTERN STYLES */
 
 .trip-pattern-controls {
@@ -1021,6 +1030,23 @@ h4.line:after {
   content: "\f068";
 }
 
+/* Location Sequence Icon */
+.leaflet-tooltip.stop-sequence {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  display: inline-flex;
+  height: 2em;
+  justify-content: center;
+  line-height: 2em;
+  margin: 0;
+  opacity: 0.9;
+  padding: 0;
+  vertical-align: middle;
+  width: 2em;
+}
 /* Datatools backend exception in popover overflows the container */
 .popover-content {
   overflow-x: scroll;

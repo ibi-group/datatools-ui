@@ -52,6 +52,13 @@ components:
       routeCount: 'Latest Version: Number of Routes'
     sortBy: Sort By
     url: 'Feed download URL'
+  BookingRuleValidation:
+    forbiddenForBookingType: Forbidden for booking_type %bookingType%
+    forbiddenForBookingTypeIfDefined: Forbidden for booking_type %bookingType% if %field% is defined.
+    forbiddenForBookingTypeOtherThan: Forbidden for booking_types other than %bookingType%
+    forbiddenIfFieldNotDefined: Forbidden if %field% is not defined
+    requiredForBookingType: Required for booking_type %bookingType%
+    requiredIfFieldIsDefined: Required if %field% is defined
   Brand:
     dataTools: Data Tools 
   Breadcrumbs:
@@ -268,6 +275,8 @@ components:
     daysOfService: Days of service
     dropImage: Drop %activeComponent% image here, or click to select image to upload.
     optional: (optional)
+    realtimeBookingTypeErrorToast: ⓘ Input Error! You must clear all prior notice fields before changing booking_type to realtime!
+    realtimeBookingTypeErrorTooltip: Prior notice information must be cleared before setting type to realtime
     selectAgency: Select agency...
     selectDate: Please select a date
     selectOption: -- select an option --
@@ -322,6 +331,7 @@ components:
     bundleFilename: Bundle Filename
     dateFormat: MMM D, YYYY 
     deployable: Deployable
+    flex: Flexible service
     edit: Edit
     lastUpdatedDate: Last updated %date%
     noUpdates: No updates
@@ -662,6 +672,10 @@ components:
       updates:
         autoFetchFeeds: Auto fetch feed sources?
         title: Updates
+    flex:
+      title: Flex Service
+      checkbox: Feed includes flex service
+      description: Enable this feed source to include flex service. Checking this checkbox will enable flex tools in the editor. Flex service describes operations that follow a schedule, but also include flexible features such as dial-a-ride service, route deviation, continuous stops, or point to zone service.
     labels:
       title: Labels
     bundleFilename: Override filename for GTFS bundle
@@ -705,6 +719,8 @@ components:
     stop:
       title: Edit stops
       label: Stops
+  GtfsServiceSelect: 
+    placeholder: Select existing service ID
   GtfsValidationExplorer:
     accessibilityValidation: Accessibility Explorer
     table:
@@ -726,16 +742,9 @@ components:
       trips: Trip issues
     noResults: No validation results to show.
     tips:
-      DATE_NO_SERVICE: "If the transit service does not operate on weekends,
-      some or all of these validation issue may be ignored. Similarly, holidays
-      for which there is no transit service running may appear in this list."
-      FEED_TRAVEL_TIMES_ROUNDED: "This is a common feature of GTFS feeds that do
-      not use down-to-the-second precision for arrival/departure times. However,
-      if this precision is expected, there may be an issue occurring during feed
-      export."
-      MISSING_TABLE: "Missing a required table is a major issue that must be
-      resolved before most GTFS consumers can make use of the data for trip
-      planning or in other applications."
+      DATE_NO_SERVICE: "If the transit service does not operate on weekends, some or all of these validation issue may be ignored. Similarly, holidays for which there is no transit service running may appear in this list."
+      FEED_TRAVEL_TIMES_ROUNDED: "This is a common feature of GTFS feeds that do not use down-to-the-second precision for arrival/departure times. However, if this precision is expected, there may be an issue occurring during feed export."
+      MISSING_TABLE: "Missing a required table is a major issue that must be resolved before most GTFS consumers can make use of the data for trip planning or in other applications."
     title: Validation issues
   HomeProjectDropdown:
     new: New Project
@@ -824,9 +833,7 @@ components:
       This feature ignores all travel/dwell times except for timepoints!
     usageNotes: " Usage notes"
   NormalizeStopTimesTip:
-    info: "Tip: when changing travel times, consider
-    using the 'Normalize stop times' button above to automatically update
-    all stop times to the updated travel time."
+    info: "Tip: when changing travel times, consider using the 'Normalize stop times' button above to automatically update all stop times to the updated travel time."
   NoteForm:
     adminOnly: 'Admin only?'
     new: Post
@@ -868,8 +875,13 @@ components:
   PatternStopCard:
     PatternStopContents:
       defaultDwellTime: Default dwell time
+      defaultTimeInLocation: Default time in location
       defaultTravelTime: Default travel time
       firstStopTravelTime: Travel time for first stop must be zero
+      meanDurationFactor: Mean Duration Factor
+      meanDurationOffset: Mean Duration Offset
+      safeDurationFactor: Safe Duration Factor
+      safeDurationOffset: Safe Duration Offset
       stopHeadsignPlaceholder: Outbound
       stopHeadsignText: Stop headsign
       stopHeadsignTitle: Headsign that overrides trip headsign between stops.

@@ -16,16 +16,20 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: Install mkdocs
+      - name: Install mkdocs and plugins
         run: |
           pip install Jinja2==3.0.3 mkdocs
           mkdocs --version
-      - name: Use Node.js 14.x
+          pip install mkdocs-macros-plugin
+          pip install requests
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 24.x
       - name: Install npm/yarn packages using cache
         uses: bahmutov/npm-install@v1
+      - name: Install husky
+        run: yarn add-husky
       - name: Lint code
         run: yarn lint
       - name: Lint messages
@@ -35,12 +39,12 @@ jobs:
       - name: Run tests
         run: yarn test-client
       - name: Build with minification
-        run: yarn run build -- --minify
+        run: yarn build
       - name: Build docs
         run: mkdocs build
       - name: Whether e2e should run
         run: echo Running e2e - {{ inputs.e2e }}
-      - name: Write .env file for Docker
+      - name: Write .env and env.yml files for Docker
         if: inputs.e2e
         run: |
           touch __tests__/e2e/.env 
@@ -70,6 +74,13 @@ jobs:
           echo TRANSITFEEDS_KEY= ${{ secrets.TRANSITFEEDS_KEY }} >> __tests__/e2e/.env
           touch __tests__/e2e/server/datatools.pem
           echo ${{ secrets.AUTH0_DATATOOLS_PEM }} | base64 --decode > __tests__/e2e/server/datatools.pem
+          touch configurations/default/env.yml
+          echo AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }} >> configurations/default/env.yml
+          echo AUTH0_CONNECTION_NAME: ${{ secrets.AUTH0_CONNECTION_NAME }} >> configurations/default/env.yml
+          echo AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }} >> configurations/default/env.yml
+          echo GRAPH_HOPPER_KEY: ${{ secrets.GRAPH_HOPPER_KEY }} >> configurations/default/env.yml
+          echo MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }} >> configurations/default/env.yml
+          echo MS_TEAMS_WEBHOOK_URL: ${{ secrets.MS_TEAMS_WEBHOOK_URL }} >> configurations/default/env.yml
 
       - name: Run e2e tests
         if: inputs.e2e

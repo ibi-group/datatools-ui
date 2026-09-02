@@ -34,6 +34,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
       createFeedSource={[Function]}
       deleteProject={[Function]}
       deployPublic={[Function]}
+      fetchDeployment={[Function]}
       fetchProjectDeployments={[Function]}
       isFetching={false}
       location={
@@ -172,7 +173,9 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
         title="mock-project"
       >
         <div>
-          <Title />
+          <Title
+            subTitle="mock-project"
+          />
           <Connect(StatusMessage)>
             <StatusMessage
               dispatch={[Function]}
@@ -4185,7 +4188,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                          
                                                         Public feeds page can be viewed 
                                                         <a
-                                                          href="https://s3.amazonaws.com/bucket-name/public/index.html"
+                                                          href="https://bucket-name.s3.amazonaws.com/public/index.html"
                                                           target="_blank"
                                                         >
                                                           here

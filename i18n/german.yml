@@ -352,6 +352,7 @@ components:
     flex: Flexible service
     autoFetch: Automatischer Abruf
     autoPublish: Automatische Veröffentlichung
+    bundleFilename: Bundle Filename
     dateFormat: DD.MM.YYYY
     deployable: Deploybar
     edit: Bearbeiten
@@ -416,6 +417,8 @@ components:
     feedInfo: Feed Info
     issues: Fehler
     latestVersion: Aktuellste Version
+    publishState:
+      title: Publish State
     status: Status
   FeedSourceTableRow:
     dateFormat: DD.MM.YYYY
@@ -428,6 +431,7 @@ components:
     status:
       active: Aktiv
       all: Alle
+      canPublish: Can publish
       expired: Veraltet
       expiring-within-5-days: Veraltet in 5 Tagen
       expiring-within-20-days: Veraltet in 20 Tagen
@@ -435,6 +439,9 @@ components:
       feedNotPublished: Feed nicht veröffentlicht
       future: Zukunft
       no-version: Keine Version
+      published: Published
+      publishDisabled: Publish blocked
+      publishingInProgress: In progress
       same-as-deployed: Entspricht deploytem
       same-as-published: Entspricht veröffentlichtem
     validFor: Gültig für weitere %duration%
@@ -690,6 +697,10 @@ components:
         title: Aktualisierungen
     labels:
       title: Ettiketten
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
     make:
       private: Privat setzen
       privateDesc: Setzt diese Feed-Quelle auf Privat.
@@ -785,6 +796,7 @@ components:
     title: Anmelden
   ManagerHeader:
     noUpdateYet: keine
+    bundleFilename: Bundle Filename
     noUrl: (keine URL)
     private: Diese Feed-Quelle und all ihre Versionen sind privat.
   ManagerPage:
@@ -827,6 +839,7 @@ components:
     normalizeStopTimesQuestion: Normalize stop times?
     selectBeginningPatternStop: "Select beginning pattern stop:"
     tooFewTimepoints: "You must have more than 1 timepoint to interpolate times"
+    updateBlankOnly: Only update blank stop times
     usageExplanationOne: This feature is useful when the travel times for one or more
       pattern stops change. Take for example a pattern
       that has been re-routed along to travel a longer distance, has had a
@@ -1094,6 +1107,12 @@ components:
     learnMore: Erfahre mehr über Daten-Werkzeuge
     signInHere: hier anmelden
     viewDashboard: Dashboard ansehen
+  PublishStatus:
+    canPublish: Can publish
+    no-version: No version
+    published: Published
+    publishDisabled: Publish blocked
+    publishingInProgress: In progress
   RegionSearch:
     placeholder: Suche nach Regionen oder Unternehmen
   ReplaceFileFromString:
@@ -1140,6 +1159,7 @@ components:
     unnamedDefault: "[unnamed]"
   SelectFileModal:
     cancel: Abbrechen
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
     ok: OK
   ServerSettings:
     awsSetup: Anleitungen um OTP Deployment Server auf AWS aufzusetzen

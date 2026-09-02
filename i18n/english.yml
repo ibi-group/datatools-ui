@@ -328,6 +328,7 @@ components:
   FeedInfo:
     autoFetch: Auto fetch
     autoPublish: Auto publish
+    bundleFilename: Bundle Filename
     dateFormat: MMM D, YYYY 
     deployable: Deployable
     flex: Flexible service
@@ -379,6 +380,8 @@ components:
     feedInfo: Feed Info
     issues: Issues
     latestVersion: Latest Version
+    publishState: 
+      title: Publish State
     status: Status
   FeedSourceTableRow:
     dateFormat: MMM D, YYYY 
@@ -505,8 +508,8 @@ components:
     previous: Previous
     selectFeed: 'Select a GTFS feed to upload:'
     selectVersion: Select a version to view summary
-    upload: Upload
     uploadFeed: Upload Feed
+    upload: Upload
     version: Version
     zipWarning: Uploaded file must be a valid zip file (.zip).
   FeedVersionTabs:
@@ -675,6 +678,8 @@ components:
       description: Enable this feed source to include flex service. Checking this checkbox will enable flex tools in the editor. Flex service describes operations that follow a schedule, but also include flexible features such as dial-a-ride service, route deviation, continuous stops, or point to zone service.
     labels:
       title: Labels
+    bundleFilename: Override filename for GTFS bundle
+    bundleFilenameHint: Optional. Define a custom filename (without .zip) for this feed source when included in a GTFS bundle. The .zip extension is added automatically.
     make:
       private: Make private
       privateDesc: Make this feed source private.
@@ -687,6 +692,8 @@ components:
     rename: Rename
     save: Save
     title: Settings
+    invalidFilename: "Filename contains invalid characters (e.g., / \ : * ? \" < > | space) or ends with .zip."
+    filenamePlaceholder: e.g., agency_bundle
   GtfsIcons:
     agency:
       title: Edit agencies
@@ -697,6 +704,9 @@ components:
     fare:
       title: Edit fares
       label: Fares
+    faresv2:
+      title: Edit fares v2
+      label: Fares v2
     feedinfo:
       title: Edit feed info
       label: Feed Info  
@@ -768,6 +778,7 @@ components:
     title: Log in
   ManagerHeader:
     noUpdateYet: n/a
+    bundleFilename: Bundle Filename
     noUrl: (none)
     private: This feed source and all its versions are private.
   ManagerPage:
@@ -802,11 +813,12 @@ components:
       substitutionInvalid: Some substitution patterns are invalid.
   NormalizeStopTimesModal:
     close: Close
-    interpolateStopTimes: Interpolate stop times between timepoints?
+    interpolateStopTimes: Interpolate stop times between timepoints (Ignore all travel/dwell times except for timepoints)
     normalizeStopTimes: Normalize stop times
     normalizeStopTimesQuestion: Normalize stop times?
     selectBeginningPatternStop: "Select beginning pattern stop:"
     tooFewTimepoints: "You must have more than 1 timepoint to interpolate times"
+    updateBlankOnly: Only update blank stop times
     usageExplanationOne: This feature is useful when the travel times for one or more
       pattern stops change. Take for example a pattern
       that has been re-routed along to travel a longer distance, has had a
@@ -815,10 +827,10 @@ components:
       you can normalize the stop times to bring them into alignment with the
       updated travel times reflected in the pattern stops.
     usageExplanationTwo: Interpolating stop times calculates the implicit speed between timepoints
-      based on the shape distance and the default travel times. This speed is
+      based on the shape distance and the default travel times of timepoints. This speed is
       then applied to the shape distance traveled for each intermediate non-timepoint
-      stop to provide interpolated travel times. The default travel time for non-timepoint
-      stops will not be modified.
+      stop to provide interpolated stop times. 
+      This feature ignores all travel/dwell times except for timepoints!
     usageNotes: " Usage notes"
   NormalizeStopTimesTip:
     info: "Tip: when changing travel times, consider using the 'Normalize stop times' button above to automatically update all stop times to the updated travel time."
@@ -1091,6 +1103,12 @@ components:
     learnMore: Learn more about Data Tools
     signInHere: sign in here
     viewDashboard: View dashboard
+  PublishStatus:
+      canPublish: Can publish
+      no-version: No version
+      published: Published
+      publishDisabled: Publish blocked
+      publishingInProgress: In progress
   RegionSearch:
     placeholder: Search for regions or agencies
   ReplaceFileFromString:
@@ -1129,8 +1147,9 @@ components:
     thanksgivingDay: Thanksgiving Day
     unnamedDefault: "[unnamed]"
   SelectFileModal:
-    ok: OK
     cancel: Cancel
+    mtcMergeWarning: Warning! Feeds merged outside of TDM are not recognized as a merged feed within TDM.
+    ok: OK
   ServerSettings:
     awsSetup: Instructions for setting up OTP deployment servers on AWS
     confirmDelete: Are you sure you want to delete this server record?
@@ -1437,6 +1456,7 @@ components:
     customServiceId: Custom service ID
     dateServiceIdCombinationDuplicate: Date (%exceptionDate%) and Service ID (%serviceId%) combination cannot appear more than once for all exceptions.
     idMustBeUnique: Identifier must be unique.
+    fareProductIdCombinationDuplicate: Records with the same fare_product_id must differ by fare_media_id or rider_category_id.
     idRequired: Identifier is required if more than one agency exists.
     invalidEmail: Field must contain valid email address.
     invalidLatitude: Field must be valid latitude.

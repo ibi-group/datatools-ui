@@ -36,6 +36,7 @@ RUN git clone https://github.com/ibi-group/datatools-server.git
 RUN microdnf install wget
 WORKDIR /datatools/datatools-server
 
+RUN git checkout upgrade-aws
 RUN mvn package -DskipTests
 RUN cp target/dt*.jar ./datatools-server-3.8.1-SNAPSHOT.jar
 

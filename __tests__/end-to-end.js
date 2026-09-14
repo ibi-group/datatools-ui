@@ -1114,6 +1114,9 @@ describe('end-to-end', () => {
         // create a new project
         await createProject(testProjectToDeleteName)
 
+        // go back to project list
+        await goto('http://localhost:9966/project', {waitUntil: 'networkidle0'})
+
         // get the created project id
         // go into the project page and verify that it looks ok-ish
         const projectEls = await getAllElements('.project-name-editable a')

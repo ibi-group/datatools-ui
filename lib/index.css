@@ -4,6 +4,7 @@
  * properly with react-leaflet. See https://github.com/PaulLeCam/react-leaflet/issues/453
  */
 @import url(https://unpkg.com/leaflet@1.7.1/dist/leaflet.css);
+@import url(https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css);
 
 @import url(/node_modules/bootstrap/dist/css/bootstrap.min.css);
 @import url(/node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css);

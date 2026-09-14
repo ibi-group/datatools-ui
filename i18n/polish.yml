@@ -1448,6 +1448,7 @@ components:
     mustBePositiveInteger: Field must be a positive integer.
     mustBePositiveNumber: Field must be a positive number.
     mustBeValidNumber: Field must be a valid number.
+    mustBeValidTime: Field must be a valid time.
     nameAlreadyUsed: "%name% is already used in another exception."
     serviceRequired: Calendar must have service for at least one day.
     stopNameRequired: Stop name is required for stop, station, and entrance location types.

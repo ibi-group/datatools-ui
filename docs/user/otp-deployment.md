@@ -18,3 +18,6 @@ The deployment architecture diagram below depicts how OTP servers are managed by
 1. [Setting up OTP UI and backend servers on AWS](./setting-up-aws-servers.md)
 2. [Adding a deployment server from TRANSIT-data-tools](./add-deployment-server.md)
 3. [Deploying GTFS feeds to OTP](./deploying-feeds.md)
+
+#### Warning:
+Datatools uses the [OTP Actuator API](https://docs.opentripplanner.org/en/latest/sandbox/ActuatorAPI) to determine if OTP started correctly. If you do not enable this API, the deployment will not succeed.

@@ -918,8 +918,7 @@ describe('end-to-end', () => {
           await deleteProject(testProjectId)
           log.info('Successfully deleted test project. Closing Chromium...')
         } catch (e) {
-          // TODO: fix how the server resolves a project deletion
-          log.info(`could not delete project with id "${testProjectId}" due to error: ${e}`)
+          log.error(`could not delete project with id "${testProjectId}" due to error: ${e}`)
         }
       }
       // close browser

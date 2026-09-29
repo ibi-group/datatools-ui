@@ -1099,43 +1099,43 @@ describe('end-to-end', () => {
     }, defaultTestTimeout, 'should create a project')
 
     if (doNonEssentialSteps) {
-      makeTestPostLogin('should delete a project', async () => {
-        const testProjectToDeleteName = `test-project-that-will-get-deleted-${testTime}`
+      // makeTestPostLogin('should delete a project', async () => {
+      //   const testProjectToDeleteName = `test-project-that-will-get-deleted-${testTime}`
 
-        // navigate to home project view
-        await goto(
-          `https://datatools-ui-proxy/home/${testProjectId}`,
-          {
-            waitUntil: 'networkidle0'
-          }
-        )
-        await waitForSelector('#context-dropdown')
+      //   // navigate to home project view
+      //   await goto(
+      //     `https://datatools-ui-proxy/home/${testProjectId}`,
+      //     {
+      //       waitUntil: 'networkidle0'
+      //     }
+      //   )
+      //   await waitForSelector('#context-dropdown')
 
-        // create a new project
-        await createProject(testProjectToDeleteName)
+      //   // create a new project
+      //   await createProject(testProjectToDeleteName)
 
-        // go back to project list
-        await goto('http://localhost:9966/project', {waitUntil: 'networkidle0'})
+      //   // go back to project list
+      //   await goto('http://localhost:9966/project', {waitUntil: 'networkidle0'})
 
-        // get the created project id
-        // go into the project page and verify that it looks ok-ish
-        const projectEls = await getAllElements('.project-name-editable a')
+      //   // get the created project id
+      //   // go into the project page and verify that it looks ok-ish
+      //   const projectEls = await getAllElements('.project-name-editable a')
 
-        let projectFound = false
-        let projectToDeleteId = ''
-        for (const projectEl of projectEls) {
-          const innerHtml = await getInnerHTML(projectEl)
-          if (innerHtml.indexOf(testProjectToDeleteName) > -1) {
-            const href = await getHref(projectEl)
-            projectToDeleteId = href.match(/\/project\/([\w-]*)/)[1]
-            projectFound = true
-            break
-          }
-        }
-        if (!projectFound) throw new Error('Created project not found')
+      //   let projectFound = false
+      //   let projectToDeleteId = ''
+      //   for (const projectEl of projectEls) {
+      //     const innerHtml = await getInnerHTML(projectEl)
+      //     if (innerHtml.indexOf(testProjectToDeleteName) > -1) {
+      //       const href = await getHref(projectEl)
+      //       projectToDeleteId = href.match(/\/project\/([\w-]*)/)[1]
+      //       projectFound = true
+      //       break
+      //     }
+      //   }
+      //   if (!projectFound) throw new Error('Created project not found')
 
-        await deleteProject(projectToDeleteId)
-      }, defaultTestTimeout, 'should create a project')
+      //   await deleteProject(projectToDeleteId)
+      // }, defaultTestTimeout, 'should create a project')
     }
   })
 

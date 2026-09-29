@@ -325,10 +325,9 @@ async function deleteProject (projectId: string) {
   // verify deletion
   await goto(`https://datatools-ui-proxy/project/${projectId}`)
   await wait(3000, 'for project page to load')
-  // TODO: fix how the server resolves a project deletion
-  // await waitForSelector('.project-not-found')
+  await waitForSelector('.project-not-found')
   await wait(5000, 'for previously rendered project markup to be removed')
-  // await expectSelectorToContainHtml('.project-not-found', projectId)
+  await expectSelectorToContainHtml('.project-not-found', projectId)
   log.info(`confirmed successful deletion of project with id ${projectId}`)
 }
 
@@ -919,7 +918,8 @@ describe('end-to-end', () => {
           await deleteProject(testProjectId)
           log.info('Successfully deleted test project. Closing Chromium...')
         } catch (e) {
-          log.error(`could not delete project with id "${testProjectId}" due to error: ${e}`)
+          // TODO: fix how the server resolves a project deletion
+          log.info(`could not delete project with id "${testProjectId}" due to error: ${e}`)
         }
       }
       // close browser

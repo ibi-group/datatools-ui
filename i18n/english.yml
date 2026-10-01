@@ -271,6 +271,7 @@ components:
     selectAgency: Select agency...
     selectDate: Please select a date
     selectOption: -- select an option --
+    selectOrCreateNetwork: Select or type to create network
     uploadAsset: 'Upload %activeComponent% branding asset'
   EditorSidebar:
     backToFeed: Back to Feed

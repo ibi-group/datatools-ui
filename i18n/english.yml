@@ -1456,6 +1456,7 @@ components:
     mustBePositiveNumber: Field must be a positive number.
     mustBeValidNumber: Field must be a valid number.
     nameAlreadyUsed: "%name% is already used in another exception,"
+    networkdTxtNotAllowed: Networks.txt is not allowed if route.network_id is used.
     serviceRequired: Calendar must have service for at least one day.
     stopNameRequired: Stop name is required for stop, station, and entrance location types.
     requiredFieldEmpty: Required field must not be empty.

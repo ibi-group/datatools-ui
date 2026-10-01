@@ -1173,7 +1173,7 @@
       columnWidth: 12
     - name: network_id
       required: false
-      inputType: TEXT # FARE-TODO: Needs to reference networks.network_id or routes.network_id
+      inputType: NETWORK_SELECTOR
       columnWidth: 12
     - name: from_area_id
       required: false

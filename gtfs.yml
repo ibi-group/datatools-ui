@@ -1273,11 +1273,11 @@
   fields:
     - name: from_network_id
       required: true
-      inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+      inputType: NETWORK_SELECTOR
       columnWidth: 12
     - name: to_network_id
       required: true
-      inputType: TEXT # FARE-TODO: Needs to reference routes.network_id or networks.network_id
+      inputType: NETWORK_SELECTOR
       columnWidth: 12
     - name: from_stop_id
       required: false

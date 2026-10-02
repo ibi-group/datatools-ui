@@ -29,6 +29,7 @@ import {defaultState as defaultEditorSettingsState} from '../../../lib/editor/re
 import {defaultState as defaultEditorTimetableState} from '../../../lib/editor/reducers/timetable'
 import gtfs from '../../../lib/gtfs/reducers'
 import {defaultState as defaultGtfsFilterState} from '../../../lib/gtfs/reducers/filter'
+import {defaultState as defaultGtfsLocationsState} from '../../../lib/gtfs/reducers/locations'
 import {defaultState as defaultGtfsPatternState} from '../../../lib/gtfs/reducers/patterns'
 import {defaultState as defaultGtfsRoutesState} from '../../../lib/gtfs/reducers/routes'
 import {defaultState as defaultGtfsShapesState} from '../../../lib/gtfs/reducers/shapes'
@@ -97,6 +98,7 @@ export function getMockInitialState (): AppState {
     },
     gtfs: {
       filter: defaultGtfsFilterState,
+      locations: defaultGtfsLocationsState,
       patterns: defaultGtfsPatternState,
       routes: defaultGtfsRoutesState,
       shapes: defaultGtfsShapesState,

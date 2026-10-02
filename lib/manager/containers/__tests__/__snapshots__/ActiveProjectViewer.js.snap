@@ -3980,6 +3980,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                                     onClick={[Function]}
                                                                                                     onKeyDown={[Function]}
                                                                                                     onSelect={[Function]}
+                                                                                                    title={false}
                                                                                                   >
                                                                                                     <li
                                                                                                       className=""
@@ -3991,6 +3992,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                                         onKeyDown={[Function]}
                                                                                                         role="menuitem"
                                                                                                         tabIndex="-1"
+                                                                                                        title={false}
                                                                                                       >
                                                                                                         <a
                                                                                                           href="#"
@@ -3998,6 +4000,7 @@ exports[`lib > manager > ActiveProjectViewer should render with newly created pr
                                                                                                           onKeyDown={[Function]}
                                                                                                           role="menuitem"
                                                                                                           tabIndex="-1"
+                                                                                                          title={false}
                                                                                                         >
                                                                                                           <Glyphicon
                                                                                                             bsClass="glyphicon"

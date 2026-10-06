@@ -153,6 +153,10 @@ export const mockFeedWithVersion = {
     tripCount: 415
   },
   latestVersionId: 'mock-feed-version-id',
+  // Include version as sometimes, this object is used as a FeedSourceSummary too.
+  latestVersion: {
+    lastUpdated: 1543389038810
+  },
   labelIds: [],
   name: 'test feed with a version',
   noteCount: 0,

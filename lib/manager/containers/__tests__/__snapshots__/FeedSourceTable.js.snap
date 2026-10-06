@@ -73,6 +73,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     "stopTimesCount": 11170,
                     "tripCount": 415,
                   },
+                  "latestVersion": Object {
+                    "lastUpdated": 1543389038810,
+                  },
                   "latestVersionId": "mock-feed-version-id",
                   "name": "test feed with a version",
                   "noteCount": 0,
@@ -175,6 +178,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "stopTimesCount": 11170,
               "tripCount": 415,
             },
+            "latestVersion": Object {
+              "lastUpdated": 1543389038810,
+            },
             "latestVersionId": "mock-feed-version-id",
             "name": "test feed with a version",
             "noteCount": 0,
@@ -248,6 +254,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "stopTimesCount": 11170,
               "tripCount": 415,
             },
+            "latestVersion": Object {
+              "lastUpdated": 1543389038810,
+            },
             "latestVersionId": "mock-feed-version-id",
             "name": "test feed with a version",
             "noteCount": 0,
@@ -295,6 +304,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "stopCount": 237,
               "stopTimesCount": 11170,
               "tripCount": 415,
+            },
+            "latestVersion": Object {
+              "lastUpdated": 1543389038810,
             },
             "latestVersionId": "mock-feed-version-id",
             "name": "test feed with a version",
@@ -372,6 +384,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                       "stopCount": 237,
                       "stopTimesCount": 11170,
                       "tripCount": 415,
+                    },
+                    "latestVersion": Object {
+                      "lastUpdated": 1543389038810,
                     },
                     "latestVersionId": "mock-feed-version-id",
                     "name": "test feed with a version",
@@ -474,6 +489,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                 "stopCount": 237,
                 "stopTimesCount": 11170,
                 "tripCount": 415,
+              },
+              "latestVersion": Object {
+                "lastUpdated": 1543389038810,
               },
               "latestVersionId": "mock-feed-version-id",
               "name": "test feed with a version",
@@ -669,6 +687,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                       "stopTimesCount": 11170,
                                       "tripCount": 415,
                                     },
+                                    "latestVersion": Object {
+                                      "lastUpdated": 1543389038810,
+                                    },
                                     "latestVersionId": "mock-feed-version-id",
                                     "name": "test feed with a version",
                                     "noteCount": 0,
@@ -770,6 +791,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "stopCount": 237,
                                 "stopTimesCount": 11170,
                                 "tripCount": 415,
+                              },
+                              "latestVersion": Object {
+                                "lastUpdated": 1543389038810,
                               },
                               "latestVersionId": "mock-feed-version-id",
                               "name": "test feed with a version",
@@ -898,6 +922,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
                                       },
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
+                                      },
                                       "latestVersionId": "mock-feed-version-id",
                                       "name": "test feed with a version",
                                       "noteCount": 0,
@@ -999,6 +1026,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   "stopCount": 237,
                                   "stopTimesCount": 11170,
                                   "tripCount": 415,
+                                },
+                                "latestVersion": Object {
+                                  "lastUpdated": 1543389038810,
                                 },
                                 "latestVersionId": "mock-feed-version-id",
                                 "name": "test feed with a version",
@@ -2951,6 +2981,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             "stopTimesCount": 11170,
                             "tripCount": 415,
                           },
+                          "latestVersion": Object {
+                            "lastUpdated": 1543389038810,
+                          },
                           "latestVersionId": "mock-feed-version-id",
                           "name": "test feed with a version",
                           "noteCount": 0,
@@ -3024,6 +3057,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                       "stopCount": 237,
                                       "stopTimesCount": 11170,
                                       "tripCount": 415,
+                                    },
+                                    "latestVersion": Object {
+                                      "lastUpdated": 1543389038810,
                                     },
                                     "latestVersionId": "mock-feed-version-id",
                                     "name": "test feed with a version",
@@ -3127,6 +3163,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "stopTimesCount": 11170,
                                 "tripCount": 415,
                               },
+                              "latestVersion": Object {
+                                "lastUpdated": 1543389038810,
+                              },
                               "latestVersionId": "mock-feed-version-id",
                               "name": "test feed with a version",
                               "noteCount": 0,
@@ -3226,6 +3265,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               "stopTimesCount": 11170,
                               "tripCount": 415,
                             },
+                            "latestVersion": Object {
+                              "lastUpdated": 1543389038810,
+                            },
                             "latestVersionId": "mock-feed-version-id",
                             "name": "test feed with a version",
                             "noteCount": 0,
@@ -3298,6 +3340,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopCount": 237,
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
+                                      },
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
                                       },
                                       "latestVersionId": "mock-feed-version-id",
                                       "name": "test feed with a version",
@@ -3400,6 +3445,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   "stopCount": 237,
                                   "stopTimesCount": 11170,
                                   "tripCount": 415,
+                                },
+                                "latestVersion": Object {
+                                  "lastUpdated": 1543389038810,
                                 },
                                 "latestVersionId": "mock-feed-version-id",
                                 "name": "test feed with a version",
@@ -3553,6 +3601,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "stopTimesCount": 11170,
                                     "tripCount": 415,
                                   },
+                                  "latestVersion": Object {
+                                    "lastUpdated": 1543389038810,
+                                  },
                                   "latestVersionId": "mock-feed-version-id",
                                   "name": "test feed with a version",
                                   "noteCount": 0,
@@ -3625,6 +3676,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                               "stopCount": 237,
                                               "stopTimesCount": 11170,
                                               "tripCount": 415,
+                                            },
+                                            "latestVersion": Object {
+                                              "lastUpdated": 1543389038810,
                                             },
                                             "latestVersionId": "mock-feed-version-id",
                                             "name": "test feed with a version",
@@ -3727,6 +3781,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopCount": 237,
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
+                                      },
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
                                       },
                                       "latestVersionId": "mock-feed-version-id",
                                       "name": "test feed with a version",
@@ -3954,6 +4011,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                   "stopTimesCount": 11170,
                                                   "tripCount": 415,
                                                 },
+                                                "latestVersion": Object {
+                                                  "lastUpdated": 1543389038810,
+                                                },
                                                 "latestVersionId": "mock-feed-version-id",
                                                 "name": "test feed with a version",
                                                 "noteCount": 0,
@@ -4026,6 +4086,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                             "stopCount": 237,
                                                             "stopTimesCount": 11170,
                                                             "tripCount": 415,
+                                                          },
+                                                          "latestVersion": Object {
+                                                            "lastUpdated": 1543389038810,
                                                           },
                                                           "latestVersionId": "mock-feed-version-id",
                                                           "name": "test feed with a version",
@@ -4128,6 +4191,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                       "stopCount": 237,
                                                       "stopTimesCount": 11170,
                                                       "tripCount": 415,
+                                                    },
+                                                    "latestVersion": Object {
+                                                      "lastUpdated": 1543389038810,
                                                     },
                                                     "latestVersionId": "mock-feed-version-id",
                                                     "name": "test feed with a version",
@@ -4376,6 +4442,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "stopTimesCount": 11170,
                                     "tripCount": 415,
                                   },
+                                  "latestVersion": Object {
+                                    "lastUpdated": 1543389038810,
+                                  },
                                   "latestVersionId": "mock-feed-version-id",
                                   "name": "test feed with a version",
                                   "noteCount": 0,
@@ -4448,6 +4517,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                               "stopCount": 237,
                                               "stopTimesCount": 11170,
                                               "tripCount": 415,
+                                            },
+                                            "latestVersion": Object {
+                                              "lastUpdated": 1543389038810,
                                             },
                                             "latestVersionId": "mock-feed-version-id",
                                             "name": "test feed with a version",
@@ -4550,6 +4622,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopCount": 237,
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
+                                      },
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
                                       },
                                       "latestVersionId": "mock-feed-version-id",
                                       "name": "test feed with a version",

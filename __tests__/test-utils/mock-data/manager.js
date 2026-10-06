@@ -402,6 +402,7 @@ mockProjectWithDeployment.name = 'mock-project-with-deployments'
 
 export const mockDeployment = makeMockDeployment(
   mockProjectWithDeployment,
+  // $FlowFixMe, Passing partial data under FeedSourceSummary.latestVersion
   [mockFeedVersion]
 )
 export const mockDeploymentSummary = makeMockDeploymentSummary()

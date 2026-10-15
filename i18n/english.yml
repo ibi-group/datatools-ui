@@ -280,6 +280,7 @@ components:
     selectAgency: Select agency...
     selectDate: Please select a date
     selectOption: -- select an option --
+    selectOrCreateNetwork: Select or type to create network
     uploadAsset: 'Upload %activeComponent% branding asset'
   EditorSidebar:
     backToFeed: Back to Feed
@@ -1469,6 +1470,7 @@ components:
     mustBeValidNumber: Field must be a valid number.
     mustBeValidTime: Field must be a valid time.
     nameAlreadyUsed: "%name% is already used in another exception,"
+    networkdTxtNotAllowed: Networks.txt is not allowed if route.network_id is used.
     serviceRequired: Calendar must have service for at least one day.
     stopNameRequired: Stop name is required for stop, station, and entrance location types.
     requiredFieldEmpty: Required field must not be empty.

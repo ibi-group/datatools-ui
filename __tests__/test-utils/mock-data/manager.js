@@ -175,8 +175,10 @@ export const mockFeedWithVersion = {
 // a mock feed source summary
 export const mockFeedSourceSummaryWithVersion = {
   deployable: false,
+  deployedFeedVersionId: 'mock-feed-version-id',
   id: 'mock-feed-with-version-id',
   isPublic: false,
+  labelIds: [],
   lastUpdated: 1543389038810,
   latestValidation: {
     agencies: null,
@@ -199,9 +201,12 @@ export const mockFeedSourceSummaryWithVersion = {
     stopTimesCount: 11170,
     tripCount: 415
   },
-  labelIds: [],
+  latestVersion: {
+    lastUpdated: 1543389038810
+  },
   name: 'test feed with a version',
-  projectId: mockProject.id
+  projectId: mockProject.id,
+  url: 'http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip'
 }
 
 // a mock feed with no versions

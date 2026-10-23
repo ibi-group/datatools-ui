@@ -41,6 +41,7 @@ let page
 let recorder
 let cdpSession
 const gtfsUploadFile = './configurations/end-to-end/test-gtfs-to-upload.zip'
+const gtfsUploadFile2 = './configurations/end-to-end/test-gtfs-to-upload-2.zip'
 const OTP_ROOT = 'http://datatools-server:8080/otp/routers/'
 const testTime = moment().format()
 const fileSafeTestTime = moment().format('YYYY-MM-DDTHH-mm-ss')
@@ -333,10 +334,10 @@ async function deleteProject (projectId: string) {
 
 /**
  * Helper function to upload a GTFS file to a given feed source. This function
- * assumes that the puppeteer instance is currnetly open on the desired feed
+ * assumes that the puppeteer instance is currently open on the desired feed
  * source.
  */
-async function uploadGtfs () {
+async function uploadGtfs (zipFileName) {
   log.info('uploading gtfs')
   // create new feed version by clicking on dropdown and upload link
   await click('#bg-nested-dropdown')
@@ -350,7 +351,7 @@ async function uploadGtfs () {
   // $FlowFixMe cryptic error that is hard to resolve :(
   const uploadInput = await page.$('.modal-body input')
   if (!uploadInput) throw new Error('Could not find upload input')
-  await uploadInput.uploadFile(gtfsUploadFile)
+  await uploadInput.uploadFile(zipFileName)
 
   // confirm file upload
   // TODO replace with more specific selector
@@ -1181,7 +1182,7 @@ describe('end-to-end', () => {
     }, defaultTestTimeout, 'should create a project')
 
     makeTestPostFeedSource('should process uploaded gtfs', async () => {
-      await uploadGtfs()
+      await uploadGtfs(gtfsUploadFile)
 
       // wait for main tab to show up with version validity info
       await waitForSelector('[data-test-id="active-feed-version-validity-start"]')
@@ -1323,8 +1324,10 @@ describe('end-to-end', () => {
     }, defaultTestTimeout)
 
     if (doNonEssentialSteps) {
-      // this uploads a feed source again because we want to end up with 2
-      // feed versions after this test takes place
+      // This uploads a feed source again because we want to end up with 2
+      // feed versions after this test takes place.
+      // The content in this version must be different from the previous one uploaded,
+      // otherwise, it will be rejected.
       makeTestPostFeedSource('should delete a feed version', async () => {
         // browse to feed source page
         await goto(`https://datatools-ui-proxy/feed/${feedSourceId}`)
@@ -1332,7 +1335,7 @@ describe('end-to-end', () => {
         // above goto, so wait for a few seconds here
         await wait(5000, 'additional time for page to load')
         // upload gtfs
-        await uploadGtfs()
+        await uploadGtfs(gtfsUploadFile2)
         // click delete button
         await waitForAndClick('[data-test-id="delete-feed-version-button"]')
         // confirm action in modal

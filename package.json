@@ -72,7 +72,7 @@
     "numeral": "2.0.4",
     "object-path": "^0.11.5",
     "polyline": "^0.2.0",
-    "qs": "^6.2.1",
+    "qs": "^6.16.1",
     "randomcolor": "^0.5.3",
     "rbush": "^2.0.1",
     "rc-slider": "9.7.5",

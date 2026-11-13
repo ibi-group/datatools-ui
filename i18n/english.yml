@@ -272,6 +272,7 @@ components:
     title: Snapshots
     version: Version
   EditorInput:
+    creatableSelectPlaceholder: Select or type to create %name%
     daysOfService: Days of service
     dropImage: Drop %activeComponent% image here, or click to select image to upload.
     optional: (optional)
@@ -280,7 +281,6 @@ components:
     selectAgency: Select agency...
     selectDate: Please select a date
     selectOption: -- select an option --
-    selectOrCreateNetwork: Select or type to create network
     uploadAsset: 'Upload %activeComponent% branding asset'
   EditorSidebar:
     backToFeed: Back to Feed

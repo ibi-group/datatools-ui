@@ -68,7 +68,7 @@
     "leaflet-textpath": "^1.2.3",
     "lodash": "^4.17.10",
     "markdown-to-jsx": "^7.1.9",
-    "moment": "^2.29.4",
+    "moment": "^2.31.0",
     "numeral": "2.0.4",
     "object-path": "^0.11.5",
     "polyline": "^0.2.0",

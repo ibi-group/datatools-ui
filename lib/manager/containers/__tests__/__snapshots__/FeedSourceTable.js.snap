@@ -73,6 +73,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     "stopTimesCount": 11170,
                     "tripCount": 415,
                   },
+                  "latestVersion": Object {
+                    "lastUpdated": 1543389038810,
+                  },
                   "latestVersionId": "mock-feed-version-id",
                   "name": "test feed with a version",
                   "noteCount": 0,
@@ -146,10 +149,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
         ],
         "feedSources": Array [
           Object {
-            "dateCreated": 1536195264564,
             "deployable": false,
-            "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-            "externalProperties": Object {},
+            "deployedFeedVersionId": "mock-feed-version-id",
             "id": "mock-feed-with-version-id",
             "isPublic": false,
             "labelIds": Array [],
@@ -175,19 +176,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "stopTimesCount": 11170,
               "tripCount": 415,
             },
-            "latestVersionId": "mock-feed-version-id",
+            "latestVersion": Object {
+              "lastUpdated": 1543389038810,
+            },
             "name": "test feed with a version",
-            "noteCount": 0,
-            "organizationId": null,
             "projectId": "mock-project-id",
-            "publishedVersionId": null,
-            "retrievalMethod": "MANUALLY_UPLOADED",
-            "s3Url": null,
-            "snapshotVersion": null,
-            "transformRules": Array [],
             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-            "user": null,
-            "versionCount": 1,
           },
         ],
         "id": "mock-project-with-deployments-id",
@@ -219,10 +213,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
       feedSources={
         Array [
           Object {
-            "dateCreated": 1536195264564,
             "deployable": false,
-            "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-            "externalProperties": Object {},
+            "deployedFeedVersionId": "mock-feed-version-id",
             "id": "mock-feed-with-version-id",
             "isPublic": false,
             "labelIds": Array [],
@@ -248,29 +240,20 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "stopTimesCount": 11170,
               "tripCount": 415,
             },
-            "latestVersionId": "mock-feed-version-id",
+            "latestVersion": Object {
+              "lastUpdated": 1543389038810,
+            },
             "name": "test feed with a version",
-            "noteCount": 0,
-            "organizationId": null,
             "projectId": "mock-project-id",
-            "publishedVersionId": null,
-            "retrievalMethod": "MANUALLY_UPLOADED",
-            "s3Url": null,
-            "snapshotVersion": null,
-            "transformRules": Array [],
             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-            "user": null,
-            "versionCount": 1,
           },
         ]
       }
       filteredFeedSources={
         Array [
           Object {
-            "dateCreated": 1536195264564,
             "deployable": false,
-            "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-            "externalProperties": Object {},
+            "deployedFeedVersionId": "mock-feed-version-id",
             "id": "mock-feed-with-version-id",
             "isPublic": false,
             "labelIds": Array [],
@@ -296,19 +279,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
               "stopTimesCount": 11170,
               "tripCount": 415,
             },
-            "latestVersionId": "mock-feed-version-id",
+            "latestVersion": Object {
+              "lastUpdated": 1543389038810,
+            },
             "name": "test feed with a version",
-            "noteCount": 0,
-            "organizationId": null,
             "projectId": "mock-project-id",
-            "publishedVersionId": null,
-            "retrievalMethod": "MANUALLY_UPLOADED",
-            "s3Url": null,
-            "snapshotVersion": null,
-            "transformRules": Array [],
             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-            "user": null,
-            "versionCount": 1,
           },
         ]
       }
@@ -372,6 +348,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                       "stopCount": 237,
                       "stopTimesCount": 11170,
                       "tripCount": 415,
+                    },
+                    "latestVersion": Object {
+                      "lastUpdated": 1543389038810,
                     },
                     "latestVersionId": "mock-feed-version-id",
                     "name": "test feed with a version",
@@ -446,10 +425,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
           ],
           "feedSources": Array [
             Object {
-              "dateCreated": 1536195264564,
               "deployable": false,
-              "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-              "externalProperties": Object {},
+              "deployedFeedVersionId": "mock-feed-version-id",
               "id": "mock-feed-with-version-id",
               "isPublic": false,
               "labelIds": Array [],
@@ -475,19 +452,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                 "stopTimesCount": 11170,
                 "tripCount": 415,
               },
-              "latestVersionId": "mock-feed-version-id",
+              "latestVersion": Object {
+                "lastUpdated": 1543389038810,
+              },
               "name": "test feed with a version",
-              "noteCount": 0,
-              "organizationId": null,
               "projectId": "mock-project-id",
-              "publishedVersionId": null,
-              "retrievalMethod": "MANUALLY_UPLOADED",
-              "s3Url": null,
-              "snapshotVersion": null,
-              "transformRules": Array [],
               "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-              "user": null,
-              "versionCount": 1,
             },
           ],
           "id": "mock-project-with-deployments-id",
@@ -669,6 +639,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                       "stopTimesCount": 11170,
                                       "tripCount": 415,
                                     },
+                                    "latestVersion": Object {
+                                      "lastUpdated": 1543389038810,
+                                    },
                                     "latestVersionId": "mock-feed-version-id",
                                     "name": "test feed with a version",
                                     "noteCount": 0,
@@ -742,10 +715,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           ],
                           "feedSources": Array [
                             Object {
-                              "dateCreated": 1536195264564,
                               "deployable": false,
-                              "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                              "externalProperties": Object {},
+                              "deployedFeedVersionId": "mock-feed-version-id",
                               "id": "mock-feed-with-version-id",
                               "isPublic": false,
                               "labelIds": Array [],
@@ -771,19 +742,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "stopTimesCount": 11170,
                                 "tripCount": 415,
                               },
-                              "latestVersionId": "mock-feed-version-id",
+                              "latestVersion": Object {
+                                "lastUpdated": 1543389038810,
+                              },
                               "name": "test feed with a version",
-                              "noteCount": 0,
-                              "organizationId": null,
                               "projectId": "mock-project-id",
-                              "publishedVersionId": null,
-                              "retrievalMethod": "MANUALLY_UPLOADED",
-                              "s3Url": null,
-                              "snapshotVersion": null,
-                              "transformRules": Array [],
                               "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                              "user": null,
-                              "versionCount": 1,
                             },
                           ],
                           "id": "mock-project-with-deployments-id",
@@ -898,6 +862,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
                                       },
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
+                                      },
                                       "latestVersionId": "mock-feed-version-id",
                                       "name": "test feed with a version",
                                       "noteCount": 0,
@@ -971,10 +938,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             ],
                             "feedSources": Array [
                               Object {
-                                "dateCreated": 1536195264564,
                                 "deployable": false,
-                                "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                "externalProperties": Object {},
+                                "deployedFeedVersionId": "mock-feed-version-id",
                                 "id": "mock-feed-with-version-id",
                                 "isPublic": false,
                                 "labelIds": Array [],
@@ -1000,19 +965,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   "stopTimesCount": 11170,
                                   "tripCount": 415,
                                 },
-                                "latestVersionId": "mock-feed-version-id",
+                                "latestVersion": Object {
+                                  "lastUpdated": 1543389038810,
+                                },
                                 "name": "test feed with a version",
-                                "noteCount": 0,
-                                "organizationId": null,
                                 "projectId": "mock-project-id",
-                                "publishedVersionId": null,
-                                "retrievalMethod": "MANUALLY_UPLOADED",
-                                "s3Url": null,
-                                "snapshotVersion": null,
-                                "transformRules": Array [],
                                 "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                "user": null,
-                                "versionCount": 1,
                               },
                             ],
                             "id": "mock-project-with-deployments-id",
@@ -2925,10 +2883,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                     <Connect(FeedSourceTableRow)
                       feedSource={
                         Object {
-                          "dateCreated": 1536195264564,
                           "deployable": false,
-                          "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                          "externalProperties": Object {},
+                          "deployedFeedVersionId": "mock-feed-version-id",
                           "id": "mock-feed-with-version-id",
                           "isPublic": false,
                           "labelIds": Array [],
@@ -2954,19 +2910,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             "stopTimesCount": 11170,
                             "tripCount": 415,
                           },
-                          "latestVersionId": "mock-feed-version-id",
+                          "latestVersion": Object {
+                            "lastUpdated": 1543389038810,
+                          },
                           "name": "test feed with a version",
-                          "noteCount": 0,
-                          "organizationId": null,
                           "projectId": "mock-project-id",
-                          "publishedVersionId": null,
-                          "retrievalMethod": "MANUALLY_UPLOADED",
-                          "s3Url": null,
-                          "snapshotVersion": null,
-                          "transformRules": Array [],
                           "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                          "user": null,
-                          "versionCount": 1,
                         }
                       }
                       key="mock-feed-with-version-id"
@@ -3027,6 +2976,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                       "stopCount": 237,
                                       "stopTimesCount": 11170,
                                       "tripCount": 415,
+                                    },
+                                    "latestVersion": Object {
+                                      "lastUpdated": 1543389038810,
                                     },
                                     "latestVersionId": "mock-feed-version-id",
                                     "name": "test feed with a version",
@@ -3101,10 +3053,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           ],
                           "feedSources": Array [
                             Object {
-                              "dateCreated": 1536195264564,
                               "deployable": false,
-                              "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                              "externalProperties": Object {},
+                              "deployedFeedVersionId": "mock-feed-version-id",
                               "id": "mock-feed-with-version-id",
                               "isPublic": false,
                               "labelIds": Array [],
@@ -3130,19 +3080,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                 "stopTimesCount": 11170,
                                 "tripCount": 415,
                               },
-                              "latestVersionId": "mock-feed-version-id",
+                              "latestVersion": Object {
+                                "lastUpdated": 1543389038810,
+                              },
                               "name": "test feed with a version",
-                              "noteCount": 0,
-                              "organizationId": null,
                               "projectId": "mock-project-id",
-                              "publishedVersionId": null,
-                              "retrievalMethod": "MANUALLY_UPLOADED",
-                              "s3Url": null,
-                              "snapshotVersion": null,
-                              "transformRules": Array [],
                               "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                              "user": null,
-                              "versionCount": 1,
                             },
                           ],
                           "id": "mock-project-with-deployments-id",
@@ -3187,7 +3130,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             "feedVersionId": "mock-feed-version-id",
                             "loadFailureReason": null,
                             "loadStatus": "SUCCESS",
-                            "mobilityDataResult": Object {},
                             "routeCount": 10,
                             "startDate": "20180801",
                             "stopCount": 237,
@@ -3200,10 +3142,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                         deleteFeedSource={[Function]}
                         feedSource={
                           Object {
-                            "dateCreated": 1536195264564,
                             "deployable": false,
-                            "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                            "externalProperties": Object {},
+                            "deployedFeedVersionId": "mock-feed-version-id",
                             "id": "mock-feed-with-version-id",
                             "isPublic": false,
                             "labelIds": Array [],
@@ -3229,19 +3169,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               "stopTimesCount": 11170,
                               "tripCount": 415,
                             },
-                            "latestVersionId": "mock-feed-version-id",
+                            "latestVersion": Object {
+                              "lastUpdated": 1543389038810,
+                            },
                             "name": "test feed with a version",
-                            "noteCount": 0,
-                            "organizationId": null,
                             "projectId": "mock-project-id",
-                            "publishedVersionId": null,
-                            "retrievalMethod": "MANUALLY_UPLOADED",
-                            "s3Url": null,
-                            "snapshotVersion": null,
-                            "transformRules": Array [],
                             "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                            "user": null,
-                            "versionCount": 1,
                           }
                         }
                         project={
@@ -3301,6 +3234,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopCount": 237,
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
+                                      },
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
                                       },
                                       "latestVersionId": "mock-feed-version-id",
                                       "name": "test feed with a version",
@@ -3375,10 +3311,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                             ],
                             "feedSources": Array [
                               Object {
-                                "dateCreated": 1536195264564,
                                 "deployable": false,
-                                "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                "externalProperties": Object {},
+                                "deployedFeedVersionId": "mock-feed-version-id",
                                 "id": "mock-feed-with-version-id",
                                 "isPublic": false,
                                 "labelIds": Array [],
@@ -3404,19 +3338,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   "stopTimesCount": 11170,
                                   "tripCount": 415,
                                 },
-                                "latestVersionId": "mock-feed-version-id",
+                                "latestVersion": Object {
+                                  "lastUpdated": 1543389038810,
+                                },
                                 "name": "test feed with a version",
-                                "noteCount": 0,
-                                "organizationId": null,
                                 "projectId": "mock-project-id",
-                                "publishedVersionId": null,
-                                "retrievalMethod": "MANUALLY_UPLOADED",
-                                "s3Url": null,
-                                "snapshotVersion": null,
-                                "transformRules": Array [],
                                 "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                "user": null,
-                                "versionCount": 1,
                               },
                             ],
                             "id": "mock-project-with-deployments-id",
@@ -3519,18 +3446,16 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                       >
                         <tr
                           className="feed-source-table-row"
-                          key="mock-feed-with-version-id"
                         >
                           <td
                             className="feed-source-info"
+                            rowSpan={1}
                           >
                             <FeedInfo
                               feedSource={
                                 Object {
-                                  "dateCreated": 1536195264564,
                                   "deployable": false,
-                                  "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                  "externalProperties": Object {},
+                                  "deployedFeedVersionId": "mock-feed-version-id",
                                   "id": "mock-feed-with-version-id",
                                   "isPublic": false,
                                   "labelIds": Array [],
@@ -3556,19 +3481,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "stopTimesCount": 11170,
                                     "tripCount": 415,
                                   },
-                                  "latestVersionId": "mock-feed-version-id",
+                                  "latestVersion": Object {
+                                    "lastUpdated": 1543389038810,
+                                  },
                                   "name": "test feed with a version",
-                                  "noteCount": 0,
-                                  "organizationId": null,
                                   "projectId": "mock-project-id",
-                                  "publishedVersionId": null,
-                                  "retrievalMethod": "MANUALLY_UPLOADED",
-                                  "s3Url": null,
-                                  "snapshotVersion": null,
-                                  "transformRules": Array [],
                                   "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                  "user": null,
-                                  "versionCount": 1,
                                 }
                               }
                               project={
@@ -3628,6 +3546,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                               "stopCount": 237,
                                               "stopTimesCount": 11170,
                                               "tripCount": 415,
+                                            },
+                                            "latestVersion": Object {
+                                              "lastUpdated": 1543389038810,
                                             },
                                             "latestVersionId": "mock-feed-version-id",
                                             "name": "test feed with a version",
@@ -3702,10 +3623,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   ],
                                   "feedSources": Array [
                                     Object {
-                                      "dateCreated": 1536195264564,
                                       "deployable": false,
-                                      "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                      "externalProperties": Object {},
+                                      "deployedFeedVersionId": "mock-feed-version-id",
                                       "id": "mock-feed-with-version-id",
                                       "isPublic": false,
                                       "labelIds": Array [],
@@ -3731,19 +3650,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
                                       },
-                                      "latestVersionId": "mock-feed-version-id",
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
+                                      },
                                       "name": "test feed with a version",
-                                      "noteCount": 0,
-                                      "organizationId": null,
                                       "projectId": "mock-project-id",
-                                      "publishedVersionId": null,
-                                      "retrievalMethod": "MANUALLY_UPLOADED",
-                                      "s3Url": null,
-                                      "snapshotVersion": null,
-                                      "transformRules": Array [],
                                       "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                      "user": null,
-                                      "versionCount": 1,
                                     },
                                   ],
                                   "id": "mock-project-with-deployments-id",
@@ -3928,10 +3840,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                           <LabelEditorModal
                                             feedSource={
                                               Object {
-                                                "dateCreated": 1536195264564,
                                                 "deployable": false,
-                                                "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                                "externalProperties": Object {},
+                                                "deployedFeedVersionId": "mock-feed-version-id",
                                                 "id": "mock-feed-with-version-id",
                                                 "isPublic": false,
                                                 "labelIds": Array [],
@@ -3957,19 +3867,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                   "stopTimesCount": 11170,
                                                   "tripCount": 415,
                                                 },
-                                                "latestVersionId": "mock-feed-version-id",
+                                                "latestVersion": Object {
+                                                  "lastUpdated": 1543389038810,
+                                                },
                                                 "name": "test feed with a version",
-                                                "noteCount": 0,
-                                                "organizationId": null,
                                                 "projectId": "mock-project-id",
-                                                "publishedVersionId": null,
-                                                "retrievalMethod": "MANUALLY_UPLOADED",
-                                                "s3Url": null,
-                                                "snapshotVersion": null,
-                                                "transformRules": Array [],
                                                 "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                                "user": null,
-                                                "versionCount": 1,
                                               }
                                             }
                                             project={
@@ -4029,6 +3932,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                             "stopCount": 237,
                                                             "stopTimesCount": 11170,
                                                             "tripCount": 415,
+                                                          },
+                                                          "latestVersion": Object {
+                                                            "lastUpdated": 1543389038810,
                                                           },
                                                           "latestVersionId": "mock-feed-version-id",
                                                           "name": "test feed with a version",
@@ -4103,10 +4009,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                 ],
                                                 "feedSources": Array [
                                                   Object {
-                                                    "dateCreated": 1536195264564,
                                                     "deployable": false,
-                                                    "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                                    "externalProperties": Object {},
+                                                    "deployedFeedVersionId": "mock-feed-version-id",
                                                     "id": "mock-feed-with-version-id",
                                                     "isPublic": false,
                                                     "labelIds": Array [],
@@ -4132,19 +4036,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                                       "stopTimesCount": 11170,
                                                       "tripCount": 415,
                                                     },
-                                                    "latestVersionId": "mock-feed-version-id",
+                                                    "latestVersion": Object {
+                                                      "lastUpdated": 1543389038810,
+                                                    },
                                                     "name": "test feed with a version",
-                                                    "noteCount": 0,
-                                                    "organizationId": null,
                                                     "projectId": "mock-project-id",
-                                                    "publishedVersionId": null,
-                                                    "retrievalMethod": "MANUALLY_UPLOADED",
-                                                    "s3Url": null,
-                                                    "snapshotVersion": null,
-                                                    "transformRules": Array [],
                                                     "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                                    "user": null,
-                                                    "versionCount": 1,
                                                   },
                                                 ],
                                                 "id": "mock-project-with-deployments-id",
@@ -4239,8 +4136,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           </td>
                           <td
                             className="comparison-column"
+                            rowSpan={1}
                           >
-                            <Status
+                            <FeedStatus
                               dateFormat="MMM D, YYYY"
                               icon="check-circle"
                               statusSpanClass="status-active"
@@ -4269,12 +4167,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   (Aug 1, 2019)
                                 </div>
                               </div>
-                            </Status>
+                            </FeedStatus>
                           </td>
                           <td
                             className="feed-version-column"
                           >
-                            <Status
+                            <FeedStatus
                               dateFormat="MMM D, YYYY"
                               icon="check-circle"
                               statusSpanClass="status-active"
@@ -4300,7 +4198,7 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   Last updated 5 months ago
                                 </div>
                               </div>
-                            </Status>
+                            </FeedStatus>
                           </td>
                           <td
                             className="feed-version-column"
@@ -4315,7 +4213,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                           >
                             78
                           </td>
-                          <td>
+                          <td
+                            rowSpan={1}
+                          >
                             <FeedActionsDropdown
                               comparisonColumn="DEPLOYED"
                               comparisonValidationSummary={
@@ -4334,7 +4234,6 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   "feedVersionId": "mock-feed-version-id",
                                   "loadFailureReason": null,
                                   "loadStatus": "SUCCESS",
-                                  "mobilityDataResult": Object {},
                                   "routeCount": 10,
                                   "startDate": "20180801",
                                   "stopCount": 237,
@@ -4347,10 +4246,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                               deleteFeedSource={[Function]}
                               feedSource={
                                 Object {
-                                  "dateCreated": 1536195264564,
                                   "deployable": false,
-                                  "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                  "externalProperties": Object {},
+                                  "deployedFeedVersionId": "mock-feed-version-id",
                                   "id": "mock-feed-with-version-id",
                                   "isPublic": false,
                                   "labelIds": Array [],
@@ -4376,19 +4273,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                     "stopTimesCount": 11170,
                                     "tripCount": 415,
                                   },
-                                  "latestVersionId": "mock-feed-version-id",
+                                  "latestVersion": Object {
+                                    "lastUpdated": 1543389038810,
+                                  },
                                   "name": "test feed with a version",
-                                  "noteCount": 0,
-                                  "organizationId": null,
                                   "projectId": "mock-project-id",
-                                  "publishedVersionId": null,
-                                  "retrievalMethod": "MANUALLY_UPLOADED",
-                                  "s3Url": null,
-                                  "snapshotVersion": null,
-                                  "transformRules": Array [],
                                   "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                  "user": null,
-                                  "versionCount": 1,
                                 }
                               }
                               project={
@@ -4448,6 +4338,9 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                               "stopCount": 237,
                                               "stopTimesCount": 11170,
                                               "tripCount": 415,
+                                            },
+                                            "latestVersion": Object {
+                                              "lastUpdated": 1543389038810,
                                             },
                                             "latestVersionId": "mock-feed-version-id",
                                             "name": "test feed with a version",
@@ -4522,10 +4415,8 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                   ],
                                   "feedSources": Array [
                                     Object {
-                                      "dateCreated": 1536195264564,
                                       "deployable": false,
-                                      "editorNamespace": "gzek_ztquwiwjmselpeswgbsrre",
-                                      "externalProperties": Object {},
+                                      "deployedFeedVersionId": "mock-feed-version-id",
                                       "id": "mock-feed-with-version-id",
                                       "isPublic": false,
                                       "labelIds": Array [],
@@ -4551,19 +4442,12 @@ exports[`lib > manager > FeedSourceTable should render with a project with feeds
                                         "stopTimesCount": 11170,
                                         "tripCount": 415,
                                       },
-                                      "latestVersionId": "mock-feed-version-id",
+                                      "latestVersion": Object {
+                                        "lastUpdated": 1543389038810,
+                                      },
                                       "name": "test feed with a version",
-                                      "noteCount": 0,
-                                      "organizationId": null,
                                       "projectId": "mock-project-id",
-                                      "publishedVersionId": null,
-                                      "retrievalMethod": "MANUALLY_UPLOADED",
-                                      "s3Url": null,
-                                      "snapshotVersion": null,
-                                      "transformRules": Array [],
                                       "url": "http://mdtrip.org/googletransit/AnnapolisTransit/google_transit.zip",
-                                      "user": null,
-                                      "versionCount": 1,
                                     },
                                   ],
                                   "id": "mock-project-with-deployments-id",
